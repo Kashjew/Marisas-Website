@@ -1,0 +1,15 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (master by default)
+media_folder: "assets/images/uploads" # Folder where user uploaded files should go
+public_folder: "/images/uploads" # Folder path where uploaded files will be accessed in the browser
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
