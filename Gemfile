@@ -23,3 +23,4 @@ gem "bundler", "~> 2.2.34"  # Updated to match the version used in your logs
 gem "csv"
 gem "base64"
 gem "bigdecimal"
+gem 'minima', '~> 2.5'
