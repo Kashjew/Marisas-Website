@@ -24,3 +24,4 @@ gem "csv"
 gem "base64"
 gem "bigdecimal"
 gem 'minima', '~> 2.5'
+gem 'kramdown-parser-gfm'
