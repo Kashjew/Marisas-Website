@@ -175,6 +175,50 @@
 .w3-button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+/* Increase thumbnail size in popups */
+#postPopupImages img {
+    width: 150px;  /* Adjust size as needed */
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+/* Hover effect for thumbnails in popups */
+#postPopupImages img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.2);
+}
+
+/* Add borders and shading to popups */
+#viewPostModal .modal-content,
+#postModal .modal-content,
+#imageModal .modal-content {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* Add padding between image and text in popups */
+#postPopupImages {
+    margin-bottom: 10px;
+}
+
+#postPopupTitle {
+    margin-bottom: 10px;
+    font-size: 1.5em; /* Adjust font size as needed */
+}
+
+#postPopupRecipe {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
 
     </style>
 </head>

@@ -71,6 +71,8 @@ GEM
     json (2.7.2)
     kramdown (2.4.0)
       rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     liquid (4.0.4)
     listen (3.9.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -150,6 +152,7 @@ DEPENDENCIES
   jekyll-seo-tag (~> 2.8)
   jekyll-sitemap (~> 1.4)
   jekyll-watch (~> 2.0)
+  kramdown-parser-gfm
   listen (~> 3.0)
   minima (~> 2.5)
   pathutil (~> 0.9)
