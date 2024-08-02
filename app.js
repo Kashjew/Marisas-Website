@@ -100,8 +100,13 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+// Serve the login page
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'login.html'));
+});
+
 // Handle login
-app.post('/login', passport.authenticate('local', { failureRedirect: '/' }), (req, res) => {
+app.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), (req, res) => {
     res.redirect('/');
 });
 
