@@ -97,7 +97,7 @@ let posts = loadPosts();
 
 // Serve the main HTML file
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Marisawebsite.html'));
+    res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Handle login
