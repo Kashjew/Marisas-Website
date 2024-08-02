@@ -1,6 +1,16 @@
 [build]
-  publish = "_site"
-  command = "bundle exec jekyll build"
+  command = "npm run build"  # or your build command
+  publish = "public"  # Specify the directory to deploy (if static assets)
+  functions = "functions"  # Specify the directory for serverless functions (if used)
+
+[build.environment]
+  NODE_VERSION = "14"  # Specify your Node version
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
 
 [context.production.environment]
   RUBY_VERSION = "3.3.4"
