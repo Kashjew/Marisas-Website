@@ -1,7 +1,6 @@
 [build]
-  command = "npm run build"  # or your build command
-  publish = "public"  # Specify the directory to deploy (if static assets)
-  functions = "functions"  # Specify the directory for serverless functions (if used)
+  command = "npm start"  # Start your Node.js server, change if necessary
+  # publish = "public"  # Uncomment if you have static assets to serve
 
 [build.environment]
   NODE_VERSION = "14"  # Specify your Node version
@@ -12,6 +11,7 @@
   status = 200
   force = true
 
-[context.production.environment]
-  RUBY_VERSION = "3.3.4"
-  BUNDLE_PATH = "vendor/bundle"
+# You can remove the Ruby-specific configuration unless it's essential for your app
+# [context.production.environment]
+#   RUBY_VERSION = "3.3.4"
+#   BUNDLE_PATH = "vendor/bundle"
