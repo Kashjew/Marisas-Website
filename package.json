@@ -2,9 +2,9 @@
   "name": "marisas-website",
   "version": "1.0.0",
   "description": "A website for Marisa's food blog",
-  "main": "app.js",  // Replace with your main server file if different
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js",  // This will start your Node.js application
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
