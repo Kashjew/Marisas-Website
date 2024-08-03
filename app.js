@@ -8,7 +8,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;  // Use the PORT environment variable or default to 3000
 
 // Middleware to parse JSON and URL-encoded data
 app.use(bodyParser.json());
@@ -193,5 +193,5 @@ app.put('/api/posts/:id', ensureAuthenticated, upload.array('images', 5), (req, 
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
+    console.log(`Server is running on port ${port}`);
 });
