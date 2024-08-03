@@ -1,14 +1,15 @@
 {
   "name": "marisas-website",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "A website for Marisa's food blog",
+  "main": "app.js",  // Replace with your main server file if different
   "scripts": {
+    "start": "node app.js",  // This will start your Node.js application
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
