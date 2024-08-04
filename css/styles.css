@@ -1,0 +1,266 @@
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Karma", sans-serif;
+}
+.w3-bar-block .w3-bar-item {
+    padding: 20px;
+}
+
+/* Hero section styling */
+.hero-section {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.hero-section img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.hero-section h1, .hero-section p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+/* Photo grid image styling */
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.2);
+}
+
+.post-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.about-me-images img {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Modal styles for Login */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    padding-top: 60px;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 10px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-content input[type="text"],
+.modal-content input[type="password"],
+.modal-content input[type="file"],
+.modal-content textarea,
+.modal-content button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Karma', sans-serif;
+}
+.modal-content button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.modal-content button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Thumbnail hover */
+.thumbnail {
+    width: 100px;
+    height: auto;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+/* Larger image modal */
+#imageModal .modal-content {
+    width: 90%;
+    max-width: 800px;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#imageModal img {
+    width: 100%;
+    height: auto;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .w3-quarter {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    .about-me-images {
+        flex-direction: column;
+        align-items: center;
+    }
+    .w3-bar .w3-button {
+        padding: 12px;
+    }
+    .modal-content {
+        width: 90%;
+    }
+    .thumbnail {
+        width: 80px;
+    }
+}
+/* Add borders and shading to main content areas */
+.w3-main,
+.w3-container,
+.photo-grid {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #fff;
+}
+
+/* Image grid styling */
+.photo-grid img {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+/* About section images */
+.about-me-images img {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+/* Button styling */
+.w3-button {
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.w3-button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Increase thumbnail size in popups */
+#postPopupImages img {
+    width: 150px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+/* Hover effect for thumbnails in popups */
+#postPopupImages img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.2);
+}
+
+/* Add borders and shading to popups */
+#viewPostModal .modal-content,
+#postModal .modal-content,
+#imageModal .modal-content {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    padding: 20px;
+}
+
+/* Add padding between image and text in popups */
+#postPopupImages {
+    margin-bottom: 10px;
+}
+
+#postPopupTitle {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+#postPopupRecipe {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* Footer Styling */
+.site-footer {
+    background-color: #B09A82; /* Matching the reference color */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-social-links a:hover {
+    text-decoration: underline;
+}

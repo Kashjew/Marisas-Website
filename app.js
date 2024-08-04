@@ -70,10 +70,12 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// Serve static files from the "public" and "assets" directories
+// Serve static files from the "public", "css", "js", and "assets" directories
 app.use(express.static('public'));
 app.use('/uploads', express.static('uploads'));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
 
 // JSON file to store posts
 const postsFilePath = path.join(__dirname, 'posts.json');
