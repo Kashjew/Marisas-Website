@@ -14,22 +14,64 @@ body, h1, h2, h3, h4, h5, h6 {
     padding: 10px;
 }
 
-/* Hero section styling */
-.hero-section {
+/* Header with Hero Section Styling */
+.hero-header {
     position: relative;
     width: 100%;
     height: auto;
-    background-size: cover;
-    background-position: center;
-    text-align: center;
-    padding: 0; /* Remove any extra padding */
+    background-color: #B09A82; /* Background color as a fallback */
 }
 
-.hero-section img.hero-image {
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1; /* Ensure it stays above the hero image */
+    position: absolute;
+    width: 100%;
+}
+
+.hero-content {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 0;
+}
+
+.hero-content img.hero-image {
     width: 100%;
     height: auto;
     display: block;
 }
+
+/* Adjustments for the dropdown menu and login button */
+.dropdown-btn, .login-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-header {
+        height: auto;
+    }
+
+    .hero-content img.hero-image {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+    }
+}
+
 
 /* Photo grid image styling */
 .photo-grid img {
