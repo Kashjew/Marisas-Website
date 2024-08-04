@@ -6,248 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
-    <style>
-        body, h1, h2, h3, h4, h5, h6 {font-family: "Karma", sans-serif}
-        .w3-bar-block .w3-bar-item {padding:20px}
-
-        /* Photo grid image styling */
-        .photo-grid img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-        }
-        .photo-grid img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-            filter: brightness(1.2);
-        }
-
-        .about-me-images {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .about-me-images img {
-            width: 250px;
-            height: auto; /* Medium-sized images */
-        }
-
-        /* Modal styles for Login */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 3;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 90%;  /* Adjusted for mobile */
-            max-width: 1000px;  /* Maximum width */
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 10px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .modal-content input[type="text"],
-        .modal-content input[type="password"],
-        .modal-content input[type="file"],
-        .modal-content textarea,
-        .modal-content button[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: 'Karma', sans-serif;
-        }
-        .modal-content button[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .modal-content button[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        /* Thumbnail hover */
-        .thumbnail {
-            width: 100px;  /* Adjusted for mobile */
-            height: auto;
-            margin: 10px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .thumbnail:hover {
-            transform: scale(1.1);
-        }
-
-        /* Larger image modal */
-        #imageModal .modal-content {
-            width: 90%;  /* Adjusted for mobile */
-            max-width: 800px;
-            padding: 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-        }
-        #imageModal img {
-            width: 100%;
-            height: auto;
-        }
-
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            .w3-quarter {
-                width: 100%;
-                margin-bottom: 16px;
-            }
-            .about-me-images {
-                flex-direction: column;
-                align-items: center;
-            }
-            .w3-bar .w3-button {
-                padding: 12px;
-            }
-            .modal-content {
-                width: 90%;
-            }
-            .thumbnail {
-                width: 80px;
-            }
-        }
-/* Add borders and shading to main content areas */
-.w3-main,
-.w3-container,
-.photo-grid {
-    border: 1px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 16px;
-    background-color: #fff;
-}
-
-/* Image grid styling */
-.photo-grid img {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-}
-
-/* About section images */
-.about-me-images img {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-}
-
-/* Button styling */
-.w3-button {
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.w3-button:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-/* Increase thumbnail size in popups */
-#postPopupImages img {
-    width: 150px;  /* Adjust size as needed */
-    height: auto;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-right: 10px;
-    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-}
-
-/* Hover effect for thumbnails in popups */
-#postPopupImages img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    filter: brightness(1.2);
-}
-
-/* Add borders and shading to popups */
-#viewPostModal .modal-content,
-#postModal .modal-content,
-#imageModal .modal-content {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 20px;
-}
-
-/* Add padding between image and text in popups */
-#postPopupImages {
-    margin-bottom: 10px;
-}
-
-#postPopupTitle {
-    margin-bottom: 10px;
-    font-size: 1.5em; /* Adjust font size as needed */
-}
-
-#postPopupRecipe {
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #ddd;
-}
-
-    </style>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <img src="/uploads/hero-background.jpg" alt="Hero Image" class="hero-image">
+</div>
 
 <!-- Sidebar (hidden by default) -->
 <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:40%;min-width:300px" id="mySidebar">
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button">Close Menu</a>
   <a href="https://www.instagram.com/recipebyrisa?igsh=MXA3eXdkbnFuMXVscA%3D%3D&utm_source=qr" target="_blank" class="w3-bar-item w3-button">Instagram</a>
+  <a href="https://www.facebook.com/1m654k?mibextid=LQQJ4d" target="_blank" class="w3-bar-item w3-button">Facebook</a> 
 </nav>
 
 <!-- Top menu -->
-<div class="w3-top">
+<div class="w3-top navbar">
   <div class="w3-white w3-xlarge" style="max-width:1200px;margin:auto">
     <div class="w3-button w3-padding-16 w3-left" onclick="w3_open()">☰</div>
-    <div class="w3-right w3-padding-16">
-      <button id="loginBtn" class="w3-button w3-black">Login</button>
-      <button id="logoutBtn" class="w3-button w3-black" style="display:none;">Logout</button>
+    <div class="navbar-right">
+      <button id="loginBtn" class="w3-button">Login</button>
+      <button id="logoutBtn" class="w3-button" style="display:none;">Logout</button>
     </div>
-    <div class="w3-center w3-padding-16">My Food</div>
   </div>
 </div>
   
 <!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">
 
   <!-- Button to open the modal -->
   <div class="w3-center" id="createPostBtnContainer" style="display:none;">
-    <button id="openModalBtn" class="w3-button w3-black">Create a Post</button>
+    <button id="openModalBtn" class="w3-button">Create a Post</button>
   </div>
 
   <!-- Image Grid Container -->
@@ -341,238 +132,19 @@
   </div>
 </div>
 
-<!-- Insert the JavaScript code here -->
-<script>
-    // Show the login modal when clicking the Login button
-    document.getElementById('loginBtn').onclick = function() {
-        document.getElementById('loginModal').style.display = 'block';
-    };
-
-    // Close the login modal
-    document.getElementById('closeLoginModal').onclick = function() {
-        document.getElementById('loginModal').style.display = 'none';
-    };
-
-    // Close modals when clicking outside
-    window.onclick = function(event) {
-        const loginModal = document.getElementById('loginModal');
-        const postModal = document.getElementById('postModal');
-        const viewPostModal = document.getElementById('viewPostModal');
-        const imageModal = document.getElementById('imageModal');
-        if (event.target === loginModal) {
-            loginModal.style.display = "none";
-        } else if (event.target === postModal) {
-            postModal.style.display = "none";
-        } else if (event.target === viewPostModal) {
-            viewPostModal.style.display = 'none';
-        } else if (event.target === imageModal) {
-            imageModal.style.display = 'none';
-        }
-    };
-
-    // Function to open the sidebar menu
-    function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-    }
-
-    // Function to close the sidebar menu
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-    }
-
-    // Log out functionality
-    document.getElementById('logoutBtn').onclick = function() {
-        fetch('/logout', { method: 'POST' })
-            .then(response => {
-                if (response.ok) {
-                    window.location.reload(); // Refresh the page after logging out
-                }
-            });
-    };
-
-    let images = [];
-
-    // Fetch posts from the server when the page loads
-    async function fetchPosts() {
-        const response = await fetch('/api/posts');
-        images = await response.json();
-        renderPage(1);  // Always render the first page
-    }
-
-    const itemsPerPage = 8;
-    let currentPage = 1;
-
-    function renderPage(page) {
-        const imageGrid = document.getElementById('image-grid');
-        imageGrid.innerHTML = ''; // Clear the grid
-
-        const start = (page - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        const paginatedItems = images.slice(start, end);
-
-        paginatedItems.forEach(image => {
-            const div = document.createElement('div');
-            div.className = 'w3-quarter';
-            div.innerHTML = `
-                <img src="${image.imagePaths[0]}" alt="${image.title}" style="width:100%" onclick="openPostPopup(${image.id})">
-                <h3>${image.title}</h3>
-                <button class="w3-button w3-red" style="display:none;" onclick="deletePost(${image.id})">Delete</button>
-            `;
-            imageGrid.appendChild(div);
-        });
-
-        document.getElementById('page-info').innerText = `Page ${page}`;
-        document.getElementById('prev-page').disabled = page === 1;
-        document.getElementById('next-page').disabled = end >= images.length;
-
-        // Show delete buttons if logged in
-        const deleteButtons = document.querySelectorAll('.w3-button.w3-red');
-        deleteButtons.forEach(btn => btn.style.display = isLoggedIn ? 'inline-block' : 'none');
-    }
-
-    document.getElementById('prev-page').onclick = function() {
-        if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
-        }
-    };
-
-    document.getElementById('next-page').onclick = function() {
-        if (currentPage * itemsPerPage < images.length) {
-            currentPage++;
-            renderPage(currentPage);
-        }
-    };
-
-    // Load the first page
-    fetchPosts();
-
-    // Function to open the post popup
-    function openPostPopup(id) {
-        const post = images.find(p => p.id === id);
-        if (post) {
-            document.getElementById('postPopupTitle').innerText = post.title;
-            const imagesDiv = document.getElementById('postPopupImages');
-            imagesDiv.innerHTML = '';
-            post.imagePaths.forEach(imagePath => {
-                const img = document.createElement('img');
-                img.src = imagePath;
-                img.className = 'thumbnail';
-                img.onclick = () => openImageModal(imagePath);
-                imagesDiv.appendChild(img);
-            });
-            document.getElementById('postPopupRecipe').innerText = post.recipe;
-            document.getElementById('deletePostBtn').onclick = () => deletePost(id);
-            document.getElementById('editPostBtn').onclick = () => openEditModal(post);
-            document.getElementById('viewPostModal').style.display = 'block';
-
-            // Conditionally show the edit button based on login status
-            const editButton = document.getElementById('editPostBtn');
-            editButton.style.display = isLoggedIn ? 'inline-block' : 'none';
-        }
-    }
-
-    // Function to open the larger image modal with lightbox functionality
-    function openImageModal(imagePath) {
-        document.getElementById('modalImage').src = imagePath;
-        document.getElementById('imageModal').style.display = 'block';
-    }
-
-    // Function to delete a post
-    async function deletePost(id) {
-        await fetch(`/api/posts/${id}`, { method: 'DELETE' });
-        images = images.filter(p => p.id !== id);
-        renderPage(currentPage);
-        document.getElementById('viewPostModal').style.display = 'none'; // Close the view modal after deletion
-    }
-
-    // Function to open the edit modal with existing post data
-    function openEditModal(post) {
-        document.getElementById('title').value = post.title;
-        document.getElementById('content').value = post.content;
-        document.getElementById('recipe').value = post.recipe;
-
-        const postForm = document.getElementById('postForm');
-        postForm.setAttribute('data-edit-id', post.id);
-
-        document.getElementById('postModal').style.display = 'block';
-        document.getElementById('viewPostModal').style.display = 'none';
-    }
-
-    // Handle create post form submission (includes edit functionality)
-    document.getElementById('postForm').onsubmit = async function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-
-        const editId = this.getAttribute('data-edit-id');
-        const method = editId ? 'PUT' : 'POST';
-        const url = editId ? `/api/posts/${editId}` : '/api/posts';
-
-        const response = await fetch(url, {
-            method: method,
-            body: formData
-        });
-        const post = await response.json();
-
-        if (editId) {
-            const index = images.findIndex(p => p.id === parseInt(editId));
-            images[index] = post;
-        } else {
-            images.unshift(post);  // Add to the front of the array
-        }
-
-        renderPage(1);  // Re-render the first page
-        document.getElementById('postModal').style.display = 'none'; // Close the modal
-        document.getElementById('viewPostModal').style.display = 'none'; // Close the view modal if open
-
-        // Reset the form and remove edit ID
-        this.removeAttribute('data-edit-id');
-        this.reset();
-    };
-
-    // Handle the "Create a Post" button click to open the modal
-    document.getElementById('openModalBtn').onclick = function() {
-        document.getElementById('postModal').style.display = 'block';
-    };
-
-    // Close the "Create a Post" modal
-    document.getElementById('closePostModal').onclick = function() {
-        document.getElementById('postModal').style.display = 'none';
-    };
-
-    // Determine if user is logged in
-    let isLoggedIn = false;
-    fetch('/api/check-auth')
-        .then(response => response.json())
-        .then(data => {
-            isLoggedIn = data.loggedIn;
-            if (isLoggedIn) {
-                document.getElementById('createPostBtnContainer').style.display = 'block';
-                document.getElementById('loginBtn').style.display = 'none';
-                document.getElementById('logoutBtn').style.display = 'inline-block';
-            } else {
-                // Ensure that the buttons are hidden when logged out
-                document.getElementById('createPostBtnContainer').style.display = 'none';
-                document.getElementById('loginBtn').style.display = 'inline-block';
-                document.getElementById('logoutBtn').style.display = 'none';
-
-                // Hide delete buttons if logged out
-                const deleteButtons = document.querySelectorAll('.w3-button.w3-red');
-                deleteButtons.forEach(btn => btn.style.display = 'none');
-            }
-        });
-
-// JavaScript to close the modal when the "X" icon is clicked
-document.querySelectorAll('.close').forEach(function(closeButton) {
-    closeButton.onclick = function() {
-        // Find the closest modal to the clicked "X" icon and close it
-        const modal = closeButton.closest('.modal');
-        if (modal) {
-            modal.style.display = 'none';
-        }
-    };
-});
-</script>
+<!-- Link to the external JavaScript file -->
+<script src="js/scripts.js"></script>
+<!-- Footer Section -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <p>&copy; 2024 Recipe by Risa. All rights reserved.</p>
+        <div class="footer-social-links">
+            <a href="https://www.instagram.com/recipebyrisa?igsh=MXA3eXdkbnFuMXVscA%3D%3D&utm_source=qr" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/1m654k?mibextid=LQQJ4d" target="_blank">Facebook</a>
+            
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
