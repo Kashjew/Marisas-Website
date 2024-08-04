@@ -1,28 +1,34 @@
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "Karma", sans-serif;
 }
+
 .w3-bar-block .w3-bar-item {
     padding: 20px;
+}
+
+/* Adjustments for the dropdown menu and login button */
+.dropdown-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
 }
 
 /* Hero section styling */
 .hero-section {
     position: relative;
-    text-align: center;
-    color: white;
-}
-.hero-section img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 0; /* Remove any extra padding */
 }
-.hero-section h1, .hero-section p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+
+.hero-section img.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Photo grid image styling */
@@ -32,6 +38,7 @@ body, h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
     transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
 }
+
 .photo-grid img:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -40,13 +47,13 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .post-image {
     width: 100%;
-    height: 250px;
+    height: 250px; /* Adjust the height to whatever fits best */
     object-fit: cover;
     border-radius: 8px;
 }
 
 .about-me-images img {
-    width: 250px;
+    width: 250px;  /* Adjust as needed */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -65,28 +72,32 @@ body, h1, h2, h3, h4, h5, h6 {
     background-color: rgba(0,0,0,0.6);
     padding-top: 60px;
 }
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 90%;
-    max-width: 1000px;
+    width: 90%;  /* Adjusted for mobile */
+    max-width: 1000px;  /* Maximum width */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 10px;
 }
+
 .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
 }
+
 .modal-content input[type="text"],
 .modal-content input[type="password"],
 .modal-content input[type="file"],
@@ -101,62 +112,60 @@ body, h1, h2, h3, h4, h5, h6 {
     box-sizing: border-box;
     font-family: 'Karma', sans-serif;
 }
+
 .modal-content button[type="submit"] {
     background-color: #4CAF50;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .modal-content button[type="submit"]:hover {
     background-color: #45a049;
 }
 
 /* Thumbnail hover */
 .thumbnail {
-    width: 100px;
+    width: 100px;  /* Adjusted for mobile */
     height: auto;
     margin: 10px;
     cursor: pointer;
     transition: transform 0.2s;
 }
+
 .thumbnail:hover {
     transform: scale(1.1);
 }
 
 /* Larger image modal */
 #imageModal .modal-content {
-    width: 90%;
+    width: 90%;  /* Adjusted for mobile */
     max-width: 800px;
     padding: 0;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
 #imageModal img {
     width: 100%;
     height: auto;
 }
 
 /* Responsive styles */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+    /* Make image grid responsive */
     .w3-quarter {
         width: 100%;
         margin-bottom: 16px;
     }
-    .about-me-images {
-        flex-direction: column;
-        align-items: center;
-    }
-    .w3-bar .w3-button {
-        padding: 12px;
-    }
-    .modal-content {
-        width: 90%;
-    }
-    .thumbnail {
-        width: 80px;
+
+    .post-image {
+        width: 100%;
+        height: auto;
     }
 }
+
 /* Add borders and shading to main content areas */
 .w3-main,
 .w3-container,
@@ -193,9 +202,10 @@ body, h1, h2, h3, h4, h5, h6 {
 .w3-button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 /* Increase thumbnail size in popups */
 #postPopupImages img {
-    width: 150px;
+    width: 150px;  /* Adjust size as needed */
     height: auto;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -229,7 +239,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
 #postPopupTitle {
     margin-bottom: 10px;
-    font-size: 1.5em;
+    font-size: 1.5em; /* Adjust font size as needed */
 }
 
 #postPopupRecipe {
@@ -237,7 +247,6 @@ body, h1, h2, h3, h4, h5, h6 {
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
-
 /* Footer Styling */
 .site-footer {
     background-color: #B09A82; /* Matching the reference color */
