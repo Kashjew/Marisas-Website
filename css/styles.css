@@ -340,12 +340,27 @@ body, h1, h2, h3, h4, h5, h6 {
 /* Columns Styling */
 .left-column {
     width: 30%;
-    background-color: #f3f3f3; /* Grey color as a placeholder */
+    background-color: #B09A82;  /* Matching the background color to the image */
     padding: 20px;
     margin: 20px;
     border-radius: 8px;
+    text-align: center; /* Center the content */
 }
 
+.hello-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    font-family: "Karma", sans-serif;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.5;
+    margin-top: 10px;
+}
 .right-column {
     width: 70%;
     background-color: #f3f3f3; /* Grey color as a placeholder */
@@ -373,6 +388,14 @@ body, h1, h2, h3, h4, h5, h6 {
     padding: 20px;
     background-color: #f9f9f9; /* Light grey background for the first section */
     border-radius: 8px;
+}
+
+/* Add heading styles to the previous posts section */
+.previous-posts h2 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 /* Section for additional content (e.g., Instagram, links) */
