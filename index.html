@@ -32,11 +32,15 @@
 <!-- !PAGE CONTENT! -->
 <div class="main-content w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">
 
-  <!-- Left Column -->
-  <div class="left-column">
-    <!-- Placeholder content -->
-    <p>Left Column Content</p>
-  </div>
+<!-- Left Column -->
+<div class="left-column">
+    <img src="/uploads/Hello.jpg" alt="Hello" class="hello-image">
+    <p class="welcome-message">
+        Welcome to Recipe by Risa! I'm thrilled to have you here. Whether you're a seasoned cook or just getting started, 
+        I hope you find inspiration, joy, and deliciousness in every recipe. Let's embark on this culinary journey together!
+    </p>
+</div>
+
 
   <!-- Right Column -->
   <div class="content-section">
@@ -51,7 +55,7 @@
       </div>
 
       <div class="w3-center">
-        <button id="viewAllPostsBtn" class="w3-button">View All Posts</button>
+        <button id="viewAllPostsBtn" class="w3-button" onclick="scrollToPosts()">View All Posts</button>
       </div>
   </div>
 
@@ -59,7 +63,8 @@
 
 <!-- Section for previous posts (below the columns) -->
 <div class="previous-posts" id="all-posts-section">
-    <!-- Posts will be dynamically loaded here -->
+  <h2>Recipes</h2>
+  <!-- Posts will be dynamically loaded here -->
 </div>
 
 <hr id="about">
@@ -132,7 +137,7 @@
 <!-- The Modal for Viewing a Larger Image -->
 <div id="imageModal" class="modal">
   <div class="modal-content">
-    <span id="closeImageModal" class="close">&times;"></span>
+    <span id="closeImageModal" class="close">&times;</span>
     <img id="modalImage" src="" alt="Large Image">
   </div>
 </div>
@@ -150,6 +155,12 @@
         </div>
     </div>
 </footer>
+
+<script>
+function scrollToPosts() {
+    document.getElementById('all-posts-section').scrollIntoView({ behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
