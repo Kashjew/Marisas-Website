@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Dropdown menu functionality
     const dropdownBtn = document.querySelector(".dropdown-btn");
     const dropdownContent = document.querySelector(".dropdown-content");
-    
+
     if (dropdownBtn && dropdownContent) {
         dropdownBtn.addEventListener("click", function() {
             dropdownContent.classList.toggle("show");
@@ -125,18 +125,24 @@ function renderAllPosts() {
     allPostsSection.innerHTML = ''; // Clear previous content
 
     images.slice(1).forEach(image => {  // Exclude the latest post
-        if (image.imagePaths && image.imagePaths[0]) {
-            const div = document.createElement('div');
-            div.className = 'w3-third w3-margin-bottom';
-            div.innerHTML = `
-                <div class="post-image-container">
-                    <img src="${image.imagePaths[0]}" alt="${image.title}" class="post-image" onclick="openPostPopup(${image.id})">
-                </div>
-                <h3>${image.title}</h3>
-            `;
-            allPostsSection.appendChild(div);
-        }
+        const div = document.createElement('div');
+        div.className = 'w3-third w3-margin-bottom';
+        div.innerHTML = `
+            <div class="post-image-container">
+                <img src="${image.imagePaths[0]}" alt="${image.title}" class="post-image" onclick="openPostPopup(${image.id})">
+            </div>
+            <h3>${image.title}</h3>
+        `;
+        allPostsSection.appendChild(div);
     });
+}
+
+// Function to load Instagram embed script
+function loadInstagramEmbedScript() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = "//www.instagram.com/embed.js";
+    document.body.appendChild(script);
 }
 
 // Function to open the post popup
@@ -164,6 +170,18 @@ function openPostPopup(id) {
         const editButton = document.getElementById('editPostBtn');
         if (editButton) {
             editButton.style.display = isLoggedIn ? 'inline-block' : 'none';
+        }
+
+        // Render Instagram embed if available
+        const instagramEmbedDiv = document.getElementById('instagramEmbed');
+        if (instagramEmbedDiv && post.instagramLink) {
+            instagramEmbedDiv.innerHTML = `
+                <blockquote class="instagram-media" data-instgrm-permalink="${post.instagramLink}" data-instgrm-version="12" style="background:#FFF; border:0; margin:1px 0; max-width:300px; min-width:200px; padding:0; width:100%;">
+                </blockquote>
+            `;
+            loadInstagramEmbedScript(); // Reload the Instagram script to ensure the embed is rendered
+        } else if (instagramEmbedDiv) {
+            instagramEmbedDiv.innerHTML = ''; // Clear the embed if no link is provided
         }
     }
 }
@@ -197,12 +215,14 @@ function openEditModal(post) {
     const title = document.getElementById('title');
     const content = document.getElementById('content');
     const recipe = document.getElementById('recipe');
+    const instagramLink = document.getElementById('instagramLink');
     const postForm = document.getElementById('postForm');
 
-    if (title && content && recipe && postForm) {
+    if (title && content && recipe && instagramLink && postForm) {
         title.value = post.title;
         content.value = post.content;
         recipe.value = post.recipe;
+        instagramLink.value = post.instagramLink || '';
 
         postForm.setAttribute('data-edit-id', post.id);
 

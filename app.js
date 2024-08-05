@@ -127,7 +127,8 @@ app.get('/api/check-auth', (req, res) => {
 
 // Handle POST requests for creating a new post (secured route)
 app.post('/api/posts', ensureAuthenticated, upload.array('images', 5), (req, res) => { // allow up to 5 images
-    const { title, content, recipe } = req.body;
+    const { title, content, recipe, instagramLink } = req.body;
+    console.log("Received Instagram Link:", instagramLink); // Log the Instagram link
     const imagePaths = req.files.map(file => '/' + file.path.replace(/\\/g, '/'));  // Ensure the path works on all platforms
 
     const post = {
@@ -135,8 +136,11 @@ app.post('/api/posts', ensureAuthenticated, upload.array('images', 5), (req, res
         title,
         content,
         imagePaths,
-        recipe
+        recipe,
+        instagramLink: instagramLink || '' // Store the Instagram link or an empty string if not provided
     };
+
+    console.log("Creating Post:", post); // Log the post being created
 
     posts.unshift(post);  // Add the new post to the front of the array
     savePosts(posts);  // Save the updated posts array to the JSON file
@@ -146,12 +150,14 @@ app.post('/api/posts', ensureAuthenticated, upload.array('images', 5), (req, res
 
 // Handle GET requests to load all posts
 app.get('/api/posts', (req, res) => {
+    console.log("Fetching Posts:"); // Log when posts are being fetched
     res.json(posts);
 });
 
 // Handle DELETE requests for removing a post (secured route)
 app.delete('/api/posts/:id', ensureAuthenticated, (req, res) => {
     const { id } = req.params;
+    console.log("Deleting Post with ID:", id); // Log the ID of the post being deleted
     const postIndex = posts.findIndex(p => p.id === parseInt(id));
 
     if (postIndex >= 0) {
@@ -169,7 +175,10 @@ app.delete('/api/posts/:id', ensureAuthenticated, (req, res) => {
 // Handle PUT requests for editing a post (secured route)
 app.put('/api/posts/:id', ensureAuthenticated, upload.array('images', 5), (req, res) => {
     const { id } = req.params;
-    const { title, content, recipe } = req.body;
+    const { title, content, recipe, instagramLink } = req.body;
+    console.log("Editing Post with ID:", id); // Log the ID of the post being edited
+    console.log("New Instagram Link:", instagramLink); // Log the new Instagram link
+
     const postIndex = posts.findIndex(p => p.id === parseInt(id));
 
     if (postIndex >= 0) {
@@ -178,6 +187,9 @@ app.put('/api/posts/:id', ensureAuthenticated, upload.array('images', 5), (req, 
         post.title = title;
         post.content = content;
         post.recipe = recipe;
+        post.instagramLink = instagramLink || '';
+
+        console.log("Updated Post:", post); // Log the updated post
 
         if (req.files.length > 0) {
             post.imagePaths.forEach(imagePath => {
