@@ -116,6 +116,9 @@
         
         <label for="recipe">Recipe:</label>
         <textarea id="recipe" name="recipe" required></textarea><br><br>
+
+        <label for="instagramLink">Instagram Post Link:</label>
+        <input type="text" id="instagramLink" name="instagramLink"><br><br>
         
         <button type="submit">Submit</button>
     </form>
@@ -129,6 +132,10 @@
     <h2 id="postPopupTitle"></h2>
     <div id="postPopupImages" style="display: flex; flex-wrap: wrap;"></div>
     <p id="postPopupRecipe"></p>
+
+    <!-- Instagram Embed Placeholder -->
+    <div id="instagramEmbed"></div>
+
     <button id="editPostBtn" class="w3-button w3-blue w3-margin-top" style="display:none;">Edit</button>
     <button id="deletePostBtn" class="w3-button w3-red w3-margin-top">Delete</button>
   </div>

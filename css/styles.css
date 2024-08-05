@@ -311,6 +311,12 @@ body, h1, h2, h3, h4, h5, h6 {
     border-top: 1px solid #ddd;
 }
 
+#instagramEmbed {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
 /* Footer Styling */
 .site-footer {
     background-color: #B09A82; /* Matching the reference color */
