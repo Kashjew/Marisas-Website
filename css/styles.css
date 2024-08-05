@@ -1,3 +1,4 @@
+/* General Styles */
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "Karma", sans-serif;
 }
@@ -388,14 +389,35 @@ body, h1, h2, h3, h4, h5, h6 {
     padding: 20px;
     background-color: #f9f9f9; /* Light grey background for the first section */
     border-radius: 8px;
+    text-align: center; /* Center the content */
 }
 
-/* Add heading styles to the previous posts section */
 .previous-posts h2 {
     font-size: 2em;
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+}
+
+.previous-posts .post-image-container {
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top; /* Align images to the top */
+}
+
+.previous-posts img {
+    width: 300px; /* Set a fixed width for the images */
+    height: 300px; /* Set a fixed height for the images */
+    object-fit: cover; /* Ensure images maintain aspect ratio and fill the container */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+.previous-posts img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.2);
 }
 
 /* Section for additional content (e.g., Instagram, links) */
