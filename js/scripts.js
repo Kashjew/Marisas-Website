@@ -100,77 +100,44 @@ async function fetchPosts() {
     try {
         const response = await fetch('/api/posts');
         images = await response.json();
-        renderPage(1);  // Always render the first page
+        renderLatestPost();
+        renderAllPosts();  
     } catch (error) {
         console.error("Error fetching posts:", error);
     }
 }
 
-const itemsPerPage = 8;
-let currentPage = 1;
-
-function renderPage(page) {
-    const imageGrid = document.getElementById('image-grid');
-    if (!imageGrid) return; // Ensure imageGrid exists
-    imageGrid.innerHTML = ''; // Clear the grid
-
-    const start = (page - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const paginatedItems = images.slice(start, end);
-
-    if (paginatedItems.length > 0) {
-        paginatedItems.forEach(image => {
-            if (image.imagePaths && image.imagePaths[0]) { // Check if imagePaths exist and are not empty
-                const div = document.createElement('div');
-                div.className = 'w3-quarter';
-                div.innerHTML = `
-                    <div class="post-image-container">
-                        <img src="${image.imagePaths[0]}" alt="${image.title}" class="post-image" onclick="openPostPopup(${image.id})">
-                    </div>
-                    <h3>${image.title}</h3>
-                    <button class="w3-button w3-red" style="display:none;" onclick="deletePost(${image.id})">Delete</button>
-                `;
-                imageGrid.appendChild(div);
-            }
-        });
+function renderLatestPost() {
+    const latestPostDiv = document.getElementById('latest-post');
+    if (images.length > 0) {
+        const latestImage = images[0];
+        latestPostDiv.innerHTML = `
+            <div class="post-image-container">
+                <img src="${latestImage.imagePaths[0]}" alt="${latestImage.title}" class="post-image" onclick="openPostPopup(${latestImage.id})">
+            </div>
+            <h3>${latestImage.title}</h3>
+        `;
     }
-
-    const pageInfo = document.getElementById('page-info');
-    const prevPage = document.getElementById('prev-page');
-    const nextPage = document.getElementById('next-page');
-
-    if (pageInfo) pageInfo.innerText = `Page ${page}`;
-    if (prevPage) prevPage.disabled = page === 1;
-    if (nextPage) nextPage.disabled = end >= images.length;
-
-    // Show delete buttons if logged in
-    const deleteButtons = document.querySelectorAll('.w3-button.w3-red');
-    deleteButtons.forEach(btn => btn.style.display = isLoggedIn ? 'inline-block' : 'none');
 }
 
-const prevPageBtn = document.getElementById('prev-page');
-const nextPageBtn = document.getElementById('next-page');
+function renderAllPosts() {
+    const allPostsSection = document.getElementById('all-posts-section');
+    allPostsSection.innerHTML = ''; // Clear previous content
 
-if (prevPageBtn) {
-    prevPageBtn.onclick = function() {
-        if (currentPage > 1) {
-            currentPage--;
-            renderPage(currentPage);
+    images.slice(1).forEach(image => {  // Exclude the latest post
+        if (image.imagePaths && image.imagePaths[0]) {
+            const div = document.createElement('div');
+            div.className = 'w3-third w3-margin-bottom';
+            div.innerHTML = `
+                <div class="post-image-container">
+                    <img src="${image.imagePaths[0]}" alt="${image.title}" class="post-image" onclick="openPostPopup(${image.id})">
+                </div>
+                <h3>${image.title}</h3>
+            `;
+            allPostsSection.appendChild(div);
         }
-    };
+    });
 }
-
-if (nextPageBtn) {
-    nextPageBtn.onclick = function() {
-        if (currentPage * itemsPerPage < images.length) {
-            currentPage++;
-            renderPage(currentPage);
-        }
-    };
-}
-
-// Load the first page
-fetchPosts();
 
 // Function to open the post popup
 function openPostPopup(id) {
@@ -216,7 +183,8 @@ async function deletePost(id) {
     try {
         await fetch(`/api/posts/${id}`, { method: 'DELETE' });
         images = images.filter(p => p.id !== id);
-        renderPage(currentPage);
+        renderLatestPost();  // Refresh the latest post section
+        renderAllPosts();    // Refresh the all posts section
         const viewPostModal = document.getElementById('viewPostModal');
         if (viewPostModal) viewPostModal.style.display = 'none'; // Close the view modal after deletion
     } catch (error) {
@@ -268,9 +236,9 @@ if (postForm) {
                 images.unshift(post);  // Add to the front of the array
             }
 
-            renderPage(1);  // Re-render the first page
+            renderLatestPost();  // Refresh the latest post section
+            renderAllPosts();    // Refresh the all posts section
             document.getElementById('postModal').style.display = 'none'; // Close the modal
-            document.getElementById('viewPostModal').style.display = 'none'; // Close the view modal if open
 
             // Reset the form and remove edit ID
             this.removeAttribute('data-edit-id');
@@ -303,8 +271,6 @@ fetch('/api/check-auth')
     .then(data => {
         isLoggedIn = data.loggedIn;
         const createPostBtnContainer = document.getElementById('createPostBtnContainer');
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
         if (isLoggedIn) {
             if (createPostBtnContainer) createPostBtnContainer.style.display = 'block';
             if (loginBtn) loginBtn.style.display = 'none';
@@ -330,3 +296,6 @@ document.querySelectorAll('.close').forEach(function(closeButton) {
         }
     };
 });
+
+// Load the first page
+fetchPosts();
