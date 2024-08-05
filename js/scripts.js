@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Show the login modal when clicking the Login button
 const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
 const closeLoginModal = document.getElementById('closeLoginModal');
 if (loginBtn && closeLoginModal) {
     loginBtn.onclick = function() {
@@ -81,7 +82,6 @@ function w3_close() {
 }
 
 // Log out functionality
-const logoutBtn = document.getElementById('logoutBtn');
 if (logoutBtn) {
     logoutBtn.onclick = function() {
         fetch('/logout', { method: 'POST' })

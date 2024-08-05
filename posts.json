@@ -13,7 +13,8 @@
     "title": "sdf",
     "content": "vvvv",
     "imagePaths": [
-      "/uploads/1722744687768.JPG"
+      "/uploads/1722816044425.JPG",
+      "/uploads/1722816046455.JPG"
     ],
     "recipe": "v"
   },
@@ -23,15 +24,6 @@
     "content": "vvvv",
     "imagePaths": [
       "/uploads/1722724206633.JPG"
-    ],
-    "recipe": "v"
-  },
-  {
-    "id": 1722724206957,
-    "title": "v",
-    "content": "vvvv",
-    "imagePaths": [
-      "/uploads/1722724206168.JPG"
     ],
     "recipe": "v"
   },
