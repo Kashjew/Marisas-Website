@@ -70,7 +70,6 @@ body, h1, h2, h3, h4, h5, h6 {
     color: black !important;
 }
 
-
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
     .header-container {
@@ -87,8 +86,12 @@ body, h1, h2, h3, h4, h5, h6 {
         width: 100%;
         height: auto;
     }
-}
 
+    /* Hide columns on mobile */
+    .left-column, .right-column {
+        display: none;
+    }
+}
 
 /* Photo grid image styling */
 .photo-grid img {
@@ -306,6 +309,7 @@ body, h1, h2, h3, h4, h5, h6 {
     padding-top: 10px;
     border-top: 1px solid #ddd;
 }
+
 /* Footer Styling */
 .site-footer {
     background-color: #B09A82; /* Matching the reference color */
@@ -331,4 +335,43 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .footer-social-links a:hover {
     text-decoration: underline;
+}
+
+/* Columns Styling */
+.left-column, .right-column {
+    width: 20%;
+    background-color: #f3f3f3; /* Grey color as a placeholder */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+/* Adjust the content section for the main column */
+.content-section {
+    width: 60%;
+    padding: 20px;
+}
+
+/* Flexbox to position columns */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Section for previous posts (below the columns) */
+.previous-posts {
+    width: 100%;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light grey background for the first section */
+    border-radius: 8px;
+}
+
+/* Section for additional content (e.g., Instagram, links) */
+.additional-section {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #e0d4c3; /* A different color for the second section */
+    border-radius: 8px;
 }

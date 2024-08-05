@@ -15,7 +15,7 @@
     <div class="header-container">
         <button class="dropdown-btn" onclick="w3_open()">&#9776;</button>
         <button id="loginBtn" class="login-btn">Login</button>
-	<button id="logoutBtn" class="login-btn" style="display:none;">Logout</button>
+        <button id="logoutBtn" class="login-btn" style="display:none;">Logout</button>
     </div>
     <div class="hero-content">
         <img src="/uploads/hero-background.jpg" alt="Hero Image" class="hero-image">
@@ -30,27 +30,42 @@
 </nav>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">
+<div class="main-content w3-main w3-content w3-padding" style="max-width:1200px;margin-top:50px">
 
-  <!-- Button to open the modal -->
-  <div class="w3-center" id="createPostBtnContainer" style="display:none;">
-    <button id="openModalBtn" class="w3-button">Create a Post</button>
+  <!-- Left Column -->
+  <div class="left-column">
+    <!-- Placeholder content -->
+    <p>Left Column Content</p>
   </div>
 
-  <!-- Image Grid Container -->
-  <div id="image-grid" class="w3-row-padding w3-padding-16 w3-center photo-grid">
-    <!-- Existing posts will be loaded here -->
+  <!-- Center Column -->
+  <div class="content-section">
+      <!-- Button to open the modal -->
+      <div class="w3-center" id="createPostBtnContainer" style="display:none;">
+        <button id="openModalBtn" class="w3-button">Create a Post</button>
+      </div>
+
+      <!-- Single Latest Post -->
+      <div id="latest-post" class="w3-padding-32">
+        <!-- Latest post will be dynamically loaded here -->
+      </div>
+
+      <div class="w3-center">
+        <button id="viewAllPostsBtn" class="w3-button">View All Posts</button>
+      </div>
   </div>
 
-  <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <button id="prev-page" class="w3-bar-item w3-button w3-hover-black">«</button>
-      <span id="page-info" class="w3-bar-item">Page 1</span>
-      <button id="next-page" class="w3-bar-item w3-button w3-hover-black">»</button>
-    </div>
+  <!-- Right Column -->
+  <div class="right-column">
+    <!-- Placeholder content -->
+    <p>Right Column Content</p>
   </div>
 
+</div>
+
+<!-- Section for previous posts (below the columns) -->
+<div class="previous-posts" id="all-posts-section">
+    <!-- Posts will be dynamically loaded here -->
 </div>
 
 <hr id="about">
@@ -123,7 +138,7 @@
 <!-- The Modal for Viewing a Larger Image -->
 <div id="imageModal" class="modal">
   <div class="modal-content">
-    <span id="closeImageModal" class="close">&times;</span>
+    <span id="closeImageModal" class="close">&times;"></span>
     <img id="modalImage" src="" alt="Large Image">
   </div>
 </div>
@@ -138,7 +153,6 @@
         <div class="footer-social-links">
             <a href="https://www.instagram.com/recipebyrisa?igsh=MXA3eXdkbnFuMXVscA%3D%3D&utm_source=qr" target="_blank">Instagram</a>
             <a href="https://www.facebook.com/1m654k?mibextid=LQQJ4d" target="_blank">Facebook</a>
-            
         </div>
     </div>
 </footer>
