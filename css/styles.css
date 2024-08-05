@@ -338,8 +338,16 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 /* Columns Styling */
-.left-column, .right-column {
-    width: 20%;
+.left-column {
+    width: 30%;
+    background-color: #f3f3f3; /* Grey color as a placeholder */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.right-column {
+    width: 70%;
     background-color: #f3f3f3; /* Grey color as a placeholder */
     padding: 20px;
     margin: 20px;
@@ -348,7 +356,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
 /* Adjust the content section for the main column */
 .content-section {
-    width: 60%;
+    width: 70%;
     padding: 20px;
 }
 
