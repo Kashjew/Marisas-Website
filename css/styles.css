@@ -315,7 +315,17 @@ body, h1, h2, h3, h4, h5, h6 {
     margin-top: 20px;
     padding-top: 10px;
     border-top: 1px solid #ddd;
+    width: 100%;
+    max-width: 300px; /* Adjust width for the embed */
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.instagram-media {
+    max-width: 300px; /* Ensure Instagram embed stays within bounds */
+    margin: 0 auto; /* Center the embed */
+}
+
 
 /* Footer Styling */
 .site-footer {

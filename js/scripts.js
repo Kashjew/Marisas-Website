@@ -137,14 +137,6 @@ function renderAllPosts() {
     });
 }
 
-// Function to load Instagram embed script
-function loadInstagramEmbedScript() {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = "//www.instagram.com/embed.js";
-    document.body.appendChild(script);
-}
-
 // Function to open the post popup
 function openPostPopup(id) {
     const post = images.find(p => p.id === id);
@@ -163,27 +155,50 @@ function openPostPopup(id) {
         }
         document.getElementById('postPopupRecipe').innerText = post.recipe;
         document.getElementById('deletePostBtn').onclick = () => deletePost(id);
-        document.getElementById('editPostBtn').onclick = () => openEditModal(post);
-        document.getElementById('viewPostModal').style.display = 'block';
-
-        // Conditionally show the edit button based on login status
+        
         const editButton = document.getElementById('editPostBtn');
         if (editButton) {
             editButton.style.display = isLoggedIn ? 'inline-block' : 'none';
+            editButton.onclick = () => openEditModal(post);
         }
 
+        document.getElementById('viewPostModal').style.display = 'block';
+
         // Render Instagram embed if available
-        const instagramEmbedDiv = document.getElementById('instagramEmbed');
-        if (instagramEmbedDiv && post.instagramLink) {
-            instagramEmbedDiv.innerHTML = `
-                <blockquote class="instagram-media" data-instgrm-permalink="${post.instagramLink}" data-instgrm-version="12" style="background:#FFF; border:0; margin:1px 0; max-width:300px; min-width:200px; padding:0; width:100%;">
-                </blockquote>
-            `;
-            loadInstagramEmbedScript(); // Reload the Instagram script to ensure the embed is rendered
-        } else if (instagramEmbedDiv) {
-            instagramEmbedDiv.innerHTML = ''; // Clear the embed if no link is provided
-        }
+        renderInstagramEmbed(post.instagramLink);
     }
+}
+
+// Function to render Instagram embed
+function renderInstagramEmbed(instagramLink) {
+    const instagramEmbedDiv = document.getElementById('instagramEmbed');
+    if (instagramEmbedDiv && instagramLink) {
+        instagramEmbedDiv.innerHTML = `
+            <blockquote class="instagram-media" data-instgrm-permalink="${instagramLink}" data-instgrm-version="12" style="background:#FFF; border:0; margin:1px 0; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px)">
+            </blockquote>
+        `;
+        // Ensure Instagram script is executed after embedding
+        if (window.instgrm) {
+            window.instgrm.Embeds.process();
+        } else {
+            loadInstagramEmbedScript();
+        }
+    } else if (instagramEmbedDiv) {
+        instagramEmbedDiv.innerHTML = ''; // Clear the embed if no link is provided
+    }
+}
+
+// Function to load Instagram embed script
+function loadInstagramEmbedScript() {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = "https://www.instagram.com/embed.js";
+    script.onload = () => {
+        if (window.instgrm) {
+            window.instgrm.Embeds.process();
+        }
+    };
+    document.body.appendChild(script);
 }
 
 // Function to open the larger image modal with lightbox functionality
