@@ -8,7 +8,7 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const app = express();
-const port = process.env.PORT || 3000;  // Use the PORT environment variable or default to 3000
+const port = process.env.PORT || 3000;
 
 // Middleware to parse JSON and URL-encoded data
 app.use(bodyParser.json());
@@ -70,9 +70,9 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// Serve static files from the "public", "css", "js", and "assets" directories
-app.use(express.static('public'));
-app.use('/uploads', express.static('uploads'));
+// Serve static files from the "public", "uploads", "css", "js", and "assets" directories
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/js', express.static(path.join(__dirname, 'js')));

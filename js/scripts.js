@@ -100,6 +100,7 @@ async function fetchPosts() {
     try {
         const response = await fetch('/api/posts');
         images = await response.json();
+        console.log("Fetched Posts:", images); // Logging the fetched posts
         renderLatestPost();
         renderAllPosts();  
     } catch (error) {
@@ -111,12 +112,17 @@ function renderLatestPost() {
     const latestPostDiv = document.getElementById('latest-post');
     if (images.length > 0) {
         const latestImage = images[0];
-        latestPostDiv.innerHTML = `
-            <div class="post-image-container">
-                <img src="${latestImage.imagePaths[0]}" alt="${latestImage.title}" class="post-image" onclick="openPostPopup(${latestImage.id})">
-            </div>
-            <h3>${latestImage.title}</h3>
-        `;
+        console.log("Rendering latest post:", latestImage); // Logging the latest post
+        if (latestImage.imagePaths && latestImage.imagePaths.length > 0) {
+            latestPostDiv.innerHTML = `
+                <div class="post-image-container">
+                    <img src="${latestImage.imagePaths[0]}" alt="${latestImage.title}" class="post-image" onclick="openPostPopup(${latestImage.id})">
+                </div>
+                <h3>${latestImage.title}</h3>
+            `;
+        } else {
+            console.error("No image paths found for the latest post.");
+        }
     }
 }
 
@@ -125,15 +131,20 @@ function renderAllPosts() {
     allPostsSection.innerHTML = ''; // Clear previous content
 
     images.slice(1).forEach(image => {  // Exclude the latest post
-        const div = document.createElement('div');
-        div.className = 'w3-third w3-margin-bottom';
-        div.innerHTML = `
-            <div class="post-image-container">
-                <img src="${image.imagePaths[0]}" alt="${image.title}" class="post-image" onclick="openPostPopup(${image.id})">
-            </div>
-            <h3>${image.title}</h3>
-        `;
-        allPostsSection.appendChild(div);
+        console.log("Rendering post:", image); // Logging each post
+        if (image.imagePaths && image.imagePaths.length > 0) {
+            const div = document.createElement('div');
+            div.className = 'w3-third w3-margin-bottom';
+            div.innerHTML = `
+                <div class="post-image-container">
+                    <img src="${image.imagePaths[0]}" alt="${image.title}" class="post-image" onclick="openPostPopup(${image.id})">
+                </div>
+                <h3>${image.title}</h3>
+            `;
+            allPostsSection.appendChild(div);
+        } else {
+            console.error("Invalid image object or imagePaths missing for post:", image);
+        }
     });
 }
 
@@ -145,13 +156,17 @@ function openPostPopup(id) {
         const imagesDiv = document.getElementById('postPopupImages');
         if (imagesDiv) {
             imagesDiv.innerHTML = '';
-            post.imagePaths.forEach(imagePath => {
-                const img = document.createElement('img');
-                img.src = imagePath;
-                img.className = 'thumbnail';
-                img.onclick = () => openImageModal(imagePath);
-                imagesDiv.appendChild(img);
-            });
+            if (post.imagePaths && post.imagePaths.length > 0) {
+                post.imagePaths.forEach(imagePath => {
+                    const img = document.createElement('img');
+                    img.src = imagePath;
+                    img.className = 'thumbnail';
+                    img.onclick = () => openImageModal(imagePath);
+                    imagesDiv.appendChild(img);
+                });
+            } else {
+                console.error("No image paths found for the selected post.");
+            }
         }
         document.getElementById('postPopupRecipe').innerText = post.recipe;
         document.getElementById('deletePostBtn').onclick = () => deletePost(id);
@@ -166,6 +181,8 @@ function openPostPopup(id) {
 
         // Render Instagram embed if available
         renderInstagramEmbed(post.instagramLink);
+    } else {
+        console.error("Post not found for ID:", id);
     }
 }
 
@@ -178,11 +195,13 @@ function renderInstagramEmbed(instagramLink) {
             </blockquote>
         `;
         // Ensure Instagram script is executed after embedding
-        if (window.instgrm) {
-            window.instgrm.Embeds.process();
-        } else {
-            loadInstagramEmbedScript();
-        }
+        setTimeout(() => {
+            if (window.instgrm) {
+                window.instgrm.Embeds.process();
+            } else {
+                loadInstagramEmbedScript();
+            }
+        }, 500); // 500ms delay to ensure the content loads
     } else if (instagramEmbedDiv) {
         instagramEmbedDiv.innerHTML = ''; // Clear the embed if no link is provided
     }
@@ -263,6 +282,7 @@ if (postForm) {
                 body: formData
             });
             const post = await response.json();
+            console.log("Updated Post:", post); // Logging the updated post
 
             if (editId) {
                 const index = images.findIndex(p => p.id === parseInt(editId));
