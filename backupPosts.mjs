@@ -1,62 +1,55 @@
-import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
-import { exec } from 'child_process';
+import { fileURLToPath } from 'url';
+import https from 'https';
 
-const HEROKU_API_URL = 'https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts';
-const LOCAL_REPO_PATH = 'C:/Users/Yegor/Marisas-Website';
-const BACKUP_DIR = path.join(LOCAL_REPO_PATH, 'backups');
+// Convert __dirname to work with ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-async function fetchPosts() {
-    try {
-        const response = await fetch(HEROKU_API_URL);
-        const posts = await response.json();
-        console.log("Fetched posts:", posts);
-        return posts;
-    } catch (error) {
-        console.error("Error fetching posts:", error);
-        return null;
-    }
+// Define the directory where backups will be stored
+const backupDir = path.join(__dirname, 'backups');
+
+// Ensure the backups directory exists
+if (!fs.existsSync(backupDir)) {
+    fs.mkdirSync(backupDir);
 }
 
-function savePostsLocally(posts) {
-    if (!fs.existsSync(BACKUP_DIR)) {
-        fs.mkdirSync(BACKUP_DIR, { recursive: true });
-    }
+// Fetch posts data from your Heroku app
+https.get('https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts', (resp) => {
+    let data = '';
 
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-    const backupFilePath = path.join(BACKUP_DIR, `posts_backup_${timestamp}.json`);
-    fs.writeFileSync(backupFilePath, JSON.stringify(posts, null, 2));
-    console.log(`Posts have been backed up to ${backupFilePath}`);
-}
+    // A chunk of data has been received.
+    resp.on('data', (chunk) => {
+        data += chunk;
+    });
 
-async function gitCommitAndPush() {
-    try {
-        // Navigate to the local repo directory
-        process.chdir(LOCAL_REPO_PATH);
+    // The whole response has been received. Process the result.
+    resp.on('end', () => {
+        try {
+            // Parse the received data to ensure it's valid JSON
+            const posts = JSON.parse(data);
 
-        // Run Git add, commit, and push commands
-        exec('git add .', (err) => {
-            if (err) throw err;
-            exec('git commit -m "Automatic backup of posts"', (err) => {
-                if (err) throw err;
-                exec('git push', (err) => {
-                    if (err) throw err;
-                    console.log('Backup committed and pushed successfully.');
-                });
+            // Generate a timestamped filename for the backup
+            const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+            const backupFileName = `posts-backup-${timestamp}.json`;
+
+            // Full path to the backup file in the backups directory
+            const backupFilePath = path.join(backupDir, backupFileName);
+
+            // Write the backup file
+            fs.writeFile(backupFilePath, JSON.stringify(posts, null, 2), (err) => {
+                if (err) {
+                    console.error('Error writing backup file:', err);
+                    throw err;
+                }
+                console.log('Backup file created successfully at', backupFilePath);
             });
-        });
-    } catch (error) {
-        console.error("Error committing and pushing changes:", error);
-    }
-}
+        } catch (err) {
+            console.error('Error processing the received data:', err);
+        }
+    });
 
-async function backupPosts() {
-    const posts = await fetchPosts();
-    if (posts) {
-        savePostsLocally(posts);
-        await gitCommitAndPush();
-    }
-}
-
-backupPosts();
+}).on('error', (err) => {
+    console.error('Error fetching posts:', err.message);
+});
