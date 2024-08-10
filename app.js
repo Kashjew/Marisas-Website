@@ -7,6 +7,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
+const { exec } = require('child_process');  // Import child_process to run scripts
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -94,6 +95,21 @@ function savePosts(posts) {
     fs.writeFileSync(postsFilePath, JSON.stringify(posts, null, 2));
 }
 
+// Helper function to run the backup script
+function runBackupScript() {
+    exec('node backupPosts.mjs', (error, stdout, stderr) => {
+        if (error) {
+            console.error(`Error running backup script: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.error(`Backup script stderr: ${stderr}`);
+            return;
+        }
+        console.log(`Backup script stdout: ${stdout}`);
+    });
+}
+
 // Load existing posts
 let posts = loadPosts();
 
@@ -145,6 +161,9 @@ app.post('/api/posts', ensureAuthenticated, upload.array('images', 5), (req, res
     posts.unshift(post);  // Add the new post to the front of the array
     savePosts(posts);  // Save the updated posts array to the JSON file
 
+    // Run the backup script after creating a post
+    runBackupScript();
+
     res.status(200).json(post);
 });
 
@@ -166,6 +185,10 @@ app.delete('/api/posts/:id', ensureAuthenticated, (req, res) => {
             fs.unlinkSync(path.join(__dirname, imagePath));  // Remove the image files
         });
         savePosts(posts);  // Save the updated posts array to the JSON file
+
+        // Run the backup script after deleting a post
+        runBackupScript();
+
         res.status(200).json({ message: 'Post deleted successfully' });
     } else {
         res.status(404).json({ message: 'Post not found' });
@@ -199,6 +222,10 @@ app.put('/api/posts/:id', ensureAuthenticated, upload.array('images', 5), (req, 
         }
 
         savePosts(posts);  // Save the updated posts array to the JSON file
+
+        // Run the backup script after editing a post
+        runBackupScript();
+
         res.status(200).json(post);
     } else {
         res.status(404).json({ message: 'Post not found' });
