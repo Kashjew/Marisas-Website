@@ -7,7 +7,7 @@ import { dirname } from 'path';
 
 // Configuration
 const LOCAL_REPO_PATH = 'C:\\Users\\Yegor\\Marisas-Website';
-const HEROKU_API_URL = 'https://afternoon-forest-84891.herokuapp.com/api/posts';
+const HEROKU_API_URL = 'https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts';
 const BACKUP_DIR = path.join(LOCAL_REPO_PATH, 'backups');
 
 // Fetch posts from Heroku
