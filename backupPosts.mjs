@@ -1,68 +1,62 @@
+import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
 import { exec } from 'child_process';
-import fetch from 'node-fetch';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
-// Configuration
-const LOCAL_REPO_PATH = 'C:\\Users\\Yegor\\Marisas-Website';
 const HEROKU_API_URL = 'https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts';
+const LOCAL_REPO_PATH = 'C:/Users/Yegor/Marisas-Website';
 const BACKUP_DIR = path.join(LOCAL_REPO_PATH, 'backups');
 
-// Fetch posts from Heroku
 async function fetchPosts() {
     try {
         const response = await fetch(HEROKU_API_URL);
-
-        // Log the raw response to see what is being returned
-        const rawText = await response.text();
-        console.log('Raw response:', rawText);
-
-        // Try parsing it as JSON
-        const posts = JSON.parse(rawText);
-
-        if (!fs.existsSync(BACKUP_DIR)) {
-            fs.mkdirSync(BACKUP_DIR, { recursive: true });
-        }
-
-        // Track the IDs of the current posts
-        const currentPostIds = posts.map(post => post.id);
-
-        // Save each post as a JSON file
-        posts.forEach(post => {
-            const postFilePath = path.join(BACKUP_DIR, `${post.id}.json`);
-            fs.writeFileSync(postFilePath, JSON.stringify(post, null, 2));
-        });
-
-        // Remove JSON files for deleted posts
-        fs.readdirSync(BACKUP_DIR).forEach(file => {
-            const postId = path.basename(file, '.json');
-            if (!currentPostIds.includes(postId)) {
-                fs.unlinkSync(path.join(BACKUP_DIR, file));
-            }
-        });
-
-        console.log('Posts have been backed up successfully.');
-
-        // Commit and push changes to GitHub
-        commitAndPushChanges();
-
+        const posts = await response.json();
+        console.log("Fetched posts:", posts);
+        return posts;
     } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error("Error fetching posts:", error);
+        return null;
     }
 }
 
-// Commit and push changes to GitHub
-function commitAndPushChanges() {
-    exec(`cd ${LOCAL_REPO_PATH} && git add . && git commit -m "Automatic backup of posts" && git push`, (err, stdout, stderr) => {
-        if (err) {
-            console.error('Error committing and pushing changes:', err);
-            return;
-        }
-        console.log('Changes committed and pushed to GitHub.');
-    });
+function savePostsLocally(posts) {
+    if (!fs.existsSync(BACKUP_DIR)) {
+        fs.mkdirSync(BACKUP_DIR, { recursive: true });
+    }
+
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+    const backupFilePath = path.join(BACKUP_DIR, `posts_backup_${timestamp}.json`);
+    fs.writeFileSync(backupFilePath, JSON.stringify(posts, null, 2));
+    console.log(`Posts have been backed up to ${backupFilePath}`);
 }
 
-// Run the backup
-fetchPosts();
+async function gitCommitAndPush() {
+    try {
+        // Navigate to the local repo directory
+        process.chdir(LOCAL_REPO_PATH);
+
+        // Run Git add, commit, and push commands
+        exec('git add .', (err) => {
+            if (err) throw err;
+            exec('git commit -m "Automatic backup of posts"', (err) => {
+                if (err) throw err;
+                exec('git push', (err) => {
+                    if (err) throw err;
+                    console.log('Backup committed and pushed successfully.');
+                });
+            });
+        });
+    } catch (error) {
+        console.error("Error committing and pushing changes:", error);
+    }
+}
+
+async function backupPosts() {
+    const posts = await fetchPosts();
+    if (posts) {
+        savePostsLocally(posts);
+        await gitCommitAndPush();
+    }
+}
+
+backupPosts();
