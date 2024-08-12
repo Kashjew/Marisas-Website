@@ -1,11 +1,14 @@
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import https from 'https';
-import AWS from 'aws-sdk';
+import { fromIni } from "@aws-sdk/credential-providers"; // Assumes you're using environment variables
 
 // AWS S3 configuration
-const s3 = new AWS.S3({
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION
+const s3 = new S3Client({
+    region: process.env.AWS_REGION,
+    credentials: fromIni({
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    }),
 });
 
 const bucketName = process.env.S3_BUCKET_NAME;
@@ -20,16 +23,12 @@ https.get('https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts',
     });
 
     // The whole response has been received. Process the result.
-    resp.on('end', () => {
+    resp.on('end', async () => {
         try {
-            // Parse the received data to ensure it's valid JSON
             const posts = JSON.parse(data);
-
-            // Generate a timestamped filename for the backup
             const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
             const backupFileName = `posts-backup-${timestamp}.json`;
 
-            // Prepare the file content for S3
             const params = {
                 Bucket: bucketName,
                 Key: backupFileName,
@@ -37,14 +36,13 @@ https.get('https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts',
                 ContentType: "application/json"
             };
 
-            // Upload to S3
-            s3.upload(params, function(err, data) {
-                if (err) {
-                    console.error('Error uploading backup to S3:', err);
-                } else {
-                    console.log('Backup successfully uploaded to S3:', data.Location);
-                }
-            });
+            try {
+                const command = new PutObjectCommand(params);
+                const result = await s3.send(command);
+                console.log('Backup successfully uploaded to S3:', result.Location);
+            } catch (err) {
+                console.error('Error uploading backup to S3:', err);
+            }
         } catch (err) {
             console.error('Error processing the received data:', err);
         }
