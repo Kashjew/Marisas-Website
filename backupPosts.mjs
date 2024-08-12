@@ -1,11 +1,13 @@
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import https from 'https';
-import { fromIni } from "@aws-sdk/credential-providers"; // Assumes you're using environment variables
 
 // AWS S3 configuration
 const s3 = new S3Client({
     region: process.env.AWS_REGION,
-    credentials: fromIni(),
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
 });
 
 const bucketName = process.env.S3_BUCKET_NAME;
@@ -35,9 +37,8 @@ https.get('https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts',
 
             try {
                 const command = new PutObjectCommand(params);
-                await s3.send(command);
-                const s3Url = `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${backupFileName}`;
-                console.log('Backup successfully uploaded to S3:', s3Url);
+                const result = await s3.send(command);
+                console.log('Backup successfully uploaded to S3:', result.Location);
             } catch (err) {
                 console.error('Error uploading backup to S3:', err);
             }
