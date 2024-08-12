@@ -73,7 +73,12 @@ async function updateMetadata(postCount, backupFileName) {
         const data = await streamToString(response.Body);
         metadata = JSON.parse(data);
     } catch (err) {
-        console.error('No existing metadata file found, creating a new one.', err);
+        if (err.name === 'NoSuchKey') {
+            console.log('No existing metadata file found, creating a new one.');
+        } else {
+            console.error('Error fetching metadata from S3:', err);
+            return;
+        }
     }
 
     metadata.push({ timestamp: new Date().toISOString(), postCount, backupFileName });
