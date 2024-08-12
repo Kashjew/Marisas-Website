@@ -1,19 +1,14 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import https from 'https';
+import AWS from 'aws-sdk';
 
-// Convert __dirname to work with ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// AWS S3 configuration
+const s3 = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION
+});
 
-// Define the directory where backups will be stored
-const backupDir = path.join(__dirname, 'backups');
-
-// Ensure the backups directory exists
-if (!fs.existsSync(backupDir)) {
-    fs.mkdirSync(backupDir);
-}
+const bucketName = process.env.S3_BUCKET_NAME;
 
 // Fetch posts data from your Heroku app
 https.get('https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts', (resp) => {
@@ -34,16 +29,21 @@ https.get('https://afternoon-forest-84891-e9a8ed59e554.herokuapp.com/api/posts',
             const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
             const backupFileName = `posts-backup-${timestamp}.json`;
 
-            // Full path to the backup file in the backups directory
-            const backupFilePath = path.join(backupDir, backupFileName);
+            // Prepare the file content for S3
+            const params = {
+                Bucket: bucketName,
+                Key: backupFileName,
+                Body: JSON.stringify(posts, null, 2),
+                ContentType: "application/json"
+            };
 
-            // Write the backup file
-            fs.writeFile(backupFilePath, JSON.stringify(posts, null, 2), (err) => {
+            // Upload to S3
+            s3.upload(params, function(err, data) {
                 if (err) {
-                    console.error('Error writing backup file:', err);
-                    throw err;
+                    console.error('Error uploading backup to S3:', err);
+                } else {
+                    console.log('Backup successfully uploaded to S3:', data.Location);
                 }
-                console.log('Backup file created successfully at', backupFilePath);
             });
         } catch (err) {
             console.error('Error processing the received data:', err);
