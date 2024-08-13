@@ -6,41 +6,17 @@ const fs = require('fs');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
-const RedisStore = require('connect-redis').default;
-const redis = require('redis');
 const bcrypt = require('bcryptjs');
 const { exec } = require('child_process');  // Import child_process to run scripts
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Create Redis client and handle connection events
-const redisClient = redis.createClient({
-    url: process.env.REDIS_URL || 'redis://localhost:6379'
-});
-
-redisClient.on('error', (err) => {
-    console.error('Redis error:', err);
-});
-
-redisClient.on('connect', () => {
-    console.log('Connected to Redis');
-});
-
 // Middleware to parse JSON and URL-encoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set up express session with RedisStore
-app.use(session({
-    store: new RedisStore({ client: redisClient }),
-    secret: 'secret', // Replace with a more secure secret
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        secure: process.env.NODE_ENV === 'production', // Set to true if using HTTPS
-        maxAge: 1000 * 60 * 60 * 24 // 1 day
-    }
-}));
+// Set up express session
+app.use(session({ secret: 'secret', resave: false, saveUninitialized: true }));
 
 // Initialize Passport.js
 app.use(passport.initialize());
