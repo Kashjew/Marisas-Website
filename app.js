@@ -8,24 +8,23 @@ const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const { exec } = require('child_process');  // Import child_process to run scripts
-const MongoStore = require('connect-mongo');  // MongoDB session store
+const mongoose = require('mongoose');  // Import mongoose for MongoDB connection
+
 const app = express();
 const port = process.env.PORT || 3000;
+
+// MongoDB connection using Mongoose with SSL settings
+const mongoUrl = "mongodb+srv://yegorkushnir1:PeJZb9PQdtgPPGN1@cluster0.i1gq4.mongodb.net/your-database-name?retryWrites=true&w=majority&ssl=true&sslInvalidHostNameAllowed=true";
+mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Connected to MongoDB'))
+    .catch(err => console.error('Failed to connect to MongoDB:', err));
 
 // Middleware to parse JSON and URL-encoded data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set up express session with MongoDB store
-app.use(session({
-    secret: '17c4733d378cc84b0923047fdf5e4cf79cba9861a0398470317054440f411e23ab0d3c9019deab94d43821ee9114ad10c52c7b63ebd0088a3516ce9463aa3174', // Replace with your secret key
-    resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({
-        mongoUrl: 'mongodb+srv://yegorkushnir1:PeJZb9PQdtgPPGN1@cluster0.i1gq4.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
-        ttl: 14 * 24 * 60 * 60 // Optional: set session expiry (in seconds)
-    })
-}));
+// Set up express session
+app.use(session({ secret: process.env.SESSION_SECRET || 'secretkey', resave: false, saveUninitialized: true }));
 
 // Initialize Passport.js
 app.use(passport.initialize());
