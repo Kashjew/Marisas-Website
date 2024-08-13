@@ -13,8 +13,8 @@ const mongoose = require('mongoose');  // Import mongoose for MongoDB connection
 const app = express();
 const port = process.env.PORT || 3000;
 
-// MongoDB connection using Mongoose with SSL settings
-const mongoUrl = "mongodb+srv://yegorkushnir1:PeJZb9PQdtgPPGN1@cluster0.i1gq4.mongodb.net/your-database-name?retryWrites=true&w=majority&ssl=true&sslInvalidHostNameAllowed=true";
+// MongoDB connection using Mongoose without unsupported SSL options
+const mongoUrl = "mongodb+srv://yegorkushnir1:PeJZb9PQdtgPPGN1@cluster0.i1gq4.mongodb.net/your-database-name?retryWrites=true&w=majority";
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Failed to connect to MongoDB:', err));
@@ -23,8 +23,14 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set up express session
-app.use(session({ secret: process.env.SESSION_SECRET || 'secretkey', resave: false, saveUninitialized: true }));
+// Set up express session with MongoDB session store
+const MongoStore = require('connect-mongo');
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'secretkey',
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({ mongoUrl: mongoUrl })  // Use MongoDB for session storage
+}));
 
 // Initialize Passport.js
 app.use(passport.initialize());
