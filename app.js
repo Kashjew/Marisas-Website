@@ -9,13 +9,14 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const { exec } = require('child_process');  // Import child_process to run scripts
 const mongoose = require('mongoose');  // Import mongoose for MongoDB connection
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// MongoDB connection using Mongoose without unsupported SSL options
+// MongoDB connection using Mongoose
 const mongoUrl = "mongodb+srv://yegorkushnir1:PeJZb9PQdtgPPGN1@cluster0.i1gq4.mongodb.net/your-database-name?retryWrites=true&w=majority";
-mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(mongoUrl)
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Failed to connect to MongoDB:', err));
 
@@ -24,7 +25,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Set up express session with MongoDB session store
-const MongoStore = require('connect-mongo');
 app.use(session({
     secret: process.env.SESSION_SECRET || 'secretkey',
     resave: false,
