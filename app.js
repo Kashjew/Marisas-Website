@@ -7,14 +7,13 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
-const { exec } = require('child_process');  // Import child_process to run scripts
-const mongoose = require('mongoose');  // Import mongoose for MongoDB connection
-const MongoStore = require('connect-mongo');
+const { exec } = require('child_process');
+const mongoose = require('mongoose');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-// MongoDB connection using Mongoose
+// MongoDB connection using Mongoose without deprecated options
 const mongoUrl = "mongodb+srv://yegorkushnir1:PeJZb9PQdtgPPGN1@cluster0.i1gq4.mongodb.net/your-database-name?retryWrites=true&w=majority";
 mongoose.connect(mongoUrl)
     .then(() => console.log('Connected to MongoDB'))
@@ -24,13 +23,8 @@ mongoose.connect(mongoUrl)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set up express session with MongoDB session store
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'secretkey',
-    resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: mongoUrl })  // Use MongoDB for session storage
-}));
+// Set up express session
+app.use(session({ secret: process.env.SESSION_SECRET || 'secretkey', resave: false, saveUninitialized: true }));
 
 // Initialize Passport.js
 app.use(passport.initialize());
