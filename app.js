@@ -9,6 +9,7 @@ const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const { exec } = require('child_process');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -23,8 +24,19 @@ mongoose.connect(mongoUrl)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Set up express session
-app.use(session({ secret: process.env.SESSION_SECRET || 'secretkey', resave: false, saveUninitialized: true }));
+// Set up express session with MongoDB session store
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'secretkey',
+    resave: false,
+    saveUninitialized: true,
+    store: MongoStore.create({
+        mongoUrl: mongoUrl,
+        collectionName: 'sessions'
+    }),
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 // 1 day
+    }
+}));
 
 // Initialize Passport.js
 app.use(passport.initialize());
