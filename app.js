@@ -13,13 +13,17 @@ const { exec } = require('child_process');  // Import child_process to run scrip
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Create Redis client
+// Create Redis client and handle connection events
 const redisClient = redis.createClient({
-    url: process.env.REDIS_URL || 'redis://localhost:6379' // Update with your Redis server URL if needed
+    url: process.env.REDIS_URL || 'redis://localhost:6379'
 });
 
 redisClient.on('error', (err) => {
     console.error('Redis error:', err);
+});
+
+redisClient.on('connect', () => {
+    console.log('Connected to Redis');
 });
 
 // Middleware to parse JSON and URL-encoded data
