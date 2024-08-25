@@ -95,6 +95,18 @@ if (logoutBtn) {
 
 let images = [];
 
+// Polyfill for Object-fit (for older Safari versions)
+document.addEventListener("DOMContentLoaded", function() {
+    if ('objectFit' in document.documentElement.style === false) {
+        Array.prototype.forEach.call(document.querySelectorAll('img'), function(image) {
+            (image.runtimeStyle || image.style).fontFamily = '"object-fit: cover"';
+            (image.runtimeStyle || image.style).background = 'no-repeat 50% / cover';
+            (image.runtimeStyle || image.style).backgroundImage = 'url(' + image.src + ')';
+            image.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'/%3E";
+        });
+    }
+});
+
 // Fetch posts from the server when the page loads
 async function fetchPosts() {
     try {
