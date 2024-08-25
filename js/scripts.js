@@ -116,7 +116,7 @@ function renderLatestPost() {
         if (latestImage.imagePaths && latestImage.imagePaths.length > 0) {
             latestPostDiv.innerHTML = `
                 <div class="post-image-container">
-                    <img src="${latestImage.imagePaths[0]}" alt="${latestImage.title}" class="post-image" onclick="openPostPopup(${latestImage.id})">
+                    <img src="${latestImage.imagePaths[0]}" alt="${latestImage.title}" class="post-image" onclick="openPostPopup(${latestImage.id})" loading="lazy">
                 </div>
                 <h3>${latestImage.title}</h3>
             `;
@@ -137,7 +137,7 @@ function renderAllPosts() {
             div.className = 'w3-third w3-margin-bottom';
             div.innerHTML = `
                 <div class="post-image-container">
-                    <img src="${image.imagePaths[0]}" alt="${image.title}" class="post-image" onclick="openPostPopup(${image.id})">
+                    <img src="${image.imagePaths[0]}" alt="${image.title}" class="post-image" onclick="openPostPopup(${image.id})" loading="lazy">
                 </div>
                 <h3>${image.title}</h3>
             `;
@@ -162,6 +162,7 @@ function openPostPopup(id) {
                     img.src = imagePath;
                     img.className = 'thumbnail';
                     img.onclick = () => openImageModal(imagePath);
+                    img.loading = 'lazy';
                     imagesDiv.appendChild(img);
                 });
             } else {
