@@ -14,6 +14,14 @@ const MongoStore = require('connect-mongo');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// Middleware to force HTTPS
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] !== 'https') {
+    return res.redirect(['https://', req.headers.host, req.url].join(''));
+  }
+  next();
+});
+
 // MongoDB connection using Mongoose without deprecated options
 const mongoUrl = "mongodb+srv://yegorkushnir1:PeJZb9PQdtgPPGN1@cluster0.i1gq4.mongodb.net/your-database-name?retryWrites=true&w=majority";
 mongoose.connect(mongoUrl)
