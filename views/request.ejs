@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Request - Recipe by Risa</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Submit a Request</h1>
+        <% if (user) { %>
+            <p>Welcome, <%= user.username %>! <a href="/logout" class="login-btn">Logout</a></p>
+        <% } else { %>
+            <a href="/login" class="login-btn">Login</a>
+        <% } %>
+        
+    </header>
+
+    <div class="request-container">
+        <form onsubmit="submitUserRequest(event)">
+            <textarea class="request-input" name="content" placeholder="Describe your request..." required></textarea>
+            <button type="submit">Submit Request</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Recipe by Risa. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/scripts.js"></script>
+</body>
+</html>

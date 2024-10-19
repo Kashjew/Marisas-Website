@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Recipe by Risa</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+<!-- Header Section with Hero Image -->
+<%- include('../partials/header-admin') %>
+
+<!-- Post Modal -->
+<%- include('../partials/post') %>
+
+<!-- Recipe Card Modal -->
+<%- include('../partials/recipeCard') %>
+
+<!-- Admin Dashboard Content -->
+<section class="dashboard-content">
+    <% if (user && user.isAdmin) { %>
+        <!-- Manage Posts Section -->
+        <div class="manage-section">
+            <h2>Manage Posts</h2>
+
+            <!-- Create Post Popup Form -->
+            <div id="createPostModal" class="create-post-modal">
+                <div class="create-post-content">
+                    <span class="close-create-post">&times;</span>
+                    <h2>Create a New Post</h2>
+                    <form id="createPostForm" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" id="title" name="title" class="large-input form-input" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="content">Content:</label>
+                            <textarea id="content" name="content" class="large-textarea form-textarea" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tags">Tags:</label>
+                            <input type="text" id="tagInput" class="large-input form-input" placeholder="Enter a tag">
+                            <button type="button" id="addTagBtn" class="button add-tag-button">Add Tag</button>
+                            <div id="tagList" class="tag-list"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="images">Images:</label>
+                            <input type="file" id="images" name="images" class="large-input form-input" accept="image/*" multiple required>
+                            <p id="selected-files">(Upload up to 5 images)</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="instagramLink">Instagram Link:</label>
+                            <input type="url" id="instagramLink" name="instagramLink" class="large-input form-input" placeholder="https://">
+                        </div>
+
+                        <div class="form-group recipe-info-group">
+                            <div class="recipe-info-item">
+                                <label for="prepTime">Prep Time:</label>
+                                <input type="text" id="prepTime" name="recipe[prepTime]" class="small-input form-input" placeholder="e.g., 15 mins">
+                            </div>
+
+                            <div class="recipe-info-item">
+                                <label for="cookTime">Cook Time:</label>
+                                <input type="text" id="cookTime" name="recipe[cookTime]" class="small-input form-input" placeholder="e.g., 30 mins">
+                            </div>
+
+                            <div class="recipe-info-item">
+                                <label for="servings">Servings:</label>
+                                <input type="text" id="servings" name="recipe[servings]" class="small-input form-input" placeholder="e.g., 4 servings">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ingredients">Ingredients (one per line):</label>
+                            <textarea id="ingredients" name="recipe[ingredients]" rows="5" class="large-textarea form-textarea" placeholder="Enter each ingredient on a new line"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="steps">Cooking Steps (one per line):</label>
+                            <textarea id="steps" name="recipe[steps]" rows="5" class="large-textarea form-textarea" placeholder="Enter each step on a new line"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Additional Notes:</label>
+                            <textarea id="notes" name="recipe[notes]" rows="3" class="large-textarea form-textarea" placeholder="Any additional notes..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-post-btn button">Create Post</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Edit Post Popup Form -->
+            <div id="editPostModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" id="closeEditPostModal">&times;</span>
+                    <h3>Edit Post</h3>
+                    <form id="editPostForm">
+                        <input type="hidden" id="editPostId" name="postId">
+
+                        <label for="editPostTitle">Title:</label>
+                        <input type="text" id="editPostTitle" name="title" class="large-input" required>
+
+                        <label for="editPostContent">Content:</label>
+                        <textarea id="editPostContent" name="content" class="large-textarea" required></textarea>
+
+                        <label for="editPostTags">Tags:</label>
+                        <input type="text" id="editPostTags" name="tags" class="large-input" placeholder="Comma-separated tags">
+
+                        <button type="submit" class="submit-post-btn">Update Post</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- List of Posts -->
+            <div id="posts-list">
+                <% posts.forEach(post => { %>
+                    <!-- Include each post -->
+                    <%- include('../partials/post', { post: post }) %>
+                <% }) %>
+            </div>
+        </div>
+
+    <% } %>
+</section>
+
+<!-- Include JavaScript files -->
+<script type="module" src="/js/scripts.js"></script>
+
+</body>
+
+<!-- Footer -->
+<%- include('../partials/footer') %>
+
+</html>

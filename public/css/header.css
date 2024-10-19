@@ -1,0 +1,40 @@
+/* Header Section */
+.hero-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-height: 250px;
+    z-index: 1000;
+    background-color: #FBF6EF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 20px; /* Padding to create space below the header */
+}
+
+/* Logo Container */
+.logo-container {
+    width: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.user-options-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .user-options-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}

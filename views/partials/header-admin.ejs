@@ -1,0 +1,34 @@
+<!-- Header Section for Admin Dashboard -->
+<header class="hero-header admin-header">
+    <!-- Hamburger Menu for Mobile -->
+    <button id="hamburgerMenu" class="mobile-only">&#9776;</button>
+    <h3>Admin Dashboard</h3>
+
+    <!-- Hamburger Menu Content (Dropdown inside) -->
+    <div id="menuContainer" class="menu-container hidden">
+        <!-- Close Button for Menu -->
+        <button id="closeMenu" class="close-menu-button">&times;</button>
+    </div>
+
+    <!-- Logo and Hero Image -->
+    <div class="logo-container">
+        <img src="/images/hero-image.jpg" alt="Hero Image" class="hero-image">
+        <button id="createPostBtn" class="button create-post-button">Create New Post</button>
+    </div>
+
+    <!-- User Options Section -->
+    <div class="user-options-container">
+        <% if (user) { %>
+            <div class="login-container">
+                <p>Welcome, Marisa! <a href="/logout" class="login-btn">Logout</a></p>
+                <% if (user.isAdmin) { %>
+                    <!-- Create Post Button -->
+                <% } %>
+            </div>
+        <% } else { %>
+            <div class="login-container">
+                <a href="/login" class="login-btn">Login</a>
+            </div>
+        <% } %>
+    </div>
+</header>

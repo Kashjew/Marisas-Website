@@ -1,0 +1,26 @@
+<section class="previous-posts">
+    <h2>Recipes</h2>
+    <% posts.slice(1).forEach(post => { %>
+        <div class="post-image-container" data-post-id="<%= post._id %>">
+            <% if (post.imagePaths && post.imagePaths.length > 0) { %>
+                <% const imageKey = post.imagePaths[0]; %> <!-- Assuming we take the first image from the array -->
+                <!-- Check if the imageKey is already a full URL -->
+                <% const imageUrl = imageKey.startsWith('http') ? imageKey : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imageKey}`; %>
+
+                <img src="<%= imageUrl %>" 
+                     alt="<%= post.title %>" 
+                     class="post-image">
+            <% } else { %>
+                <p>No image available for this post.</p> <!-- Fallback if no image is available -->
+            <% } %>
+            <h3><%= post.title %></h3>
+            <% if (post.tags && post.tags.length > 0) { %>
+                <p>Tags: <%= post.tags.join(', ') %></p>
+            <% } %>
+            <% if (user && user.isAdmin) { %>
+                <button onclick="editPost('<%= post._id %>')">Edit Post</button>
+                <button onclick="deletePost('<%= post._id %>')">Delete Post</button>
+            <% } %>
+        </div>
+    <% }) %>
+</section>

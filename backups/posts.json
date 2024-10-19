@@ -1,0 +1,1861 @@
+{
+  _id: ObjectId('66f25568caf28fdf39037d89'),
+  id: 1727141442662,
+  title: 'Dill and Potato Salad',
+  content: 'A summer favorite of mine!  This potato salad isn’t your typical boring, “overly-mayo’d” salad.  It has great flavor from mustard seed & dill which makes this a truly unique potato salad.  ',
+  imagePaths: [
+    '/uploads/1727141442494.jpeg',
+    '/uploads/1727141442609.jpeg',
+    '/uploads/1727141442642.jpeg'
+  ],
+  recipe: '*Recipe is naturally Gluten Free\r\n' +
+    '*Serving size 6-10\r\n' +
+    '\r\n' +
+    '*4-5 medium potatoes red or yellow\r\n' +
+    '*3/4 c mayonnaise\r\n' +
+    '*1/3 c buttermilk\r\n' +
+    '*1/4 c fresh dill \r\n' +
+    '*1 tbsp dijon mustard\r\n' +
+    '*1 tbsp whole grain mustard\r\n' +
+    '*kosher salt\r\n' +
+    '*black pepper\r\n' +
+    '*2-3 strips bacon, chopped \r\n' +
+    '*1/2 c red onion, diced thinly \r\n' +
+    '*green onions for garnish\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Chop potatoes & boil until fork tender in salted water. Drain & cool. \r\n' +
+    '2. Fry bacon, rest on paper towel to soak up grease. Chop bacon, dill, red onion, green onion. \r\n' +
+    '3. In large bowl mix potatoes, mayo, buttermilk, Dijon mustard, whole grain mustard, all chopped ingredients.  Add a pinch of salt & pepper to taste.  Enjoy! \r\n' +
+    '\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6tY2eVrzV8/?igsh=NXZ2MHRneWhxbDYx',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d8a'),
+  id: 1727140769342,
+  title: 'Baked Parmesan Chicken Skewers',
+  content: 'These baked chicken skewers are so drool worthy! ',
+  imagePaths: [
+    '/uploads/1727141560054.jpeg',
+    '/uploads/1727141560342.jpeg',
+    '/uploads/1727141560774.jpeg'
+  ],
+  recipe: '*Recipe is naturally Gluten Free \r\n' +
+    '*Makes 2-3 chicken skewers\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*2 lbs chicken tenders or breasts\r\n' +
+    '*Metal skewers for baking \r\n' +
+    '\r\n' +
+    'GARLIC PARMESAN BUTTER SAUCE:\r\n' +
+    '*1 stick butter\r\n' +
+    '*1 tbsp whole Greek yogurt\r\n' +
+    '*8-10 cloves garlic, minced\r\n' +
+    '*1 tsp onion powder\r\n' +
+    '*1/3 c parmesan, grated\r\n' +
+    '*1 tbsp hot sauce more if desired\r\n' +
+    '*2 tsp red pepper flakes\r\n' +
+    '*1/3 c fresh parsley, minced\r\n' +
+    '\r\n' +
+    'CHICKEN SEASONING:\r\n' +
+    '*2 tbsp EVOO\r\n' +
+    '*2 tsp paprika\r\n' +
+    '*1 tsp garlic powder\r\n' +
+    '*1 tsp onion powder\r\n' +
+    '*1/2 tsp salt\r\n' +
+    '*1/2 tsp pepper\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Prepare chicken pieces by cutting breasts into bite sized pieces or marinating whole chicken tenders with all chicken seasonings + 2 tbsp EVOO in large ziplock bag for 2-3 hours. \r\n' +
+    '2. Preheat oven 450F & line a baking sheet with tin foil.\r\n' +
+    '3. Make garlic Parmesan marinade by combining all ingredients for the sauce except for the Parmesan in microwavable bowl 30 seconds at a time whisking in between. Do not melt butter totally. \r\n' +
+    '4. Slide chicken pieces onto skewers, and coat them with the garlic parmesan sauce (leave some of the sauce for coating chicken again, half way through baking). Coat chicken pieces with freshly grated Parmesan. \r\n' +
+    '5. Place chicken skewers on baking pan lined with aluminum foil, & bake 450F for 14 minutes, flipping skewers onto other side half way through baking time, coating again with sauce and Parmesan. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6q1u_4sKMF/?igsh=MTQybDBxNHA3N2I4',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d8b'),
+  id: 1727140080641,
+  title: 'Protein Strawberry & Chocolate Muffins',
+  content: 'These protein muffins are simple & delicious!  The consistency is a lava cake texture which makes these SO yum!',
+  imagePaths: [
+    '/uploads/1727140080524.jpeg',
+    '/uploads/1727140080612.jpeg'
+  ],
+  recipe: '*Naturally Gluten Free\r\n' +
+    '*6 servings\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*⅔ c blanched almond flour\r\n' +
+    '*4 strawberries sliced thinly\r\n' +
+    '*½ tsp salt\r\n' +
+    '*1 tbsp cocoa powder\r\n' +
+    '*6 oz chocolate chips or any coarse chocolate chopped for heating\r\n' +
+    '*½ c coconut oil\r\n' +
+    '*30g protein powder (I used @gardenoflife chocolate flavor)\r\n' +
+    '*¾ c granulated or coconut sugar\r\n' +
+    '*2 eggs room temp\r\n' +
+    '*1 tsp vanilla extract\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven 350F, line 9x9 muffin pan with muffin liners.\r\n' +
+    '2. In large bowl whisk almond flour, protein powder, salt, cocoa powder. \r\n' +
+    '3. Heat chocolate + coconut oil in bowl 30 sec microwaving, stirring each time until smooth & silky. Add sugar & stir. \r\n' +
+    '4. Add eggs + vanilla and stir until combined, do not over mix. \r\n' +
+    '5. Add chocolate mixture + strawberries to flour mixture bowl. Fold gently until combined. \r\n' +
+    '6. Using ice cream scoop, scoop 3-5 tbsp of batter into each muffin cup. Bake 28-32 minutes or until toothpick comes out clean.  Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6oO8pkrk-t/?igsh=MTJ2M2lidDNhdjhreA==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d8c'),
+  id: 1727139455949,
+  title: 'Chocolate Marshmallow Protein Brownies',
+  content: 'These protein brownies are so tasty & offer a great source of protein by adding in your favorite protein powder!  The gooey marshmallow chunks add the perfect amount of sweetness & texture.  SO good!',
+  imagePaths: [
+    '/uploads/1727139455714.jpeg',
+    '/uploads/1727139455927.jpeg',
+    '/uploads/1727139455937.jpeg'
+  ],
+  recipe: '*Naturally Gluten Free\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*⅔ c blanched almond flour\r\n' +
+    '*½ tsp salt\r\n' +
+    '*1 tbsp cocoa powder\r\n' +
+    '*6 oz chocolate chips or any coarse chocolate chopped for heating\r\n' +
+    '*½ c coconut oil\r\n' +
+    '*1 scoop 20g protein powder (I used Garden of Life’s chocolate flavor)\r\n' +
+    '*¾ c granulated or coconut sugar\r\n' +
+    '*2 eggs room temperature\r\n' +
+    '*1 tsp vanilla extract\r\n' +
+    '*1/2 c chocolate chips for batter + more for top of brownies\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven 350F, line 9x9 baking pan with parchment, grease. \r\n' +
+    '2. In large bowl whisk almond flour, protein powder, salt, cocoa powder. \r\n' +
+    '3. Heat 1/2 c chocolate + coconut oil in small bowl 30 sec microwaving, stirring each time until smooth & silky. Add sugar & stir until melted.\r\n' +
+    '4. Add eggs + vanilla & stir until combined, do not over mix. \r\n' +
+    '5. Add chocolate mixture + chocolate chips to flour mixture bowl. Fold gently until combined. \r\n' +
+    '6. Pour batter into prepared baking dish, top with extra marshmallows & chocolate chips.  Bake 28-32 minutes. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6gfVyqriUN/?igsh=djdnNzd5NzdyaTRj',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d8d'),
+  id: 1727129434999,
+  title: 'Chocolate Chip Bars',
+  content: 'These chocolate chip bars have been my most popular hit, with over 20k+ views & just almost 2k likes on Instagram!  They’re golden on the outside with a gooey, chocolate chunk center.  They’re true perfection.',
+  imagePaths: [
+    '/uploads/1727129434828.jpeg',
+    '/uploads/1727129434933.jpeg',
+    '/uploads/1727129434979.jpeg'
+  ],
+  recipe: '*Recipe works for both Gluten Free & Non Gluten Free\r\n' +
+    '*Photos & Reel shown were made Gluten Free\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*3/4 c butter, melted and cooled 5 min\r\n' +
+    '*1 c light brown sugar\r\n' +
+    '*1/4 c + 2 tbsp granulated sugar\r\n' +
+    '*1 large egg, room temperature\r\n' +
+    '*1 egg yolk \r\n' +
+    '*1-2 tbsp vanilla extract or vanilla bean paste\r\n' +
+    '*2 c APF (I used Cup4Cup).\r\n' +
+    '*2 tbsp cornstarch\r\n' +
+    '*1 tsp kosher salt\r\n' +
+    '*1.5 tsp baking soda\r\n' +
+    '*1 1/2 c semisweet chocolate chips\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven to 350F. Line 8×8 metal baking pan with parchment paper.\r\n' +
+    '2. In medium mixing bowl, combine flour blend, cornstarch, salt, baking soda. Whisk to combine, set aside.\r\n' +
+    '3. In large mixing bowl or bowl of a stand mixer, combine melted butter, brown sugar, granulated sugar. Mix until just combined.\r\n' +
+    '4, Add Egg, egg yolk, and vanilla, and mix to combine.\r\n' +
+    '5. Mix in the dry ingredients most of the way, until just a few powdery spots remain in the dough.\r\n' +
+    '6. Add chocolate chips, mix until well blended and distributed.  Spread dough out into baking pan evenly. \r\n' +
+    '7. Bake cookie bars 25-30 min or until the edges are set and the top is golden & toothpick comes out mostly clean.  Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6d7uCMLj1W/?igsh=aTBhOHFzZ3F0b3Vu',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d8e'),
+  id: 1727128539178,
+  title: 'Spicy Korean Chicken',
+  content: 'This Korean marinated chicken goes great with rice, vegetables, & noodles.  It’s a perfect balance of a little sweet & salty!',
+  imagePaths: [
+    '/uploads/1727128538956.jpeg',
+    '/uploads/1727128539051.jpeg'
+  ],
+  recipe: '*Recipe works for both Gluten Free & Non Gluten Free\r\n' +
+    '\r\n' +
+    '\r\n' +
+    'MARINADE INGREDIENTS:\r\n' +
+    '*4 large chicken breasts, chopped into cubes\r\n' +
+    '*2-3 cloves garlic cloves minced\r\n' +
+    '*1-2 tbsp Toasted sesame seeds\r\n' +
+    '*oil for frying\r\n' +
+    '*1 tsp sesame oil\r\n' +
+    '*1 tsp soy sauce (use Gluten Free soy sauce if needed).\r\n' +
+    '*1 tsp ginger garlic paste\r\n' +
+    '\r\n' +
+    'SAUCE MIX:\r\n' +
+    '*2 tbsp Gochujang (Korean Chilli Paste)\r\n' +
+    '*3 tbsp ketchup\r\n' +
+    '*2 tbsp honey \r\n' +
+    '*1 tbsp lemon juice\r\n' +
+    '*1 tsp sesame oil\r\n' +
+    '*3 tbsp water \r\n' +
+    '*1 tbsp cornstarch\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Cut chicken into bite sized cubes, put in large bowl or ziplock bag with marinate ingredients for 20 mins up to overnight.\r\n' +
+    '2. In large skillet heat oil on medium high heat, add chicken cubes in. While chicken is cooking, prepare the sauce. \r\n' +
+    '3. In medium bowl whisk sauce ingredients, until combined. Add your sauce over the chicken, and continue to cook while stirring until sauce has thickened. Remove from heat immediately and serve topped with green onion & toasted sesame seeds. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6bRaxILuDc/?igsh=bDczMmFyNDZhYzkz',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d8f'),
+  id: 1727128058924,
+  title: 'Korean Japchae Noodles',
+  content: 'This popular Korean noodle dish is so tasty!  The potato starch noodles are so tender tossed with vegetables in a sweetened soy sauce mixture.  ',
+  imagePaths: [
+    '/uploads/1727128058811.jpeg',
+    '/uploads/1727128058898.jpeg'
+  ],
+  recipe: '*Recipe works for both Gluten Free & Non Gluten Free\r\n' +
+    '\r\n' +
+    '*Korean glass noodles (my favorite is Chung Jung O Food) I used 3, 3.5oz packs. \r\n' +
+    '*2 tbsp EVOO\r\n' +
+    '*1 large shredded carrot\r\n' +
+    '*1 shredded red or yellow bell pepper\r\n' +
+    '*3 c spinach leaves\r\n' +
+    '*3 cloves garlic minced\r\n' +
+    '*green onion\r\n' +
+    '*sesame seeds\r\n' +
+    '*4 tbsp low sodium soy sauce (Use GF soy sauce if necessary)\r\n' +
+    '*3 tbsp dark brown sugar\r\n' +
+    '*1-2 tbsp sesame oil\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Boil noodles for few minutes until tender. Drain,  drizzle with sesame oil to prevent sticking & set aside.\r\n' +
+    '2. Prepare vegetables shredding carrots, peppers, mincing garlic, chopping green onion. \r\n' +
+    '3. In medium sauce pan, heat olive oil on medium heat. Add in shredded vegetables, garlic, and green onion. Sauté until they start to get softer, then add soy sauce, dark brown sugar, sesame oil. \r\n' +
+    '4. Once soy sauce vegetable mixture has thickened just a little, turn off heat and pour over your noodles. Mix well. Top with more fresh green onion, toasted sesame seeds. Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/C6bRaxILuDc/?igsh=bDczMmFyNDZhYzkz',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d90'),
+  id: 1727127390332,
+  title: 'Spicy Red Curry Coconut Noodle Soup',
+  content: 'This coconut curry soup is so flavorful with creaminess from coconut milk & heat from red chili paste. Super easy & delicious to make!',
+  imagePaths: [
+    '/uploads/1727127390073.jpeg',
+    '/uploads/1727127390325.jpeg'
+  ],
+  recipe: '*Recipe can be both Gluten Free & Non Gluten Free\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*1-2 tbsp EVOO\r\n' +
+    '*3 cloves garlic, minced\r\n' +
+    '*1 red bell pepper, diced\r\n' +
+    '*1 onion, diced\r\n' +
+    '*3 tbsp red curry paste\r\n' +
+    '*1 tbsp freshly grated ginger\r\n' +
+    '*6 c low sodium chicken broth\r\n' +
+    '*1 (13.5-ounce) can coconut milk\r\n' +
+    '*4 ounces rice noodles (you can also use glass noodles, which I did have on hand). \r\n' +
+    '*2 tsp brown sugar\r\n' +
+    '*3 green onions, thinly sliced\r\n' +
+    '*½ c chopped fresh cilantro leaves\r\n' +
+    '*¼ c chopped fresh basil leaves\r\n' +
+    '*2 tbsp freshly squeezed lime juice\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Optional- Prepare fish, chicken, boiled eggs before hand so you can add it to your noodle soup once it’s cooked. \r\n' +
+    '2. Boil noodles, drain, set aside. (While boiling you can prepare green onion, cilantro, basil, garlic, ginger). \r\n' +
+    '3. Slice and dice bell pepper, onion. Add it to a stockpot or medium soup pot along with EVOO and sautee on medium heat for few minutes until  fragrant and onions start to appear translucent. \r\n' +
+    '4. Add garlic, ginger, red curry paste to the pot, saute for another 3 minutes. \r\n' +
+    '5. Add chicken broth (I used Zoup chicken bone broth), coconut milk, brown sugar to pot and let simmer for another 5-10 minutes. \r\n' +
+    'Serve adding noodles, broth, prepared meats, egg, and prepared herbs. Top with some freshly squeezed lime. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6EHP4MrQFP/?igsh=MWs4ajJ3MTFwbzY1YQ==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d91'),
+  id: 1727126731775,
+  title: 'Potato Pakora',
+  content: 'This popular, tasty Indian dish is so simple to make & so flavorful.  The pakora’s are crispy, tasty bites packed with so many gorgeous spices.',
+  imagePaths: [
+    '/uploads/1727126731488.jpeg',
+    '/uploads/1727126731759.jpeg',
+    '/uploads/1727126731766.jpeg'
+  ],
+  recipe: '*Recipe works for both Gluten Free & Non Gluten Free.\r\n' +
+    ' \r\n' +
+    '*2 yellow potatoes \r\n' +
+    '*1/2 c red onion sliced thinly \r\n' +
+    '*1-2 green chilis minced\r\n' +
+    '*2 cloves garlic minced\r\n' +
+    '*1 thumb ginger skinned & minced\r\n' +
+    '\r\n' +
+    'SPICES:\r\n' +
+    '*1/2 tsp kosher salt\r\n' +
+    '*1 tsp chaat masala\r\n' +
+    '*1 tsp coriander powder\r\n' +
+    '*1 tsp red chili powder\r\n' +
+    '*1 tsp turmeric powder\r\n' +
+    '*1 tsp cumin powder\r\n' +
+    '\r\n' +
+    'BATTER:\r\n' +
+    '*1/2 c besan flour, APF, or GF APF\r\n' +
+    '*Few tbsp cornflour\r\n' +
+    '*Few tbsp cornstarch\r\n' +
+    '*2+ tbsp water\r\n' +
+    '\r\n' +
+    'FRY:\r\n' +
+    '*1 c vegetable oil\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Peel, slice potatoes into 1/4 inch thickness. Boil in salted water until fork tender then set aside. While boiling, slice onion. \r\n' +
+    '2. In mixing boil add potatoes along with every ingredient except for oil. Mix and mash to form consistency that is wet but thick enough to form pakora patties with your hands. \r\n' +
+    '3. Heat oil in deep skillet over medium heat. Once hot, add 2-3 pakora patties at a time, browning each side before removing from oil. Drain on cooling rack or paper towel. Top with extra spices, lime, cilantro.  Goes great with Tamarind sauces.  Enjoy!\r\n',
+  instagramLink: ' https://www.instagram.com/reel/C53R0O_LoCH/?igsh=MXNlNTZyYXFkOHk4dw==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d92'),
+  id: 1727125499343,
+  title: 'Sweet & Spicy Chicken Tenders',
+  content: 'These chicken tenders are by far the MOST flavorful Asian-style chicken tenders.  They have a perfect balance of sweet & spicy with a crunchy coating!',
+  imagePaths: [
+    '/uploads/1727125562521.jpeg',
+    '/uploads/1727125562817.jpeg'
+  ],
+  recipe: '*This recipe works for both Gluten Free & Non Gluten Free\r\n' +
+    '\r\n' +
+    '*1-3/4lbs chicken breasts cut into 1 inch thick strips\r\n' +
+    '*1/2 c all purpose flour (can use GF APF). \r\n' +
+    '* salt and pepper\r\n' +
+    '*2 eggs\r\n' +
+    '*2 tbsp whole milk\r\n' +
+    '*4 c panko bread crumbs or Chex mix pulsed in food processor.\r\n' +
+    '*cilantro, green onion, sesame seeds for garnish \r\n' +
+    '\r\n' +
+    'SAUCE:\r\n' +
+    '*1/2 c sweet chili sauce\r\n' +
+    '*1/2 c water\r\n' +
+    '*1/4 c dark brown sugar\r\n' +
+    '*1/4 c soy sauce (use GF soy sauce if you are making this dish GF).\r\n' +
+    '*2 tbsp rice vinegar\r\n' +
+    '*2 tbsp fresh lime juice\r\n' +
+    '*1 tbsp ginger paste\r\n' +
+    '*2 tbsp garlic minced \r\n' +
+    '*2 tsp red pepper chili flakes \r\n' +
+    '*1 tsp cornstarch for thickening (optional)\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Line 2 baking sheets with foil then spray very well with nonstick spray & set aside.\r\n' +
+    '2. Whisk eggs & milk in shallow dish. Process breadcrumbs, season with salt & pepper- place in another dish.\r\n' +
+    '3. Add flour to a large Ziplock bag then toss chicken tenders in egg/milk wash, then into flour bag, egg wash again, then into your breadcrumb mix.  Repeat for every chicken tender. Place them on baking sheet and refrigerate for 20-30 minutes so breading will stick to tenders while baking.\r\n' +
+    '4. Preheat oven to 425F. \r\n' +
+    '5. Spray tops of chicken fingers with extra virgin olive oil or nonstick spray then bake for 10 minutes. After 10 min flip each tender over and spray with nonstick spray again, then place back in oven rotating baking sheets for an even bake for another 7-9 minutes until golden brown and cooked through. \r\n' +
+    '6. Combine sauce ingredients in small sauce pot, over medium-high heat. Lower heat to medium then cook until sauce is reduced and slightly thickened, 5-6 minutes. \r\n' +
+    '7. Using tongs, dunk each tender directly into your sauce, then place each back on baking sheet. Bake for another 5 minutes, be careful to watch closely as they can burn. Top chicken tenders either green onion, sesame seeds, cilantro. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C5lTHdWLDjG/?igsh=bG43NmQ1czE5bnNl',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d93'),
+  id: 1727124886631,
+  title: 'Crispy Rice ',
+  content: 'Little bites of heaven!  These crispy rice bites pair perfectly with your favorite sashimi or spicy mayo.  ',
+  imagePaths: [
+    '/uploads/1727124886532.jpeg',
+    '/uploads/1727124886605.jpeg'
+  ],
+  recipe: '*Gluten Free\r\n' +
+    '\r\n' +
+    '*1 ½ c dry sushi rice rinsed until water is clear\r\n' +
+    '*2 c water\r\n' +
+    '*1 tsp  salt\r\n' +
+    '*3 tbsp rice vinegar\r\n' +
+    '*1 tbsp granulated sugar\r\n' +
+    '*1 tsp toasted sesame oil\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Prepare rice. Wash sushi rice rinsing it as many times as it takes until water is not cloudy.  Cook in rice cooker or on stove.\r\n' +
+    '2. In a small bowl, mix salt, rice vinegar, sugar, and sesame oil until the sugar has dissolved. Once the rice is cooked, toss the mixture with the cooked rice in large bowl until combined. \r\n' +
+    '3. Shape & press rice in a 9x9 inch baking square pan. Flatten surface. Cover and cool in fridge for at least 2-3 hours.\r\n' +
+    '4. Once the rice is chilled, cut into bite-sized rectangles. Pat to dry off any excess water condensation.\r\n' +
+    '5. Heat oil in a pan on medium- medium high heat about 1 inch tall in pan, place a few rice pieces carefully in hot oil. Flip each piece after around 30 seconds when side is turning a light golden brown color. Once done cool on cooling rack to drain excess oil. Top with your choices of toppings or enjoy each bite with some spicy mayo!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C5gGoZcrxw8/?igsh=cXIwY2ptY21tcjVj',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d94'),
+  id: 1727116685752,
+  title: 'Chicken Turmeric Dumplings ',
+  content: 'These gluten free dumplings are mouthfuls of heaven.  Filled with deliciously seasoned ground chicken, wrapped in turmeric dumpling wrappers,',
+  imagePaths: [
+    '/uploads/1727124275457.jpeg',
+    '/uploads/1727124276175.jpeg',
+    '/uploads/1727124276181.jpeg',
+    '/uploads/1727124276439.jpeg'
+  ],
+  recipe: '*Gluten Free\r\n' +
+    '\r\n' +
+    'TURMERIC DUMPLINGS WRAPPERS:\r\n' +
+    '*spandex glove if kneading with hand & using turmeric\r\n' +
+    '*85 ml room temperature water, plus 4 ml warm water if needed\r\n' +
+    '*55 g Bob’s red mill tapioca starch\r\n' +
+    '*55 g Thai Rice Flour + more for dusting\r\n' +
+    '*1/8 tsp coarse salt\r\n' +
+    '*2-3 tsp EVOO\r\n' +
+    '*1 tsp turmeric powder, optional only if you want the wrappers in yellow color\r\n' +
+    '\r\n' +
+    'GROUND CHICKEN FILLING:\r\n' +
+    '*2 c cabbage shredded\r\n' +
+    '*3 cloves minced garlic\r\n' +
+    '*1 tbsp ginger paste\r\n' +
+    '*1 tbsp EVOO\r\n' +
+    '*1/2 lb ground chicken\r\n' +
+    '*1 egg\r\n' +
+    '*chopped chives or green onion\r\n' +
+    '*2 tbsp soy sauce (I used GF soy sauce)\r\n' +
+    '*salt & pepper\r\n' +
+    '*1 tbsp water\r\n' +
+    '\r\n' +
+    '1. Prepare chicken filling first. Shred cabbage & finely chop. Add EVOO to a pan and sautee cabbage, garlic, ginger for few minutes until soft.   Set aside. \r\n' +
+    '2. Mix ground chicken in a medium mixing bowl along with egg, chives, soy sauce, salt & pepper to taste, water. Add cabbage mix into bowl and mix with your hand until thoroughly mixed. Set aside.\r\n' +
+    '3. Make the wrappers:  Measure out both flours into separate bowls.  \r\n' +
+    '4. In medium saucepan add the water & salt.  Stir to dissolve. Add the tapioca starch & stir until no lumps.\r\n' +
+    '5. Place the pan over low heat & constantly stir for few mins until 2/3 of the liquid forms into lumps. \r\n' +
+    '6. Immediately remove pan from heat but keep stirring & quickly add the rice flour to the pan.  Stir to combine & transfer starch & flour mixture onto floured lightly floured. \r\n' +
+    '7. Add the EVOO to the dough & knead 5-6 minutes until combined.  While kneading, add a little flour & turmeric to the middle of the dough & fold into itself (while wearing glove to protect hands from turning yellow).  Ad first the dough will be crumbly, but as you continue kneading it, it will come together to be slightly stretchy.\r\n' +
+    '8. If after 5 minutes the dough still seeems crumbly, add 2 ml warm water & continue kneading for another few minutes.  Do not over knead. \r\n' +
+    '9. Cover dough & rest at room temperature for 20 minutes.  \r\n' +
+    '10. After resting, lightly dust floured surface & roll out into a thin, long rectangle.  Dust surface with more rice flour & using pie cutter or knife, cut out 3-4 inch squares.  \r\n' +
+    '11.  Fill each dumpling wrapper with 1-2 tsp of ground chicken filling, then fold gently into desired dumpling wrapper style, sealing wrappers with a few drops of water.\r\n' +
+    '12. In medium Dutch oven or soup pot, heat water or chicken stock over medium heat.  Place dumplings in pot few at a time & cook for few minutes carefully flipping them over.  Dumplings will cook fast.  Serve with hot chili oil, sesame seeds, scallion & Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/C5YY4IcumrS/?igsh=MWI4ejdsMG80dmszZQ==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d95'),
+  id: 1727115406076,
+  title: 'Cinnamon Chocolate Rolls',
+  content: 'These gluten free cinnamon rolls are SO fluffy, soft, & truly delicious.  They’re perfect topped with buttercream frosting!',
+  imagePaths: [
+    '/uploads/1727115448981.jpeg',
+    '/uploads/1727115449258.jpeg',
+    '/uploads/1727115449271.jpeg',
+    '/uploads/1727115449279.jpeg'
+  ],
+  recipe: '*Gluten Free\r\n' +
+    '\r\n' +
+    '*1 16 ounce bag (GF) bread flour (I used Cup4Cup)\r\n' +
+    '*½ c granulated sugar\r\n' +
+    '*1 packet instant yeast\r\n' +
+    '*2 tsp baking powder\r\n' +
+    '*½ tsp salt\r\n' +
+    '*1 ¼ c milk\r\n' +
+    '*2 eggs room temperature\r\n' +
+    '*⅓ c butter melted, cooked slightly\r\n' +
+    '*2 tsp vanilla\r\n' +
+    '*2 c heavy cream\r\n' +
+    'FILLING:\r\n' +
+    '*6 tbsp softened butter\r\n' +
+    '*¾ c granulated sugar\r\n' +
+    '*2 tbsp cinnamon\r\n' +
+    '*2 tbsp cocoa powder\r\n' +
+    '*buttercream frosting of your choice\r\n' +
+    '\r\n' +
+    '1. In bowl of stand mixer, add flour, instant yeast, sugar, salt, baking powder.\r\n' +
+    '2. Mix on low until combined with dough hook until combined.  \r\n' +
+    '3. Warm milk in microwave for about 1 minute or until warm like bath water (around 105F). \r\n' +
+    '4. With mixer running on low, pour in milk, then melted/slightly cooled butter, eggs, vanilla extract.\r\n' +
+    '5. Mix for 30 seconds, then scrape down sides and bottom of bowl to ensure everything is well combined. \r\n' +
+    '6. Turn mixer to medium/low speed, let dough knead about 5 minutes. Let dough sit for few minutes. \r\n' +
+    '7. Meanwhile, whisk together cinnamon, cocoa powder, sugar in bowl, set aside. \r\n' +
+    '8. Add 6 tbsp of butter to a bowl and melt for about 15-20 seconds, then stir so it just looks softened, not fully melted. Set aside. \r\n' +
+    'Transfer dough to floured surface.\r\n' +
+    '9. Roll into 10x12 rectangle about 1/2 inch thick.\r\n' +
+    '10. Brush butter on top, then sprinkle with the cocoa/cinnamon sugar. \r\n' +
+    '11. Using pizza cutter, cut strips about 1 1/4 inch wide, 12 inch long. Roll each strip starting from the top, rolling down to form rolls. \r\n' +
+    'Place in 9x13 greased pan.  Cover with plastic wrap and place in warm area for 1 hr. (I place mine on a 77F proof mat, or by a sunny window with towel covering it.) Toward the end of the hour, preheat oven to 350F. \r\n' +
+    '12. Once rolls have risen, drizzle heavy cream over rolls & bake 22-28 min.  Let cool & top with buttercream frosting.  Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/C5GWVncLX_S/?igsh=MWU2YWRsdmllaG4wOA==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d96'),
+  id: 1727114083941,
+  title: 'Honey Pretzel Cheese Buns',
+  content: 'These cheese buns are the perfect combination of fluffy bread & melts cheese!  The bun tops have a pretzel layer brushed with honey.  Absolutely delicious.  ',
+  imagePaths: [
+    '/uploads/1727114083569.jpeg',
+    '/uploads/1727114083848.jpeg',
+    '/uploads/1727114083908.jpeg',
+    '/uploads/1727114083920.jpeg',
+    '/uploads/1727114083929.jpeg'
+  ],
+  recipe: '*This recipe is NOT Gluten Free.\r\n' +
+    '\r\n' +
+    'SPRAY PAN WITH BUTTER BAKING SPRAY \r\n' +
+    '\r\n' +
+    'DOUGH:\r\n' +
+    '*1 1/2 c warm water (between 110-115 degrees F)\r\n' +
+    '*1 package Rapid Rise yeast\r\n' +
+    '*1 1/2 tbsp sugar\r\n' +
+    '*1 3/4 tsp salt\r\n' +
+    '*1 tbsp fresh rosemary & parsley chopped\r\n' +
+    '*4 & 1/4 cups all-purpose flour\r\n' +
+    '*6 tbsp unsalted butter, very soft\r\n' +
+    '\r\n' +
+    'COOKING LIQUID:\r\n' +
+    '*10 c water\r\n' +
+    '*3/4 c baking soda\r\n' +
+    '\r\n' +
+    'FILLING::\r\n' +
+    '*1 c mozzarella cheese, shredded\r\n' +
+    '*1/4 c parmesan cheese, grated\r\n' +
+    '\r\n' +
+    'EGG WASH:\r\n' +
+    '*1 egg, beaten\r\n' +
+    '\r\n' +
+    'TOPPING:\r\n' +
+    '*2 tbsp melted butter \r\n' +
+    '*2 tbsp honey \r\n' +
+    '*parsley\r\n' +
+    '\r\n' +
+    '1. Combine water, yeast, sugar, salt in bowl of a stand mixer fitted with dough hook. Let stand for 10 minutes for yeast to bloom. \r\n' +
+    '2. Add rosemary, parsley, flour, butter, knead on medium-speed for 12 minutes.\r\n' +
+    '3. Spray dough lightly with water in spray bottle, cover with plastic wrap or damp cloth in warm area of your house to rise for an hour, or until dough has doubled in size.\r\n' +
+    '4. Assembly and Cooking:  Combine shredded mozzarella & parmesan in small bowl. Place bowl in freezer until needed.\r\n' +
+    '5. Preheat oven 425(F). Spray baking butter spray in 9x9 baking dish. \r\n' +
+    '6. Add water, baking soda to large pot or dutch oven; bring to boil.\r\n' +
+    '7. Divide dough, roll into 8 or 9 equal balls. Roll out each ball into circles 5 inch length/width, oversized dumpling wrappers. Place around 1 tbsp each with cheese mixture in middle, fold and pinch dough closing it around cheese, making a cheese filled ball. \r\n' +
+    '8. Place pretzel balls into boiling water, you can do 3 at a time. Cook for 30 seconds each. Remove pretzel balls from water, set on cooling rack to drain slightly before placing them baking dish. \r\n' +
+    '9. Once all pretzels have been boiled, brush tops of each with egg wash.  Place pan in oven, bake for 16-18 minutes.\r\n' +
+    '10. Brush your pretzel buns with melted butter/honey mixture, and top with a pinch of parsley,  Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C48EKlNLo_5/?igsh=b3NmMDJqc2d3ODh0',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d97'),
+  id: 1727112849812,
+  title: 'Crispy Chicken Cakes',
+  content: 'This recipe was my first recipe to get over 12k+ views on Instagram for a reason.  They’re so tasty & very simple to make,  They can be paired with many different sauces such as remoulade, tzatziki, ketchup, etc.  ',
+  imagePaths: [
+    '/uploads/1727112849575.jpeg'
+  ],
+  recipe: '*4 tbsp EVOO for frying\r\n' +
+    '*6 small cans of chicken breast or 3-4 c of shredded chicken\r\n' +
+    '*1/2 c shredded mozzarella \r\n' +
+    '*2 whole eggs\r\n' +
+    '*1/3 c almond flour\r\n' +
+    '*1/3 c grated parmesan cheese\r\n' +
+    '*2 tbsp chives, chopped or dried\r\n' +
+    '*1 tsp onion powder\r\n' +
+    '*1 tsp garlic powder\r\n' +
+    '*1 tsp Italian seasoning\r\n' +
+    '*Salt, pepper, paprika to taste\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Drain canned chicken then break the chicken into small pieces so there are no large pieces.\r\n' +
+    '2. Add chicken and all the other ingredients into a large bowl, except the oil.\r\n' +
+    '3. Mix ingredients well until all the ingredients are combined & will stick together to form small patties. \r\n' +
+    '4. Form small chicken cakes with 2 tbsp of chicken mixture per cake.\r\n' +
+    '5. Add the oil to a large pan and heat over medium-high heat. When the oil is hot, place 4 cakes in the pan at a time.  Don’t over crowd. \r\n' +
+    'Fry 2-3 mins on the first side, then when it is easy to flip, fry on the second side for another 2 mins or until fully cooked & a nice golden brown.  Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/C37wl5srUMh/?igsh=MTkzYmJ4MmNrajJydQ==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d98'),
+  id: 1727109603934,
+  title: 'Strawberry Cream Cake Roll',
+  content: 'This gluten free cream cake roll is such a lush treat.  Filled with fresh strawberries & fluffy whipped cream wrapped in a soft cake roll- a perfect dessert to serve to your guests!',
+  imagePaths: [
+    '/uploads/1727111455664.jpeg'
+  ],
+  recipe: '*4 eggs separated\r\n' +
+    '*3/4 cup sugar\r\n' +
+    '*6 tbsp unsalted butter, at room temperature\r\n' +
+    '*1-2 tbsp warm water\r\n' +
+    '*1/2 c + 2 tbsp GF APF (I used King Arthur)\r\n' +
+    '*1/4 tsp xanthan gum (omit if your blend already contains it)\r\n' +
+    '*2 tbsp cornstarch (I use Bob’s Red Mill)\r\n' +
+    '*1/4 tsp kosher salt\r\n' +
+    '*1/2 tsp pure vanilla extract\r\n' +
+    '*1/4 tsp cream of tartar\r\n' +
+    'FILLING: \r\n' +
+    '* 1 tbsp unflavored powdered gelatin\r\n' +
+    '*1/4 c water\r\n' +
+    '*2 c heavy whipping cream, chilled\r\n' +
+    '*2 tbsp powdered sugar\r\n' +
+    '*2 c fresh strawberries cleaned & chopped\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven to 350°F. Line sheet pan with parchment paper\r\n' +
+    '2. Cake batter- in large mixing bowl, add egg yolks, 1/2 cup sugar, butter, tbsp warm water. Whisk vigorously 5 minutes.  \r\n' +
+    '3. Sift flour blend, xanthan gum, cornstarch, salt into egg yolk butter mixture, beat until well-combined. Set aside. \r\n' +
+    '4. In clean mixing bowl, place egg whites & cream of tartar. Beat egg whites on medium-high speed until soft peaks form. Add remaining 1/4 cup sugar, beat until glossy, stiff peaks form. \r\n' +
+    '5. Pour egg yolk mixture & vanilla into egg white mixture, beat medium speed until just combined. Evenly spread batter onto prepared baking sheet.\r\n' +
+    '6. Bake 12-14 mins. \r\n' +
+    '7. Once done- sift powdered sugar generously over cake.  Carefully but quickly flip cake with baking sheet over onto the parchment sheet.  Gently peel parchment off from top of cake.  Gently roll cake with bottom parchment paper into full roll.  Let rest rolled & cool to room temp. 10 mins.\r\n' +
+    '8. While cake roll forms, make your whipped cream filling whisking ingredients.  Prepare strawberries.  Gently unroll cake, spread some filling evenly onto cake, scatter strawberries over filling, top evenly with more filling.  \r\n' +
+    '9. Gently roll cake (without parchment) until fully rolled again.  Sift powdered sugar on top, slice & enjoy!\r\n' +
+    '\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C2-GOuqrhfn/?igsh=MXRpa2lndmF4cWxidQ==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d99'),
+  id: 1727109047744,
+  title: 'Cinnamon Sugar Donuts',
+  content: 'Fall season is here!  Celebrate by baking these fun & easy to make pumpkin shaped donuts.  Cinnamon sugar coated, fluffy, & filled with a chocolate mascarpone cream.  ',
+  imagePaths: [
+    '/uploads/1727109423343.jpeg',
+    '/uploads/1727109423473.jpeg',
+    '/uploads/1727109423657.jpeg'
+  ],
+  recipe: '*dutch oven or small soup pot for frying donuts\r\n' +
+    '*butcher’s twine for pumpkin shaping\r\n' +
+    '*cinnamon sticks cut into halves for stems\r\n' +
+    '* 2 tsp dry active yeast\r\n' +
+    '* 6 tbsp warm water 110º F\r\n' +
+    '* 2 tbsp sugar\r\n' +
+    '* 1 ½ c (GF) APF\r\n' +
+    '* ⅛ tsp salt\r\n' +
+    '* ⅓ c canned coconut milk\r\n' +
+    '* 1 egg large\r\n' +
+    '* 2 tbsp melted butter\r\n' +
+    '* 1 bottle of canola or vegetable oil\r\n' +
+    '* 1/2 c powdered sugar \r\n' +
+    '* 1/4 c granulated sugar\r\n' +
+    '\r\n' +
+    'CHOCOLATE MASCARPONE CREAM\r\n' +
+    '*1/4 c mascarpone cheese\r\n' +
+    '*2 c heavy cream\r\n' +
+    '*1/3 c powdered sugar\r\n' +
+    '*1-2 tbsp cocoa powder \r\n' +
+    '\r\n' +
+    '*cinnamon + sugar for donut coating\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1.  In small dish, add warm water, yeast, and sugar. Allow yeast to sit 10 minutes until foamy.\r\n' +
+    '2. Add dry ingredients to a bowl and whisk to blend. Pour yeast mixture, eggs, milk, and butter into the bowl.\r\n' +
+    '3. Mix or knead ingredients together to form a soft dough.  Cover bowl with plastic wrap, allow the dough to rise 45-60 minutes in warm area. I rest mine on a 77F proofing mat. \r\n' +
+    '4. Remove plastic, dust surface with flour, carefully take out dough.  Cut dough into 4-5 tbsp sized balls. Roll each to form dough balls. \r\n' +
+    '5. Heat oil 315-330F in Dutch oven or small soup pot, filled about 3 inches height wise. \r\n' +
+    '6.While oil is heating, cut butcher’s twine into 4 strings, 8-9 inch long each, which holds one dough ball.  Lay strings out flat on surface overlapping the one before, pointing strings as clock hands 12&6, 3&9, 4:30&10:30, 7:30&1:30. Place dough ball in middle of strings. Carefully lift strings upward gently, & tie the strings in a single knot, around dough ball as shown in video. Repeat this for every dough ball. Set each aside. \r\n' +
+    '7. Carefully place dough balls 2 at a time in hot oil & fry for few mins on each side until lightly golden brown. Carefully toss donuts in equal parts cinnamon & sugar mixture in small bowl. Lay each on paper towel to drain & cool completely. \r\n' +
+    '8. Make the mascarpone cream by whisking all ingredients w/electric mixer on medium high in a bowl until smooth & fluffy. Put in piping bag or ziplock bag. \r\n' +
+    '9. Once pumpkin donuts are cooled. Using end of a chopstick poke hole in middle of each donut & fill with mascarpone cream. Place cinnamon stick inside for stem. Enjoy! ',
+  instagramLink: 'https://www.instagram.com/reel/DAOIk7Vxlwi/?igsh=MTBwd29neW1jN2dqMg==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d9a'),
+  id: 1723086121986,
+  title: 'Cinnamon Sugar Pumpkin Donuts',
+  content: 'Fall season is here!  Celebrate by baking these fun & easy to make pumpkin shaped donuts.  Cinnamon sugar coated, fluffy, & filled with a chocolate mascarpone cream.  ',
+  imagePaths: [
+    '/uploads/1727106999529.jpeg',
+    '/uploads/1727106999765.jpeg',
+    '/uploads/1727106999773.jpeg'
+  ],
+  recipe: '*dutch oven or small soup pot for frying donuts\r\n' +
+    '*butcher’s twine for pumpkin shaping\r\n' +
+    '*cinnamon sticks cut into halves for stems\r\n' +
+    '* 2 tsp dry active yeast\r\n' +
+    '* 6 tbsp warm water 110º F\r\n' +
+    '* 2 tbsp sugar\r\n' +
+    '* 1 ½ c (GF) APF I used Cup4Cup All Purpose Flour\r\n' +
+    '* ⅛ tsp salt\r\n' +
+    '* ⅓ c canned coconut milk\r\n' +
+    '* 1 egg large\r\n' +
+    '* 2 tbsp melted butter\r\n' +
+    '* 1 bottle of canola or vegetable oil\r\n' +
+    '* 1/2 c powdered sugar \r\n' +
+    '* 1/4 c granulated sugar\r\n' +
+    '\r\n' +
+    'CHOCOLATE MASCARPONE CREAM\r\n' +
+    '*1/4 c mascarpone cheese\r\n' +
+    '*2 c heavy cream\r\n' +
+    '*1/3 c powdered sugar\r\n' +
+    '*1-2 tbsp cocoa powder \r\n' +
+    '*cinnamon + sugar for donut coating\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1.  In small dish, add warm water, yeast, and sugar. Allow yeast to sit 10 minutes until foamy.\r\n' +
+    '2. Add dry ingredients to a bowl and whisk to blend. Pour yeast mixture, eggs, milk, and butter into the bowl.\r\n' +
+    '3. Mix or knead ingredients together to form a soft dough.  Cover bowl with plastic wrap, allow the dough to rise 45-60 minutes in warm area. I rest mine on a 77F proofing mat. \r\n' +
+    '4. Remove plastic, dust surface with flour, carefully take out dough.  Cut dough into 4-5 tbsp sized balls. Roll each to form dough balls. \r\n' +
+    '5. Heat oil 315-330F in Dutch oven or small soup pot, filled about 3 inches height wise. \r\n' +
+    '6. While oil is heating, cut butcher’s twine into 4 strings, 8-9 inch long each, which holds one dough ball.  Lay strings out flat on surface overlapping the one before, pointing strings as clock hands 12&6, 3&9, 4:30&10:30, 7:30&1:30. Place dough ball in middle of strings. Carefully lift strings upward gently, & tie the strings in a single knot, around dough ball as shown in video. Repeat this for every dough ball. Set each aside. \r\n' +
+    '7. Carefully place dough balls 2 at a time in hot oil & fry for few mins on each side until lightly golden brown. Carefully toss donuts in equal parts cinnamon & sugar mixture in small bowl. Lay each on paper towel to drain & cool completely. \r\n' +
+    '8. Make the mascarpone cream by whisking all ingredients w/electric mixer on medium high in a bowl until smooth & fluffy. Put in piping bag or ziplock bag. \r\n' +
+    '9. Once pumpkin donuts are cooled. Using end of a chopstick poke hole in middle of each donut & fill with mascarpone cream. Place cinnamon stick inside for stem. Enjoy! ',
+  instagramLink: 'https://www.instagram.com/reel/DAOIk7Vxlwi/?igsh=c3pkb3dpNGVuNHdy',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d9b'),
+  id: 1722830139773,
+  title: 'Red Velvet Brownies ',
+  content: 'These are stunners!  They’re fudgey, gooey, & SO easy to make. ',
+  imagePaths: [
+    '/uploads/1727108131479.jpeg',
+    '/uploads/1727108131575.jpeg',
+    '/uploads/1727108131599.jpeg'
+  ],
+  recipe: '*¾ c unsalted butter room temperature\r\n' +
+    '*1 1/3 c granulated sugar\r\n' +
+    '*2 eggs\r\n' +
+    '*1 tsp white vinegar \r\n' +
+    '*2 tsp  vanilla extract\r\n' +
+    '*1 ½ c GF APF \r\n' +
+    '*3 tbsp cocoa powder\r\n' +
+    '*¼ tsp  salt\r\n' +
+    '*1-2 tsp red food coloring \r\n' +
+    '*1 c chocolate chips\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven 350F & line 8x8 baking pan with parchment paper. \r\n' +
+    '2. In large mixing bowl, beat butter & sugar until fluffy. \r\n' +
+    '3. Add in egg, white vinegar, vanilla & mix again. \r\n' +
+    '4. Add flour, cocoa powder, salt & mix until combined. \r\n' +
+    '5. Add red food coloring to your liking. \r\n' +
+    '6. Add chocolate chips in & fold gently. \r\n' +
+    '7. Pour batter into prepared baking dish & bake 28-32 mins or until brownies reach internal temperature of atleast 170F. Toothpick can come out with few crumbs for fudgy brownies. Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/DAQuTyMxr_l/?igsh=M2F5dWdodWg4aHl6',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d9c'),
+  id: 1722491544929,
+  title: 'new',
+  content: 'post',
+  imagePaths: [
+    '/uploads/1722573933062.JPG'
+  ],
+  recipe: '1/3 cup extra virgin olive oil\r\n' +
+    '▢1/3 cup mayo\r\n' +
+    '▢2 tablespoons lemon juice\r\n' +
+    '▢2 teaspoons dijon mustard\r\n' +
+    '▢2 teaspoons Worcestershire sauce\r\n' +
+    '▢1-2 cloves garlic, grated\r\n' +
+    '▢1/2 cup grated parmesan',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d9d'),
+  id: 1722484664297,
+  title: 'jgkksd',
+  content: 'sdsdsdsd',
+  imagePaths: [],
+  recipe: 'sdsd',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d9e'),
+  id: 1722484515793,
+  title: 'asdasd',
+  content: 'asdasd',
+  imagePaths: [],
+  recipe: 'adasd',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25568caf28fdf39037d9f'),
+  id: 1722484480381,
+  title: 'ooooosdossdf',
+  content: 'adsas',
+  imagePaths: [],
+  recipe: 'asdas',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2203'),
+  id: 1727141442662,
+  title: 'Dill and Potato Salad',
+  content: 'A summer favorite of mine!  This potato salad isn’t your typical boring, “overly-mayo’d” salad.  It has great flavor from mustard seed & dill which makes this a truly unique potato salad.  ',
+  imagePaths: [
+    '/uploads/1727141442494.jpeg',
+    '/uploads/1727141442609.jpeg',
+    '/uploads/1727141442642.jpeg'
+  ],
+  recipe: '*Recipe is naturally Gluten Free\r\n' +
+    '*Serving size 6-10\r\n' +
+    '\r\n' +
+    '*4-5 medium potatoes red or yellow\r\n' +
+    '*3/4 c mayonnaise\r\n' +
+    '*1/3 c buttermilk\r\n' +
+    '*1/4 c fresh dill \r\n' +
+    '*1 tbsp dijon mustard\r\n' +
+    '*1 tbsp whole grain mustard\r\n' +
+    '*kosher salt\r\n' +
+    '*black pepper\r\n' +
+    '*2-3 strips bacon, chopped \r\n' +
+    '*1/2 c red onion, diced thinly \r\n' +
+    '*green onions for garnish\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Chop potatoes & boil until fork tender in salted water. Drain & cool. \r\n' +
+    '2. Fry bacon, rest on paper towel to soak up grease. Chop bacon, dill, red onion, green onion. \r\n' +
+    '3. In large bowl mix potatoes, mayo, buttermilk, Dijon mustard, whole grain mustard, all chopped ingredients.  Add a pinch of salt & pepper to taste.  Enjoy! \r\n' +
+    '\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6tY2eVrzV8/?igsh=NXZ2MHRneWhxbDYx',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2204'),
+  id: 1727140769342,
+  title: 'Baked Parmesan Chicken Skewers',
+  content: 'These baked chicken skewers are so drool worthy! ',
+  imagePaths: [
+    '/uploads/1727141560054.jpeg',
+    '/uploads/1727141560342.jpeg',
+    '/uploads/1727141560774.jpeg'
+  ],
+  recipe: '*Recipe is naturally Gluten Free \r\n' +
+    '*Makes 2-3 chicken skewers\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*2 lbs chicken tenders or breasts\r\n' +
+    '*Metal skewers for baking \r\n' +
+    '\r\n' +
+    'GARLIC PARMESAN BUTTER SAUCE:\r\n' +
+    '*1 stick butter\r\n' +
+    '*1 tbsp whole Greek yogurt\r\n' +
+    '*8-10 cloves garlic, minced\r\n' +
+    '*1 tsp onion powder\r\n' +
+    '*1/3 c parmesan, grated\r\n' +
+    '*1 tbsp hot sauce more if desired\r\n' +
+    '*2 tsp red pepper flakes\r\n' +
+    '*1/3 c fresh parsley, minced\r\n' +
+    '\r\n' +
+    'CHICKEN SEASONING:\r\n' +
+    '*2 tbsp EVOO\r\n' +
+    '*2 tsp paprika\r\n' +
+    '*1 tsp garlic powder\r\n' +
+    '*1 tsp onion powder\r\n' +
+    '*1/2 tsp salt\r\n' +
+    '*1/2 tsp pepper\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Prepare chicken pieces by cutting breasts into bite sized pieces or marinating whole chicken tenders with all chicken seasonings + 2 tbsp EVOO in large ziplock bag for 2-3 hours. \r\n' +
+    '2. Preheat oven 450F & line a baking sheet with tin foil.\r\n' +
+    '3. Make garlic Parmesan marinade by combining all ingredients for the sauce except for the Parmesan in microwavable bowl 30 seconds at a time whisking in between. Do not melt butter totally. \r\n' +
+    '4. Slide chicken pieces onto skewers, and coat them with the garlic parmesan sauce (leave some of the sauce for coating chicken again, half way through baking). Coat chicken pieces with freshly grated Parmesan. \r\n' +
+    '5. Place chicken skewers on baking pan lined with aluminum foil, & bake 450F for 14 minutes, flipping skewers onto other side half way through baking time, coating again with sauce and Parmesan. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6q1u_4sKMF/?igsh=MTQybDBxNHA3N2I4',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2205'),
+  id: 1727140080641,
+  title: 'Protein Strawberry & Chocolate Muffins',
+  content: 'These protein muffins are simple & delicious!  The consistency is a lava cake texture which makes these SO yum!',
+  imagePaths: [
+    '/uploads/1727140080524.jpeg',
+    '/uploads/1727140080612.jpeg'
+  ],
+  recipe: '*Naturally Gluten Free\r\n' +
+    '*6 servings\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*⅔ c blanched almond flour\r\n' +
+    '*4 strawberries sliced thinly\r\n' +
+    '*½ tsp salt\r\n' +
+    '*1 tbsp cocoa powder\r\n' +
+    '*6 oz chocolate chips or any coarse chocolate chopped for heating\r\n' +
+    '*½ c coconut oil\r\n' +
+    '*30g protein powder (I used @gardenoflife chocolate flavor)\r\n' +
+    '*¾ c granulated or coconut sugar\r\n' +
+    '*2 eggs room temp\r\n' +
+    '*1 tsp vanilla extract\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven 350F, line 9x9 muffin pan with muffin liners.\r\n' +
+    '2. In large bowl whisk almond flour, protein powder, salt, cocoa powder. \r\n' +
+    '3. Heat chocolate + coconut oil in bowl 30 sec microwaving, stirring each time until smooth & silky. Add sugar & stir. \r\n' +
+    '4. Add eggs + vanilla and stir until combined, do not over mix. \r\n' +
+    '5. Add chocolate mixture + strawberries to flour mixture bowl. Fold gently until combined. \r\n' +
+    '6. Using ice cream scoop, scoop 3-5 tbsp of batter into each muffin cup. Bake 28-32 minutes or until toothpick comes out clean.  Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6oO8pkrk-t/?igsh=MTJ2M2lidDNhdjhreA==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2206'),
+  id: 1727139455949,
+  title: 'Chocolate Marshmallow Protein Brownies',
+  content: 'These protein brownies are so tasty & offer a great source of protein by adding in your favorite protein powder!  The gooey marshmallow chunks add the perfect amount of sweetness & texture.  SO good!',
+  imagePaths: [
+    '/uploads/1727139455714.jpeg',
+    '/uploads/1727139455927.jpeg',
+    '/uploads/1727139455937.jpeg'
+  ],
+  recipe: '*Naturally Gluten Free\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*⅔ c blanched almond flour\r\n' +
+    '*½ tsp salt\r\n' +
+    '*1 tbsp cocoa powder\r\n' +
+    '*6 oz chocolate chips or any coarse chocolate chopped for heating\r\n' +
+    '*½ c coconut oil\r\n' +
+    '*1 scoop 20g protein powder (I used Garden of Life’s chocolate flavor)\r\n' +
+    '*¾ c granulated or coconut sugar\r\n' +
+    '*2 eggs room temperature\r\n' +
+    '*1 tsp vanilla extract\r\n' +
+    '*1/2 c chocolate chips for batter + more for top of brownies\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven 350F, line 9x9 baking pan with parchment, grease. \r\n' +
+    '2. In large bowl whisk almond flour, protein powder, salt, cocoa powder. \r\n' +
+    '3. Heat 1/2 c chocolate + coconut oil in small bowl 30 sec microwaving, stirring each time until smooth & silky. Add sugar & stir until melted.\r\n' +
+    '4. Add eggs + vanilla & stir until combined, do not over mix. \r\n' +
+    '5. Add chocolate mixture + chocolate chips to flour mixture bowl. Fold gently until combined. \r\n' +
+    '6. Pour batter into prepared baking dish, top with extra marshmallows & chocolate chips.  Bake 28-32 minutes. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6gfVyqriUN/?igsh=djdnNzd5NzdyaTRj',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2207'),
+  id: 1727129434999,
+  title: 'Chocolate Chip Bars',
+  content: 'These chocolate chip bars have been my most popular hit, with over 20k+ views & just almost 2k likes on Instagram!  They’re golden on the outside with a gooey, chocolate chunk center.  They’re true perfection.',
+  imagePaths: [
+    '/uploads/1727129434828.jpeg',
+    '/uploads/1727129434933.jpeg',
+    '/uploads/1727129434979.jpeg'
+  ],
+  recipe: '*Recipe works for both Gluten Free & Non Gluten Free\r\n' +
+    '*Photos & Reel shown were made Gluten Free\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*3/4 c butter, melted and cooled 5 min\r\n' +
+    '*1 c light brown sugar\r\n' +
+    '*1/4 c + 2 tbsp granulated sugar\r\n' +
+    '*1 large egg, room temperature\r\n' +
+    '*1 egg yolk \r\n' +
+    '*1-2 tbsp vanilla extract or vanilla bean paste\r\n' +
+    '*2 c APF (I used Cup4Cup).\r\n' +
+    '*2 tbsp cornstarch\r\n' +
+    '*1 tsp kosher salt\r\n' +
+    '*1.5 tsp baking soda\r\n' +
+    '*1 1/2 c semisweet chocolate chips\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven to 350F. Line 8×8 metal baking pan with parchment paper.\r\n' +
+    '2. In medium mixing bowl, combine flour blend, cornstarch, salt, baking soda. Whisk to combine, set aside.\r\n' +
+    '3. In large mixing bowl or bowl of a stand mixer, combine melted butter, brown sugar, granulated sugar. Mix until just combined.\r\n' +
+    '4, Add Egg, egg yolk, and vanilla, and mix to combine.\r\n' +
+    '5. Mix in the dry ingredients most of the way, until just a few powdery spots remain in the dough.\r\n' +
+    '6. Add chocolate chips, mix until well blended and distributed.  Spread dough out into baking pan evenly. \r\n' +
+    '7. Bake cookie bars 25-30 min or until the edges are set and the top is golden & toothpick comes out mostly clean.  Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6d7uCMLj1W/?igsh=aTBhOHFzZ3F0b3Vu',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2208'),
+  id: 1727128539178,
+  title: 'Spicy Korean Chicken',
+  content: 'This Korean marinated chicken goes great with rice, vegetables, & noodles.  It’s a perfect balance of a little sweet & salty!',
+  imagePaths: [
+    '/uploads/1727128538956.jpeg',
+    '/uploads/1727128539051.jpeg'
+  ],
+  recipe: '*Recipe works for both Gluten Free & Non Gluten Free\r\n' +
+    '\r\n' +
+    '\r\n' +
+    'MARINADE INGREDIENTS:\r\n' +
+    '*4 large chicken breasts, chopped into cubes\r\n' +
+    '*2-3 cloves garlic cloves minced\r\n' +
+    '*1-2 tbsp Toasted sesame seeds\r\n' +
+    '*oil for frying\r\n' +
+    '*1 tsp sesame oil\r\n' +
+    '*1 tsp soy sauce (use Gluten Free soy sauce if needed).\r\n' +
+    '*1 tsp ginger garlic paste\r\n' +
+    '\r\n' +
+    'SAUCE MIX:\r\n' +
+    '*2 tbsp Gochujang (Korean Chilli Paste)\r\n' +
+    '*3 tbsp ketchup\r\n' +
+    '*2 tbsp honey \r\n' +
+    '*1 tbsp lemon juice\r\n' +
+    '*1 tsp sesame oil\r\n' +
+    '*3 tbsp water \r\n' +
+    '*1 tbsp cornstarch\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Cut chicken into bite sized cubes, put in large bowl or ziplock bag with marinate ingredients for 20 mins up to overnight.\r\n' +
+    '2. In large skillet heat oil on medium high heat, add chicken cubes in. While chicken is cooking, prepare the sauce. \r\n' +
+    '3. In medium bowl whisk sauce ingredients, until combined. Add your sauce over the chicken, and continue to cook while stirring until sauce has thickened. Remove from heat immediately and serve topped with green onion & toasted sesame seeds. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6bRaxILuDc/?igsh=bDczMmFyNDZhYzkz',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2209'),
+  id: 1727128058924,
+  title: 'Korean Japchae Noodles',
+  content: 'This popular Korean noodle dish is so tasty!  The potato starch noodles are so tender tossed with vegetables in a sweetened soy sauce mixture.  ',
+  imagePaths: [
+    '/uploads/1727128058811.jpeg',
+    '/uploads/1727128058898.jpeg'
+  ],
+  recipe: '*Recipe works for both Gluten Free & Non Gluten Free\r\n' +
+    '\r\n' +
+    '*Korean glass noodles (my favorite is Chung Jung O Food) I used 3, 3.5oz packs. \r\n' +
+    '*2 tbsp EVOO\r\n' +
+    '*1 large shredded carrot\r\n' +
+    '*1 shredded red or yellow bell pepper\r\n' +
+    '*3 c spinach leaves\r\n' +
+    '*3 cloves garlic minced\r\n' +
+    '*green onion\r\n' +
+    '*sesame seeds\r\n' +
+    '*4 tbsp low sodium soy sauce (Use GF soy sauce if necessary)\r\n' +
+    '*3 tbsp dark brown sugar\r\n' +
+    '*1-2 tbsp sesame oil\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Boil noodles for few minutes until tender. Drain,  drizzle with sesame oil to prevent sticking & set aside.\r\n' +
+    '2. Prepare vegetables shredding carrots, peppers, mincing garlic, chopping green onion. \r\n' +
+    '3. In medium sauce pan, heat olive oil on medium heat. Add in shredded vegetables, garlic, and green onion. Sauté until they start to get softer, then add soy sauce, dark brown sugar, sesame oil. \r\n' +
+    '4. Once soy sauce vegetable mixture has thickened just a little, turn off heat and pour over your noodles. Mix well. Top with more fresh green onion, toasted sesame seeds. Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/C6bRaxILuDc/?igsh=bDczMmFyNDZhYzkz',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d220a'),
+  id: 1727127390332,
+  title: 'Spicy Red Curry Coconut Noodle Soup',
+  content: 'This coconut curry soup is so flavorful with creaminess from coconut milk & heat from red chili paste. Super easy & delicious to make!',
+  imagePaths: [
+    '/uploads/1727127390073.jpeg',
+    '/uploads/1727127390325.jpeg'
+  ],
+  recipe: '*Recipe can be both Gluten Free & Non Gluten Free\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '*1-2 tbsp EVOO\r\n' +
+    '*3 cloves garlic, minced\r\n' +
+    '*1 red bell pepper, diced\r\n' +
+    '*1 onion, diced\r\n' +
+    '*3 tbsp red curry paste\r\n' +
+    '*1 tbsp freshly grated ginger\r\n' +
+    '*6 c low sodium chicken broth\r\n' +
+    '*1 (13.5-ounce) can coconut milk\r\n' +
+    '*4 ounces rice noodles (you can also use glass noodles, which I did have on hand). \r\n' +
+    '*2 tsp brown sugar\r\n' +
+    '*3 green onions, thinly sliced\r\n' +
+    '*½ c chopped fresh cilantro leaves\r\n' +
+    '*¼ c chopped fresh basil leaves\r\n' +
+    '*2 tbsp freshly squeezed lime juice\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Optional- Prepare fish, chicken, boiled eggs before hand so you can add it to your noodle soup once it’s cooked. \r\n' +
+    '2. Boil noodles, drain, set aside. (While boiling you can prepare green onion, cilantro, basil, garlic, ginger). \r\n' +
+    '3. Slice and dice bell pepper, onion. Add it to a stockpot or medium soup pot along with EVOO and sautee on medium heat for few minutes until  fragrant and onions start to appear translucent. \r\n' +
+    '4. Add garlic, ginger, red curry paste to the pot, saute for another 3 minutes. \r\n' +
+    '5. Add chicken broth (I used Zoup chicken bone broth), coconut milk, brown sugar to pot and let simmer for another 5-10 minutes. \r\n' +
+    'Serve adding noodles, broth, prepared meats, egg, and prepared herbs. Top with some freshly squeezed lime. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C6EHP4MrQFP/?igsh=MWs4ajJ3MTFwbzY1YQ==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d220b'),
+  id: 1727126731775,
+  title: 'Potato Pakora',
+  content: 'This popular, tasty Indian dish is so simple to make & so flavorful.  The pakora’s are crispy, tasty bites packed with so many gorgeous spices.',
+  imagePaths: [
+    '/uploads/1727126731488.jpeg',
+    '/uploads/1727126731759.jpeg',
+    '/uploads/1727126731766.jpeg'
+  ],
+  recipe: '*Recipe works for both Gluten Free & Non Gluten Free.\r\n' +
+    ' \r\n' +
+    '*2 yellow potatoes \r\n' +
+    '*1/2 c red onion sliced thinly \r\n' +
+    '*1-2 green chilis minced\r\n' +
+    '*2 cloves garlic minced\r\n' +
+    '*1 thumb ginger skinned & minced\r\n' +
+    '\r\n' +
+    'SPICES:\r\n' +
+    '*1/2 tsp kosher salt\r\n' +
+    '*1 tsp chaat masala\r\n' +
+    '*1 tsp coriander powder\r\n' +
+    '*1 tsp red chili powder\r\n' +
+    '*1 tsp turmeric powder\r\n' +
+    '*1 tsp cumin powder\r\n' +
+    '\r\n' +
+    'BATTER:\r\n' +
+    '*1/2 c besan flour, APF, or GF APF\r\n' +
+    '*Few tbsp cornflour\r\n' +
+    '*Few tbsp cornstarch\r\n' +
+    '*2+ tbsp water\r\n' +
+    '\r\n' +
+    'FRY:\r\n' +
+    '*1 c vegetable oil\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Peel, slice potatoes into 1/4 inch thickness. Boil in salted water until fork tender then set aside. While boiling, slice onion. \r\n' +
+    '2. In mixing boil add potatoes along with every ingredient except for oil. Mix and mash to form consistency that is wet but thick enough to form pakora patties with your hands. \r\n' +
+    '3. Heat oil in deep skillet over medium heat. Once hot, add 2-3 pakora patties at a time, browning each side before removing from oil. Drain on cooling rack or paper towel. Top with extra spices, lime, cilantro.  Goes great with Tamarind sauces.  Enjoy!\r\n',
+  instagramLink: ' https://www.instagram.com/reel/C53R0O_LoCH/?igsh=MXNlNTZyYXFkOHk4dw==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d220c'),
+  id: 1727125499343,
+  title: 'Sweet & Spicy Chicken Tenders',
+  content: 'These chicken tenders are by far the MOST flavorful Asian-style chicken tenders.  They have a perfect balance of sweet & spicy with a crunchy coating!',
+  imagePaths: [
+    '/uploads/1727125562521.jpeg',
+    '/uploads/1727125562817.jpeg'
+  ],
+  recipe: '*This recipe works for both Gluten Free & Non Gluten Free\r\n' +
+    '\r\n' +
+    '*1-3/4lbs chicken breasts cut into 1 inch thick strips\r\n' +
+    '*1/2 c all purpose flour (can use GF APF). \r\n' +
+    '* salt and pepper\r\n' +
+    '*2 eggs\r\n' +
+    '*2 tbsp whole milk\r\n' +
+    '*4 c panko bread crumbs or Chex mix pulsed in food processor.\r\n' +
+    '*cilantro, green onion, sesame seeds for garnish \r\n' +
+    '\r\n' +
+    'SAUCE:\r\n' +
+    '*1/2 c sweet chili sauce\r\n' +
+    '*1/2 c water\r\n' +
+    '*1/4 c dark brown sugar\r\n' +
+    '*1/4 c soy sauce (use GF soy sauce if you are making this dish GF).\r\n' +
+    '*2 tbsp rice vinegar\r\n' +
+    '*2 tbsp fresh lime juice\r\n' +
+    '*1 tbsp ginger paste\r\n' +
+    '*2 tbsp garlic minced \r\n' +
+    '*2 tsp red pepper chili flakes \r\n' +
+    '*1 tsp cornstarch for thickening (optional)\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Line 2 baking sheets with foil then spray very well with nonstick spray & set aside.\r\n' +
+    '2. Whisk eggs & milk in shallow dish. Process breadcrumbs, season with salt & pepper- place in another dish.\r\n' +
+    '3. Add flour to a large Ziplock bag then toss chicken tenders in egg/milk wash, then into flour bag, egg wash again, then into your breadcrumb mix.  Repeat for every chicken tender. Place them on baking sheet and refrigerate for 20-30 minutes so breading will stick to tenders while baking.\r\n' +
+    '4. Preheat oven to 425F. \r\n' +
+    '5. Spray tops of chicken fingers with extra virgin olive oil or nonstick spray then bake for 10 minutes. After 10 min flip each tender over and spray with nonstick spray again, then place back in oven rotating baking sheets for an even bake for another 7-9 minutes until golden brown and cooked through. \r\n' +
+    '6. Combine sauce ingredients in small sauce pot, over medium-high heat. Lower heat to medium then cook until sauce is reduced and slightly thickened, 5-6 minutes. \r\n' +
+    '7. Using tongs, dunk each tender directly into your sauce, then place each back on baking sheet. Bake for another 5 minutes, be careful to watch closely as they can burn. Top chicken tenders either green onion, sesame seeds, cilantro. Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C5lTHdWLDjG/?igsh=bG43NmQ1czE5bnNl',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d220d'),
+  id: 1727124886631,
+  title: 'Crispy Rice ',
+  content: 'Little bites of heaven!  These crispy rice bites pair perfectly with your favorite sashimi or spicy mayo.  ',
+  imagePaths: [
+    '/uploads/1727124886532.jpeg',
+    '/uploads/1727124886605.jpeg'
+  ],
+  recipe: '*Gluten Free\r\n' +
+    '\r\n' +
+    '*1 ½ c dry sushi rice rinsed until water is clear\r\n' +
+    '*2 c water\r\n' +
+    '*1 tsp  salt\r\n' +
+    '*3 tbsp rice vinegar\r\n' +
+    '*1 tbsp granulated sugar\r\n' +
+    '*1 tsp toasted sesame oil\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Prepare rice. Wash sushi rice rinsing it as many times as it takes until water is not cloudy.  Cook in rice cooker or on stove.\r\n' +
+    '2. In a small bowl, mix salt, rice vinegar, sugar, and sesame oil until the sugar has dissolved. Once the rice is cooked, toss the mixture with the cooked rice in large bowl until combined. \r\n' +
+    '3. Shape & press rice in a 9x9 inch baking square pan. Flatten surface. Cover and cool in fridge for at least 2-3 hours.\r\n' +
+    '4. Once the rice is chilled, cut into bite-sized rectangles. Pat to dry off any excess water condensation.\r\n' +
+    '5. Heat oil in a pan on medium- medium high heat about 1 inch tall in pan, place a few rice pieces carefully in hot oil. Flip each piece after around 30 seconds when side is turning a light golden brown color. Once done cool on cooling rack to drain excess oil. Top with your choices of toppings or enjoy each bite with some spicy mayo!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C5gGoZcrxw8/?igsh=cXIwY2ptY21tcjVj',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d220e'),
+  id: 1727116685752,
+  title: 'Chicken Turmeric Dumplings ',
+  content: 'These gluten free dumplings are mouthfuls of heaven.  Filled with deliciously seasoned ground chicken, wrapped in turmeric dumpling wrappers,',
+  imagePaths: [
+    '/uploads/1727124275457.jpeg',
+    '/uploads/1727124276175.jpeg',
+    '/uploads/1727124276181.jpeg',
+    '/uploads/1727124276439.jpeg'
+  ],
+  recipe: '*Gluten Free\r\n' +
+    '\r\n' +
+    'TURMERIC DUMPLINGS WRAPPERS:\r\n' +
+    '*spandex glove if kneading with hand & using turmeric\r\n' +
+    '*85 ml room temperature water, plus 4 ml warm water if needed\r\n' +
+    '*55 g Bob’s red mill tapioca starch\r\n' +
+    '*55 g Thai Rice Flour + more for dusting\r\n' +
+    '*1/8 tsp coarse salt\r\n' +
+    '*2-3 tsp EVOO\r\n' +
+    '*1 tsp turmeric powder, optional only if you want the wrappers in yellow color\r\n' +
+    '\r\n' +
+    'GROUND CHICKEN FILLING:\r\n' +
+    '*2 c cabbage shredded\r\n' +
+    '*3 cloves minced garlic\r\n' +
+    '*1 tbsp ginger paste\r\n' +
+    '*1 tbsp EVOO\r\n' +
+    '*1/2 lb ground chicken\r\n' +
+    '*1 egg\r\n' +
+    '*chopped chives or green onion\r\n' +
+    '*2 tbsp soy sauce (I used GF soy sauce)\r\n' +
+    '*salt & pepper\r\n' +
+    '*1 tbsp water\r\n' +
+    '\r\n' +
+    '1. Prepare chicken filling first. Shred cabbage & finely chop. Add EVOO to a pan and sautee cabbage, garlic, ginger for few minutes until soft.   Set aside. \r\n' +
+    '2. Mix ground chicken in a medium mixing bowl along with egg, chives, soy sauce, salt & pepper to taste, water. Add cabbage mix into bowl and mix with your hand until thoroughly mixed. Set aside.\r\n' +
+    '3. Make the wrappers:  Measure out both flours into separate bowls.  \r\n' +
+    '4. In medium saucepan add the water & salt.  Stir to dissolve. Add the tapioca starch & stir until no lumps.\r\n' +
+    '5. Place the pan over low heat & constantly stir for few mins until 2/3 of the liquid forms into lumps. \r\n' +
+    '6. Immediately remove pan from heat but keep stirring & quickly add the rice flour to the pan.  Stir to combine & transfer starch & flour mixture onto floured lightly floured. \r\n' +
+    '7. Add the EVOO to the dough & knead 5-6 minutes until combined.  While kneading, add a little flour & turmeric to the middle of the dough & fold into itself (while wearing glove to protect hands from turning yellow).  Ad first the dough will be crumbly, but as you continue kneading it, it will come together to be slightly stretchy.\r\n' +
+    '8. If after 5 minutes the dough still seeems crumbly, add 2 ml warm water & continue kneading for another few minutes.  Do not over knead. \r\n' +
+    '9. Cover dough & rest at room temperature for 20 minutes.  \r\n' +
+    '10. After resting, lightly dust floured surface & roll out into a thin, long rectangle.  Dust surface with more rice flour & using pie cutter or knife, cut out 3-4 inch squares.  \r\n' +
+    '11.  Fill each dumpling wrapper with 1-2 tsp of ground chicken filling, then fold gently into desired dumpling wrapper style, sealing wrappers with a few drops of water.\r\n' +
+    '12. In medium Dutch oven or soup pot, heat water or chicken stock over medium heat.  Place dumplings in pot few at a time & cook for few minutes carefully flipping them over.  Dumplings will cook fast.  Serve with hot chili oil, sesame seeds, scallion & Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/C5YY4IcumrS/?igsh=MWI4ejdsMG80dmszZQ==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d220f'),
+  id: 1727115406076,
+  title: 'Cinnamon Chocolate Rolls',
+  content: 'These gluten free cinnamon rolls are SO fluffy, soft, & truly delicious.  They’re perfect topped with buttercream frosting!',
+  imagePaths: [
+    '/uploads/1727115448981.jpeg',
+    '/uploads/1727115449258.jpeg',
+    '/uploads/1727115449271.jpeg',
+    '/uploads/1727115449279.jpeg'
+  ],
+  recipe: '*Gluten Free\r\n' +
+    '\r\n' +
+    '*1 16 ounce bag (GF) bread flour (I used Cup4Cup)\r\n' +
+    '*½ c granulated sugar\r\n' +
+    '*1 packet instant yeast\r\n' +
+    '*2 tsp baking powder\r\n' +
+    '*½ tsp salt\r\n' +
+    '*1 ¼ c milk\r\n' +
+    '*2 eggs room temperature\r\n' +
+    '*⅓ c butter melted, cooked slightly\r\n' +
+    '*2 tsp vanilla\r\n' +
+    '*2 c heavy cream\r\n' +
+    'FILLING:\r\n' +
+    '*6 tbsp softened butter\r\n' +
+    '*¾ c granulated sugar\r\n' +
+    '*2 tbsp cinnamon\r\n' +
+    '*2 tbsp cocoa powder\r\n' +
+    '*buttercream frosting of your choice\r\n' +
+    '\r\n' +
+    '1. In bowl of stand mixer, add flour, instant yeast, sugar, salt, baking powder.\r\n' +
+    '2. Mix on low until combined with dough hook until combined.  \r\n' +
+    '3. Warm milk in microwave for about 1 minute or until warm like bath water (around 105F). \r\n' +
+    '4. With mixer running on low, pour in milk, then melted/slightly cooled butter, eggs, vanilla extract.\r\n' +
+    '5. Mix for 30 seconds, then scrape down sides and bottom of bowl to ensure everything is well combined. \r\n' +
+    '6. Turn mixer to medium/low speed, let dough knead about 5 minutes. Let dough sit for few minutes. \r\n' +
+    '7. Meanwhile, whisk together cinnamon, cocoa powder, sugar in bowl, set aside. \r\n' +
+    '8. Add 6 tbsp of butter to a bowl and melt for about 15-20 seconds, then stir so it just looks softened, not fully melted. Set aside. \r\n' +
+    'Transfer dough to floured surface.\r\n' +
+    '9. Roll into 10x12 rectangle about 1/2 inch thick.\r\n' +
+    '10. Brush butter on top, then sprinkle with the cocoa/cinnamon sugar. \r\n' +
+    '11. Using pizza cutter, cut strips about 1 1/4 inch wide, 12 inch long. Roll each strip starting from the top, rolling down to form rolls. \r\n' +
+    'Place in 9x13 greased pan.  Cover with plastic wrap and place in warm area for 1 hr. (I place mine on a 77F proof mat, or by a sunny window with towel covering it.) Toward the end of the hour, preheat oven to 350F. \r\n' +
+    '12. Once rolls have risen, drizzle heavy cream over rolls & bake 22-28 min.  Let cool & top with buttercream frosting.  Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/C5GWVncLX_S/?igsh=MWU2YWRsdmllaG4wOA==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2210'),
+  id: 1727114083941,
+  title: 'Honey Pretzel Cheese Buns',
+  content: 'These cheese buns are the perfect combination of fluffy bread & melts cheese!  The bun tops have a pretzel layer brushed with honey.  Absolutely delicious.  ',
+  imagePaths: [
+    '/uploads/1727114083569.jpeg',
+    '/uploads/1727114083848.jpeg',
+    '/uploads/1727114083908.jpeg',
+    '/uploads/1727114083920.jpeg',
+    '/uploads/1727114083929.jpeg'
+  ],
+  recipe: '*This recipe is NOT Gluten Free.\r\n' +
+    '\r\n' +
+    'SPRAY PAN WITH BUTTER BAKING SPRAY \r\n' +
+    '\r\n' +
+    'DOUGH:\r\n' +
+    '*1 1/2 c warm water (between 110-115 degrees F)\r\n' +
+    '*1 package Rapid Rise yeast\r\n' +
+    '*1 1/2 tbsp sugar\r\n' +
+    '*1 3/4 tsp salt\r\n' +
+    '*1 tbsp fresh rosemary & parsley chopped\r\n' +
+    '*4 & 1/4 cups all-purpose flour\r\n' +
+    '*6 tbsp unsalted butter, very soft\r\n' +
+    '\r\n' +
+    'COOKING LIQUID:\r\n' +
+    '*10 c water\r\n' +
+    '*3/4 c baking soda\r\n' +
+    '\r\n' +
+    'FILLING::\r\n' +
+    '*1 c mozzarella cheese, shredded\r\n' +
+    '*1/4 c parmesan cheese, grated\r\n' +
+    '\r\n' +
+    'EGG WASH:\r\n' +
+    '*1 egg, beaten\r\n' +
+    '\r\n' +
+    'TOPPING:\r\n' +
+    '*2 tbsp melted butter \r\n' +
+    '*2 tbsp honey \r\n' +
+    '*parsley\r\n' +
+    '\r\n' +
+    '1. Combine water, yeast, sugar, salt in bowl of a stand mixer fitted with dough hook. Let stand for 10 minutes for yeast to bloom. \r\n' +
+    '2. Add rosemary, parsley, flour, butter, knead on medium-speed for 12 minutes.\r\n' +
+    '3. Spray dough lightly with water in spray bottle, cover with plastic wrap or damp cloth in warm area of your house to rise for an hour, or until dough has doubled in size.\r\n' +
+    '4. Assembly and Cooking:  Combine shredded mozzarella & parmesan in small bowl. Place bowl in freezer until needed.\r\n' +
+    '5. Preheat oven 425(F). Spray baking butter spray in 9x9 baking dish. \r\n' +
+    '6. Add water, baking soda to large pot or dutch oven; bring to boil.\r\n' +
+    '7. Divide dough, roll into 8 or 9 equal balls. Roll out each ball into circles 5 inch length/width, oversized dumpling wrappers. Place around 1 tbsp each with cheese mixture in middle, fold and pinch dough closing it around cheese, making a cheese filled ball. \r\n' +
+    '8. Place pretzel balls into boiling water, you can do 3 at a time. Cook for 30 seconds each. Remove pretzel balls from water, set on cooling rack to drain slightly before placing them baking dish. \r\n' +
+    '9. Once all pretzels have been boiled, brush tops of each with egg wash.  Place pan in oven, bake for 16-18 minutes.\r\n' +
+    '10. Brush your pretzel buns with melted butter/honey mixture, and top with a pinch of parsley,  Enjoy!\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C48EKlNLo_5/?igsh=b3NmMDJqc2d3ODh0',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2211'),
+  id: 1727112849812,
+  title: 'Crispy Chicken Cakes',
+  content: 'This recipe was my first recipe to get over 12k+ views on Instagram for a reason.  They’re so tasty & very simple to make,  They can be paired with many different sauces such as remoulade, tzatziki, ketchup, etc.  ',
+  imagePaths: [
+    '/uploads/1727112849575.jpeg'
+  ],
+  recipe: '*4 tbsp EVOO for frying\r\n' +
+    '*6 small cans of chicken breast or 3-4 c of shredded chicken\r\n' +
+    '*1/2 c shredded mozzarella \r\n' +
+    '*2 whole eggs\r\n' +
+    '*1/3 c almond flour\r\n' +
+    '*1/3 c grated parmesan cheese\r\n' +
+    '*2 tbsp chives, chopped or dried\r\n' +
+    '*1 tsp onion powder\r\n' +
+    '*1 tsp garlic powder\r\n' +
+    '*1 tsp Italian seasoning\r\n' +
+    '*Salt, pepper, paprika to taste\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Drain canned chicken then break the chicken into small pieces so there are no large pieces.\r\n' +
+    '2. Add chicken and all the other ingredients into a large bowl, except the oil.\r\n' +
+    '3. Mix ingredients well until all the ingredients are combined & will stick together to form small patties. \r\n' +
+    '4. Form small chicken cakes with 2 tbsp of chicken mixture per cake.\r\n' +
+    '5. Add the oil to a large pan and heat over medium-high heat. When the oil is hot, place 4 cakes in the pan at a time.  Don’t over crowd. \r\n' +
+    'Fry 2-3 mins on the first side, then when it is easy to flip, fry on the second side for another 2 mins or until fully cooked & a nice golden brown.  Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/C37wl5srUMh/?igsh=MTkzYmJ4MmNrajJydQ==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2212'),
+  id: 1727109603934,
+  title: 'Strawberry Cream Cake Roll',
+  content: 'This gluten free cream cake roll is such a lush treat.  Filled with fresh strawberries & fluffy whipped cream wrapped in a soft cake roll- a perfect dessert to serve to your guests!',
+  imagePaths: [
+    '/uploads/1727111455664.jpeg'
+  ],
+  recipe: '*4 eggs separated\r\n' +
+    '*3/4 cup sugar\r\n' +
+    '*6 tbsp unsalted butter, at room temperature\r\n' +
+    '*1-2 tbsp warm water\r\n' +
+    '*1/2 c + 2 tbsp GF APF (I used King Arthur)\r\n' +
+    '*1/4 tsp xanthan gum (omit if your blend already contains it)\r\n' +
+    '*2 tbsp cornstarch (I use Bob’s Red Mill)\r\n' +
+    '*1/4 tsp kosher salt\r\n' +
+    '*1/2 tsp pure vanilla extract\r\n' +
+    '*1/4 tsp cream of tartar\r\n' +
+    'FILLING: \r\n' +
+    '* 1 tbsp unflavored powdered gelatin\r\n' +
+    '*1/4 c water\r\n' +
+    '*2 c heavy whipping cream, chilled\r\n' +
+    '*2 tbsp powdered sugar\r\n' +
+    '*2 c fresh strawberries cleaned & chopped\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven to 350°F. Line sheet pan with parchment paper\r\n' +
+    '2. Cake batter- in large mixing bowl, add egg yolks, 1/2 cup sugar, butter, tbsp warm water. Whisk vigorously 5 minutes.  \r\n' +
+    '3. Sift flour blend, xanthan gum, cornstarch, salt into egg yolk butter mixture, beat until well-combined. Set aside. \r\n' +
+    '4. In clean mixing bowl, place egg whites & cream of tartar. Beat egg whites on medium-high speed until soft peaks form. Add remaining 1/4 cup sugar, beat until glossy, stiff peaks form. \r\n' +
+    '5. Pour egg yolk mixture & vanilla into egg white mixture, beat medium speed until just combined. Evenly spread batter onto prepared baking sheet.\r\n' +
+    '6. Bake 12-14 mins. \r\n' +
+    '7. Once done- sift powdered sugar generously over cake.  Carefully but quickly flip cake with baking sheet over onto the parchment sheet.  Gently peel parchment off from top of cake.  Gently roll cake with bottom parchment paper into full roll.  Let rest rolled & cool to room temp. 10 mins.\r\n' +
+    '8. While cake roll forms, make your whipped cream filling whisking ingredients.  Prepare strawberries.  Gently unroll cake, spread some filling evenly onto cake, scatter strawberries over filling, top evenly with more filling.  \r\n' +
+    '9. Gently roll cake (without parchment) until fully rolled again.  Sift powdered sugar on top, slice & enjoy!\r\n' +
+    '\r\n',
+  instagramLink: 'https://www.instagram.com/reel/C2-GOuqrhfn/?igsh=MXRpa2lndmF4cWxidQ==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2213'),
+  id: 1727109047744,
+  title: 'Cinnamon Sugar Donuts',
+  content: 'Fall season is here!  Celebrate by baking these fun & easy to make pumpkin shaped donuts.  Cinnamon sugar coated, fluffy, & filled with a chocolate mascarpone cream.  ',
+  imagePaths: [
+    '/uploads/1727109423343.jpeg',
+    '/uploads/1727109423473.jpeg',
+    '/uploads/1727109423657.jpeg'
+  ],
+  recipe: '*dutch oven or small soup pot for frying donuts\r\n' +
+    '*butcher’s twine for pumpkin shaping\r\n' +
+    '*cinnamon sticks cut into halves for stems\r\n' +
+    '* 2 tsp dry active yeast\r\n' +
+    '* 6 tbsp warm water 110º F\r\n' +
+    '* 2 tbsp sugar\r\n' +
+    '* 1 ½ c (GF) APF\r\n' +
+    '* ⅛ tsp salt\r\n' +
+    '* ⅓ c canned coconut milk\r\n' +
+    '* 1 egg large\r\n' +
+    '* 2 tbsp melted butter\r\n' +
+    '* 1 bottle of canola or vegetable oil\r\n' +
+    '* 1/2 c powdered sugar \r\n' +
+    '* 1/4 c granulated sugar\r\n' +
+    '\r\n' +
+    'CHOCOLATE MASCARPONE CREAM\r\n' +
+    '*1/4 c mascarpone cheese\r\n' +
+    '*2 c heavy cream\r\n' +
+    '*1/3 c powdered sugar\r\n' +
+    '*1-2 tbsp cocoa powder \r\n' +
+    '\r\n' +
+    '*cinnamon + sugar for donut coating\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1.  In small dish, add warm water, yeast, and sugar. Allow yeast to sit 10 minutes until foamy.\r\n' +
+    '2. Add dry ingredients to a bowl and whisk to blend. Pour yeast mixture, eggs, milk, and butter into the bowl.\r\n' +
+    '3. Mix or knead ingredients together to form a soft dough.  Cover bowl with plastic wrap, allow the dough to rise 45-60 minutes in warm area. I rest mine on a 77F proofing mat. \r\n' +
+    '4. Remove plastic, dust surface with flour, carefully take out dough.  Cut dough into 4-5 tbsp sized balls. Roll each to form dough balls. \r\n' +
+    '5. Heat oil 315-330F in Dutch oven or small soup pot, filled about 3 inches height wise. \r\n' +
+    '6.While oil is heating, cut butcher’s twine into 4 strings, 8-9 inch long each, which holds one dough ball.  Lay strings out flat on surface overlapping the one before, pointing strings as clock hands 12&6, 3&9, 4:30&10:30, 7:30&1:30. Place dough ball in middle of strings. Carefully lift strings upward gently, & tie the strings in a single knot, around dough ball as shown in video. Repeat this for every dough ball. Set each aside. \r\n' +
+    '7. Carefully place dough balls 2 at a time in hot oil & fry for few mins on each side until lightly golden brown. Carefully toss donuts in equal parts cinnamon & sugar mixture in small bowl. Lay each on paper towel to drain & cool completely. \r\n' +
+    '8. Make the mascarpone cream by whisking all ingredients w/electric mixer on medium high in a bowl until smooth & fluffy. Put in piping bag or ziplock bag. \r\n' +
+    '9. Once pumpkin donuts are cooled. Using end of a chopstick poke hole in middle of each donut & fill with mascarpone cream. Place cinnamon stick inside for stem. Enjoy! ',
+  instagramLink: 'https://www.instagram.com/reel/DAOIk7Vxlwi/?igsh=MTBwd29neW1jN2dqMg==',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2214'),
+  id: 1723086121986,
+  title: 'Cinnamon Sugar Pumpkin Donuts',
+  content: 'Fall season is here!  Celebrate by baking these fun & easy to make pumpkin shaped donuts.  Cinnamon sugar coated, fluffy, & filled with a chocolate mascarpone cream.  ',
+  imagePaths: [
+    '/uploads/1727106999529.jpeg',
+    '/uploads/1727106999765.jpeg',
+    '/uploads/1727106999773.jpeg'
+  ],
+  recipe: '*dutch oven or small soup pot for frying donuts\r\n' +
+    '*butcher’s twine for pumpkin shaping\r\n' +
+    '*cinnamon sticks cut into halves for stems\r\n' +
+    '* 2 tsp dry active yeast\r\n' +
+    '* 6 tbsp warm water 110º F\r\n' +
+    '* 2 tbsp sugar\r\n' +
+    '* 1 ½ c (GF) APF I used Cup4Cup All Purpose Flour\r\n' +
+    '* ⅛ tsp salt\r\n' +
+    '* ⅓ c canned coconut milk\r\n' +
+    '* 1 egg large\r\n' +
+    '* 2 tbsp melted butter\r\n' +
+    '* 1 bottle of canola or vegetable oil\r\n' +
+    '* 1/2 c powdered sugar \r\n' +
+    '* 1/4 c granulated sugar\r\n' +
+    '\r\n' +
+    'CHOCOLATE MASCARPONE CREAM\r\n' +
+    '*1/4 c mascarpone cheese\r\n' +
+    '*2 c heavy cream\r\n' +
+    '*1/3 c powdered sugar\r\n' +
+    '*1-2 tbsp cocoa powder \r\n' +
+    '*cinnamon + sugar for donut coating\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1.  In small dish, add warm water, yeast, and sugar. Allow yeast to sit 10 minutes until foamy.\r\n' +
+    '2. Add dry ingredients to a bowl and whisk to blend. Pour yeast mixture, eggs, milk, and butter into the bowl.\r\n' +
+    '3. Mix or knead ingredients together to form a soft dough.  Cover bowl with plastic wrap, allow the dough to rise 45-60 minutes in warm area. I rest mine on a 77F proofing mat. \r\n' +
+    '4. Remove plastic, dust surface with flour, carefully take out dough.  Cut dough into 4-5 tbsp sized balls. Roll each to form dough balls. \r\n' +
+    '5. Heat oil 315-330F in Dutch oven or small soup pot, filled about 3 inches height wise. \r\n' +
+    '6. While oil is heating, cut butcher’s twine into 4 strings, 8-9 inch long each, which holds one dough ball.  Lay strings out flat on surface overlapping the one before, pointing strings as clock hands 12&6, 3&9, 4:30&10:30, 7:30&1:30. Place dough ball in middle of strings. Carefully lift strings upward gently, & tie the strings in a single knot, around dough ball as shown in video. Repeat this for every dough ball. Set each aside. \r\n' +
+    '7. Carefully place dough balls 2 at a time in hot oil & fry for few mins on each side until lightly golden brown. Carefully toss donuts in equal parts cinnamon & sugar mixture in small bowl. Lay each on paper towel to drain & cool completely. \r\n' +
+    '8. Make the mascarpone cream by whisking all ingredients w/electric mixer on medium high in a bowl until smooth & fluffy. Put in piping bag or ziplock bag. \r\n' +
+    '9. Once pumpkin donuts are cooled. Using end of a chopstick poke hole in middle of each donut & fill with mascarpone cream. Place cinnamon stick inside for stem. Enjoy! ',
+  instagramLink: 'https://www.instagram.com/reel/DAOIk7Vxlwi/?igsh=c3pkb3dpNGVuNHdy',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2215'),
+  id: 1722830139773,
+  title: 'Red Velvet Brownies ',
+  content: 'These are stunners!  They’re fudgey, gooey, & SO easy to make. ',
+  imagePaths: [
+    '/uploads/1727108131479.jpeg',
+    '/uploads/1727108131575.jpeg',
+    '/uploads/1727108131599.jpeg'
+  ],
+  recipe: '*¾ c unsalted butter room temperature\r\n' +
+    '*1 1/3 c granulated sugar\r\n' +
+    '*2 eggs\r\n' +
+    '*1 tsp white vinegar \r\n' +
+    '*2 tsp  vanilla extract\r\n' +
+    '*1 ½ c GF APF \r\n' +
+    '*3 tbsp cocoa powder\r\n' +
+    '*¼ tsp  salt\r\n' +
+    '*1-2 tsp red food coloring \r\n' +
+    '*1 c chocolate chips\r\n' +
+    '\r\n' +
+    '\r\n' +
+    '1. Preheat oven 350F & line 8x8 baking pan with parchment paper. \r\n' +
+    '2. In large mixing bowl, beat butter & sugar until fluffy. \r\n' +
+    '3. Add in egg, white vinegar, vanilla & mix again. \r\n' +
+    '4. Add flour, cocoa powder, salt & mix until combined. \r\n' +
+    '5. Add red food coloring to your liking. \r\n' +
+    '6. Add chocolate chips in & fold gently. \r\n' +
+    '7. Pour batter into prepared baking dish & bake 28-32 mins or until brownies reach internal temperature of atleast 170F. Toothpick can come out with few crumbs for fudgy brownies. Enjoy!',
+  instagramLink: 'https://www.instagram.com/reel/DAQuTyMxr_l/?igsh=M2F5dWdodWg4aHl6',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2218'),
+  id: 1722484515793,
+  title: 'asdasd',
+  content: 'asdasd',
+  imagePaths: [],
+  recipe: 'adasd',
+  __v: 0
+}
+{
+  _id: ObjectId('66f25fcc851f30c0cc3d2219'),
+  id: 1722484480381,
+  title: 'ooooosdossdf',
+  content: 'adsas',
+  imagePaths: [],
+  recipe: 'asdas',
+  __v: 0
+}
+{
+  _id: ObjectId('67077547e5f05b44cf4fbec6'),
+  title: '77',
+  content: '77',
+  recipe: {
+    prepTime: '77',
+    cookTime: '77',
+    servings: '77',
+    ingredients: [
+      '77'
+    ],
+    steps: [
+      '77'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895dc99d272339e0bf38')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-10T06:33:43.080Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('670776b8e5f05b44cf4fbed4'),
+  title: '66',
+  content: '66',
+  recipe: {
+    prepTime: '66',
+    cookTime: '66',
+    servings: '66',
+    ingredients: [
+      '66'
+    ],
+    steps: [
+      '66'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895dc99d272339e0bf3a')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-10T06:39:52.217Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('67077a19e5f05b44cf4fbf04'),
+  title: '33',
+  content: '33',
+  recipe: {
+    prepTime: '33',
+    cookTime: '33',
+    servings: '33',
+    ingredients: [
+      '33'
+    ],
+    steps: [
+      '33'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895dc99d272339e0bf3c')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-10T06:54:17.562Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('67077b03e5f05b44cf4fbf12'),
+  title: '22',
+  content: '22',
+  recipe: {
+    prepTime: '22',
+    cookTime: '22',
+    servings: '22',
+    ingredients: [
+      '22'
+    ],
+    steps: [
+      '22'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895dc99d272339e0bf3e')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-10T06:58:11.812Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('67077e59e5f05b44cf4fbf37'),
+  title: '99',
+  content: '99',
+  recipe: {
+    prepTime: '99',
+    cookTime: '99',
+    servings: '99',
+    ingredients: [
+      '99'
+    ],
+    steps: [
+      '99'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895dc99d272339e0bf40')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-10T07:12:25.326Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('670ab0bfd264bbaf7549823b'),
+  title: '88',
+  content: '88',
+  recipe: {
+    prepTime: '88',
+    cookTime: '88',
+    servings: '88',
+    ingredients: [
+      '88'
+    ],
+    steps: [
+      '88'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895dc99d272339e0bf42')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-12T17:24:15.447Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('670abc3fd264bbaf75498252'),
+  title: '77',
+  content: '77',
+  recipe: {
+    prepTime: '77',
+    cookTime: '77',
+    servings: '77',
+    ingredients: [
+      '77'
+    ],
+    steps: [
+      '77'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895dc99d272339e0bf44')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-12T18:13:19.346Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('670acffcd264bbaf7549827e'),
+  title: '66',
+  content: '66',
+  recipe: {
+    prepTime: '66',
+    cookTime: '66',
+    servings: '66',
+    ingredients: [
+      '66'
+    ],
+    steps: [
+      '66'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895ec99d272339e0bf46')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-12T19:37:32.449Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('670b1ad5580a662e64118092'),
+  title: '44',
+  content: '44',
+  recipe: {
+    prepTime: '44',
+    cookTime: '44',
+    servings: '44',
+    ingredients: [
+      '44'
+    ],
+    steps: [
+      '44'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895ec99d272339e0bf48')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-13T00:56:53.835Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('670b212a89550b594f3851ec'),
+  title: '33',
+  content: '33',
+  recipe: {
+    prepTime: '33',
+    cookTime: '33',
+    servings: '33',
+    ingredients: [
+      '33'
+    ],
+    steps: [
+      '33'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895ec99d272339e0bf4a')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-13T01:23:54.167Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('670b2353d0a0546650b9ba8a'),
+  title: '22',
+  content: '22',
+  recipe: {
+    prepTime: '22',
+    cookTime: '22',
+    servings: '22',
+    ingredients: [
+      '22'
+    ],
+    steps: [
+      '22'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895ec99d272339e0bf4c')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-13T01:33:07.906Z'),
+  __v: 1,
+  imagePaths: []
+}
+{
+  _id: ObjectId('670b577248f02c5b50b8a14b'),
+  title: '99',
+  content: '99',
+  imagePaths: [
+    'https://recipebyrisa.s3.amazonaws.com/uploads/b8688070-0eda-4190-af7e-5ca5ff2f9a97-019.JPG-019.JPG'
+  ],
+  recipe: {
+    prepTime: '99',
+    cookTime: '99',
+    servings: '99',
+    ingredients: [
+      '99'
+    ],
+    steps: [
+      '99'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895ec99d272339e0bf4e')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-13T05:15:30.154Z'),
+  __v: 0
+}
+{
+  _id: ObjectId('670f4246a2a712391babbdc7'),
+  title: '88',
+  content: '88',
+  imagePaths: [
+    'https://recipebyrisa.s3.amazonaws.com/uploads/e7cb6d89-2a03-44d3-8d13-511db695c5df-008.JPG-008.JPG'
+  ],
+  recipe: {
+    prepTime: '88',
+    cookTime: '88',
+    servings: '88',
+    ingredients: [
+      '88'
+    ],
+    steps: [
+      '88'
+    ],
+    notes: 'Migrated from old post',
+    _id: ObjectId('6711895ec99d272339e0bf50')
+  },
+  instagramLink: 'https://www.instagram.com/p/C6d7uCMLj1W/',
+  author: ObjectId('6700616665d14d1699964034'),
+  tags: [],
+  createdAt: ISODate('2024-10-16T04:34:14.440Z'),
+  __v: 0
+}
+

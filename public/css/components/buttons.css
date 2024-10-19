@@ -1,0 +1,88 @@
+/* Button Styles */
+.button, .edit-post-btn, .delete-post-btn {
+    background-color: #A89A82;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover, .edit-post-btn:hover, .delete-post-btn:hover {
+    background-color: #8B7359;
+}
+
+
+/* Login Button Styling */
+.login-btn {
+    color: #000;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.login-btn:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Create Post Button Styling */
+.create-post-button {
+    background-color: #d3c6b8;
+    border: none;
+    color: #333;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    flex-shrink: 0;
+}
+
+.create-post-button:hover {
+    background-color: #e6e6e6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+/* Close Button Styling */
+.close-menu-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-menu-button:hover {
+    color: #8B7359;
+}
+/* Styling for View Recipe Card Button */
+#viewRecipeLink {
+    background-color: #e8cbb5; /* Matches the overall aesthetic of the site */
+    color: #3d2b1f; /* Darker text for readability */
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #c09772; /* Border matches the overall theme */
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#viewRecipeLink:hover {
+    background-color: #c09772; /* Darken the button on hover */
+    color: #fff; /* White text on hover */
+}

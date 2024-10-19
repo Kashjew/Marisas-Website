@@ -1,0 +1,24 @@
+/* Main Content Area */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.left-column, .right-column {
+    width: 45%;
+}
+
+.right-column {
+    background-color: #FAF7F3;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.right-column h2 {
+    font-family: "Karma", sans-serif;
+    color: #555;
+}

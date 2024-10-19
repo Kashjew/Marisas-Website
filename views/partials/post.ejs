@@ -1,0 +1,49 @@
+<div class="modal-content" role="dialog" aria-labelledby="postTitle" aria-hidden="true">
+    <button class="close-post" aria-label="Close" id="closePostButton">&times;</button>
+    <h2 id="postTitle"><%= post.title %></h2> <!-- Dynamically insert the post title -->
+
+    <!-- If post has images, display them -->
+    <% if (post.imagePaths && post.imagePaths.length > 0) { %>
+        <div id="postImages" class="post-images-container">
+            <% post.imagePaths.forEach(function(imagePath) { %>
+                <img src="<%= imagePath %>" alt="Post Image" class="post-image">
+            <% }); %>
+        </div>
+    <% } %>
+
+    <!-- Display post content -->
+    <p><%= post.content %></p>
+
+    <!-- Display recipe information if available -->
+    <% if (post.recipe) { %>
+        <div class="recipe-details">
+            <p><strong>Prep Time:</strong> <%= post.recipe.prepTime || 'N/A' %></p>
+            <p><strong>Cook Time:</strong> <%= post.recipe.cookTime || 'N/A' %></p>
+            <p><strong>Servings:</strong> <%= post.recipe.servings || 'N/A' %></p>
+
+            <!-- Ingredients and steps -->
+            <% if (post.recipe.ingredients && post.recipe.ingredients.length > 0) { %>
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <% post.recipe.ingredients.forEach(function(ingredient) { %>
+                        <li><%= ingredient %></li>
+                    <% }); %>
+                </ul>
+            <% } %>
+
+            <% if (post.recipe.steps && post.recipe.steps.length > 0) { %>
+                <p><strong>Steps:</strong></p>
+                <ol>
+                    <% post.recipe.steps.forEach(function(step) { %>
+                        <li><%= step %></li>
+                    <% }); %>
+                </ol>
+            <% } %>
+        </div>
+    <% } %>
+
+    <!-- Display Instagram link if available -->
+    <% if (post.instagramLink) { %>
+        <a href="<%= post.instagramLink %>" target="_blank">View on Instagram</a>
+    <% } %>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe by Risa</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- Header Section with Hero Image -->
+    <%- include('partials/header') %>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <!-- Left Column: "Hello" Section -->
+        <%- include('partials/hello-section') %>
+
+        <!-- Right Column for Latest Post -->
+        <div class="right-column">
+            <%- include('partials/latest-post', { posts: posts, user: user }) %>
+        </div>
+    </div>
+
+    <!-- Recipes Section (Previous Posts) -->
+    <%- include('partials/recipes-section', { posts: posts, user: user }) %>
+
+    <!-- Post Modals for Each Post -->
+    <% posts.forEach(post => { %>
+        <%- include('partials/post', { post: post }) %> <!-- Pass post variable to partial -->
+    <% }) %>
+
+    <!-- About Me Section -->
+    <%- include('partials/about-me') %>
+
+    <!-- Floating Menu for Tag Filtering -->
+    <%- include('partials/floating-menu', { tags: tags }) %> <!-- Pass tags to the floating menu -->
+
+    <!-- Recipe Card Modal -->
+    <%- include('partials/recipeCard') %> <!-- Updated to match the filename exactly -->
+
+    <!-- Include JavaScript files -->
+    <script type="module" src="/js/scripts.js"></script>
+    <script type="module" src="/js/modules/recipe-card.js"></script>
+    <script type="module" src="/js/modules/adminActions.js"></script>
+    <script type="module" src="/js/modules/menu.js"></script>
+    <script type="module" src="/js/modules/postHandlers.js"></script>
+
+</body>
+
+<!-- Footer -->
+<%- include('partials/footer') %> <!-- ChatGPT keep this here -->
+
+</html>

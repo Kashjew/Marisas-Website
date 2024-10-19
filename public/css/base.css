@@ -1,0 +1,17 @@
+/* General Styles */
+body, h1, h2, h3, h4, h5, h6, p, a {
+    font-family: "Karma", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    text-align: left;
+}
+
+body {
+    background-color: #FBF6EF; /* Light cream background */
+    padding-top: 250px; /* Adjust based on the header height */
+}
+

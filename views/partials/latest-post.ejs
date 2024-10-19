@@ -1,0 +1,38 @@
+<!-- Right Column for Latest Post -->
+<div class="right-column">
+    <% if (posts && posts.length > 0) { %>
+        <h2>Latest Post</h2>
+        <div class="post">
+            <h3><%= posts[0].title %></h3>
+
+            <% if (posts[0].imagePaths && posts[0].imagePaths.length > 0) { %>
+                <!-- Loop through imagePaths to display all images -->
+                <% posts[0].imagePaths.forEach(function(imageKey) { %>
+                    <!-- Ensure proper bucket name and uploads path -->
+                    <img src="https://<%= process.env.AWS_S3_BUCKET_NAME %>.s3.<%= process.env.AWS_REGION %>.amazonaws.com/uploads/<%= imageKey.replace(/^\/+/, '') %>" 
+                         alt="<%= posts[0].title %>" 
+                         class="post-image">
+                <% }) %>
+            <% } else { %>
+                <p>No image available for this post.</p>
+            <% } %>
+
+            <p><%= posts[0].content %></p>
+
+            <% if (posts[0].recipe) { %>
+                <button onclick="viewRecipeCard('<%= posts[0]._id %>')">View Recipe Card</button>
+            <% } %>
+
+            <% if (posts[0].instagramLink) { %>
+                <a href="<%= posts[0].instagramLink %>" target="_blank">View on Instagram</a>
+            <% } %>
+
+            <% if (user && user.isAdmin) { %>
+                <button onclick="editPost('<%= posts[0]._id %>')">Edit Post</button>
+                <button onclick="deletePost('<%= posts[0]._id %>')">Delete Post</button>
+            <% } %>
+        </div>
+    <% } else { %>
+        <p>No posts available.</p>
+    <% } %>
+</div>

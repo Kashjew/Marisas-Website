@@ -1,0 +1,37 @@
+<div id="recipeCardModal" class="modal" style="display: none; z-index: 9999;"> <!-- Ensure higher z-index -->
+    <div class="modal-content" role="dialog" aria-labelledby="recipeTitle" aria-hidden="true">
+        <button class="close-recipe-card" aria-label="Close" id="closeRecipeCardButton">&times;</button>
+        <h2 id="recipeTitle">Recipe Title</h2>
+
+        <!-- Container for multiple images -->
+        <div id="recipeImages" class="recipe-images-container">
+            <!-- Images will be dynamically inserted here by JS -->
+        </div>
+
+        <!-- Recipe Details -->
+        <div class="recipe-details">
+            <p><strong>Preparation Time:</strong> <span id="prepTime">N/A</span></p>
+            <p><strong>Cooking Time:</strong> <span id="cookTime">N/A</span></p>
+            <p><strong>Servings:</strong> <span id="servings">N/A</span></p>
+        </div>
+
+        <!-- Ingredients Section -->
+        <h3>Ingredients</h3>
+        <ul id="ingredientsList" class="ingredients-list">
+            <!-- Ingredients will be dynamically inserted here by JS -->
+        </ul>
+
+        <!-- Steps Section -->
+        <h3>Steps</h3>
+        <ul id="stepsList" class="steps-list">
+            <!-- Steps will be dynamically inserted here by JS -->
+        </ul>
+
+        <!-- Notes Section -->
+        <h3>Notes</h3>
+        <p id="recipeNotes" class="recipe-notes">No additional notes.</p>
+    </div>
+</div>
+
+<!-- Background overlay for greying out the rest of the screen -->
+<div id="recipeCardOverlay" class="modal-overlay" style="display: none; background-color: rgba(0, 0, 0, 0.7); z-index: 9998; position: fixed; top: 0; left: 0; width: 100%; height: 100%;"></div>
