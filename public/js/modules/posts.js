@@ -103,8 +103,6 @@ function getImagePath(post) {
     // Ensure images are pulled from S3
     if (post.imagePaths && post.imagePaths.length > 0) {
         imagePath = post.imagePaths[0]; // Use the first image if multiple are provided
-    } else if (post.imagePath) {
-        imagePath = post.imagePath;
     }
 
     if (imagePath) {
@@ -121,18 +119,18 @@ function getImagePath(post) {
 function openPostModal(postId) {
     console.log(`openPostModal called with postId: ${postId}`); // Debug log
 
-    const postModal = document.getElementById('postModal'); // This should be your dedicated post modal
+    const postModal = document.getElementById(`modal-${postId}`); // Dynamically find the modal for each post by ID
     if (!postModal) {
-        console.error('Post modal element not found');
+        console.error(`Post modal element not found for postId: ${postId}`);
         return;
     }
 
-    // Add class to show the modal
     postModal.style.display = 'block';
     postModal.setAttribute('aria-hidden', 'false');
-    document.getElementById('postTitle').textContent = "Loading...";
+    document.getElementById(`postTitle-${postId}`).textContent = "Loading...";
 
     // Fetch post details
+    console.log('Fetching post data for postId:', postId);  // Log before fetching
     fetch(`/api/posts/${postId}`)
         .then(response => {
             if (!response.ok) {
@@ -146,9 +144,10 @@ function openPostModal(postId) {
             }
 
             // Populate the modal with post data
-            document.getElementById('postTitle').textContent = post.title || 'Post Title';
-            document.getElementById('postContent').textContent = post.content || 'No content available';
-            const postImagesContainer = document.getElementById('postImages');
+            document.getElementById(`postTitle-${postId}`).textContent = post.title || 'Post Title';
+            document.getElementById(`postContent-${postId}`).textContent = post.content || 'No content available';
+
+            const postImagesContainer = document.getElementById(`postImages-${postId}`);
             postImagesContainer.innerHTML = ''; // Clear any existing images
 
             if (post.imagePaths && post.imagePaths.length > 0) {

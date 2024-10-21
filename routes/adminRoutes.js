@@ -6,6 +6,8 @@ const Post = require('../models/Post');
 const { S3Client, PutObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
 
 // AWS S3 Client setup
 const s3 = new S3Client({
@@ -27,31 +29,48 @@ async function uploadImageToS3(file, postId) {
 
     try {
         const data = await s3.send(new PutObjectCommand(uploadParams));
-        return `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+        return `https://${uploadParams.Bucket}.s3.${process.env.AWS_REGION}.amazonaws.com/${uploadParams.Key}`;
     } catch (err) {
         throw new Error('Image upload failed');
     }
 }
 
 // Route: Admin Dashboard
-router.get('/dashboard', async (req, res) => {
+// Route: Admin Dashboard
+router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
     try {
-        console.log('Fetching dashboard data...');
-        const posts = await Post.find().sort({ date: -1 });
+        const posts = await Post.find();  // Fetch the posts from the database
 
-        // Pass the posts array to the dashboard template
-        res.render('admin/dashboard', { user: req.user, posts: posts });
+        // Loop through each post and add a default image if the imagePaths array is empty or contains invalid paths
+        posts.forEach(post => {
+            if (!post.imagePaths || post.imagePaths.length === 0) {
+                post.imagePaths = ['/images/placeholder.jpg'];  // Use placeholder
+            } else {
+                post.imagePaths = post.imagePaths.map(imagePath => {
+                    if (imagePath === '/images/placeholder.jpg') {
+                        return imagePath;  // Leave placeholder as is
+                    }
+                    // Check if imagePath already contains 'https://' (indicating a full URL)
+                    if (!imagePath.startsWith('https://')) {
+                        return `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath.replace(/^\/+/, '')}`;
+                    }
+                    return imagePath;  // Already a full URL, return as is
+                });
+            }
+        });
+
+
+        
+
+        // Render the dashboard view and pass the updated posts
+        res.render('admin/dashboard', { posts });
     } catch (error) {
-        console.error('Error loading dashboard:', error);
-        req.flash('error', 'Failed to load the dashboard. Please try again.');
-        res.redirect('/login');
+        console.error('Error fetching posts:', error);
+        res.status(500).send('Internal Server Error');
     }
 });
 
-
-
 // Route: Handle Post Creation with S3 Upload
-// Handle multiple image uploads using multipleLoggingUpload
 router.post('/create-post', multipleLoggingUpload, async (req, res) => {
     const { title, content, recipe, instagramLink, tags } = req.body;
 
@@ -156,6 +175,8 @@ router.delete('/delete-post/:postId', async (req, res) => {
         res.status(500).json({ message: 'Failed to delete post. Please try again.' });
     }
 });
+
+module.exports = router;
 
 /* 
 // Commented out user and order management routes for now

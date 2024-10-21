@@ -3,7 +3,7 @@ import { initUtilities } from './modules/utilities.js'; // Ensure utilities impo
 // import { initMenu } from './modules/menu.js'; // Temporarily commented out
 
 import { fetchPosts } from './modules/posts.js'; // Fetch and render posts
-//import { initTagsDropdown } from './modules/tags.js'; // Initialize tags dropdown
+// import { initTagsDropdown } from './modules/tags.js'; // Initialize tags dropdown
 import { initComments } from './modules/comments.js'; // Initialize comments functionality
 import { initRequestPopup } from './modules/requests.js'; // Initialize request popup for users
 import { initPostHandlers } from './modules/postHandlers.js'; // Handles modals and event listeners
@@ -35,6 +35,23 @@ function adjustBodyPadding() {
     }
 }
 
+// Function to reinitialize Instagram embeds
+function loadInstagramEmbeds() {
+    if (window.instgrm) {
+        // Reparse the Instagram embed for any new content
+        instgrm.Embeds.process();
+        console.log("Instagram embeds reprocessed.");
+    } else {
+        // Fallback: load Instagram script if not already loaded
+        const script = document.createElement('script');
+        script.async = true;
+        script.defer = true;
+        script.src = 'https://www.instagram.com/embed.js';
+        document.body.appendChild(script);
+        console.log("Instagram embed script loaded.");
+    }
+}
+
 // Add event listeners and initialize modules once DOM content is loaded
 document.addEventListener("DOMContentLoaded", function () {
     console.log("DOM fully loaded and parsed");
@@ -45,9 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log('Initializing posts and modal handling...'); // Add this line for better debugging
     
     // Initialize functions
-    //initMenu(); // Initialize the hamburger menu (if used)
+    // initMenu(); // Initialize the hamburger menu (if used)
     fetchPosts(); // Fetch and render posts
-    //initTagsDropdown(); // Initialize tags dropdown for filtering posts
+    // initTagsDropdown(); // Initialize tags dropdown for filtering posts
     initComments(); // Initialize comment form handling
     initRequestPopup(); // Initialize user request popup
     
@@ -55,6 +72,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log('Calling initPostHandlers...');
     initPostHandlers(); // This function handles post modals and clicks
     console.log('Post handlers initialized.');
+
+    // Load Instagram embeds once the posts and modals are initialized
+    loadInstagramEmbeds();
 
     // Admin-specific functions are handled in adminActions.js
     if (user && user.isAdmin) {

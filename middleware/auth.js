@@ -1,48 +1,45 @@
-// auth.js - Middleware to Ensure Authentication and Admin Access
-
-// Middleware to ensure the user is authenticated
+// Middleware to ensure the user is authenticated using session-based authentication
 const ensureAuthenticated = (req, res, next) => {
-    // Check if the user is authenticated
+    // Log the authentication check
+    console.log('Checking if authenticated (session-based)...');
+
+    // Check if the user is authenticated using Passport's session-based method
     if (req.isAuthenticated()) {
-        return next(); // User is authenticated, proceed to next middleware/route
+        console.log('User is authenticated, proceeding...');
+        return next(); // User is authenticated, proceed to the next middleware/route
     }
 
-    // Handle API requests with a JSON response for unauthorized access
-    if (req.xhr || req.headers.accept.includes('application/json')) {
-        return res.status(401).json({ message: 'Unauthorized - Please log in to access this resource.' });
-    }
-
-    // Redirect to login page for non-API requests
+    console.log('User is not authenticated, redirecting to login.');
     req.flash('error', 'Please log in to access this page');
-    res.redirect('/login');
+    return res.redirect('/login');
 };
 
 // Middleware to ensure the user is an admin
 const ensureAdmin = (req, res, next) => {
+    console.log('Checking if user is admin (session-based)...', req.user ? req.user.isAdmin : 'No user');
+
     // Check if the user is authenticated and is an admin
     if (req.isAuthenticated() && req.user.isAdmin) {
-        return next(); // User is authenticated and is an admin, proceed to next middleware/route
+        console.log('User is admin, proceeding...');
+        return next(); // User is authenticated and is an admin, proceed to the next middleware/route
     }
 
-    // Handle API requests with a JSON response for forbidden access
-    if (req.xhr || req.headers.accept.includes('application/json')) {
-        return res.status(403).json({ message: 'Access denied. Admins only.' });
-    }
-
-    // Redirect to login page if not authenticated or to home page if not an admin
+    console.log('Admin access denied. Not an admin.');
     req.flash('error', 'Access denied: Admins only.');
-    res.redirect(req.isAuthenticated() ? '/' : '/login');
+    return res.redirect(req.isAuthenticated() ? '/' : '/login');
 };
 
-// Middleware to handle login and redirect appropriately
+// Middleware to handle login and redirect appropriately based on user role
 const handleLogin = (req, res) => {
     // Log the logged-in user for debugging purposes
     console.log('Logged in user:', req.user);
 
     // Redirect based on user role
     if (req.user.isAdmin) {
+        console.log('User is admin, redirecting to /admin/dashboard');
         return res.redirect('/admin/dashboard');
     } else {
+        console.log('User is not admin, redirecting to /');
         return res.redirect('/');
     }
 };

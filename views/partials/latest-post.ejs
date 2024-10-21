@@ -8,10 +8,15 @@
             <% if (posts[0].imagePaths && posts[0].imagePaths.length > 0) { %>
                 <!-- Loop through imagePaths to display all images -->
                 <% posts[0].imagePaths.forEach(function(imageKey) { %>
-                    <!-- Ensure proper bucket name and uploads path -->
-                    <img src="https://<%= process.env.AWS_S3_BUCKET_NAME %>.s3.<%= process.env.AWS_REGION %>.amazonaws.com/uploads/<%= imageKey.replace(/^\/+/, '') %>" 
-                         alt="<%= posts[0].title %>" 
-                         class="post-image">
+                    <% if (imageKey === '/images/placeholder.jpg') { %>
+                        <!-- Use the local placeholder image -->
+                        <img src="/images/placeholder.jpg" alt="<%= posts[0].title %>" class="post-image">
+                    <% } else { %>
+                        <!-- Use AWS S3 for actual post images -->
+                        <img src="https://<%= process.env.AWS_S3_BUCKET_NAME %>.s3.<%= process.env.AWS_REGION %>.amazonaws.com/uploads/<%= imageKey.replace(/^\/+/, '') %>" 
+                             alt="<%= posts[0].title %>" 
+                             class="post-image">
+                    <% } %>
                 <% }) %>
             <% } else { %>
                 <p>No image available for this post.</p>
@@ -24,7 +29,8 @@
             <% } %>
 
             <% if (posts[0].instagramLink) { %>
-                <a href="<%= posts[0].instagramLink %>" target="_blank">View on Instagram</a>
+                <blockquote class="instagram-media" data-instgrm-permalink="<%= posts[0].instagramLink %>" data-instgrm-version="12"></blockquote>
+                <script async defer src="https://www.instagram.com/embed.js"></script>
             <% } %>
 
             <% if (user && user.isAdmin) { %>

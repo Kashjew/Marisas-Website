@@ -3,24 +3,32 @@
     <% posts.slice(1).forEach(post => { %>
         <div class="post-image-container" data-post-id="<%= post._id %>">
             <% if (post.imagePaths && post.imagePaths.length > 0) { %>
-                <% const imageKey = post.imagePaths[0]; %> <!-- Assuming we take the first image from the array -->
-                <!-- Check if the imageKey is already a full URL -->
-                <% const imageUrl = imageKey.startsWith('http') ? imageKey : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imageKey}`; %>
-
-                <img src="<%= imageUrl %>" 
-                     alt="<%= post.title %>" 
-                     class="post-image">
+                <div id="postImages-<%= post._id %>" class="post-images-container">
+                    <% post.imagePaths.forEach(function(imagePath) { %>
+                        <% if (imagePath === '/images/placeholder.jpg') { %>  
+                            <!-- Load local placeholder image -->
+                            <img src="/images/placeholder.jpg" alt="Post Image" class="post-image">
+                        <% } else { %>
+                            <!-- Load actual image from AWS -->
+                            <img src="https://<%= s3BucketUrl %>.s3.<%= s3Region %>.amazonaws.com/uploads/<%= imagePath %>" alt="Post Image" class="post-image">
+                        <% } %>
+                    <% }); %>                 
+                </div>
             <% } else { %>
-                <p>No image available for this post.</p> <!-- Fallback if no image is available -->
+                <p>No images available for this post.</p>
             <% } %>
+  
             <h3><%= post.title %></h3>
+            
             <% if (post.tags && post.tags.length > 0) { %>
                 <p>Tags: <%= post.tags.join(', ') %></p>
             <% } %>
+  
             <% if (user && user.isAdmin) { %>
                 <button onclick="editPost('<%= post._id %>')">Edit Post</button>
                 <button onclick="deletePost('<%= post._id %>')">Delete Post</button>
             <% } %>
         </div>
     <% }) %>
-</section>
+  </section>
+  

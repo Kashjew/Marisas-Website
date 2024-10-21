@@ -1,5 +1,6 @@
 /* General Modal Styles */
 .modal {
+    display: none;  /* Hide modals initially */
     position: fixed;
     z-index: 10000;
     left: 0;
@@ -8,8 +9,6 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-    transition: opacity 0.3s ease-in-out;
 }
 
 .modal.show {
@@ -22,16 +21,20 @@
     display: none;
 }
 
-/* Modal Content Styling */
+/* Centering Modal Content */
 .modal-content {
     background-color: #fff;
-    margin: 10% auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the modal */
     padding: 20px;
     border: 1px solid #888;
+    border-radius: 10px;
     width: 90%;
     max-width: 800px;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 11000;
 }
 
 /* Admin Post Modal */

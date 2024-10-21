@@ -31,7 +31,8 @@
                 <div class="error-message"><%= message %></div>
             <% } %>
 
-            <form action="<%= adminLogin ? '/login/admin' : '/login' %>" method="POST" class="login-form">
+            <form action="/login" method="POST" class="login-form">
+
                 <label for="email" class="login-label">Email or Username</label>
                 <input type="text" id="email" name="email" placeholder="Email or Username" required class="login-input" />
 
