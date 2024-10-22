@@ -36,10 +36,10 @@ async function uploadImageToS3(file, postId) {
 }
 
 // Route: Admin Dashboard
-// Route: Admin Dashboard
 router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
     try {
-        const posts = await Post.find();  // Fetch the posts from the database
+        const posts = await Post.find().limit(10).sort({ createdAt: -1 }).exec();  // Fetch the posts from the database
+        const tags = ['brownies', 'cakes', 'cookies', 'pies'];  // Add actual tags from your system
 
         // Loop through each post and add a default image if the imagePaths array is empty or contains invalid paths
         posts.forEach(post => {
@@ -59,14 +59,32 @@ router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
             }
         });
 
-
-        
-
-        // Render the dashboard view and pass the updated posts
-        res.render('admin/dashboard', { posts });
+        // Render the dashboard view and pass the updated posts and tags
+        res.render('admin/dashboard', { posts, tags });
     } catch (error) {
-        console.error('Error fetching posts:', error);
+        console.error('Error fetching posts or tags:', error);
         res.status(500).send('Internal Server Error');
+    }
+});
+
+// API Route for Pagination - Fetch posts for infinite scroll
+router.get('/api/posts', ensureAuthenticated, ensureAdmin, async (req, res) => {
+    const page = parseInt(req.query.page) || 1;  // Get the page number from the query params (default to 1)
+    const limit = 10;  // Number of posts to fetch per request
+    const skip = (page - 1) * limit;  // Calculate how many posts to skip based on the page
+
+    try {
+        // Fetch the next batch of posts
+        const posts = await Post.find()
+            .sort({ createdAt: -1 })  // Sort posts by creation date (latest first)
+            .skip(skip)
+            .limit(limit)
+            .exec();
+
+        res.json({ posts });  // Return the posts as JSON
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error fetching posts');
     }
 });
 
@@ -182,15 +200,27 @@ module.exports = router;
 // Commented out user and order management routes for now
 
 // Route: Ban a User (AJAX)
-router.post('/ban-user', async (req, res) => {
+// Route: Ban a User
+router.post('/ban-user', ensureAuthenticated, ensureAdmin, async (req, res) => {
     try {
         const { userId } = req.body;
-        console.log(`Banning user with ID: ${userId}`);
         await User.findByIdAndUpdate(userId, { banned: true });
         res.status(200).json({ message: 'User has been banned successfully.' });
     } catch (error) {
         console.error('Error banning user:', error);
         res.status(500).json({ message: 'Failed to ban user. Please try again.' });
+    }
+});
+
+// Route: Unban a User
+router.post('/unban-user', ensureAuthenticated, ensureAdmin, async (req, res) => {
+    try {
+        const { userId } = req.body;
+        await User.findByIdAndUpdate(userId, { banned: false });
+        res.status(200).json({ message: 'User has been unbanned successfully.' });
+    } catch (error) {
+        console.error('Error unbanning user:', error);
+        res.status(500).json({ message: 'Failed to unban user. Please try again.' });
     }
 });
 

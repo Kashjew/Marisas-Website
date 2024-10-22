@@ -1,0 +1,17 @@
+<div class="post-grid-container">
+    <h2>Manage Posts</h2>
+    <div class="post-grid" id="postGrid">
+        <% posts.forEach(post => { %>
+            <div class="grid-item" data-post-id="<%= post._id %>">
+                <img src="<%= post.imagePaths.length ? post.imagePaths[0] : '/images/placeholder.jpg' %>" 
+                     alt="<%= post.title %>" 
+                     onerror="this.onerror=null; this.src='/images/placeholder.jpg';">
+                <div class="grid-hover">
+                    <button class="edit-btn" data-post-id="<%= post._id %>">Edit</button>
+                    <button class="delete-btn" data-post-id="<%= post._id %>">Delete</button>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+    <div class="infinite-scroll-loader">Loading...</div>
+</div>

@@ -10,31 +10,23 @@
 </head>
 
 <body>
-
+<header>
 <!-- Header Section with Hero Image -->
 <%- include('../partials/header-admin') %>
-
-<!-- Recipe Card Modal -->
-<%- include('../partials/recipeCard') %>
-
+</header>
+<main>
 <!-- Admin Dashboard Content -->
+<%- include('admingrid') %>
 <section class="dashboard-content">
     <% if (user && user.isAdmin) { %>
-        <!-- Manage Posts Section -->
         <div class="manage-section">
             <h2>Manage Posts</h2>
+            <!-- Include the create post form -->
+            <%- include('createpostform') %>
 
-            <!-- Create Post Popup Form -->
-            <div id="createPostModal" class="create-post-modal">
-                <!-- Form content for creating post... -->
-            </div>
 
-            <!-- Edit Post Popup Form -->
-            <div id="editPostModal" class="modal">
-                <!-- Form content for editing post... -->
-            </div>
 
-            <!-- List of Posts -->
+            <!-- Existing posts section -->
             <div id="posts-list">
                 <% if (posts && posts.length > 0) { %>
                     <% posts.forEach(function(post) { %>
@@ -45,16 +37,23 @@
                 <% } %>
             </div>
         </div>
-
     <% } %>
 </section>
+</main>
+<!-- Include the success/error modals -->
+<%- include('postsuccess') %>
 
 <!-- Include JavaScript files -->
 <script type="module" src="/js/scripts.js"></script>
-
+<script type="module" src="/js/admin/createPost.js"></script>
+<script src="/js/admin/admingrid.js"></script>
 </body>
 
 <!-- Footer -->
-<%- include('../partials/footer') %>
+<footer class="site-footer">
+    <div class="footer-container">
+        <p>&copy; 2024 Recipe by Risa. All rights reserved.</p>
+    </div>
+</footer>
 
 </html>

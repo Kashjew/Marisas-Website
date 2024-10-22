@@ -30,13 +30,14 @@ export function openLargeImageModal(imageUrl) {
         largeImageModal.style.display = 'block';
         largeImageModal.style.zIndex = '20000';
         largeImageModal.style.position = 'fixed';
-        overlay.classList.add('show'); // Show overlay when large image modal opens
+        overlay.style.display = 'block'; // Show overlay when large image modal opens
+        overlay.classList.add('show');
     } else {
         console.error("Large image modal or element not found");
     }
 
     // Close large image modal when clicking outside the content
-    largeImageModal.addEventListener('click', function(event) {
+    largeImageModal.addEventListener('click', function (event) {
         if (!event.target.closest('.modal-content')) {
             closeLargeImageModal();
         }
@@ -50,7 +51,8 @@ export function closeLargeImageModal() {
     if (largeImageModal) {
         largeImageModal.style.display = 'none';
         largeImageModal.setAttribute('aria-hidden', 'true');
-        overlay.classList.remove('show'); // Hide the overlay when modal closes
+        overlay.style.display = 'none'; // Hide the overlay when modal closes
+        overlay.classList.remove('show');
     }
 }
 

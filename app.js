@@ -11,6 +11,7 @@ const adminRoutes = require('./routes/adminRoutes');
 const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const indexRoutes = require('./routes/index');
+const adminApiRoutes = require('./routes/adminApiRoutes');
 require('dotenv').config();  // Load .env variables at the start
 
 // Initialize app
@@ -69,6 +70,7 @@ app.use((req, res, next) => {
 // Routes Setup - User and Admin
 app.use('/', indexRoutes); // Public user-facing routes
 app.use('/', authRoutes); // Authentication routes (login, logout, OAuth)
+app.use(adminApiRoutes);
 app.use('/profile', ensureAuthenticated, profileRoutes); // User profile routes, protected by ensureAuthenticated
 app.use('/admin', ensureAuthenticated, ensureAdmin, adminRoutes); // Admin routes, protected by ensureAuthenticated and ensureAdmin
 

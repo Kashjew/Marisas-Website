@@ -1,0 +1,71 @@
+/* Container for the post grid */
+.post-grid-container {
+    width: 100%;  /* Stretch the grid container to full width */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Set minimum size for each post */
+    grid-gap: 20px;  /* Padding between each post */
+    margin-top: 20px;
+}
+
+/* Style for each grid item */
+.grid-item {
+    position: relative;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    height: 250px;  /* Make each post square (width = height) */
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Load the placeholder image when the main image fails */
+.grid-item img.error {
+    content: url('/images/placeholder.jpg');  /* Path to the placeholder image */
+}
+
+.grid-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: scale(1.05);  /* Slightly enlarge the grid item on hover */
+}
+
+.grid-item:hover .grid-hover {
+    opacity: 1;
+}
+
+.edit-btn, .delete-btn {
+    background: #fff;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    background: #ccc;
+}

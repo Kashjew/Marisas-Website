@@ -61,11 +61,16 @@
     <!-- Add modal overlay for the post modal -->
     <div id="postModalOverlay-<%= post._id %>" class="modal-overlay" style="display: none;"></div> <!-- Unique overlay for the post modal -->
 
-    <!-- Large Image Modal -->
-    <div id="largeImageModal" class="modal" aria-hidden="true">
-        <span id="closeLargeImageButton" class="close-large-image">&times;</span>
-        <div class="modal-content">
-            <img id="largeImage" src="" alt="Large Image">
-        </div>
+</div>
+
+<!-- Move this block outside the post modals for global accessibility -->
+<!-- Large Image Modal (now global) -->
+<div id="largeImageModal" class="modal" aria-hidden="true">
+    <span id="closeLargeImageButton" class="close-large-image">&times;</span>
+    <div class="modal-content">
+        <img id="largeImage" src="" alt="Large Image">
     </div>
 </div>
+
+<!-- Global overlay for large image modal -->
+<div id="modalOverlay" class="modal-overlay" style="display: none;"></div>

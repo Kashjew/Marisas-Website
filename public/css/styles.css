@@ -24,3 +24,5 @@
 @import url('components/about.css'); /* About page specific styles */
 @import url('components/hello-section.css'); /* Hello section specific styles */
 @import url('components/recipecard.css');
+@import url('components/createpost.css');
+@import url('components/admingrid.css');
