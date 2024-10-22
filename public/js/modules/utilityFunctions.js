@@ -26,6 +26,11 @@ export function embedInstagramPost(post, postId) {
             instagramEmbedElement.innerHTML = `
                 <blockquote class="instagram-media" data-instgrm-permalink="${post.instagramLink}" data-instgrm-version="12"></blockquote>
                 <script async defer src="https://www.instagram.com/embed.js"></script>`;
+
+            // Reinitializing the Instagram embed script
+            if (window.instgrm && window.instgrm.Embeds) {
+                window.instgrm.Embeds.process();
+            }
         } else {
             instagramEmbedElement.innerHTML = '<p>No Instagram post available.</p>';
         }

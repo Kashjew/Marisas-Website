@@ -1,0 +1,257 @@
+/* General Modal Styles */
+.modal {
+    display: none;  /* Hide modals initially */
+    position: fixed;
+    z-index: 10000; /* Lower than recipe card modal */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for better focus */
+    pointer-events: all; /* Allow modal to overlay everything */
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+/* Ensure the post modal has a lower z-index than the recipe card */
+#postModalOverlay {
+    z-index: 10000; /* Ensure it's above other elements but below recipe card */
+}
+/* Ensure the recipe card modal overlay is above the post modal overlay */
+#recipeCardOverlay {
+    z-index: 15000; /* Higher than the post modal overlay */
+}
+.modal.hide {
+    opacity: 0;
+    display: none;
+}
+
+/* Overlay for darkening the background */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent dark background */
+    z-index: 9999; /* Below the modal itself */
+}
+
+.modal-overlay.show {
+    display: block;
+}
+
+/* Centering Modal Content */
+.modal-content {
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the modal */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 75%; /* Increased to 75% of the screen */
+    max-width: 900px;
+    height: auto;
+    max-height: 85vh; /* Allow scrolling if the content is too tall */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 11000;
+    overflow-y: auto; /* Add scrolling for long content */
+    pointer-events: all; /* Ensure the modal content is clickable */
+}
+
+/* Two-Column Layout for Post Modal */
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.left-column {
+    position: relative; /* Needed for absolute positioning of the button inside this column */
+    min-height: 400px; /* Ensure the column is tall enough to push the button to the bottom */
+}
+
+.right-column {
+    flex-basis: 35%; /* Adjust the right column to 35% */
+    max-width: 300px; /* Set max width for Instagram embed */
+    position: relative; /* Allows absolute positioning of child elements */
+    min-height: 400px; /* Ensure the column is tall enough for the button to sit at the bottom */
+}
+
+/* Ensure post images are responsive and maintain aspect ratio */
+.post-images-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Fill the container while maintaining aspect ratio */
+    max-height: 300px; /* Set a max height to prevent overflow */
+}
+
+/* Instagram Embed Adjustments */
+.instagram-media {
+    width: 100%; /* Make the embed take up the full width */
+}
+
+/* Larger image styles for the second popup */
+#largeImageModal img {
+    max-width: 90vw; /* Max width of the larger image */
+    max-height: 90vh; /* Max height of the larger image */
+    object-fit: contain; /* Ensure the large image fits the modal without distortion */
+}
+
+#largeImageModal {
+    display: none;
+    position: fixed;
+    z-index: 20000; /* Higher than the regular modal */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#largeImageModal .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 30000; /* Ensure the modal content is even higher */
+    max-width: 90vw; /* Added max width to prevent stretching */
+    max-height: 90vh; /* Ensure the modal does not overflow vertically */
+    overflow: hidden; /* Hide any overflowing content */
+    text-align: center; /* Center the image horizontally */
+}
+
+#closeLargeImageButton {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#closeLargeImageButton:hover {
+    color: #000;
+}
+
+/* Disable pointer events on background when modal is open */
+body.modal-open {
+    pointer-events: none;
+}
+
+.modal-content {
+    pointer-events: all; /* Ensure modal content remains clickable */
+}
+/* Image Grid (Thumbnail Style) */
+.post-images-container {
+    margin-top: 15px;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.image-box {
+    flex: 1;
+    min-width: calc(100% / 3 - 10px); /* Responsive resizing */
+    max-width: calc(100% / 3 - 10px); /* Ensure a grid layout for up to 5 images */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .image-box {
+        min-width: calc(100% / 2 - 10px);
+        max-width: calc(100% / 2 - 10px);
+    }
+}
+
+@media (max-width: 400px) {
+    .image-box {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+/* Dynamic Content Container Styles */
+.dynamic-content-container {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-wrap: break-word; /* Ensure long text doesn't overflow */
+    min-height: 150px; /* Ensures the content box appears bigger even when there's little content */
+}
+
+/* Dynamic Tags Container */
+.dynamic-tags-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow tags to wrap onto multiple lines */
+    gap: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Individual Tag Style */
+.post-tag {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.post-tag:hover {
+    background-color: #d0d0d0;
+}
+
+/* View Recipe Button Container */
+.view-recipe-button-container {
+    position: absolute;
+    bottom: 20px; /* Adjust the spacing from the bottom of the left column */
+    left: 50%; /* Centers the container horizontally relative to the left column */
+    transform: translateX(-50%); /* Ensure perfect horizontal centering */
+    text-align: center;
+    width: fit-content; /* Ensures the container wraps around the button */
+}
+
+.view-recipe-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.view-recipe-link:hover {
+    background-color: #0056b3;
+}

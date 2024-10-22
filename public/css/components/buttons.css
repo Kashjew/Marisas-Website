@@ -86,3 +86,21 @@
     background-color: #c09772; /* Darken the button on hover */
     color: #fff; /* White text on hover */
 }
+/* Styling for the button in the post modal */
+.styled-button {
+    background-color: #FF6347;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.styled-button:hover {
+    background-color: #e55339;
+}

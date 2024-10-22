@@ -1,37 +1,49 @@
-<div id="recipeCardModal" class="modal" style="display: none; z-index: 9999;"> <!-- Ensure higher z-index -->
-    <div class="modal-content" role="dialog" aria-labelledby="recipeTitle" aria-hidden="true">
-        <button class="close-recipe-card" aria-label="Close" id="closeRecipeCardButton">&times;</button>
-        <h2 id="recipeTitle">Recipe Title</h2>
+<div class="recipe-card-modal" id="recipeCardModal-<%= post._id %>" role="dialog" aria-labelledby="recipeTitle-<%= post._id %>" aria-hidden="true" style="display: none;">
+    <button class="close-recipe" aria-label="Close" data-modal-id="<%= post._id %>">&times;</button>
 
-        <!-- Container for multiple images -->
-        <div id="recipeImages" class="recipe-images-container">
-            <!-- Images will be dynamically inserted here by JS -->
+    <div class="recipe-details">
+        <h2 id="recipeTitle-<%= post._id %>">Recipe</h2>
+        
+        <!-- Prep Time Container -->
+        <div class="prep-time-container">
+            <p><strong>Prep Time:</strong> <span id="prepTime-<%= post._id %>"><%= post.recipe.prepTime || 'N/A' %></span></p>
         </div>
 
-        <!-- Recipe Details -->
-        <div class="recipe-details">
-            <p><strong>Preparation Time:</strong> <span id="prepTime">N/A</span></p>
-            <p><strong>Cooking Time:</strong> <span id="cookTime">N/A</span></p>
-            <p><strong>Servings:</strong> <span id="servings">N/A</span></p>
+        <!-- Cook Time Container -->
+        <div class="cook-time-container">
+            <p><strong>Cook Time:</strong> <span id="cookTime-<%= post._id %>"><%= post.recipe.cookTime || 'N/A' %></span></p>
         </div>
 
-        <!-- Ingredients Section -->
-        <h3>Ingredients</h3>
-        <ul id="ingredientsList" class="ingredients-list">
-            <!-- Ingredients will be dynamically inserted here by JS -->
-        </ul>
+        <!-- Servings Container -->
+        <div class="servings-container">
+            <p><strong>Servings:</strong> <span id="servings-<%= post._id %>"><%= post.recipe.servings || 'N/A' %></span></p>
+        </div>
 
-        <!-- Steps Section -->
-        <h3>Steps</h3>
-        <ul id="stepsList" class="steps-list">
-            <!-- Steps will be dynamically inserted here by JS -->
-        </ul>
+        <!-- Ingredients Container -->
+        <% if (post.recipe.ingredients && post.recipe.ingredients.length > 0) { %>
+            <div class="ingredients-container">
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <% post.recipe.ingredients.forEach(function(ingredient) { %>
+                        <li><%= ingredient %></li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } %>
 
-        <!-- Notes Section -->
-        <h3>Notes</h3>
-        <p id="recipeNotes" class="recipe-notes">No additional notes.</p>
+        <!-- Steps Container -->
+        <% if (post.recipe.steps && post.recipe.steps.length > 0) { %>
+            <div class="steps-container">
+                <p><strong>Steps:</strong></p>
+                <ol>
+                    <% post.recipe.steps.forEach(function(step) { %>
+                        <li><%= step %></li>
+                    <% }); %>
+                </ol>
+            </div>
+        <% } %>
     </div>
-</div>
 
-<!-- Background overlay for greying out the rest of the screen -->
-<div id="recipeCardOverlay" class="modal-overlay" style="display: none; background-color: rgba(0, 0, 0, 0.7); z-index: 9998; position: fixed; top: 0; left: 0; width: 100%; height: 100%;"></div>
+    <!-- Overlay -->
+    <div id="recipeCardOverlay" class="recipe-card-overlay"></div>
+</div>

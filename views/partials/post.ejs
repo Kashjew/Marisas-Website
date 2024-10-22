@@ -1,77 +1,71 @@
-<div class="modal-content" id="modal-<%= post._id %>" role="dialog" aria-labelledby="postTitle-<%= post._id %>" aria-hidden="true" style="display: none;">
+<div class="modal-content post-modal-content" id="modal-<%= post._id %>" role="dialog" aria-labelledby="postTitle-<%= post._id %>" aria-hidden="true" style="display: none;">
     <button class="close-post" aria-label="Close" data-modal-id="<%= post._id %>">&times;</button>
-    <h2 id="postTitle-<%= post._id %>"><%= post.title %></h2>
 
-    <!-- Display post images -->
-    <% if (post.imagePaths && post.imagePaths.length > 0) { %>
-        <div id="postImages-<%= post._id %>" class="post-images-container">
-            <% post.imagePaths.forEach(function(imagePath) { %>
-                <% if (imagePath === '/images/placeholder.jpg') { %>  
-                    <!-- Load local placeholder image if it's the placeholder -->
-                    <img src="/images/placeholder.jpg" alt="Post Image" class="post-image">
+    <div class="modal-body">
+        <!-- Left column for post content -->
+        <div class="left-column">
+            <!-- Post title -->
+            <h2 id="postTitle-<%= post._id %>"><%= post.title %></h2>
+
+            <!-- Display post images in a bordered container -->
+            <% if (post.imagePaths && post.imagePaths.length > 0) { %>
+                <div id="postImages-<%= post._id %>" class="post-images-container image-grid">
+                    <% post.imagePaths.forEach(function(imagePath) { %>
+                        <div class="image-box">
+                            <img src="<%= imagePath %>" alt="Post Image" class="post-image" onclick="openLargeImageModal('<%= imagePath %>')">
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p>No images available for this post.</p>
+            <% } %>
+
+            <!-- Post content (dynamically styled) -->
+            <div id="postContent-<%= post._id %>" class="dynamic-content-container">
+                <p><%= post.content %></p>
+            </div>
+
+            <!-- Display tags (dynamically styled) -->
+            <div id="postTags-<%= post._id %>" class="dynamic-tags-container">
+                <% if (post.tags && post.tags.length > 0) { %>
+                    <p>Tags: 
+                        <% post.tags.forEach(function(tag) { %>
+                            <span class="post-tag"><%= tag %></span>
+                        <% }); %>
+                    </p>
                 <% } else { %>
-                    <!-- Load actual image from AWS -->
-                    <img src="<%= imagePath.replace(/^\/+/, '') %>" alt="Post Image" class="post-image">
+                    <p>No tags available.</p>
                 <% } %>
-            <% }); %>   
-        </div>
-    <% } else { %>
-        <p>No images available for this post.</p>
-    <% } %>
+            </div>
 
-    <!-- Post content -->
-    <p id="postContent-<%= post._id %>"><%= post.content %></p>
-
-    <!-- Display recipe information if available -->
-    <% if (post.recipe) { %>
-        <div class="recipe-details">
-            <p><strong>Prep Time:</strong> <span id="prepTime-<%= post._id %>"><%= post.recipe.prepTime || 'N/A' %></span></p>
-            <p><strong>Cook Time:</strong> <span id="cookTime-<%= post._id %>"><%= post.recipe.cookTime || 'N/A' %></span></p>
-            <p><strong>Servings:</strong> <span id="servings-<%= post._id %>"><%= post.recipe.servings || 'N/A' %></span></p>
-
-            <!-- Ingredients and steps -->
-            <% if (post.recipe.ingredients && post.recipe.ingredients.length > 0) { %>
-                <p><strong>Ingredients:</strong></p>
-                <ul>
-                    <% post.recipe.ingredients.forEach(function(ingredient) { %>
-                        <li><%= ingredient %></li>
-                    <% }); %>
-                </ul>
-            <% } %>
-
-            <% if (post.recipe.steps && post.recipe.steps.length > 0) { %>
-                <p><strong>Steps:</strong></p>
-                <ol>
-                    <% post.recipe.steps.forEach(function(step) { %>
-                        <li><%= step %></li>
-                    <% }); %>
-                </ol>
+            <!-- View Recipe Button (only if recipe exists) -->
+            <% if (post.recipe) { %>
+                <div id="viewRecipeContainer-<%= post._id %>" class="view-recipe-button-container">
+                    <a id="viewRecipeLink-<%= post._id %>" href="javascript:void(0);" class="styled-button view-recipe-link" data-recipe-id="<%= post._id %>">View Recipe</a>
+                </div>
             <% } %>
         </div>
-    <% } %>
 
-    <!-- Display tags if available -->
-    <div id="postTags-<%= post._id %>">
-        <% if (post.tags && post.tags.length > 0) { %>
-            <p>Tags: 
-                <% post.tags.forEach(function(tag) { %>
-                    <span class="post-tag"><%= tag %></span>
-                <% }); %>
-            </p>
-        <% } else { %>
-            <p>No tags available.</p>
-        <% } %>
-    </div>
-    <!-- Display Instagram embed if available -->
-    <div id="instagramEmbed-<%= post._id %>">
-        <% if (post.instagramLink) { %>
-            <blockquote class="instagram-media" data-instgrm-permalink="<%= post.instagramLink %>" data-instgrm-version="12"></blockquote>
-            <script async defer src="https://www.instagram.com/embed.js"></script>
-        <% } else { %>
-            <p>No Instagram post available.</p>
-        <% } %>
+        <!-- Right column for Instagram embed (loaded when modal opens) -->
+        <div class="right-column">
+            <div id="instagramEmbed-<%= post._id %>">
+                <% if (post.instagramLink) { %>
+                    <div class="instagram-container"></div> <!-- Container to hold the Instagram embed -->
+                <% } else { %>
+                    <p>No Instagram post available.</p>
+                <% } %>
+            </div>
+        </div>
     </div>
 
-    <!-- View Recipe Link if recipe is available -->
-    <a id="viewRecipeLink-<%= post._id %>" href="javascript:void(0);" data-post-id="<%= post._id %>" style="display: none;">View Recipe</a>
+    <!-- Add modal overlay for the post modal -->
+    <div id="postModalOverlay-<%= post._id %>" class="modal-overlay" style="display: none;"></div> <!-- Unique overlay for the post modal -->
+
+    <!-- Large Image Modal -->
+    <div id="largeImageModal" class="modal" aria-hidden="true">
+        <span id="closeLargeImageButton" class="close-large-image">&times;</span>
+        <div class="modal-content">
+            <img id="largeImage" src="" alt="Large Image">
+        </div>
+    </div>
 </div>

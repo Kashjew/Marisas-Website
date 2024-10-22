@@ -7,6 +7,7 @@ import { fetchPosts } from './modules/posts.js'; // Fetch and render posts
 import { initComments } from './modules/comments.js'; // Initialize comments functionality
 import { initRequestPopup } from './modules/requests.js'; // Initialize request popup for users
 import { initPostHandlers } from './modules/postHandlers.js'; // Handles modals and event listeners
+import { viewRecipeCard } from './modules/recipe-card.js'; 
 
 console.log("postHandlers.js is imported");
 

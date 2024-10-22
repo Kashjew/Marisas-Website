@@ -44,7 +44,6 @@ router.get('/', async (req, res) => {
                 });
             }
         });
-        
 
         // Render the index view and pass the updated posts and tags
         res.render('index', { posts, user: req.user, tags });

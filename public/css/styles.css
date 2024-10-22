@@ -19,7 +19,8 @@
 /* Importing component styles */
 @import url('components/buttons.css'); /* Buttons styling */
 @import url('components/forms.css');   /* Form inputs, text areas, labels, etc. */
-@import url('components/modal.css');   /* Modal-related styles */
+@import url('components/post.css');   /* post popup css */
 @import url('components/post-item.css'); /* Post items such as cards, images */
 @import url('components/about.css'); /* About page specific styles */
 @import url('components/hello-section.css'); /* Hello section specific styles */
+@import url('components/recipecard.css');

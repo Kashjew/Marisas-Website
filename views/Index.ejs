@@ -38,8 +38,10 @@
     <!-- Floating Menu for Tag Filtering -->
     <%- include('partials/floating-menu', { tags: tags }) %> <!-- Pass tags to the floating menu -->
 
-    <!-- Recipe Card Modal -->
-    <%- include('partials/recipeCard') %> <!-- Updated to match the filename exactly -->
+    <!-- Recipe Card Modals for Each Post -->
+    <% posts.forEach(post => { %>
+        <%- include('partials/recipeCard', { post: post }) %> <!-- Pass post variable to recipeCard partial -->
+    <% }) %>
 
     <!-- Include JavaScript files -->
     <script type="module" src="/js/scripts.js"></script>

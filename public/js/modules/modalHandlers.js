@@ -1,89 +1,86 @@
 import { getAWSS3BucketURL } from './utilities.js'; // Import the S3 utility function
 import { populateTags, embedInstagramPost, handleRecipeLink } from './utilityFunctions.js'; // Import tag, Instagram, and recipe link handlers
 import { loadPostImages } from './imageHandlers.js'; // Import image handling functions
+import { openPostModal } from './posts.js'; // Import openPostModal from posts.js
 
-// Function to open the post modal and display the post content
-export function openPostModal(postId) {
-    console.log(`openPostModal called with postId: ${postId}`); // Debug log
+// Function to open the recipe card modal
+export function viewRecipeCard(postId) {
+    const recipeModal = document.getElementById(`recipeCardModal-${postId}`);
+    const recipeModalOverlay = document.getElementById(`postModalOverlay-${postId}`);
 
-    const postModal = document.getElementById(`modal-${postId}`); // Find modal for each post by ID
-    if (!postModal) {
-        console.error(`Post modal element not found for postId: ${postId}`);
+    if (!recipeModal || !recipeModalOverlay) {
+        console.error('Recipe modal or overlay not found');
         return;
     }
 
-    // Display and update modal visibility
-    postModal.style.display = 'block';
-    postModal.setAttribute('aria-hidden', 'false');
-
-    const postTitleElement = document.getElementById(`postTitle-${postId}`);
-    if (postTitleElement) {
-        postTitleElement.textContent = "Loading...";
-    } else {
-        console.error(`postTitle element not found for postId: ${postId}`);
-    }
-
-    // Fetch post details
-    fetch(`/api/posts/${postId}`)
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.json();
-        })
-        .then(post => {
-            if (!post || !post.title) throw new Error('Post not found or invalid post data');
-
-            // Populate modal with post data
-            if (postTitleElement) postTitleElement.textContent = post.title || 'Post Title';
-
-            const postContentElement = document.getElementById(`postContent-${postId}`);
-            if (postContentElement) postContentElement.textContent = post.content || 'No content available';
-
-            const prepTimeElement = document.getElementById(`prepTime-${postId}`);
-            const cookTimeElement = document.getElementById(`cookTime-${postId}`);
-            const servingsElement = document.getElementById(`servings-${postId}`);
-
-            if (prepTimeElement) prepTimeElement.textContent = post.recipe?.prepTime || 'Not available';
-            if (cookTimeElement) cookTimeElement.textContent = post.recipe?.cookTime || 'Not available';
-            if (servingsElement) servingsElement.textContent = post.recipe?.servings || 'Not available';
-
-            // Populate the modal with images, tags, Instagram post, and recipe link
-            populateTags(post, postId);        // Populate tags using utility function
-            embedInstagramPost(post, postId);  // Embed Instagram post if available
-            loadPostImages(post, postId);      // Load post images from S3 or placeholders
-            handleRecipeLink(post, postId);    // Handle recipe link display logic
-        })
-        .catch(error => {
-            console.error('Error fetching post:', error);
-            if (postTitleElement) {
-                postTitleElement.textContent = "Error loading post.";
-            }
-            postModal.style.display = 'none';
-            postModal.setAttribute('aria-hidden', 'true');
-        });
+    recipeModal.style.display = 'block';
+    recipeModal.setAttribute('aria-hidden', 'false');
+    recipeModalOverlay.style.display = 'block';
+    recipeModalOverlay.classList.add('show');
 }
 
 // Function to open the large image modal
 export function openLargeImageModal(imageUrl) {
     const largeImageModal = document.getElementById('largeImageModal');
     const largeImageElement = largeImageModal ? largeImageModal.querySelector('img') : null;
+    const overlay = document.getElementById('modalOverlay');
 
     if (largeImageModal && largeImageElement) {
         largeImageElement.src = imageUrl;
         largeImageModal.style.display = 'block';
         largeImageModal.style.zIndex = '20000';
         largeImageModal.style.position = 'fixed';
+        overlay.classList.add('show'); // Show overlay when large image modal opens
     } else {
         console.error("Large image modal or element not found");
     }
+
+    // Close large image modal when clicking outside the content
+    largeImageModal.addEventListener('click', function(event) {
+        if (!event.target.closest('.modal-content')) {
+            closeLargeImageModal();
+        }
+    });
 }
 
-// Function to close the modals
+// Function to close the large image modal
+export function closeLargeImageModal() {
+    const largeImageModal = document.getElementById('largeImageModal');
+    const overlay = document.getElementById('modalOverlay');
+    if (largeImageModal) {
+        largeImageModal.style.display = 'none';
+        largeImageModal.setAttribute('aria-hidden', 'true');
+        overlay.classList.remove('show'); // Hide the overlay when modal closes
+    }
+}
+
+// Function to close the post modal
 export function closeModal(modalId) {
     const postModal = document.getElementById(`modal-${modalId}`);
+    const overlay = document.getElementById(`postModalOverlay-${modalId}`);
     if (postModal) {
         postModal.style.display = 'none';
         postModal.setAttribute('aria-hidden', 'true');
     }
+    if (overlay) {
+        overlay.style.display = 'none';
+        overlay.classList.remove('show'); // Hide the overlay when modal closes
+    }
+}
+
+// Function to close all modals
+export function closeAllModals() {
+    const openModals = document.querySelectorAll('.modal[aria-hidden="false"]');
+    openModals.forEach(modal => {
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden', 'true');
+    });
+
+    const overlays = document.querySelectorAll('.modal-overlay');
+    overlays.forEach(overlay => {
+        overlay.style.display = 'none';
+        overlay.classList.remove('show'); // Hide all overlays
+    });
 }
 
 // Initialize close button events for all modals
@@ -95,9 +92,17 @@ export function initCloseButtons() {
             closeModal(modalId);
         });
     });
+
+    // Close large image modal button
+    const closeLargeImageButton = document.getElementById('closeLargeImageButton');
+    if (closeLargeImageButton) {
+        closeLargeImageButton.addEventListener('click', closeLargeImageModal);
+    }
 }
 
 // Ensure the close button functionality is initialized when the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
     initCloseButtons(); // Initialize close button event listeners
 });
+
+export { openPostModal };

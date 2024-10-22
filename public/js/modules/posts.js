@@ -1,4 +1,5 @@
 import { getAWSS3BucketURL } from './utilities.js';
+import { embedInstagramPost, populateTags, handleRecipeLink } from './utilityFunctions.js'; // Import necessary functions
 
 // Fetch all posts from the backend
 export async function fetchPosts() {
@@ -163,9 +164,14 @@ function openPostModal(postId) {
                 postImagesContainer.innerHTML = '<p>No images available.</p>';
             }
 
+            // Populate tags, Instagram, and recipe link using utility functions
+            populateTags(post, postId); // This function fills the tags container
+            embedInstagramPost(post, postId);  // Embed Instagram post if available
+            handleRecipeLink(post, postId);    // Handle recipe link visibility and interaction
+
             // Hide the recipe link for posts without a recipe
             if (!post.recipe) {
-                document.getElementById('viewRecipeLink').style.display = 'none';
+                document.getElementById(`viewRecipeLink-${postId}`).style.display = 'none';
             }
         })
         .catch(error => {
@@ -188,3 +194,5 @@ function addPostModalHandlers(postElement) {
         });
     }
 }
+
+export { openPostModal }
