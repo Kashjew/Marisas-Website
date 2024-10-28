@@ -1,3 +1,10 @@
+/* Ensure the hero section occupies the top of the page without any gaps */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* To prevent horizontal overflow */
+}
+
 /* Header Section */
 .hero-header {
     position: fixed;
@@ -11,7 +18,7 @@
     padding-bottom: 20px; /* Padding to create space below the header */
 }
 
-/* Logo Container */
+/* General Logo Container */
 .logo-container {
     width: 100%;
 }
@@ -36,5 +43,135 @@
     .user-options-container {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+/* ADMIN SECTION STYLES */
+
+/* Admin Header Section */
+.admin-hero-header {
+    position: relative;
+    width: 100%;
+    max-height: 250px;
+    background-color: #FBF6EF;
+    z-index: 1000;
+}
+
+/* Admin Logo Container */
+.admin-logo-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Admin Hero Image */
+.admin-hero-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Overlay on the Admin Hero Image */
+.admin-header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #000000; /* Dark text for visibility on hero image */
+    z-index: 2;
+}
+
+/* Centered Content on Admin Hero Image */
+.admin-overlay-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the start instead of center */
+    gap: 5px;
+}
+
+.admin-dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000; /* Dark text color to stand out on overlay */
+    margin: 0;
+}
+
+.admin-overlay-content p {
+    margin: 0;
+    font-size: 16px;
+    color: #333; /* Adjusted for visibility */
+}
+
+/* Welcome and Logout Links */
+.admin-login-container p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Logout Button Styled to Match Create Post Button */
+.admin-logout-btn {
+    background-color: #333;
+    color: #FFF;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.admin-logout-btn:hover {
+    background-color: #555; /* Darker shade on hover for consistency */
+}
+
+/* Hamburger Menu Positioned in Top-Right for Admin */
+#hamburgerMenu {
+    position: absolute;
+    top: 20px;
+    right: 20px; /* Moved to top-right corner */
+    font-size: 24px;
+    color: #FFF;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10; /* Ensures it stays above other content */
+}
+
+/* Create New Post Button */
+.admin-create-post-button {
+    background-color: #333;
+    color: #FFF;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.admin-create-post-button:hover {
+    background-color: #555; /* Darker shade on hover */
+}
+
+/* Responsive Adjustments for Admin Section */
+@media screen and (max-width: 768px) {
+    .admin-user-options-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    /* Adjust button sizes for smaller screens */
+    .admin-logout-btn,
+    .admin-create-post-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    #hamburgerMenu {
+        top: 10px;
+        right: 10px;
     }
 }

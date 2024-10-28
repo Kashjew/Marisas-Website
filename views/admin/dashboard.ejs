@@ -3,57 +3,89 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Google Fonts for Stylish Text -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Great+Vibes&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Recipe by Risa</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    
+    <!-- Admin Specific CSS -->
+    <link rel="stylesheet" href="/css/components/adminheader.css">
+    <link rel="stylesheet" href="/css/components/admingrid.css">
+    <link rel="stylesheet" href="/css/components/createpost.css">
+    <link rel="stylesheet" href="/css/components/post.css">
+    <link rel="stylesheet" href="/css/components/recipecard.css">
+    <link rel="stylesheet" href="/css/components/buttons.css">
+    <link rel="stylesheet" href="/css/components/helloSectionEditor.css">
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    
+    <!-- Add SortableJS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 </head>
 
-<body>
+<body class="admin-body">
 <header>
-<!-- Header Section with Hero Image -->
-<%- include('../partials/header-admin') %>
+    <!-- Header Section with Hero Image -->
+    <%- include('../partials/header-admin') %>
 </header>
+
 <main>
-<!-- Admin Dashboard Content -->
-<%- include('admingrid') %>
-<section class="dashboard-content">
-    <% if (user && user.isAdmin) { %>
-        <div class="manage-section">
-            <h2>Manage Posts</h2>
-            <!-- Include the create post form -->
-            <%- include('createpostform') %>
+    <!-- Editable Hello Section in dashboard.ejs -->
+<div class="hello-section-editor">
+    <h3>Edit Hello Section</h3>
+    <form id="hello-section-form">
+        <textarea id="hello-content" name="helloContent" rows="4" cols="50">
+            <%= helloContent || "Welcome to Marisa's recipes!" %>
+        </textarea>
+        <button type="submit">Save</button>
+    </form>
+</div>
 
+    <!-- Admin Dashboard Content -->
+    <%- include('admingrid') %>
+    <section class="dashboard-content">
+        <% if (user && user.isAdmin) { %>
+            <div class="manage-section">              
+                <!-- Include the create post form -->
+                <%- include('createpostform') %> <!-- Create Post Modal -->
 
+                <!-- Include the edit post form -->
+                <%- include('editpostform') %> <!-- Edit Post Modal -->
 
-            <!-- Existing posts section -->
-            <div id="posts-list">
-                <% if (posts && posts.length > 0) { %>
-                    <% posts.forEach(function(post) { %>
-                        <%- include('../partials/post', { post: post }) %> <!-- Pass the 'post' variable to the partial -->
-                    <% }); %>
-                <% } else { %>
-                    <p>No posts available.</p>
-                <% } %>
+                <!-- Existing posts section -->
+                <div id="posts-list">
+                    <% if (posts && posts.length > 0) { %>
+                        <% posts.forEach(function(post) { %>
+                            <%- include('../partials/post', { post: post }) %> <!-- Pass the 'post' variable to the partial -->
+                        <% }); %>
+                    <% } else { %>
+                        <p>No posts available.</p>
+                    <% } %>
+                </div>
             </div>
-        </div>
-    <% } %>
-</section>
+        <% } %>
+    </section>
 </main>
-<!-- Include the success/error modals -->
+
+<!-- Include the success/error modals for Create Post -->
 <%- include('postsuccess') %>
+
+<!-- Include the success/error modals for Edit Post -->
+<%- include('editsuccess') %>
 
 <!-- Include JavaScript files -->
 <script type="module" src="/js/scripts.js"></script>
 <script type="module" src="/js/admin/createPost.js"></script>
 <script src="/js/admin/admingrid.js"></script>
-</body>
+<script src="/js/admin/editPost.js"></script>
+<script src="/js/admin/helloSection.js"></script>
 
 <!-- Footer -->
+    
 <footer class="site-footer">
     <div class="footer-container">
         <p>&copy; 2024 Recipe by Risa. All rights reserved.</p>
     </div>
 </footer>
 
+</body>
 </html>

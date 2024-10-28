@@ -1,12 +1,10 @@
-<!-- views/admin/createpostform.ejs -->
-
-<div id="createPostModal" class="create-post-modal">
-  <div class="create-post-content">
-    <span class="close-create-post">&times;</span>
-    <h2>Create a New Post</h2>
+<div id="editPostModal" class="create-post-modal"> <!-- Using the same modal class -->
+  <div class="create-post-content"> <!-- Using the same content class -->
+    <span class="close-create-post">&times;</span> <!-- Close button works like the create post modal -->
+    <h2>Edit Post</h2>
 
     <!-- Add hidden field to store post ID when editing -->
-    <form id="createPostForm" action="/admin/create-post" method="POST" enctype="multipart/form-data">
+    <form id="editPostForm" action="" method="POST" enctype="multipart/form-data">
       <input type="hidden" id="postId" name="postId" value="">
 
       <div class="form-group">
@@ -30,6 +28,11 @@
         <label for="image">Images:</label>
         <input type="file" id="image" name="images" class="large-input form-input" accept="image/*" multiple>
         <p>(You can upload up to 5 images)</p>
+      </div>
+
+      <!-- Display the current image -->
+      <div class="form-group">
+        <img id="imagePreview" class="image-preview" src="" alt="Current Image" style="display: none;" />
       </div>
 
       <div class="form-group">
@@ -69,7 +72,7 @@
         <textarea id="notes" name="recipe[notes]" rows="3" class="large-textarea form-textarea" placeholder="Any additional notes..."></textarea>
       </div>
 
-      <button type="submit" class="submit-post-btn button">Create Post</button>
+      <button type="submit" class="submit-post-btn button">Update Post</button>
     </form>
   </div>
 </div>

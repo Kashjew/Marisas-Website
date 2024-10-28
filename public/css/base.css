@@ -10,10 +10,18 @@ body, h1, h2, h3, h4, h5, h6, p, a {
     text-align: left;
 }
 
-body {
-    background-color: #FBF6EF; /* Light cream background */
-    padding-top: 250px; /* Adjust based on the header height */
+/* Apply padding only to user pages */
+body.user-page {
+    background-color: #FBF6EF;
+    padding-top: 250px; /* Adjusted padding to prevent content from hiding behind the header */
 }
+
+/* Admin-specific styles */
+body.admin-body {
+    padding-top: 0; /* No padding for admin pages */
+    background-color: #FBF6EF; /* Optional: keep the background consistent */
+}
+
 /* Add styling for the dynamic content container */
 .post-content-container {
     border: 1px solid #ddd;
@@ -37,4 +45,3 @@ body {
     padding: 5px;
     border-radius: 4px;
 }
-

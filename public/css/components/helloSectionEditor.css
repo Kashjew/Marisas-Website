@@ -1,0 +1,67 @@
+/* helloSectionEditor.css */
+
+.hello-section-editor {
+    width: 80%;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f7f3ed; /* Light beige background */
+    border: 2px solid #8b6f47; /* Soft brown border */
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif; /* Elegant font */
+}
+
+.hello-section-editor h3 {
+    font-size: 2rem;
+    color: #5c4a33; /* Deep brown */
+    margin-bottom: 1.5rem;
+}
+
+.hello-section-editor form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#hello-content {
+    width: 100%;
+    height: 200px; /* Expanded to fit up to 10 lines */
+    padding: 1rem;
+    border: 2px solid #5c4a33; /* Matching border color */
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-family: 'Great Vibes', cursive; /* Stylish cursive font for the text */
+    background-color: #fcf8f3; /* Very light beige */
+    color: #4a4a4a; /* Soft dark grey */
+    resize: none;
+}
+
+.hello-section-editor button {
+    margin-top: 1rem;
+    padding: 0.75rem 2rem;
+    background-color: #5c4a33; /* Deep brown */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'Cormorant Garamond', serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.hello-section-editor button:hover {
+    background-color: #8b6f47; /* Slightly lighter brown on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Ensuring responsive design */
+@media (max-width: 768px) {
+    .hello-section-editor {
+        width: 90%;
+    }
+    #hello-content {
+        font-size: 1rem;
+    }
+}

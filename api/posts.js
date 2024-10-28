@@ -54,6 +54,10 @@ router.post('/', auth.ensureAuthenticated, singleLoggingUpload, async (req, res)
             imageUrl = await uploadImageToS3(req.file, Date.now().toString());
         }
 
+        // Increment the order of all existing posts by 1
+        await Post.updateMany({}, { $inc: { order: 1 } });
+
+        // Create the new post with order 1
         const newPost = new Post({
             title,
             content,
@@ -62,6 +66,7 @@ router.post('/', auth.ensureAuthenticated, singleLoggingUpload, async (req, res)
             tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
             author: req.user._id,
             imagePaths: imageUrl ? [imageUrl] : [],
+            order: 1, // Set the order to 1 for the latest post
         });
 
         await newPost.save();
@@ -71,6 +76,7 @@ router.post('/', auth.ensureAuthenticated, singleLoggingUpload, async (req, res)
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
+
 
 // Route: Get all posts (Public)
 router.get('/', async (req, res) => {
@@ -105,6 +111,61 @@ router.get('/:id', async (req, res) => {
         res.status(500).json({ message: 'Error fetching post' });
     }
 });
+
+// Route: Edit a Post by ID (PUT request - Single image)
+router.put('/:id', auth.ensureAuthenticated, singleLoggingUpload, async (req, res) => {
+    const postId = req.params.id;
+    const { title, content, recipe, instagramLink, tags } = req.body;
+
+    try {
+        // Find the existing post
+        const existingPost = await Post.findById(postId);
+        if (!existingPost) {
+            return res.status(404).json({ message: 'Post not found.' });
+        }
+
+        let updatedImageUrls = existingPost.imagePaths || [];
+
+        // If a new image is uploaded, replace the old image
+        if (req.file) {
+            const imageUrl = await uploadImageToS3(req.file, postId);  // Upload new image to S3
+            updatedImageUrls = [imageUrl];  // Replace with the new image
+
+            // Delete the old image from S3
+            if (existingPost.imagePaths && existingPost.imagePaths.length > 0) {
+                const deleteParams = {
+                    Bucket: process.env.AWS_S3_BUCKET_NAME,
+                    Key: existingPost.imagePaths[0].split('.amazonaws.com/')[1],  // Extract the image key from the URL
+                };
+                await s3.send(new DeleteObjectCommand(deleteParams));
+            }
+        }
+
+        // Update the post
+        const updatedPost = await Post.findByIdAndUpdate(
+            postId,
+            {
+                title,
+                content,
+                recipe,
+                instagramLink,
+                tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
+                imagePaths: updatedImageUrls.length > 0 ? updatedImageUrls : undefined,  // Only update if new images are provided
+            },
+            { new: true }  // Return the updated post
+        );
+
+        if (!updatedPost) {
+            return res.status(404).json({ message: 'Post not found.' });
+        }
+
+        res.status(200).json(updatedPost);
+    } catch (error) {
+        console.error('Error updating post:', error);
+        res.status(500).json({ message: 'Failed to update post. Please try again.' });
+    }
+});
+
 
 // Route: Delete a post by ID (Admin handled in adminRoutes.js)
 router.delete('/:id', auth.ensureAuthenticated, async (req, res) => {

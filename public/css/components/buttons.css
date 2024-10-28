@@ -104,3 +104,45 @@
 .styled-button:hover {
     background-color: #e55339;
 }
+/* Button Styles */
+.admin-logout-btn,
+.admin-create-post-button {
+    background-color: #333;
+    color: #FFF;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.admin-logout-btn:hover,
+.admin-create-post-button:hover {
+    background-color: #555;
+}
+/* Styles for the Open Post button on each grid item */
+.open-post-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    font-size: 14px; /* Button text size */
+    font-weight: bold;
+    cursor: pointer; /* Hand cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for the Open Post button */
+.open-post-button:hover {
+    background-color: #555; /* Lighter background on hover */
+}
+
+/* Positioning within the grid item */
+.grid-item {
+    position: relative; /* Ensures absolute positioning of the button works */
+}

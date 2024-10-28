@@ -66,6 +66,10 @@ const PostSchema = new mongoose.Schema({
         type: Date,
         default: Date.now, // Automatically set to current date
     },
+    order: {
+        type: Number, // Order field to specify display order of posts
+        required: false, // Not required; can be set programmatically
+    },
 });
 
 // Export the Post model

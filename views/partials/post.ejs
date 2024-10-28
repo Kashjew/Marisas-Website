@@ -12,7 +12,12 @@
                 <div id="postImages-<%= post._id %>" class="post-images-container image-grid">
                     <% post.imagePaths.forEach(function(imagePath) { %>
                         <div class="image-box">
-                            <img src="<%= imagePath %>" alt="Post Image" class="post-image" onclick="openLargeImageModal('<%= imagePath %>')">
+                            <img 
+                                src="<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>" 
+                                alt="Post Image" 
+                                class="post-image" 
+                                onclick="openLargeImageModal('<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>')" 
+                                onerror="this.src='/images/placeholder.jpg'">
                         </div>
                     <% }); %>
                 </div>
@@ -20,12 +25,12 @@
                 <p>No images available for this post.</p>
             <% } %>
 
-            <!-- Post content (dynamically styled) -->
+            <!-- Post content -->
             <div id="postContent-<%= post._id %>" class="dynamic-content-container">
                 <p><%= post.content %></p>
             </div>
 
-            <!-- Display tags (dynamically styled) -->
+            <!-- Display tags -->
             <div id="postTags-<%= post._id %>" class="dynamic-tags-container">
                 <% if (post.tags && post.tags.length > 0) { %>
                     <p>Tags: 
@@ -38,7 +43,7 @@
                 <% } %>
             </div>
 
-            <!-- View Recipe Button (only if recipe exists) -->
+            <!-- View Recipe Button -->
             <% if (post.recipe) { %>
                 <div id="viewRecipeContainer-<%= post._id %>" class="view-recipe-button-container">
                     <a id="viewRecipeLink-<%= post._id %>" href="javascript:void(0);" class="styled-button view-recipe-link" data-recipe-id="<%= post._id %>">View Recipe</a>
@@ -46,25 +51,23 @@
             <% } %>
         </div>
 
-        <!-- Right column for Instagram embed (loaded when modal opens) -->
+        <!-- Right column for Instagram embed -->
         <div class="right-column">
             <div id="instagramEmbed-<%= post._id %>">
                 <% if (post.instagramLink) { %>
-                    <div class="instagram-container"></div> <!-- Container to hold the Instagram embed -->
+                    <div class="instagram-container"></div>
                 <% } else { %>
                     <p>No Instagram post available.</p>
                 <% } %>
             </div>
         </div>
     </div>
-
-    <!-- Add modal overlay for the post modal -->
-    <div id="postModalOverlay-<%= post._id %>" class="modal-overlay" style="display: none;"></div> <!-- Unique overlay for the post modal -->
-
 </div>
 
-<!-- Move this block outside the post modals for global accessibility -->
-<!-- Large Image Modal (now global) -->
+<!-- Recipe Card Modal -->
+<%- include('./RecipeCard', { post: post }) %> <!-- Use a partial for the recipe card -->
+
+<!-- Large Image Modal (Global) -->
 <div id="largeImageModal" class="modal" aria-hidden="true">
     <span id="closeLargeImageButton" class="close-large-image">&times;</span>
     <div class="modal-content">
@@ -72,5 +75,5 @@
     </div>
 </div>
 
-<!-- Global overlay for large image modal -->
+<!-- Overlay for Large Image Modal -->
 <div id="modalOverlay" class="modal-overlay" style="display: none;"></div>

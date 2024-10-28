@@ -147,3 +147,11 @@ button.button {
 button.button:hover {
     background-color: #967a57;
 }
+/* Style for the image preview in the edit post form */
+.image-preview {
+    max-width: 100%;       /* Limit the width to the modal width */
+    max-height: 200px;     /* Ensure the image doesn't exceed a certain height */
+    object-fit: contain;   /* Ensure the image maintains its aspect ratio */
+    margin-top: 10px;      /* Add some spacing between the image and form elements */
+    display: block;        /* Ensures it's displayed as a block element */
+}

@@ -8,29 +8,34 @@
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 
-<body>
+<body class="user-page">
+    <!-- Include JavaScript files -->
+    <script type="module" src="/js/scripts.js"></script>
 
     <!-- Header Section with Hero Image -->
     <%- include('partials/header') %>
 
     <!-- Main Content Area -->
     <div class="main-content">
-        <!-- Left Column: "Hello" Section -->
-        <%- include('partials/hello-section') %>
+        <!-- Left Column: "Hello" Section (50% width on desktop) -->
+        <div class="left-column">
+            <%- include('partials/hello-section') %>
+        </div>
 
-        <!-- Right Column for Latest Post -->
+        <!-- Right Column for Latest Post (50% width on desktop) -->
         <div class="right-column">
-            <%- include('partials/latest-post', { posts: posts, user: user }) %>
+            <% if (latestPost) { %> <!-- Check if latestPost exists -->
+                <%- include('partials/latest-post', { post: latestPost, user: user }) %>
+            <% } else { %>
+                <p>No latest post available</p>
+            <% } %>
         </div>
     </div>
 
     <!-- Recipes Section (Previous Posts) -->
-    <%- include('partials/recipes-section', { posts: posts, user: user }) %>
-
-    <!-- Post Modals for Each Post -->
-    <% posts.forEach(post => { %>
-        <%- include('partials/post', { post: post }) %> <!-- Pass post variable to partial -->
-    <% }) %>
+    <section class="recipe-section">
+        <%- include('partials/recipes-section', { posts: recipePosts }) %> <!-- Pass recipePosts as posts to the partial -->
+    </section>
 
     <!-- About Me Section -->
     <%- include('partials/about-me') %>
@@ -39,20 +44,27 @@
     <%- include('partials/floating-menu', { tags: tags }) %> <!-- Pass tags to the floating menu -->
 
     <!-- Recipe Card Modals for Each Post -->
-    <% posts.forEach(post => { %>
-        <%- include('partials/recipeCard', { post: post }) %> <!-- Pass post variable to recipeCard partial -->
+    <% recipePosts.forEach(post => { %>
+        <%- include('partials/RecipeCard', { post: post }) %> <!-- Ensure RecipeCard.ejs is included correctly -->
     <% }) %>
 
-    <!-- Include JavaScript files -->
-    <script type="module" src="/js/scripts.js"></script>
-</body>
+    <!-- Global Large Image Modal (for image enlargement functionality) -->
+    <div id="largeImageModal" class="modal" aria-hidden="true">
+        <span id="closeLargeImageButton" class="close-large-image">&times;</span>
+        <div class="modal-content">
+            <img id="largeImage" src="" alt="Large Image">
+        </div>
+    </div>
 
-<!-- Footer -->
-    
+    <!-- Overlay for Large Image Modal -->
+    <div id="modalOverlay" class="modal-overlay" onclick="closeLargeImageModal()" style="display: none;"></div>
+
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
             <p>&copy; 2024 Recipe by Risa. All rights reserved.</p>
         </div>
     </footer>
 
+</body>
 </html>

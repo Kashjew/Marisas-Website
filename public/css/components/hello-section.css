@@ -1,37 +1,43 @@
-/* Left Column: Hello Section */
-.left-column {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #f7f7f7;
+/* hello-section.css */
+
+.hello-container {
     padding: 20px;
-    border-radius: 12px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .hello-image {
     width: 80%;
-    max-width: 400px;
+    max-width: 250px;
     margin: 0 auto;
-    display: block;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     object-fit: cover;
 }
 
-/* Welcome Message Styling (Text Below Hello Image) */
 .welcome-message {
     font-size: 1.1rem;
     line-height: 1.6;
     margin-top: 20px;
     color: #333;
-    text-align: center;
-    padding: 10px 20px;
     background-color: #f9f4f1;
+    padding: 10px 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
+    margin: 20px auto 0 auto;
+}
+
+@media (max-width: 768px) {
+    .hello-image {
+        width: 60%;
+        max-width: 150px;
+    }
+
+    .welcome-message {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
 }

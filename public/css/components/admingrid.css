@@ -69,3 +69,21 @@
 .edit-btn:hover, .delete-btn:hover {
     background: #ccc;
 }
+/* Highlight the "Latest Post" */
+.grid-item.latest-post {
+    border: 3px solid #b23a48; /* Highlight color */
+    background-color: #f7e9e9; /* Light highlight background */
+}
+
+/* Order number display */
+.post-order {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background-color: #5c4a33;
+    color: white;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 50%;
+    font-size: 1rem;
+}

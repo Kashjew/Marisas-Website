@@ -1,70 +1,6 @@
-/* Responsive Styles for Mobile Devices */
-@media screen and (max-width: 768px) {
-    #hamburgerMenu {
-        left: 15px; /* Adjust hamburger positioning for mobile */
-    }
+/* responsive.css */
 
-    /* Adjust the dropdown menu in mobile view */
-    #hamburgerMenuContent {
-        width: 200px; /* Adjust the width for mobile view */
-        top: 60px; /* Adjust to avoid cutting off from header */
-        left: 0;
-        display: none; /* Initially hidden */
-        transform: translateY(-100%);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    #hamburgerMenuContent.open {
-        display: block;
-        transform: translateY(0); /* Slide down from the top */
-    }
-
-    .mobile-login-container {
-        position: fixed;
-        bottom: 20px; /* Fix the container to the bottom of the screen */
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(255, 255, 255, 0.95);
-        border-radius: 8px; /* Soft rounded corners */
-        padding: 10px 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        z-index: 1000; /* Ensure it's above other elements */
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: auto;
-        max-width: 90%;
-        gap: 10px;
-    }
-
-    /* Hide the original desktop login container in mobile view */
-    .login-container.desktop-only {
-        display: none;
-    }
-
-    /* Ensure Create Post Container is positioned correctly on mobile */
-    .create-post-container {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1000;
-        display: block !important; /* Ensure it is visible on mobile */
-    }
-
-    .header-container {
-        flex-direction: column;
-    }
-
-    .dropdown-btn {
-        display: block;
-    }
-
-    nav {
-        display: none; /* Hide desktop navigation for mobile */
-    }
-
+@media (max-width: 768px) {
     .main-content {
         flex-direction: column;
         gap: 20px;
@@ -72,28 +8,12 @@
 
     .left-column, .right-column {
         width: 100%;
+        padding: 10px;
     }
 
-    .previous-posts .post-image-container {
-        flex-direction: column;
+    .hello-container,
+    .latest-post-container {
+        width: 100%;
+        padding: 10px;
     }
-}
-
-
-/* Mobile-Specific Styles for Hamburger Menu */
-@media screen and (max-width: 768px) {
-    #hamburgerMenu {
-        left: 15px; /* Adjust hamburger positioning for mobile */
-    }
-
-    #menuContainer {
-        width: 200px; /* Adjust the width for mobile view */
-        top: 0;
-        left: 0;
-        transform: translateX(-100%);
-    }
-
-    #menuContainer.open {
-        transform: translateX(0); /* Make the dropdown visible on open */
-            }
 }
