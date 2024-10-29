@@ -1,7 +1,4 @@
-/* Importing base styles (generic styles for the entire page) */
-@import url('base.css');
-
-/* Importing layout styles (layout definitions like flexbox or grid settings) */
+/* Importing layout styles (generic styles for the entire page and layout definitions like flexbox or grid settings) */
 @import url('layout.css');
 
 /* Importing header styles */

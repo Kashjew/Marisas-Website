@@ -1,36 +1,67 @@
-/* layout.css */
-
+/* Main layout container for the Hello and Latest Post sections */
 .main-content {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 20px 5%;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center the columns on desktop */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 20px;
 }
 
+/* Individual column styling */
 .left-column {
-    flex: 1;
-    max-width: 400px;
-    margin-right: 10px;
+    flex: 2; /* Set each container to take up 48% of the width on desktop */
+    background-color: #f2e7dc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+} 
+
+.right-column {
+    flex: 3; /* Set each container to take up 48% of the width on desktop */
+    background-color: #f2e7dc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Specify order for desktop */
+.left-column {
+    order: 1; /* Ensure this appears on the left on desktop */
 }
 
 .right-column {
-    flex: 2;
-    width: 48%;
+    order: 2; /* Ensure this appears on the right on desktop */
 }
 
-@media (max-width: 768px) {
+/* Alignment adjustments for content within each section */
+.left-column .hello-section-container,
+.right-column .latest-post-container {
+    text-align: left;
+}
+
+/* Ensuring responsive behavior for the Instagram embed and images */
+.right-column .latest-post-images img,
+.right-column .latest-post-right blockquote.instagram-media {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
     .main-content {
         flex-direction: column;
-        align-items: center;
+        padding: 10px;
     }
 
     .left-column,
     .right-column {
-        width: 100%;
-        max-width: none;
-        margin-right: 0;
-        padding: 10px;
+        display: flex;
     }
 }

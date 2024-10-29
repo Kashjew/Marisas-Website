@@ -1,55 +1,88 @@
-/* recipes-section.css */
-.post-grid-container {
+/* Container for the post grid */
+.recipe-post-grid-container {
     width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.post-grid {
+.recipe-post-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);  /* 5 columns for 5x2 grid */
-    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Set minimum size for each post */
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.grid-item {
+/* Style for each grid item */
+.recipe-grid-item {
     position: relative;
     background-color: #f0f0f0;
+    border: 2px solid #5c4a33;
+    border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
     height: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.grid-item img {
+.recipe-grid-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 5px;
 }
 
-.grid-hover {
+/* Hover effect overlay */
+.recipe-grid-hover {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* Darker background for better contrast */
-    color: white; /* White text for better readability */
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
     opacity: 0;
     display: flex;
-    justify-content: flex-start; /* Aligns content to the top */
-    align-items: flex-start; /* Aligns content to the left */
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    padding: 15px; /* Padding at the top and sides */
-    text-align: left;
     transition: opacity 0.3s ease;
-    font-weight: bold; /* Make the title bold */
 }
 
-
-.grid-item:hover {
+.recipe-grid-item:hover {
     transform: scale(1.05);
 }
 
-.grid-item:hover .grid-hover {
+.recipe-grid-item:hover .recipe-grid-hover {
     opacity: 1;
+}
+
+/* Buttons for opening posts */
+.open-recipe-post-button {
+    background: #fff;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.open-recipe-post-button:hover {
+    background: #ccc;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .recipe-post-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        gap: 15px;
+    }
+
+    .recipe-grid-item {
+        height: auto;
+        padding: 10px;
+    }
 }

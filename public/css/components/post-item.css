@@ -1,5 +1,5 @@
-/* Styling for Post Items */
-.post-item {
+/* Styling for individual post items */
+.post-item-wrapper {
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
     padding: 20px;
@@ -9,118 +9,63 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.post-item:hover {
+.post-item-wrapper:hover {
     background-color: #f0e6dc;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Previous Posts Section */
-.previous-posts {
+/* Previous posts container for archive-style lists */
+.previous-posts-container {
     max-width: 1200px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
-.previous-posts h2 {
+.previous-posts-container h2 {
     font-size: 2.5rem;
     text-align: center;
     color: #333;
     margin-bottom: 30px;
 }
 
-.previous-posts .post-image-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 30px;
-}
-
-.previous-posts img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-}
-
-.previous-posts img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    filter: brightness(1.2);
-}
-
-/* Recipe Images Container */
-.recipe-images-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-bottom: 20px;
-}
-
-.recipe-images-container img {
+/* Image styling within each post item */
+.post-item-wrapper img {
     width: 100%;
-    max-width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Ingredient List and Steps List */
-.ingredients-list {
-    list-style: disc inside;
-    margin-bottom: 20px;
-    padding-left: 20px;
-}
-
-.steps-list {
-    list-style: decimal inside;
-    margin-bottom: 20px;
-    padding-left: 20px;
-}
-
-.recipe-notes {
-    margin-top: 15px;
-    font-style: italic;
-    color: #555;
-}
-/* Update the styles for the post container */
-.post-image-container {
-    background-color: #f0f0f0; /* Light grey background */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out; /* Smooth transition for hover effects */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    margin-bottom: 20px; /* Add space between posts */
-}
-
-/* Hover effect for post container */
-.post-image-container:hover {
-    background-color: #d3d3d3; /* Slightly darker grey on hover */
-    transform: scale(1.02); /* Slightly increase the size */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
-}
-
-/* Styling for the image inside the post */
-.post-image {
-    max-width: 100%; /* Ensure the image stays within the container */
     height: auto;
-    border-radius: 8px; /* Add rounded corners to the image */
+    border-radius: 4px;
 }
 
-/* Optional: Add a transition to the image for smoother hover effect */
-.post-image-container img {
-    transition: transform 0.3s ease;
+/* Post title styling */
+.post-item-wrapper h3 {
+    font-size: 1.25rem;
+    color: #5c4a33;
+    font-weight: bold;
+    margin: 10px 0;
+}
+/* Container for the post images */
+.recipe-post-images-container {
+    display: flex;
+    justify-content: center; /* Centers the image within the container */
+    align-items: center;
+    width: 100%; /* Allow container to take up full width */
+    max-height: 80vh; /* Limit height to a reasonable size, leaving room for other content in the modal */
+    overflow: hidden; /* Prevent overflow if image is too large */
 }
 
-.post-image-container img:hover {
-    transform: scale(1.05); /* Slightly increase the image size on hover */
+/* Images inside the post popups */
+.post-image {
+    width: 100%;
+    max-width: 100%; /* Images will not exceed the width of their container */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 80vh; /* Ensure image is not taller than 80% of the viewport height */
+    object-fit: contain; /* Ensures the image is scaled down to fit within the container without cropping */
+    border-radius: 10px; /* Add slight rounding to soften the look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Styling for the title */
-.post-image-container h3 {
-    font-size: 1.2em;
-    margin-top: 10px;
-    color: #333333; /* Dark grey text color */
-    font-weight: 600;
+/* Modal-specific adjustments for larger screens */
+@media screen and (min-width: 768px) {
+    .recipe-post-images-container {
+        padding: 20px; /* Add padding to make the image look more centered in the modal */
+    }
 }

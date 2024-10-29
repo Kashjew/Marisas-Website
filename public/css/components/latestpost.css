@@ -1,78 +1,153 @@
-/* latestpost.css */
-
+/* Container styling for the latest post */
 .latest-post-container {
     padding: 20px;
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
 }
-
+/* Latest Post Item - Container for left and right columns */
+.latest-post-item {
+    display: flex;
+    flex-direction: column; /* Stack columns by default (mobile first) */
+    gap: 20px; /* Space between columns */
+}
+/* Heading for Latest Post */
 .latest-post-heading {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
-    text-align: left;
 }
 
+/* Layout container for Latest Post Content */
 .latest-post-content {
     display: flex;
     gap: 20px;
+    align-items: flex-start;
 }
-
+/* Left Column: Post Details */
 .latest-post-left {
-    flex: 1;
+    flex: 1; /* Take up equal space when side-by-side */
+    padding: 10px;
 }
-
+/* Right Column: Instagram Embed */
 .latest-post-right {
-    flex: 1;
+    flex: 1; /* Take up equal space when side-by-side */
+    padding: 10px;
 }
 
 .latest-post-title {
-    font-size: 1.3rem;
-    font-weight: bold;
+    font-size: 1.6em;
+    color: #333;
     margin-bottom: 10px;
 }
 
+.latest-post-description {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Image styling within Latest Post */
 .latest-post-images {
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
 }
 
 .latest-post-image {
     width: 100%;
     max-width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    object-fit: cover;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-.latest-post-description {
-    margin-top: 15px;
-    font-size: 1rem;
-    color: #555;
-}
-
+/* View Recipe Button Styling */
 .view-recipe-button {
-    margin-top: 10px;
-    padding: 8px 16px;
-    background-color: #007bff;
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 15px;
+    background-color: #5c4a33;
     color: white;
     border: none;
-    border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
 .view-recipe-button:hover {
-    background-color: #0056b3;
+    background-color: #3e2f22;
 }
 
+/* Right Column for Instagram Embed */
+.latest-post-right {
+    flex: 1;
+}
+
+.no-instagram-text {
+    font-size: 0.9em;
+    color: #999;
+}
+
+/* No post available text */
+.no-post-text {
+    text-align: center;
+    font-size: 1em;
+    color: #999;
+}
+
+/* Main Content Container for Two-Column Layout on Wide Screens */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Mobile and Small Screen Adjustments */
 @media (max-width: 768px) {
-    .latest-post-image {
-        max-width: 100%;
+    .latest-post-content {
+        flex-direction: column;
+    }
+
+    .latest-post-heading {
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    .latest-post-title {
+        font-size: 1.4em;
     }
 
     .view-recipe-button {
-        padding: 6px 12px;
-        font-size: 14px;
+        font-size: 0.85em;
+        width: 100%;
+        text-align: center;
+    }
+
+    .latest-post-image {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Medium to Large Screen Adjustments for Two-Column Layout */
+@media (min-width: 768px) {
+    .main-content {
+        flex-direction: row;
+    }
+
+    .hello-section-container {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .latest-post-container {
+        flex: 1.5;
+    }
+    .latest-post-item {
+        flex-direction: row; /* Change to a two-column layout for larger screens */
     }
 }

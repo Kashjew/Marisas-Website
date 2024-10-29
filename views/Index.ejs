@@ -40,9 +40,6 @@
     <!-- About Me Section -->
     <%- include('partials/about-me') %>
 
-    <!-- Floating Menu for Tag Filtering -->
-    <%- include('partials/floating-menu', { tags: tags }) %> <!-- Pass tags to the floating menu -->
-
     <!-- Recipe Card Modals for Each Post -->
     <% recipePosts.forEach(post => { %>
         <%- include('partials/RecipeCard', { post: post }) %> <!-- Ensure RecipeCard.ejs is included correctly -->

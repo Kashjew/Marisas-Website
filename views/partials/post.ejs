@@ -1,34 +1,38 @@
-<div class="modal-content post-modal-content" id="modal-<%= post._id %>" role="dialog" aria-labelledby="postTitle-<%= post._id %>" aria-hidden="true" style="display: none;">
-    <button class="close-post" aria-label="Close" data-modal-id="<%= post._id %>">&times;</button>
+<div class="post-modal" id="postModal-<%= post._id %>">
+    <div class="modal-content post-modal-content" id="modal-<%= post._id %>" role="dialog" aria-labelledby="postTitle-<%= post._id %>" aria-hidden="true">
+        <button class="close-modal" data-post-id="<%= post._id %>" 
+            onclick="document.getElementById('postModal-<%= post._id %>').style.display='none'; document.getElementById('postModal-<%= post._id %>').setAttribute('aria-hidden', 'true');">
+            ×
+        </button>
+    
+        <div class="modal-body">
+            <!-- Left column for post content -->
+            <div class="left-column">
+                <!-- Post title -->
+                <h2 id="postTitle-<%= post._id %>"><%= post.title %></h2>
 
-    <div class="modal-body">
-        <!-- Left column for post content -->
-        <div class="left-column">
-            <!-- Post title -->
-            <h2 id="postTitle-<%= post._id %>"><%= post.title %></h2>
+                <!-- Display post images in a bordered container -->
+                <% if (post.imagePaths && post.imagePaths.length > 0) { %>
+                    <div id="postImages-<%= post._id %>" class="post-images-container image-grid">
+                        <% post.imagePaths.forEach(function(imagePath) { %>
+                            <div class="image-box">
+                                <img 
+                                    src="<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>" 
+                                    alt="Post Image" 
+                                    class="post-image" 
+                                    onclick="openLargeImageModal('<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>')" 
+                                    onerror="this.src='/images/placeholder.jpg'">
+                            </div>
+                        <% }); %>
+                    </div>
+                <% } else { %>
+                    <p>No images available for this post.</p>
+                <% } %>
 
-            <!-- Display post images in a bordered container -->
-            <% if (post.imagePaths && post.imagePaths.length > 0) { %>
-                <div id="postImages-<%= post._id %>" class="post-images-container image-grid">
-                    <% post.imagePaths.forEach(function(imagePath) { %>
-                        <div class="image-box">
-                            <img 
-                                src="<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>" 
-                                alt="Post Image" 
-                                class="post-image" 
-                                onclick="openLargeImageModal('<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>')" 
-                                onerror="this.src='/images/placeholder.jpg'">
-                        </div>
-                    <% }); %>
+                <!-- Post content -->
+                <div id="postContent-<%= post._id %>" class="dynamic-content-container">
+                    <p><%= post.content %></p>
                 </div>
-            <% } else { %>
-                <p>No images available for this post.</p>
-            <% } %>
-
-            <!-- Post content -->
-            <div id="postContent-<%= post._id %>" class="dynamic-content-container">
-                <p><%= post.content %></p>
-            </div>
 
             <!-- Display tags -->
             <div id="postTags-<%= post._id %>" class="dynamic-tags-container">

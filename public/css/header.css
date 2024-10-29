@@ -1,21 +1,20 @@
-/* Ensure the hero section occupies the top of the page without any gaps */
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* To prevent horizontal overflow */
-}
-
 /* Header Section */
 .hero-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    max-height: 250px;
+    max-height: 150px; /* Reduced max height for desktop */
     z-index: 1000;
     background-color: #FBF6EF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding-bottom: 20px; /* Padding to create space below the header */
+    padding-bottom: 10px; /* Reduced padding for desktop */
+    transition: transform 0.3s ease; /* Smooth scroll effect */
+}
+
+/* Scroll-hide effect on desktop */
+.hero-header.hidden {
+    transform: translateY(-100%);
 }
 
 /* General Logo Container */
@@ -26,7 +25,7 @@ body, html {
 .hero-image {
     width: 100%;
     height: auto;
-    max-height: 250px;
+    max-height: 150px; /* Adjusted to match header height */
     object-fit: cover;
     display: block;
 }
@@ -39,130 +38,53 @@ body, html {
     gap: 10px;
 }
 
+/* Mobile adjustments */
 @media screen and (max-width: 768px) {
+    .hero-header {
+        max-height: 250px; /* Keep mobile styling intact */
+        padding-bottom: 20px;
+    }
     .user-options-container {
         flex-direction: column;
         align-items: center;
     }
 }
-
-/* ADMIN SECTION STYLES */
-
-/* Admin Header Section */
-.admin-hero-header {
-    position: relative;
-    width: 100%;
-    max-height: 250px;
-    background-color: #FBF6EF;
-    z-index: 1000;
-}
-
-/* Admin Logo Container */
-.admin-logo-container {
-    position: relative;
-    width: 100%;
-}
-
-/* Admin Hero Image */
-.admin-hero-image {
-    width: 100%;
-    height: auto;
-    max-height: 250px;
-    object-fit: cover;
-    display: block;
-}
-
-/* Overlay on the Admin Hero Image */
-.admin-header-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px;
+/* Updated CSS for the user options container */
+.user-options-container {
+    position: absolute; /* Position it relative to the header */
+    top: 20px; /* Push it down slightly from the top of the hero header */
+    right: 20px; /* Align it to the right side */
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    color: #000000; /* Dark text for visibility on hero image */
-    z-index: 2;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    z-index: 1100; /* Make sure it appears above other elements */
 }
 
-/* Centered Content on Admin Hero Image */
-.admin-overlay-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align to the start instead of center */
-    gap: 5px;
+/* Login container styling */
+.login-container {
+    background-color: rgba(139, 111, 71, 0.8); /* Slightly transparent background to blend with hero image */
+    padding: 8px 12px; /* Padding for a more refined look */
+    border-radius: 5px; /* Rounded corners to match the button style */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
 }
 
-.admin-dashboard-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #000; /* Dark text color to stand out on overlay */
-    margin: 0;
+/* Adjustments to the login button itself */
+.login-btn {
+    background-color: #8B6F47; /* Match the color scheme */
+    color: #fff; /* White text for contrast */
+    padding: 10px 15px; /* Slightly larger padding for better clicking area */
+    text-align: center; /* Center the text */
+    text-decoration: none; /* Remove underline from link */
+    font-weight: bold; /* Bold text to make it stand out */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition effect */
 }
 
-.admin-overlay-content p {
-    margin: 0;
-    font-size: 16px;
-    color: #333; /* Adjusted for visibility */
-}
-
-/* Welcome and Logout Links */
-.admin-login-container p {
-    margin: 0;
-    font-size: 16px;
-}
-
-/* Logout Button Styled to Match Create Post Button */
-.admin-logout-btn {
-    background-color: #333;
-    color: #FFF;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.admin-logout-btn:hover {
-    background-color: #555; /* Darker shade on hover for consistency */
-}
-
-/* Hamburger Menu Positioned in Top-Right for Admin */
-#hamburgerMenu {
-    display: none;
-}
-
-/* Create New Post Button */
-.admin-create-post-button {
-    background-color: #333;
-    color: #FFF;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.admin-create-post-button:hover {
-    background-color: #555; /* Darker shade on hover */
-}
-
-/* Responsive Adjustments for Admin Section */
-@media screen and (max-width: 768px) {
-    .admin-user-options-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    /* Adjust button sizes for smaller screens */
-    .admin-logout-btn,
-    .admin-create-post-button {
-        padding: 8px 12px;
-        font-size: 14px;
-    }
-    #hamburgerMenu {
-        display: none;
-    }
+/* Hover effect for the login button */
+.login-btn:hover {
+    background-color: #A58757; /* Slightly lighter to indicate hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Deeper shadow for hover */
 }

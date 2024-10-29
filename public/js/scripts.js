@@ -4,7 +4,8 @@ import { initComments } from './modules/comments.js'; // Initialize comments fun
 import { initRequestPopup } from './modules/requests.js'; // Initialize request popup for users
 import { initPostHandlers } from './modules/postHandlers.js'; // Handles modals and event listeners
 import { embedInstagramPost, handleRecipeLink } from './modules/utilityFunctions.js';
-
+import './modules/headerScroll.js';
+import './modules/columns.js';
 console.log("postHandlers.js is imported");
 
 // Debug: Directly test if the body is receiving click events
@@ -27,11 +28,11 @@ window.addEventListener('resize', adjustBodyPadding);
 
 function adjustBodyPadding() {
     // Only apply padding if the page is a user page
-    if (document.body.classList.contains('user-body')) {
+    if (document.body.classList.contains('user-page')) {
         if (window.innerWidth <= 768) {
             document.body.style.paddingTop = '100px';  // Adjust padding for mobile
         } else {
-            document.body.style.paddingTop = '200px';  // Adjust padding for desktop
+            document.body.style.paddingTop = '190px';  // Adjust padding for desktop
         }
     }
 }
