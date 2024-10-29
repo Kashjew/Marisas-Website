@@ -1,15 +1,6 @@
 /* Hamburger Menu Icon */
 #hamburgerMenu {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 36px;
-    color: #333;
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: color 0.3s;
+    display: none;
 }
 
 #hamburgerMenu:hover {

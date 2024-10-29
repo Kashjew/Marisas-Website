@@ -53,13 +53,5 @@
 }
 
 #hamburgerMenu {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    color: #FFF;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
+    display: none;
 }

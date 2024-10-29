@@ -20,6 +20,8 @@
     transition: transform 0.3s ease;
     cursor: pointer;
     height: 250px;  /* Make each post square (width = height) */
+    border: 2px solid #ddd; /* Default border for posts */
+    border-radius: 5px;
 }
 
 .grid-item img {
@@ -33,6 +35,7 @@
     content: url('/images/placeholder.jpg');  /* Path to the placeholder image */
 }
 
+/* Hover effect for grid items */
 .grid-hover {
     position: absolute;
     top: 0;
@@ -57,6 +60,7 @@
     opacity: 1;
 }
 
+/* Button styles */
 .edit-btn, .delete-btn {
     background: #fff;
     border: none;
@@ -69,21 +73,22 @@
 .edit-btn:hover, .delete-btn:hover {
     background: #ccc;
 }
-/* Highlight the "Latest Post" */
+
+/* Highlight styling for the "Latest Post" */
 .grid-item.latest-post {
-    border: 3px solid #b23a48; /* Highlight color */
+    border: 3px solid #b23a48; /* Highlight color for the latest post */
     background-color: #f7e9e9; /* Light highlight background */
 }
 
-/* Order number display */
+/* Styling for the post position label */
 .post-order {
     position: absolute;
     top: 8px;
     left: 8px;
-    background-color: #5c4a33;
+    background-color: #5c4a33; /* Darker background for contrast */
     color: white;
     font-weight: bold;
-    padding: 4px 8px;
-    border-radius: 50%;
+    padding: 4px 10px;
+    border-radius: 8px;
     font-size: 1rem;
 }

@@ -15,22 +15,22 @@ router.use('/api/posts', postsRouter);
 // Home Route: Display homepage with Hello section, Latest Post, and Recipe Section
 router.get('/', async (req, res) => {
     try {
-        console.log("User logged in before rendering index:", req.user);
+        // Log the user's session details for tracking purposes
+        console.log("Rendering homepage for user:", req.user ? req.user.username : "Guest");
 
-        // Fetch Hello section content from HelloSection collection
+        // Fetch Hello section content from the HelloSection collection
         const settings = await HelloSection.findOne();
         const helloContent = settings ? settings.helloContent : 'Welcome to Marisa’s recipes!';
-        console.log("Hello Content:", helloContent); // Debug log for helloContent
 
-        // Fetch top 10 posts ordered by the admin-defined order field
+        // Fetch posts ordered by the admin-defined order field
         const posts = await Post.find().sort({ order: 1 }).limit(10).exec();
-        console.log("Fetched Posts:", posts); // Debug log for fetched posts array
 
-        const latestPost = posts[0];  // First post for Latest Post section
-        console.log("Latest Post:", latestPost); // Debug log for latestPost
+        if (!posts || posts.length === 0) {
+            console.warn("No posts available for homepage display.");
+        }
 
-        const recipePosts = posts.slice(1);  // Remaining 9 posts for Recipe Section
-        console.log("Recipe Posts:", recipePosts); // Debug log for recipePosts array
+        const latestPost = posts[0];  // First post in the order for Latest Post section
+        const recipePosts = posts.slice(1);  // Remaining 9 posts for the Recipe Section
 
         const tags = [
             "brownies", "cookies", "cakes", "cinnamon rolls", "savory", "bread",
@@ -52,6 +52,7 @@ router.get('/', async (req, res) => {
         res.status(500).send('Internal Server Error - Unable to load the homepage');
     }
 });
+
 
 
 // Route to fetch post details by ID in JSON format

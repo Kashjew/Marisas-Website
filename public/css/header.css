@@ -131,15 +131,7 @@ body, html {
 
 /* Hamburger Menu Positioned in Top-Right for Admin */
 #hamburgerMenu {
-    position: absolute;
-    top: 20px;
-    right: 20px; /* Moved to top-right corner */
-    font-size: 24px;
-    color: #FFF;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10; /* Ensures it stays above other content */
+    display: none;
 }
 
 /* Create New Post Button */
@@ -171,7 +163,6 @@ body, html {
         font-size: 14px;
     }
     #hamburgerMenu {
-        top: 10px;
-        right: 10px;
+        display: none;
     }
 }
