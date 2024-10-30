@@ -1,13 +1,24 @@
 const mongoose = require('mongoose');
 
+let isConnected = false; // Track connection status
+
 const connectDB = async () => {
+  if (isConnected) {
+    console.log('Using existing MongoDB connection');
+    return; // Return early if already connected
+  }
+
   try {
-    // Connect to MongoDB without the deprecated options
-    await mongoose.connect(process.env.MONGO_URI); 
+    // Attempt connection to MongoDB
+    const db = await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    isConnected = db.connections[0].readyState === 1; // Track connection state
     console.log('Connected to MongoDB');
   } catch (err) {
     console.error('MongoDB connection error:', err);
-    process.exit(1); // Exit the process if connection fails
+    throw err; // Re-throw error to be handled by server.js
   }
 };
 
