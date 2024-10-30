@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const editPostModal = document.getElementById('editPostModal');
     const editPostForm = document.getElementById('editPostForm');
+    const imageInput = document.getElementById('image');  // Assuming an image input field
     const imagePreview = document.getElementById('imagePreview');  // For showing image preview
-    const closeModalBtn = document.querySelector('.close-create-post'); // Define the close button (X)
+    const closeModalBtn = document.querySelector('.close-create-post');  // Define the close button (X)
 
     // Helper function to close the modal
     function closeModal() {
@@ -89,29 +90,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Listen to the form submit event to handle editing
     if (editPostForm) {
-        editPostForm.addEventListener('submit', function (event) {
+        editPostForm.addEventListener('submit', async function (event) {
             event.preventDefault();  // Prevent the default form submission
 
             const postId = editPostForm.dataset.postId;  // Get the post ID if editing
-            const formData = new FormData(editPostForm);  // Collect the form data (includes file)
-            
-            fetch(`/api/posts/${postId}`, {
-                method: 'PUT',  // Use PUT for editing
-                body: formData  // Send FormData for image upload
-            })
-            .then(response => {
+            const textData = new FormData(editPostForm);  // Collect text fields only
+
+            // Remove any images from FormData to prevent default submission override
+            textData.delete('images');
+
+            try {
+                // First, send the text fields update to the backend
+                const response = await fetch(`/api/posts/${postId}`, {
+                    method: 'PUT',
+                    body: textData
+                });
+
                 if (response.ok) {
+                    // Separate handling for images as in `createPosts`
+                    if (imageInput.files.length > 0) {
+                        const imageFormData = new FormData();
+                        for (let i = 0; i < imageInput.files.length; i++) {
+                            imageFormData.append('images', imageInput.files[i]);
+                        }
+
+                        // Separate request for image upload
+                        await fetch(`/api/posts/${postId}/upload-images`, {
+                            method: 'POST',
+                            body: imageFormData
+                        });
+                    }
+
                     alert('Post updated successfully!');
-                    closeModal();  // Close the modal after success
-                    window.location.reload();  // Optionally, reload the page to reflect changes
+                    closeModal();
+                    window.location.reload();
                 } else {
-                    alert('Failed to submit the form. Please try again.');
+                    alert('Failed to update the post. Please try again.');
                 }
-            })
-            .catch(err => {
+            } catch (err) {
                 console.error('Error submitting form:', err);
                 alert('An error occurred. Please try again.');
-            });
+            }
         });
     }
 });

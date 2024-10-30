@@ -2,4 +2,4 @@
 .env
 
 # Ignore Vercel configuration
-vercel.json
+.vercel

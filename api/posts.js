@@ -15,21 +15,25 @@ const s3 = new S3Client({
     },
 });
 
-// Function to upload image to S3
+// Function to upload image to S3 with detailed logging
 async function uploadImageToS3(file, postId) {
     const fileNameWithoutExt = file.originalname.replace(/\.[^/.]+$/, "");
     const fileExtension = file.originalname.split('.').pop();
+    const bucketName = process.env.AWS_S3_BUCKET_NAME;
 
     const uploadParams = {
-        Bucket: process.env.AWS_S3_BUCKET_NAME,
+        Bucket: bucketName,
         Key: `uploads/${postId}-${fileNameWithoutExt}.${fileExtension}`,  
         Body: file.buffer,
         ContentType: file.mimetype
     };
 
+    console.log('Uploading image with params:', uploadParams);
+
     try {
         const data = await s3.send(new PutObjectCommand(uploadParams));
-        return `https://${uploadParams.Bucket}.s3.amazonaws.com/${uploadParams.Key}`;
+        console.log('Image successfully uploaded:', data);
+        return `https://${bucketName}.s3.amazonaws.com/${uploadParams.Key}`;
     } catch (err) {
         console.error("Error uploading image to S3:", err);
         throw new Error('Image upload failed');
@@ -61,12 +65,12 @@ router.post('/', auth.ensureAuthenticated, singleLoggingUpload, async (req, res)
         const newPost = new Post({
             title,
             content,
-            recipe,  // Store recipe information directly in the post
+            recipe,
             instagramLink,
             tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
             author: req.user._id,
             imagePaths: imageUrl ? [imageUrl] : [],
-            order: 1, // Set the order to 1 for the latest post
+            order: 1,
         });
 
         await newPost.save();
@@ -76,7 +80,6 @@ router.post('/', auth.ensureAuthenticated, singleLoggingUpload, async (req, res)
         res.status(500).json({ message: 'Internal Server Error' });
     }
 });
-
 
 // Route: Get all posts (Public)
 router.get('/', async (req, res) => {
@@ -135,7 +138,7 @@ router.put('/:id', auth.ensureAuthenticated, singleLoggingUpload, async (req, re
             if (existingPost.imagePaths && existingPost.imagePaths.length > 0) {
                 const deleteParams = {
                     Bucket: process.env.AWS_S3_BUCKET_NAME,
-                    Key: existingPost.imagePaths[0].split('.amazonaws.com/')[1],  // Extract the image key from the URL
+                    Key: existingPost.imagePaths[0].split('.amazonaws.com/')[1],
                 };
                 await s3.send(new DeleteObjectCommand(deleteParams));
             }
@@ -150,9 +153,9 @@ router.put('/:id', auth.ensureAuthenticated, singleLoggingUpload, async (req, re
                 recipe,
                 instagramLink,
                 tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
-                imagePaths: updatedImageUrls.length > 0 ? updatedImageUrls : undefined,  // Only update if new images are provided
+                imagePaths: updatedImageUrls.length > 0 ? updatedImageUrls : undefined,
             },
-            { new: true }  // Return the updated post
+            { new: true }
         );
 
         if (!updatedPost) {
@@ -166,6 +169,31 @@ router.put('/:id', auth.ensureAuthenticated, singleLoggingUpload, async (req, re
     }
 });
 
+// Route: Handle image uploads for editing a post
+router.post('/:id/upload-images', auth.ensureAuthenticated, singleLoggingUpload, async (req, res) => {
+    const postId = req.params.id;
+
+    try {
+        let updatedImageUrls = [];
+        
+        if (req.file) {
+            const imageUrl = await uploadImageToS3(req.file, postId);
+            updatedImageUrls.push(imageUrl);
+        }
+
+        // Update the post with the new image URLs
+        const updatedPost = await Post.findByIdAndUpdate(
+            postId,
+            { $set: { imagePaths: updatedImageUrls } },
+            { new: true }
+        );
+
+        res.status(200).json(updatedPost);
+    } catch (error) {
+        console.error("Error uploading images:", error);
+        res.status(500).json({ message: 'Image upload failed' });
+    }
+});
 
 // Route: Delete a post by ID (Admin handled in adminRoutes.js)
 router.delete('/:id', auth.ensureAuthenticated, async (req, res) => {
@@ -221,7 +249,7 @@ router.get('/api/recipes/:id', async (req, res) => {
             return res.status(404).json({ message: 'Recipe not found in this post' });
         }
 
-        res.status(200).json(post.recipe);  // Return the recipe information from the post
+        res.status(200).json(post.recipe);
     } catch (error) {
         console.error('Error fetching recipe by post ID:', error);
         res.status(500).json({ message: 'Error fetching recipe by post ID' });
