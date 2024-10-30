@@ -47,9 +47,7 @@
                                             <img 
                                                 src="<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>" 
                                                 alt="Post Image" 
-                                                class="recipe-post-image" 
-                                                onclick="openLargeImageModal('<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>')" 
-                                                onerror="this.src='/images/placeholder.jpg'">
+                                                class="recipe-post-image">
                                         </div>
                                     <% }); %>
                                 </div>
@@ -78,7 +76,7 @@
                             <!-- View Recipe Button -->
                             <% if (post.recipe) { %>
                                 <div id="viewRecipeContainer-<%= post._id %>" class="view-recipe-button-container">
-                                    <a id="viewRecipeLink-<%= post._id %>" href="javascript:void(0);" class="styled-button view-recipe-link" data-recipe-id="<%= post._id %>">View Recipe</a>
+                                    <a id="viewRecipeLink-<%= post._id %>" href="javascript:void(0);" class="styled-button view-recipe-link view-recipe-button" data-recipe-id="<%= post._id %>">View Recipe</a>
                                 </div>
                             <% } %>
                         </div>

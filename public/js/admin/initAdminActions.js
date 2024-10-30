@@ -5,7 +5,7 @@ import './createPost.js';
 import './editPost.js';
 import './deletePost.js';
 import './banUser.js';
-
+import './modules/headerScroll.js';
 // This function will initialize all event listeners and handlers for admin actions
 document.addEventListener('DOMContentLoaded', function () {
     function initializeAdminActions() {

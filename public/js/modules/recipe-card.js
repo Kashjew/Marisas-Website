@@ -79,8 +79,8 @@ function adjustButtonPosition(postId) {
 
 // Attach event listeners to the "View Recipe" buttons once DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
-    // Add event listeners to all buttons with class 'view-recipe-link'
-    document.querySelectorAll('.view-recipe-link').forEach(button => {
+    // Add event listeners to all buttons with class 'view-recipe-link' or 'view-recipe-button'
+    document.querySelectorAll('.view-recipe-link, .view-recipe-button').forEach(button => {
         button.addEventListener('click', event => {
             const recipeId = event.target.getAttribute('data-recipe-id');
             if (recipeId) {
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const postId = post.getAttribute('data-post-id');
         adjustDynamicContainers(postId);
         adjustButtonPosition(postId);
-    });
+    })
 
     // Add event listeners to close buttons
     document.querySelectorAll('.close-recipe').forEach(button => {

@@ -5,7 +5,7 @@ import { initRequestPopup } from './modules/requests.js'; // Initialize request 
 import { initPostHandlers } from './modules/postHandlers.js'; // Handles modals and event listeners
 import { embedInstagramPost, handleRecipeLink } from './modules/utilityFunctions.js';
 import './modules/headerScroll.js';
-import './modules/columns.js';
+
 console.log("postHandlers.js is imported");
 
 // Debug: Directly test if the body is receiving click events

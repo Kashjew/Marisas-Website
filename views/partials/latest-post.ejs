@@ -23,7 +23,11 @@
                 <p class="latest-post-description"><%= latestPost.content %></p>
 
                 <% if (latestPost.recipe) { %>
-                    <button class="view-recipe-button" onclick="viewRecipeCard('<%= latestPost._id %>')">View Recipe Card</button>
+                    <button
+                        class="view-recipe-button view-recipe-link" 
+                        data-recipe-id="<%= latestPost._id %>">
+                        View Recipe Card
+                    </button>
                 <% } %>
             </div>
 
