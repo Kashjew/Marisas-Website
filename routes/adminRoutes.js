@@ -3,14 +3,14 @@ const router = express.Router();
 const { multipleLoggingUpload } = require('../middleware/upload');
 const { ensureAuthenticated, ensureAdmin } = require('../middleware/auth');
 const Post = require('../models/Post');
-const HelloSection = require('../models/hello');
+const HelloSection = require('../models/Hello');
 const { S3Client, PutObjectCommand, DeleteObjectCommand } = require('@aws-sdk/client-s3');
 const { v4: uuidv4 } = require('uuid');
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
-// AWS S3 Client setup
+// AWS S3 Client setups
 const s3 = new S3Client({
     region: process.env.AWS_REGION,
     credentials: {
