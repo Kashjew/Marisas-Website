@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastScrollTop = 0;
 
     // Select headers based on their classes
-    const userHeader = document.querySelector('.hero-header'); // For index.ejs
+    const userHeader = document.querySelector('.hero-header'); // For Index.ejs
     const adminHeader = document.querySelector('.admin-hero-header'); // For dashboard.ejs
 
     // Function to handle scroll behavior
