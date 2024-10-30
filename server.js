@@ -1,16 +1,12 @@
 // server.js
-
 const app = require('./app');
 const connectDB = require('./config/database');
 
-// Async function to initialize services
 (async () => {
   try {
-    console.log("Connecting to MongoDB...");
-    await connectDB(); // Connect to MongoDB once per instance
-    console.log("MongoDB connection successful");
+    console.log("Skipping MongoDB connection for testing.");
+    // await connectDB(); // Comment this out temporarily
 
-    // Conditionally start the server only in local development
     if (process.env.NODE_ENV !== 'production') {
       const port = process.env.PORT || 3000;
       app.listen(port, () => {
@@ -23,5 +19,4 @@ const connectDB = require('./config/database');
   }
 })();
 
-// Export the app for Vercel
 module.exports = app;
