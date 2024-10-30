@@ -1,5 +1,5 @@
 require('./config/env');
-
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const session = require('express-session'); // Add session middleware
@@ -12,7 +12,7 @@ const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const indexRoutes = require('./routes/index');
 const adminApiRoutes = require('./routes/adminApiRoutes');
-require('dotenv').config();  // Load .env variables at the start
+
 
 // Initialize app
 const app = express();
