@@ -1,5 +1,6 @@
 // Function to display the recipe card for a specific post
 export function viewRecipeCard(recipeId) {
+    console.log('Button clicked', recipeId);
     const recipeCardModal = document.getElementById(`recipeCardModal-${recipeId}`);
     const recipeCardOverlay = document.getElementById('recipeCardOverlay');
 

@@ -289,29 +289,29 @@ body.modal-open {
 
 /* WebKit-based browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-    width: 10px;  /* Width of the scrollbar */
+    width: 16px;  /* Increased scrollbar width */
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-    background: #f5e8dc;  /* Light color for track */
-    border-radius: 10px;
+    background: #d4c1a2;  /* Light color for track */
+    border-radius: 50px;  /* Very high border-radius for full rounding */
+    margin: 4px;  /* Larger margin for visible rounding */
 }
 
-/* Thumb */
 ::-webkit-scrollbar-thumb {
-    background-color: #b0724e;  /* Main scrollbar color */
-    border-radius: 10px;
-    border: 2px solid #f5e8dc;  /* Padding around thumb */
+    background-color: #d4c1a2;  /* Main scrollbar color */
+    border-radius: 50px;  /* Very high border-radius for full rounding */
+    border: 4px solid #826a55;  /* Adds padding and improves rounded look */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);  /* Optional subtle shadow */
 }
 
 /* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #8a4f35;  /* Darker shade on hover */
+    background-color: #b8a189;  /* Slightly darker shade on hover */
 }
 
-/* Firefox */
+/* Firefox (Limited Styling) */
 * {
-    scrollbar-width: thin;  /* Thin scrollbar */
-    scrollbar-color: #b0724e #f5e8dc;  /* Thumb color and track color */
+    scrollbar-width: auto;  /* Standard width for Firefox */
+    scrollbar-color: #d4c1a2 #826a55;  /* Thumb and track colors */
 }

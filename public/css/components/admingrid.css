@@ -101,24 +101,24 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f5e8dc;  /* Light color for track */
+    background: #d4c1a2;  /* Light color for track */
     border-radius: 10px;
 }
 
 /* Thumb */
 ::-webkit-scrollbar-thumb {
-    background-color: #b0724e;  /* Main scrollbar color */
+    background-color: #d4c1a2;  /* Main scrollbar color */
     border-radius: 10px;
-    border: 2px solid #f5e8dc;  /* Padding around thumb */
+    border: 2px solid #826a55;  /* Padding around thumb */
 }
 
 /* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #8a4f35;  /* Darker shade on hover */
+    background-color: #d4c1a2; /* Darker shade on hover */
 }
 
 /* Firefox */
 * {
-    scrollbar-width: thin;  /* Thin scrollbar */
-    scrollbar-color: #b0724e #f5e8dc;  /* Thumb color and track color */
+    scrollbar-width: auto;  /* Thin scrollbar */
+    scrollbar-color: #d4c1a2 #826a55  /* Thumb color and track color */
 }

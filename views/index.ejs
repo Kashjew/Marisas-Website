@@ -27,6 +27,8 @@
         <div class="right-column">
             <% if (latestPost) { %> <!-- Check if latestPost exists -->
                 <%- include('partials/latest-post', { post: latestPost, user: user }) %>
+                <!-- Include Recipe Card Modal for the latest post -->
+                <%- include('partials/RecipeCard', { post: latestPost }) %>
             <% } else { %>
                 <p>No latest post available</p>
             <% } %>
