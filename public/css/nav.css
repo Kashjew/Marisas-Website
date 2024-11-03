@@ -1,0 +1,75 @@
+/* Hamburger Menu Icon */
+#hamburgerMenu {
+    display: none;
+}
+
+#hamburgerMenu:hover {
+    color: #8B7359;
+}
+
+/* Hamburger Menu Container */
+#menuContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh; /* Full height for maximum visibility */
+    background-color: #FBF6EF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 9999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    border-right: 1px solid #ddd;
+}
+
+#menuContainer.open {
+    transform: translateX(0);
+    height: 100vh; /* Ensure full height when open */
+}
+
+#menuContainer.hidden {
+    display: none; /* Ensure menu is hidden when the hidden class is applied */
+}
+
+/* Menu Links Styling */
+.menu-links {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-links li {
+    margin: 15px 0;
+}
+
+.menu-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu-links a:hover {
+    color: #8B7359;
+}
+
+/* Navigation Menu */
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #A89A82;
+}

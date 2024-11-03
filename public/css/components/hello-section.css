@@ -1,0 +1,46 @@
+/* Hello Section Container */
+.hello-section-container {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f2e7dc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto;
+}
+
+/* Style for the Hello Image */
+.hello-image {
+    width: 80%; /* Adjusted for better mobile view */
+    height: auto;
+    max-width: 400px;
+    border-radius: 10px;
+    margin-bottom: 20px; /* Space between image and text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling the Welcome Message */
+.welcome-message {
+    font-size: 1.2em;
+    color: #5c4a33;
+    line-height: 1.5;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 0 10px; /* Padding to add some spacing on the sides */
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .hello-section-container {
+        padding: 15px;
+    }
+
+    .hello-image {
+        max-width: 100%;
+    }
+
+    .welcome-message {
+        font-size: 1em;
+        padding: 0 5px;
+    }
+}

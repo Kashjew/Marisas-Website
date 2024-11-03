@@ -1,0 +1,35 @@
+<!-- Header Section for Admin Dashboard -->
+<header class="admin-hero-header">
+    <!-- Logo and Hero Image with Overlays -->
+    <div class="admin-logo-container">
+        <img src="/images/hero-image.jpg" alt="hero image" class="admin-hero-image">
+
+        <!-- Overlay Content directly on Hero Image -->
+        <div class="admin-header-overlay">
+            <!-- Admin Dashboard Title and User Options -->
+            <div class="admin-overlay-content">
+                <h3 class="admin-dashboard-title">Admin Dashboard</h3>
+                <% if (user) { %>
+                    <div class="admin-login-container">
+                        <p>Welcome, Marisa! <a href="/logout" class="admin-logout-btn">Logout</a></p>
+                    </div>
+                <% } else { %>
+                    <div class="admin-login-container">
+                        <a href="/login" class="admin-login-btn">Login</a>
+                    </div>
+                <% } %>
+            </div>
+
+            <!-- Create New Post Button -->
+            <button id="createPostBtn" class="admin-create-post-button">Create New Post</button>
+        </div>
+    </div>
+
+    <!-- Hamburger Menu for Mobile in the Top-Right Corner -->
+    <button id="hamburgerMenu" class="mobile-only">&#9776;</button>
+
+    <!-- Hamburger Menu Content (Dropdown inside) -->
+    <div id="menuContainer" class="menu-container hidden">
+
+    </div>
+</header>

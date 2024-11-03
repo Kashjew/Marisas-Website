@@ -1,0 +1,132 @@
+/* General mobile adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    /* Adjust the layout to single-column */
+    .content, .sidebar {
+        width: 100%;
+        padding: 10px;
+    }
+
+    /* Header */
+    header {
+        padding: 15px;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    /* Center text for Hello Section on mobile */
+    .hello-section {
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Latest Post adjustments */
+    .latest-post-container {
+        padding: 15px;
+    }
+
+    .latest-post-item {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .latest-post-images {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .latest-post-image {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+
+    /* Instagram embed adjustments */
+    .latest-post-right {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    /* Recipe section on mobile */
+    .recipe-section-title {
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .post-grid-container {
+        padding: 15px;
+    }
+
+    .post-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .grid-item {
+        width: 100%;
+    }
+
+    /* Modal content */
+    .modal {
+        width: 90%;
+        max-width: 400px;
+        padding: 15px;
+    }
+
+    /* Recipe card adjustments */
+    .recipe-card-modal {
+        padding: 15px;
+    }
+
+    .recipe-details {
+        text-align: left;
+    }
+
+    /* Close button styling for modals */
+    .close-modal, .close-recipe {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: none;
+        border: none;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    /* Footer adjustments */
+    footer {
+        padding: 15px;
+        font-size: 0.8em;
+    }
+
+    /* Mobile adjustments for buttons */
+    .view-recipe-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        margin-top: 10px;
+    }
+
+    /* Text and general spacing */
+    .text-center {
+        text-align: center;
+    }
+
+    .section-padding {
+        padding: 15px 0;
+    }
+}

@@ -1,0 +1,44 @@
+/* General Button Styling */
+.styled-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #5c4a33;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.styled-button:hover {
+    background-color: #8b5e34;
+}
+
+/* View Recipe Button */
+.view-recipe-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background-color: #a35229;
+}
+
+.view-recipe-button:hover {
+    background-color: #d97a4f;
+}
+
+/* Delete and Edit Button Styling for Post Actions */
+.edit-btn,
+.delete-btn {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    background-color: #333;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+    background-color: #555;
+}

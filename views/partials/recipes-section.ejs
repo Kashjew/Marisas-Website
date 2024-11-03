@@ -1,0 +1,101 @@
+<div class="recipe-post-grid-container">
+    <h2>Recipes</h2>
+    <div class="recipe-post-grid" id="recipePostGrid">
+        <% recipePosts.forEach(post => { %>
+            <div class="recipe-grid-item" data-post-id="<%= post._id %>">
+                <!-- Image with Placeholder Fallback and Dynamic S3 URL -->
+                <img 
+                    src="<%= post.imagePaths.length ? (post.imagePaths[0].startsWith('http') ? post.imagePaths[0] : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${post.imagePaths[0]}`) : '/images/placeholder.jpg' %>" 
+                    alt="<%= post.title %>" 
+                    class="recipe-post-image"
+                    onerror="this.onerror=null; this.src='/images/placeholder.jpg';">
+                
+                <!-- Hover effect to display post title -->
+                <div class="recipe-grid-hover">
+                    <h3><%= post.title %></h3>
+                </div>
+
+                <!-- Open Post Button -->
+                <button 
+                    class="open-recipe-post-button" 
+                    data-post-id="<%= post._id %>" 
+                    onclick="openPostModal('<%= post._id %>')"
+                    style="position: absolute; bottom: 10px; left: 10px; padding: 5px 10px; background-color: #333; color: #fff; border: none; cursor: pointer;">
+                    Open Post
+                </button>
+            </div>
+
+            <!-- Modal Structure for Each Post -->
+            <div id="postModal-<%= post._id %>" class="recipe-post-modal" style="display: none;">
+                <div class="modal-content post-modal-content" id="modal-<%= post._id %>" role="dialog" aria-labelledby="postTitle-<%= post._id %>" aria-hidden="true">
+                    <button class="close-modal" data-post-id="<%= post._id %>" 
+                        onclick="document.getElementById('postModal-<%= post._id %>').style.display='none'; document.getElementById('postModal-<%= post._id %>').setAttribute('aria-hidden', 'true');">
+                        ×
+                    </button>
+                
+                    <div class="modal-body">
+                        <!-- Left column for post content -->
+                        <div class="left-column">
+                            <!-- Post title -->
+                            <h2 id="postTitle-<%= post._id %>"><%= post.title %></h2>
+
+                            <!-- Display post images in a bordered container -->
+                            <% if (post.imagePaths && post.imagePaths.length > 0) { %>
+                                <div id="postImages-<%= post._id %>" class="recipe-post-images-container image-grid">
+                                    <% post.imagePaths.forEach(function(imagePath) { %>
+                                        <div class="image-box">
+                                            <img 
+                                                src="<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>" 
+                                                alt="Post Image" 
+                                                class="recipe-post-image">
+                                        </div>
+                                    <% }); %>
+                                </div>
+                            <% } else { %>
+                                <p>No images available for this post.</p>
+                            <% } %>
+
+                            <!-- Post content -->
+                            <div id="postContent-<%= post._id %>" class="dynamic-content-container">
+                                <p><%= post.content %></p>
+                            </div>
+
+                            <!-- Display tags -->
+                            <div id="postTags-<%= post._id %>" class="dynamic-tags-container">
+                                <% if (post.tags && post.tags.length > 0) { %>
+                                    <p>Tags: 
+                                        <% post.tags.forEach(function(tag) { %>
+                                            <span class="post-tag"><%= tag %></span>
+                                        <% }); %>
+                                    </p>
+                                <% } else { %>
+                                    <p>No tags available.</p>
+                                <% } %>
+                            </div>
+
+                            <!-- View Recipe Button -->
+                            <% if (post.recipe) { %>
+                                <div id="viewRecipeContainer-<%= post._id %>" class="view-recipe-button-container">
+                                    <a id="viewRecipeLink-<%= post._id %>" href="javascript:void(0);" class="styled-button view-recipe-link view-recipe-button" data-recipe-id="<%= post._id %>">View Recipe</a>
+                                </div>
+                            <% } %>
+                        </div>
+
+                        <!-- Right column for Instagram embed -->
+                        <div class="right-column">
+                            <div id="instagramEmbed-<%= post._id %>">
+                                <% if (post.instagramLink) { %>
+                                    <blockquote class="instagram-media" data-instgrm-permalink="<%= post.instagramLink %>" data-instgrm-version="12">
+                                        <a href="<%= post.instagramLink %>">View on Instagram</a>
+                                    </blockquote>
+                                <% } else { %>
+                                    <p>No Instagram post available.</p>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>

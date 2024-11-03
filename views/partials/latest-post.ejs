@@ -1,0 +1,47 @@
+<div class="latest-post-container">
+    <% if (latestPost) { %>
+        <h2 class="latest-post-heading">Latest Post</h2>
+        <div class="latest-post-item">
+            <!-- Left Column: Post Details -->
+            <div class="latest-post-left">
+                <h3 class="latest-post-title"><%= latestPost.title %></h3>
+
+                <% if (latestPost.imagePaths && latestPost.imagePaths.length > 0) { %>
+                    <div class="latest-post-images">
+                        <% latestPost.imagePaths.forEach(function(imageKey) { %>
+                            <img 
+                                src="<%= imageKey.startsWith('http') ? imageKey : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imageKey.replace(/^\/+/, '')}` %>" 
+                                alt="<%= latestPost.title %>" 
+                                class="latest-post-image"
+                                onerror="this.src='/images/placeholder.jpg';">
+                        <% }) %>
+                    </div>
+                <% } else { %>
+                    <p class="no-image-text">No image available for this post.</p>
+                <% } %>
+
+                <p class="latest-post-description"><%= latestPost.content %></p>
+
+                <% if (latestPost.recipe) { %>
+                    <button
+                        class="view-recipe-button view-recipe-link" 
+                        data-recipe-id="<%= latestPost._id %>">
+                        View Recipe Card
+                    </button>
+                <% } %>
+            </div>
+
+            <!-- Right Column: Instagram Embed -->
+            <div class="latest-post-right">
+                <% if (latestPost.instagramLink) { %>
+                    <blockquote class="instagram-media" data-instgrm-permalink="<%= latestPost.instagramLink %>" data-instgrm-version="12"></blockquote>
+                    <script async defer src="https://www.instagram.com/embed.js"></script>
+                <% } else { %>
+                    <p class="no-instagram-text">No Instagram post available.</p>
+                <% } %>
+            </div>
+        </div>
+    <% } else { %>
+        <p class="no-post-text">No posts available.</p>
+    <% } %>
+</div>

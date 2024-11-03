@@ -1,0 +1,107 @@
+/* Dropdown Container (Filtering by Tag) inside Hamburger Menu */
+.dropdown-container {
+    margin-top: 20px;
+    text-align: left; 
+}
+
+.dropdown-container label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.dropdown-container .tag-filter-dropdown {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Create Post Form Styling */
+#createPostForm {
+    width: 100%;
+    height: 70vh;
+    max-width: 600px;
+    padding: 20px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group Common Styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Recipe Information Group Styling */
+.recipe-info-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+/* Input Field Styling */
+.large-input,
+.large-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+.small-input {
+    width: 30%;
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+/* Tag List Styling */
+.tag-list {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #f1f1f1;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.remove-tag {
+    background: none;
+    border: none;
+    color: #d9534f;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Submit Button Styling */
+.submit-post-btn {
+    background-color: #A89A82;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-post-btn:hover {
+    background-color: #8B7359;
+}
+
+/* Login Input Styling */
+.login-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}

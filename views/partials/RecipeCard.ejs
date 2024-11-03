@@ -1,0 +1,49 @@
+<div class="recipe-card-modal" id="recipeCardModal-<%= post._id %>" role="dialog" aria-labelledby="recipeTitle-<%= post._id %>" aria-hidden="true" style="display: none;">
+    <button class="close-recipe" aria-label="Close" data-modal-id="<%= post._id %>">&times;</button>
+
+    <div class="recipe-details">
+        <h2 id="recipeTitle-<%= post._id %>">Recipe</h2>
+        
+        <!-- Prep Time Container -->
+        <div class="prep-time-container">
+            <p><strong>Prep Time:</strong> <span id="prepTime-<%= post._id %>"><%= post.recipe.prepTime || 'N/A' %></span></p>
+        </div>
+
+        <!-- Cook Time Container -->
+        <div class="cook-time-container">
+            <p><strong>Cook Time:</strong> <span id="cookTime-<%= post._id %>"><%= post.recipe.cookTime || 'N/A' %></span></p>
+        </div>
+
+        <!-- Servings Container -->
+        <div class="servings-container">
+            <p><strong>Servings:</strong> <span id="servings-<%= post._id %>"><%= post.recipe.servings || 'N/A' %></span></p>
+        </div>
+
+        <!-- Ingredients Container -->
+        <% if (post.recipe.ingredients && post.recipe.ingredients.length > 0) { %>
+            <div class="ingredients-container">
+                <p><strong>Ingredients:</strong></p>
+                <ul>
+                    <% post.recipe.ingredients.forEach(function(ingredient) { %>
+                        <li><%= ingredient %></li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } %>
+
+        <!-- Steps Container -->
+        <% if (post.recipe.steps && post.recipe.steps.length > 0) { %>
+            <div class="steps-container">
+                <p><strong>Steps:</strong></p>
+                <ol>
+                    <% post.recipe.steps.forEach(function(step) { %>
+                        <li><%= step %></li>
+                    <% }); %>
+                </ol>
+            </div>
+        <% } %>
+    </div>
+
+    <!-- Overlay -->
+    <div id="recipeCardOverlay" class="recipe-card-overlay"></div>
+</div>

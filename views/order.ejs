@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/scripts.js" defer></script>
+</head>
+
+<body>
+    <header class="header-container">
+        <h1>Manage Orders</h1>
+        <a href="/logout" class="logout-btn">Logout</a>
+    </header>
+
+    <main>
+        <section id="orders-container">
+            <h2>Orders List</h2>
+            <div id="orders">
+                <!-- Orders will be dynamically populated here -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Fetch all orders and render them
+            fetch('/api/orders')
+                .then(response => response.json())
+                .then(orders => {
+                    renderOrders(orders);
+                })
+                .catch(error => {
+                    console.error('Error fetching orders:', error);
+                });
+
+            // Render the list of orders in the container
+            function renderOrders(orders) {
+                const ordersContainer = document.getElementById("orders");
+                ordersContainer.innerHTML = '';
+
+                orders.forEach(order => {
+                    const orderElement = createOrderElement(order);
+                    ordersContainer.appendChild(orderElement);
+                });
+            }
+
+            // Create an order element to be added to the DOM
+            function createOrderElement(order) {
+                const orderElement = document.createElement("div");
+                orderElement.classList.add("order");
+                
+                orderElement.innerHTML = `
+                    <p><strong>Order ID:</strong> ${order._id}</p>
+                    <p><strong>Status:</strong> ${order.status}</p>
+                    <p><strong>Items:</strong> ${order.items.join(', ')}</p>
+                    <p><strong>Total Price:</strong> $${order.totalPrice.toFixed(2)}</p>
+                `;
+                
+                return orderElement;
+            }
+        });
+    </script>
+</body>
+</html>

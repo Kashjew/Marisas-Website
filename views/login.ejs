@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe by Risa</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body class="user-body">
+    <!-- Header Section with Hero Image -->
+    <header class="hero-header">
+
+        <div class="hero-content">
+            <img src="/images/hero-image.jpg" alt="hero image" class="hero-image">
+        </div>
+    </header>
+
+    <!-- Login Container Section Styled Like Hello Image -->
+    <section class="login-section"> <!-- Updated class -->
+        <div class="login-card"> <!-- Updated class -->
+            <h1 class="login-title"><%= adminLogin ? 'Admin Login' : 'User Login' %></h1>
+            <p><%= adminLogin ? 'Please log in with your admin credentials to access administrative features.' : 'Please log in to access your account.' %></p>
+
+            <% if (message) { %>
+                <div class="error-message"><%= message %></div>
+            <% } %>
+
+            <form action="/login" method="POST" class="login-form">
+
+                <label for="email" class="login-label">Email or Username</label>
+                <input type="text" id="email" name="email" placeholder="Email or Username" required class="login-input" />
+
+                <label for="password" class="login-label">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required class="login-input" />
+
+                <button type="submit" class="button login-button"><%= adminLogin ? 'Login as Admin' : 'Login as User' %></button>
+            </form>
+
+            <% if (!adminLogin) { %>
+                <p>Or log in using:</p>
+                <div class="social-login">
+                    <a href="/auth/google" class="social-login-btn google-login">Login with Google</a>
+                    <a href="/auth/facebook" class="social-login-btn facebook-login">Login with Facebook</a>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>&copy; 2024 Recipe by Risa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+/* General Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    pointer-events: all;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Ensure post modal z-index is lower than recipe card modal */
+#postModalOverlay {
+    z-index: 10000;
+}
+#recipeCardOverlay {
+    z-index: 15000;
+}
+
+.modal.hide {
+    opacity: 0;
+    display: none;
+}
+
+/* Overlay */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+.modal-overlay.show {
+    display: block;
+}
+
+/* Centering Modal Content */
+.modal-content {
+    background-color: #ffffff;
+    border: 1px solid #333;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    width: 75%;
+    max-width: 900px;
+    height: auto;
+    max-height: 85vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 11000;
+    overflow-y: auto;
+    pointer-events: all;
+}
+
+/* Post Modal Layout */
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+.modal button {
+    margin-top: 10px;
+}
+
+/* Post Image Styling */
+.post-images-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 300px;
+}
+
+/* Instagram Embed Styling */
+.instagram-media {
+    width: 100%;
+}
+
+/* Large Image Modal Styling */
+#largeImageModal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+#largeImageModal {
+    display: none;
+    position: fixed;
+    z-index: 20000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+#largeImageModal .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 30000;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+#closeLargeImageButton {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#closeLargeImageButton:hover {
+    color: #000;
+}
+
+/* Disable pointer events on background when modal is open */
+body.modal-open {
+    pointer-events: none;
+}
+
+.modal-content {
+    pointer-events: all;
+}
+
+/* Image Grid */
+.post-images-container {
+    margin-top: 15px;
+}
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.image-box {
+    flex: 1;
+    min-width: calc(100% / 3 - 10px);
+    max-width: calc(100% / 3 - 10px);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@media (max-width: 600px) {
+    .image-box {
+        min-width: calc(100% / 2 - 10px);
+        max-width: calc(100% / 2 - 10px);
+    }
+}
+
+@media (max-width: 400px) {
+    .image-box {
+        min-width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Dynamic Content and Tags Containers */
+.dynamic-content-container {
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-wrap: break-word;
+    min-height: 150px;
+}
+
+.dynamic-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.post-tag {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.post-tag:hover {
+    background-color: #d0d0d0;
+}
+
+/* Recipe Button */
+.view-recipe-button-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: fit-content;
+}
+
+.view-recipe-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.view-recipe-link:hover {
+    background-color: #0056b3;
+}
+
+/* Overlay */
+#postModalOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+.modal.show + #postModalOverlay {
+    display: block;
+}
+
+#postModal {
+    z-index: 10000;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    width: 75%;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+#postModalContent {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+/* Custom Scrollbar Styling */
+
+/* WebKit-based browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 10px;  /* Width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f5e8dc;  /* Light color for track */
+    border-radius: 10px;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+    background-color: #b0724e;  /* Main scrollbar color */
+    border-radius: 10px;
+    border: 2px solid #f5e8dc;  /* Padding around thumb */
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #8a4f35;  /* Darker shade on hover */
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;  /* Thin scrollbar */
+    scrollbar-color: #b0724e #f5e8dc;  /* Thumb color and track color */
+}
