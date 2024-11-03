@@ -41,11 +41,14 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }), // Store sessions in MongoDB
+    proxy: true, // Trust the reverse proxy (Heroku) for secure cookies
     cookie: {
         secure: process.env.NODE_ENV === 'production',  // Set secure cookies only in production with HTTPS
+        httpOnly: true, // Helps prevent XSS attacks
         maxAge: 1000 * 60 * 60 * 24 * 7  // 1 week session lifetime
     }
 }));
+
 console.log("Session setup complete.");
 
 app.use(flash()); // Setup flash messages
