@@ -72,16 +72,9 @@
                                     <p>No tags available.</p>
                                 <% } %>
                             </div>
-
-                            <!-- View Recipe Button -->
-                            <% if (post.recipe) { %>
-                                <div id="viewRecipeContainer-<%= post._id %>" class="view-recipe-button-container">
-                                    <a id="viewRecipeLink-<%= post._id %>" href="javascript:void(0);" class="styled-button view-recipe-link view-recipe-button" data-recipe-id="<%= post._id %>">View Recipe</a>
-                                </div>
-                            <% } %>
                         </div>
 
-                        <!-- Right column for Instagram embed -->
+                        <!-- Right column for Instagram embed and view recipe button -->
                         <div class="right-column">
                             <div id="instagramEmbed-<%= post._id %>">
                                 <% if (post.instagramLink) { %>
@@ -92,6 +85,13 @@
                                     <p>No Instagram post available.</p>
                                 <% } %>
                             </div>
+
+                            <!-- View Recipe Button Container with Border -->
+                            <% if (post.recipe) { %>
+                                <div id="viewRecipeContainer-<%= post._id %>" class="button-border-container">
+                                    <a id="viewRecipeLink-<%= post._id %>" href="javascript:void(0);" class="view-recipe-link" data-recipe-id="<%= post._id %>">View Recipe</a>
+                                </div>
+                            <% } %>
                         </div>
                     </div>
                 </div>
