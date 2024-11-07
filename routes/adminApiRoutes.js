@@ -7,7 +7,6 @@ const Archive = require('../models/Archive');
 const HelloSection = require('../models/Hello');
 const s3 = require('../config/s3Client');
 
-
 // API Route for Pagination - Fetch posts for infinite scroll
 router.get('/posts', ensureAuthenticated, ensureAdmin, async (req, res) => {
     try {
@@ -24,6 +23,7 @@ router.post('/posts/reorder', ensureAuthenticated, ensureAdmin, async (req, res)
     const { postOrder } = req.body;
 
     try {
+        // Loop through each post in the new order and update the order field in the database
         for (const post of postOrder) {
             await Post.findByIdAndUpdate(post.id, { order: post.order });
         }

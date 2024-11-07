@@ -8,13 +8,17 @@
 
                 <% if (latestPost.imagePaths && latestPost.imagePaths.length > 0) { %>
                     <div class="latest-post-images">
-                        <% latestPost.imagePaths.forEach(function(imageKey) { %>
-                            <img 
-                                src="<%= imageKey.startsWith('http') ? imageKey : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imageKey.replace(/^\/+/, '')}` %>" 
-                                alt="<%= latestPost.title %>" 
-                                class="latest-post-image"
-                                onerror="this.src='/images/placeholder.jpg';">
-                        <% }) %>
+                        <div class="image-grid">
+                            <% latestPost.imagePaths.forEach(function(imageKey, index) { %>
+                                <div class="image-item <%= index === 4 ? 'center-image' : '' %>">
+                                    <img 
+                                        src="<%= imageKey.startsWith('http') ? imageKey : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imageKey.replace(/^\/+/, '')}` %>" 
+                                        alt="<%= latestPost.title %>" 
+                                        class="latest-post-image"
+                                        onerror="this.src='/images/placeholder.jpg';">
+                                </div>
+                            <% }) %>
+                        </div>
                     </div>
                 <% } else { %>
                     <p class="no-image-text">No image available for this post.</p>

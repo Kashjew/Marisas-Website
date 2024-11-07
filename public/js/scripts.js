@@ -5,6 +5,7 @@ import { initRequestPopup } from './modules/requests.js'; // Initialize request 
 import { initPostHandlers } from './modules/postHandlers.js'; // Handles modals and event listeners
 import { embedInstagramPost, handleRecipeLink } from './modules/utilityFunctions.js';
 import './modules/headerScroll.js';
+import { renderLatestPost } from './modules/latestpost.js';
 
 console.log("postHandlers.js is imported");
 
@@ -55,7 +56,7 @@ function loadInstagramEmbeds() {
 }
 
 // Add event listeners and initialize modules once DOM content is loaded
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
     console.log("DOM fully loaded and parsed");
 
     const user = window.user || null;
@@ -71,4 +72,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Ensure Instagram embeds are reloaded
     loadInstagramEmbeds();
     console.log('loadInstagramEmbeds function executed.');
+
+    // Fetch posts and render the latest post
+    try {
+        const response = await fetch('/api/posts'); // Assuming /api/posts returns the latest posts
+        const data = await response.json();
+        if (data && data.posts) {
+            renderLatestPost(data.posts);
+        }
+    } catch (error) {
+        console.error("Failed to fetch and render latest post:", error);
+    }
 });

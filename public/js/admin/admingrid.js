@@ -54,40 +54,37 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAllPosts();
 
     const grid = document.getElementById('postGrid');
-    const sortable = new Sortable(grid, {
+    new Sortable(grid, {
         animation: 150,
-        onEnd: function (evt) {
+        onEnd: function () {
             const postOrder = [];
             document.querySelectorAll('.grid-item').forEach((item, index) => {
+                const postId = item.getAttribute('data-post-id');
+                
                 postOrder.push({
-                    id: item.getAttribute('data-post-id'),
-                    order: index + 1  // New order position
+                    id: postId,
+                    order: index + 1  // Assign new order based on position
                 });
 
-                // Update order label display
+                // Update the label for display
                 const label = index === 0 ? "Latest Post" : `${index + 1} Post`;
                 item.querySelector('.post-order').textContent = label;
 
                 // Highlight the first item as the latest post
                 item.classList.toggle('latest-post', index === 0);
             });
-            
-            // Send the updated order to the server
+
+            // Send updated order to server
             fetch('/api/posts/reorder', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ postOrder }),
+                body: JSON.stringify({ postOrder })
             })
             .then(response => response.json())
-            .then(data => {
-                console.log('Posts reordered successfully', data);
-            })
-            .catch(err => {
-                console.error('Error reordering posts:', err);
-                alert('Error reordering posts. Please try again.');
-            });          
+            .then(data => console.log('Posts reordered successfully', data))
+            .catch(err => console.error('Error reordering posts:', err));
         }
     });
 });

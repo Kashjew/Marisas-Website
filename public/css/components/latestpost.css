@@ -6,12 +6,14 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 20px;
 }
+
 /* Latest Post Item - Container for left and right columns */
 .latest-post-item {
     display: flex;
     flex-direction: column; /* Stack columns by default (mobile first) */
     gap: 20px; /* Space between columns */
 }
+
 /* Heading for Latest Post */
 .latest-post-heading {
     font-size: 1.5rem;
@@ -25,35 +27,56 @@
     gap: 20px;
     align-items: flex-start;
 }
+
 /* Left Column: Post Details */
 .latest-post-left {
     flex: 1; /* Take up equal space when side-by-side */
     padding: 10px;
 }
+
 /* Right Column: Instagram Embed */
 .latest-post-right {
     flex: 1; /* Take up equal space when side-by-side */
     padding: 10px;
 }
 
+/* Styling for Post Title */
 .latest-post-title {
     font-size: 1.6em;
     color: #333;
     margin-bottom: 10px;
 }
 
+/* Styling for Post Description */
 .latest-post-description {
     font-size: 1em;
     color: #666;
     line-height: 1.5;
 }
 
+/* Specific style for the 5th image to center it */
+.center-image {
+    grid-column: 1 / -1; /* Span across both columns */
+    display: flex;
+    justify-content: center;
+}
+
 /* Image styling within Latest Post */
 .latest-post-images {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
     margin-top: 15px;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .latest-post-image {
@@ -83,10 +106,21 @@
 }
 
 /* Right Column for Instagram Embed */
-.latest-post-right {
-    flex: 1;
+.latest-post-right .instagram-media {
+    max-width: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
+.latest-post-right iframe {
+    width: 100%;
+    height: 100%; /* Ensure it fills the container */
+    min-height: 400px; /* Set a reasonable minimum height */
+    display: block;
+}
+
+
+/* No Instagram Text */
 .no-instagram-text {
     font-size: 0.9em;
     color: #999;
@@ -131,6 +165,10 @@
         max-width: 100%;
         margin-bottom: 10px;
     }
+
+    .latest-post-container {
+        padding-bottom: 10px; /* Reduce extra padding on mobile */
+    }
 }
 
 /* Medium to Large Screen Adjustments for Two-Column Layout */
@@ -144,9 +182,6 @@
         margin-right: 20px;
     }
 
-    .latest-post-container {
-        flex: 1.5;
-    }
     .latest-post-item {
         flex-direction: row; /* Change to a two-column layout for larger screens */
     }
