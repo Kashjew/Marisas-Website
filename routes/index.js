@@ -30,7 +30,7 @@ router.get('/', async (req, res) => {
         }
 
         const latestPost = posts[0];  // First post in the order for Latest Post section
-        const recipePosts = posts.slice(1);  // Remaining 9 posts for the Recipe Section
+        const recipePosts = posts.slice(1);  // Remaining posts for the Recipe Section
 
         const tags = [
             "brownies", "cookies", "cakes", "cinnamon rolls", "savory", "bread",
@@ -39,21 +39,21 @@ router.get('/', async (req, res) => {
             "Winter Recipes", "Fall Recipes", "Spring Recipes"
         ];
 
-        // Render the index view with Hello section, Latest Post, and Recipe Section posts
+        // Render the index view with Hello section, Latest Post, Recipe Section posts, and tags
         res.render('index', { 
-            helloContent,   // Hello section content
-            latestPost,     // Latest Post section content
-            recipePosts,    // Limited to 9 posts for Recipe Section
+            helloContent,         // Hello section content
+            latestPost,           // Latest Post section content
+            recipePosts,          // Limited to 9 posts for Recipe Section
             user: req.user,
-            tags 
+            tags,
+            showRecipeCard: false, // Pass showRecipeCard as false by default for the home page
+            recipeId: null        // No specific recipe ID for the home page
         });
     } catch (error) {
         console.error("Error fetching homepage content:", error);
         res.status(500).send('Internal Server Error - Unable to load the homepage');
     }
 });
-
-
 
 // Route to fetch post details by ID in JSON format
 router.get('/api/posts/:postId', async (req, res) => {
@@ -69,7 +69,6 @@ router.get('/api/posts/:postId', async (req, res) => {
         res.status(500).json({ error: 'Failed to load post data' });
     }
 });
-
 
 // Consolidated Route to update the "Hello" section content
 router.post('/api/update-hello-section', ensureAuthenticated, ensureAdmin, async (req, res) => {

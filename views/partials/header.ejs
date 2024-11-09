@@ -12,12 +12,19 @@
         <div class="dropdown-container">
             <form action="/filter" method="GET">
                 <label for="tagFilter">Filter by Tag:</label>
-                <select name="tag" id="tagFilter" class="tag-filter-dropdown">
-                    <option value="">Select a tag</option>
-                    <% tags.forEach(function(tag) { %>
-                        <option value="<%= tag %>"><%= tag %></option>
-                    <% }); %>
-                </select>
+                
+                <!-- Only render the tag dropdown if tags are available -->
+                <% if (typeof tags !== 'undefined' && tags.length > 0) { %>
+                    <select name="tag" id="tagFilter" class="tag-filter-dropdown">
+                        <option value="">Select a tag</option>
+                        <% tags.forEach(function(tag) { %>
+                            <option value="<%= tag %>"><%= tag %></option>
+                        <% }); %>
+                    </select>
+                <% } else { %>
+                    <p>No tags available</p> <!-- Optional: Display a message if no tags are available -->
+                <% } %>
+
                 <button type="submit" id="filterTagButton">Filter</button>
             </form>
         </div>
@@ -37,7 +44,7 @@
         <% } else { %>
             <div class="login-container">
                 <!-- Temporarily hiding login button -->
-            <% /* <a href="/login" class="login-btn">Login</a> */ %>
+                <% /* <a href="/login" class="login-btn">Login</a> */ %>
             </div>
         <% } %>
     </div>

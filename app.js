@@ -12,7 +12,7 @@ const authRoutes = require('./routes/authRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const indexRoutes = require('./routes/index');
 const adminApiRoutes = require('./routes/adminApiRoutes');
-
+const recipeRoutes = require('./routes/recipeRoutes');
 
 // Initialize app
 const app = express();
@@ -76,7 +76,7 @@ app.use('/', authRoutes); // Authentication routes (login, logout, OAuth)
 app.use('/api', adminApiRoutes);
 app.use('/profile', ensureAuthenticated, profileRoutes); // User profile routes, protected by ensureAuthenticated
 app.use('/admin', ensureAuthenticated, ensureAdmin, adminRoutes); // Admin routes, protected by ensureAuthenticated and ensureAdmin
-
+app.use('/recipe', recipeRoutes);
 // 404 Page Route
 app.use((req, res) => {
   res.status(404).render('404', { message: 'The page you are looking for does not exist.' });

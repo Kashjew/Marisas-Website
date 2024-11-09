@@ -7,6 +7,7 @@ import { embedInstagramPost, handleRecipeLink } from './modules/utilityFunctions
 import './modules/headerScroll.js';
 import { renderLatestPost } from './modules/latestpost.js';
 import './modules/googleAnalytics.js';
+import { loadRecipeCard } from './modules/recipe-card.js';
 console.log("postHandlers.js is imported");
 
 // Debug: Directly test if the body is receiving click events

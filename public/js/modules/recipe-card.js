@@ -1,8 +1,52 @@
+// Load and display the recipe card for a specific recipe
+export async function loadRecipeCard(recipeId) {
+    try {
+        const response = await fetch(`/recipe/api/${recipeId}`);
+        const recipe = await response.json();
+
+        // Populate modal with recipe data using dynamic IDs
+        document.getElementById(`recipeTitle-${recipeId}`).textContent = recipe.title;
+        document.getElementById(`prepTime-${recipeId}`).textContent = recipe.prepTime || 'N/A';
+        document.getElementById(`cookTime-${recipeId}`).textContent = recipe.cookTime || 'N/A';
+        document.getElementById(`servings-${recipeId}`).textContent = recipe.servings || 'N/A';
+
+        const ingredientsContainer = document.getElementById(`ingredients-${recipeId}`);
+        const stepsContainer = document.getElementById(`steps-${recipeId}`);
+
+        // Populate ingredients list if it exists
+        if (ingredientsContainer && recipe.ingredients) {
+            ingredientsContainer.innerHTML = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
+        }
+
+        // Populate steps list if it exists
+        if (stepsContainer && recipe.steps) {
+            stepsContainer.innerHTML = recipe.steps.map(step => `<li>${step}</li>`).join('');
+        }
+
+        // Show the modal
+        const recipeCardModal = document.getElementById(`recipeCardModal-${recipeId}`);
+        if (recipeCardModal) {
+            recipeCardModal.style.display = 'block';
+            recipeCardModal.setAttribute('aria-hidden', 'false');
+        }
+
+    } catch (error) {
+        console.error('Failed to load recipe:', error);
+    }
+}
+
 // Function to display the recipe card for a specific post
-export function viewRecipeCard(recipeId) {
+export function viewRecipeCard(recipeId, fetchData = false) {
     console.log('Button clicked', recipeId);
+
     const recipeCardModal = document.getElementById(`recipeCardModal-${recipeId}`);
-    const recipeCardOverlay = document.getElementById('recipeCardOverlay');
+    const recipeCardOverlay = document.getElementById(`recipeCardOverlay-${recipeId}`);
+
+    // Check if we need to fetch data or just display the modal directly
+    if (fetchData) {
+        loadRecipeCard(recipeId);
+        return;
+    }
 
     if (!recipeCardModal || !recipeCardOverlay) {
         console.error('Recipe card modal or overlay element not found');
@@ -22,7 +66,7 @@ export function viewRecipeCard(recipeId) {
 // Function to close the recipe card
 export function closeRecipeCard(recipeId) {
     const recipeCardModal = document.getElementById(`recipeCardModal-${recipeId}`);
-    const recipeCardOverlay = document.getElementById('recipeCardOverlay');
+    const recipeCardOverlay = document.getElementById(`recipeCardOverlay-${recipeId}`);
 
     if (recipeCardModal) recipeCardModal.style.display = 'none';
     if (recipeCardOverlay) recipeCardOverlay.style.display = 'none';
@@ -84,8 +128,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.view-recipe-link, .view-recipe-button').forEach(button => {
         button.addEventListener('click', event => {
             const recipeId = event.target.getAttribute('data-recipe-id');
+            const fetchData = event.target.getAttribute('data-fetch') === 'true';
             if (recipeId) {
-                viewRecipeCard(recipeId); // Open the recipe card modal
+                viewRecipeCard(recipeId, fetchData); // Open the recipe card modal with optional data fetch
             }
         });
     });
@@ -96,7 +141,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const postId = post.getAttribute('data-post-id');
         adjustDynamicContainers(postId);
         adjustButtonPosition(postId);
-    })
+    });
 
     // Add event listeners to close buttons
     document.querySelectorAll('.close-recipe').forEach(button => {
