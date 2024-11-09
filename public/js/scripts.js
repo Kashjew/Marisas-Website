@@ -6,7 +6,7 @@ import { initPostHandlers } from './modules/postHandlers.js'; // Handles modals 
 import { embedInstagramPost, handleRecipeLink } from './modules/utilityFunctions.js';
 import './modules/headerScroll.js';
 import { renderLatestPost } from './modules/latestpost.js';
-
+import './modules/googleAnalytics.js';
 console.log("postHandlers.js is imported");
 
 // Debug: Directly test if the body is receiving click events
