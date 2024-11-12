@@ -50,7 +50,13 @@ router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
             }
         });
 
-        res.render('admin/dashboard', { posts, tags, helloContent });
+        // Pass tinymceApiKey to the template
+        res.render('admin/dashboard', { 
+            posts, 
+            tags, 
+            helloContent, 
+            tinymceApiKey: process.env.TINYMCE_API_KEY // Add the TinyMCE API key here
+        });
     } catch (error) {
         console.error('Error fetching posts, tags, or helloContent:', error);
         res.status(500).send('Internal Server Error');
@@ -59,46 +65,52 @@ router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
 
 
 
+
 // Route: Handle Post Creation with S3 Upload (Multiple images)
 router.post('/create-post', multipleLoggingUpload, async (req, res) => {
     const { title, content, recipe, instagramLink, tags } = req.body;
-    if (!req.files || req.files.length < 1) {
-        req.flash('error', 'At least one image is required for the post.');
-        return res.redirect('/admin/dashboard');
-    }
 
-    const imageUrls = [];
+    // Initialize imageUrls to store the URLs of uploaded images
+    let imageUrls = [];
+
     try {
-        for (const file of req.files) {
-            const uniqueFilename = `${uuidv4()}-${file.originalname}`;
-            const imageUrl = await uploadImageToS3(file, uniqueFilename);
-            imageUrls.push(imageUrl);
+        // Check if images were uploaded
+        if (req.files && req.files.length > 0) {
+            // Upload each file to S3 and save its URL to imageUrls
+            for (const file of req.files) {
+                const imageUrl = await uploadImageToS3(file, uuidv4());  // Using uuid for unique naming
+                imageUrls.push(imageUrl);
+            }
         }
 
+        // Create a new post with the collected data
         const newPost = new Post({
             title,
-            content,
+            content, // Quill content stored as HTML
             recipe: {
                 prepTime: recipe.prepTime,
                 cookTime: recipe.cookTime,
                 servings: recipe.servings,
-                ingredients: recipe.ingredients.split('\n').map(item => item.trim()),
-                steps: recipe.steps.split('\n').map(item => item.trim()),
-                notes: recipe.notes,
+                ingredients: recipe.ingredients, // Store full HTML
+                steps: recipe.steps, // Store full HTML
+                notes: recipe.notes, // Store full HTML
             },
             instagramLink,
             tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
             author: req.user._id,
-            imagePaths: imageUrls,
+            imagePaths: imageUrls,  // Assign the array of image URLs here
         });
 
+        // Save the new post to the database
         await newPost.save();
         res.status(200).json({ message: 'Post created successfully!', post: newPost });
     } catch (error) {
-        console.error('Error creating post:', error);
+        console.error("Error creating post:", error);
         res.status(500).json({ message: 'Failed to create post. Please try again.' });
     }
 });
+
+
 
 module.exports = router;
 

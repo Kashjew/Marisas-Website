@@ -144,13 +144,23 @@ router.put('/:id', auth.ensureAuthenticated, singleLoggingUpload, async (req, re
             }
         }
 
-        // Update the post
+        // Prepare recipe fields to handle either plain text or HTML from Quill
+        const updatedRecipe = {
+            prepTime: recipe.prepTime,
+            cookTime: recipe.cookTime,
+            servings: recipe.servings,
+            ingredients: Array.isArray(recipe.ingredients) ? recipe.ingredients.join("\n") : recipe.ingredients,  // Convert array to string if needed
+            steps: Array.isArray(recipe.steps) ? recipe.steps.join("\n") : recipe.steps,  // Convert array to string if needed
+            notes: recipe.notes,
+        };
+
+        // Update the post with new content and recipe details
         const updatedPost = await Post.findByIdAndUpdate(
             postId,
             {
                 title,
-                content,
-                recipe,
+                content, // Now stores Quill HTML for content
+                recipe: updatedRecipe,
                 instagramLink,
                 tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
                 imagePaths: updatedImageUrls.length > 0 ? updatedImageUrls : undefined,
@@ -168,6 +178,7 @@ router.put('/:id', auth.ensureAuthenticated, singleLoggingUpload, async (req, re
         res.status(500).json({ message: 'Failed to update post. Please try again.' });
     }
 });
+
 
 // Route: Handle image uploads for editing a post
 router.post('/:id/upload-images', auth.ensureAuthenticated, singleLoggingUpload, async (req, res) => {
@@ -194,6 +205,7 @@ router.post('/:id/upload-images', auth.ensureAuthenticated, singleLoggingUpload,
         res.status(500).json({ message: 'Image upload failed' });
     }
 });
+
 
 // Route: Delete a post by ID (Admin handled in adminRoutes.js)
 router.delete('/:id', auth.ensureAuthenticated, async (req, res) => {

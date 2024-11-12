@@ -74,6 +74,31 @@
     background: #ccc;
 }
 
+/* Copy Link Button Styling */
+.grid-item .copy-link-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;  /* Position closer to the top-right corner */
+    right: 10px;
+    width: 20%;  /* Slightly increase the size (previously 10%) */
+    height: auto;  /* Maintain aspect ratio */
+    opacity: 0.7;  /* Make icon more transparent */
+    z-index: 2;  /* Ensure it appears above other elements */
+}
+
+.grid-item .copy-icon {
+    width: 100%;  /* Make icon fill the button */
+    height: auto;
+    opacity: 0.7; /* More transparent by default */
+    transition: opacity 0.3s ease;  /* Smooth transition for hover */
+}
+
+.grid-item .copy-link-btn:hover .copy-icon {
+    opacity: 1.0; /* Further increase transparency on hover */
+}
+
 /* Highlight styling for the "Latest Post" */
 .grid-item.latest-post {
     border: 3px solid #b23a48; /* Highlight color for the latest post */
@@ -92,6 +117,7 @@
     border-radius: 8px;
     font-size: 1rem;
 }
+
 /* Custom Scrollbar Styling */
 
 /* WebKit-based browsers (Chrome, Safari, Edge) */
@@ -120,5 +146,5 @@
 /* Firefox */
 * {
     scrollbar-width: auto;  /* Thin scrollbar */
-    scrollbar-color: #d4c1a2 #826a55  /* Thumb color and track color */
+    scrollbar-color: #d4c1a2 #826a55;  /* Thumb color and track color */
 }

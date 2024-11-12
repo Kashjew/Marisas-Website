@@ -10,6 +10,10 @@
                 <div class="grid-hover">
                     <button class="edit-btn" data-post-id="<%= post._id %>">Edit</button>
                     <button class="delete-btn" data-post-id="<%= post._id %>">Delete</button>
+                    <!-- Copy Link Button -->
+                    <button class="copy-link-btn" onclick="copyLinkToClipboard('<%= post._id %>')">
+                        <img src="/images/copy-icon.png" alt="Copy Link" class="copy-icon">
+                    </button>
                 </div>
             </div>
         <% }) %>

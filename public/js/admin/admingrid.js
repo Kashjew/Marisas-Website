@@ -19,7 +19,7 @@ const loadAllPosts = () => {
                     // Add position label for "Latest Post" and numbered positions
                     const positionLabel = index === 0 ? "Latest Post" : `${index + 1} Post`;
 
-                    // Order display with position label and styling
+                    // Order display with position label, image, and buttons (Edit, Delete, Copy Link)
                     gridItem.innerHTML = `
                         <div class="post-order"><strong>${positionLabel}</strong></div>
                         <img src="${post.imagePaths.length ? post.imagePaths[0] : '/images/placeholder.jpg'}" 
@@ -28,6 +28,9 @@ const loadAllPosts = () => {
                         <div class="grid-hover">
                             <button class="edit-btn" data-post-id="${post._id}">Edit</button>
                             <button class="delete-btn" data-post-id="${post._id}">Delete</button>
+                            <button class="copy-link-btn" onclick="copyLinkToClipboard('/post/${post._id}')">
+                                <img src="/images/copy-icon.png" alt="Copy Link" class="copy-icon">
+                            </button>
                         </div>
                     `;
 
@@ -48,6 +51,25 @@ const loadAllPosts = () => {
             loader.style.display = 'none';
         });
 };
+
+// Function to copy the full recipe link to clipboard
+function copyLinkToClipboard(postId) {
+    // Get the current host, so it works on both localhost and production
+    const host = window.location.origin; // e.g., "http://localhost:3000" or "http://www.recipebyrisa.com"
+
+    // Construct the full URL for the recipe
+    const recipeUrl = `${host}/recipe/${postId}`;
+
+    // Copy the constructed URL to clipboard
+    navigator.clipboard.writeText(recipeUrl)
+        .then(() => {
+            console.log('URL copied to clipboard:', recipeUrl);
+            alert('Recipe link copied to clipboard!');
+        })
+        .catch(err => {
+            console.error('Failed to copy the URL:', err);
+        });
+}
 
 // Initialize SortableJS for drag-and-drop reordering
 document.addEventListener('DOMContentLoaded', () => {

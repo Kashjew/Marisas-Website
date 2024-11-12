@@ -20,32 +20,28 @@
         </div>
 
         <!-- Ingredients Container -->
-        <% if (post.recipe && post.recipe.ingredients && post.recipe.ingredients.length > 0) { %>
-            <div class="ingredients-container">
-                <p><strong>Ingredients:</strong></p>
-                <ul>
-                    <% post.recipe.ingredients.forEach(function(ingredient) { %>
-                        <li><%= ingredient %></li>
-                    <% }); %>
-                </ul>
+        <div class="ingredients-container">
+            <p><strong>Ingredients:</strong></p>
+            <div>
+                <%- post.recipe && post.recipe.ingredients ? post.recipe.ingredients : '<em>No ingredients provided</em>' %>
             </div>
-        <% } else { %>
-            <p><em>No ingredients provided</em></p>
-        <% } %>
+        </div>
 
         <!-- Steps Container -->
-        <% if (post.recipe && post.recipe.steps && post.recipe.steps.length > 0) { %>
-            <div class="steps-container">
-                <p><strong>Steps:</strong></p>
-                <ol>
-                    <% post.recipe.steps.forEach(function(step) { %>
-                        <li><%= step %></li>
-                    <% }); %>
-                </ol>
+        <div class="steps-container">
+            <p><strong>Steps:</strong></p>
+            <div>
+                <%- post.recipe && post.recipe.steps ? post.recipe.steps : '<em>No steps provided</em>' %>
             </div>
-        <% } else { %>
-            <p><em>No steps provided</em></p>
-        <% } %>
+        </div>
+
+        <!-- Additional Notes Container -->
+        <div class="notes-container">
+            <p><strong>Additional Notes:</strong></p>
+            <div>
+                <%- post.recipe && post.recipe.notes ? post.recipe.notes : '<em>No additional notes provided</em>' %>
+            </div>
+        </div>
     </div>
 
     <!-- Overlay -->

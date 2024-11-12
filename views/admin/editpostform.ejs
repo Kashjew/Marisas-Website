@@ -1,6 +1,6 @@
-<div id="editPostModal" class="create-post-modal"> <!-- Using the same modal class -->
-  <div class="create-post-content"> <!-- Using the same content class -->
-    <span class="close-create-post">&times;</span> <!-- Close button works like the create post modal -->
+<div id="editPostModal" class="create-post-modal">
+  <div class="create-post-content">
+    <span class="close-create-post">&times;</span>
     <h2>Edit Post</h2>
 
     <!-- Add hidden field to store post ID when editing -->
@@ -12,9 +12,10 @@
         <input type="text" id="title" name="title" class="large-input form-input" required>
       </div>
 
+      <!-- TinyMCE Content Editor -->
       <div class="form-group">
-        <label for="content">Content:</label>
-        <textarea id="content" name="content" class="large-textarea form-textarea" required></textarea>
+        <label for="content-editor">Content:</label>
+        <textarea id="content-editor" name="content" class="large-textarea form-textarea"></textarea>
       </div>
 
       <div class="form-group">
@@ -57,19 +58,22 @@
         </div>
       </div>
 
+      <!-- TinyMCE Ingredients Editor -->
       <div class="form-group">
-        <label for="ingredients">Ingredients (one per line):</label>
-        <textarea id="ingredients" name="recipe[ingredients]" rows="5" class="large-textarea form-textarea" placeholder="Enter each ingredient on a new line"></textarea>
+        <label for="ingredients-editor">Ingredients:</label>
+        <textarea id="ingredients-editor" name="recipe[ingredients]" class="large-textarea form-textarea"></textarea>
       </div>
 
+      <!-- TinyMCE Steps Editor -->
       <div class="form-group">
-        <label for="steps">Cooking Steps (one per line):</label>
-        <textarea id="steps" name="recipe[steps]" rows="5" class="large-textarea form-textarea" placeholder="Enter each step on a new line"></textarea>
+        <label for="steps-editor">Cooking Steps:</label>
+        <textarea id="steps-editor" name="recipe[steps]" class="large-textarea form-textarea"></textarea>
       </div>
 
+      <!-- TinyMCE Notes Editor -->
       <div class="form-group">
-        <label for="notes">Additional Notes:</label>
-        <textarea id="notes" name="recipe[notes]" rows="3" class="large-textarea form-textarea" placeholder="Any additional notes..."></textarea>
+        <label for="notes-editor">Additional Notes:</label>
+        <textarea id="notes-editor" name="recipe[notes]" class="large-textarea form-textarea"></textarea>
       </div>
 
       <button type="submit" class="submit-post-btn button">Update Post</button>

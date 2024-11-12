@@ -15,14 +15,12 @@ const RecipeSchema = new mongoose.Schema({
         required: false,
     },
     ingredients: {
-        type: [String],
+        type: String, // Changed from Array to String to store HTML
         required: false,
-        default: [], // Default to empty array
     },
     steps: {
-        type: [String],
+        type: String, // Changed from Array to String to store HTML
         required: false,
-        default: [], // Default to empty array
     },
     notes: {
         type: String,
