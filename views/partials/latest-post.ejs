@@ -24,7 +24,8 @@
                     <p class="no-image-text">No image available for this post.</p>
                 <% } %>
 
-                <p class="latest-post-description"><%= latestPost.content %></p>
+                <!-- Render content as unescaped HTML -->
+                <p class="latest-post-description"><%- latestPost.content %></p>
 
                 <% if (latestPost.recipe) { %>
                     <button
