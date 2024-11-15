@@ -63,9 +63,6 @@ router.get('/dashboard', ensureAuthenticated, ensureAdmin, async (req, res) => {
     }
 });
 
-
-
-
 // Route: Handle Post Creation with S3 Upload (Multiple images)
 router.post('/create-post', multipleLoggingUpload, async (req, res) => {
     const { title, content, recipe, instagramLink, tags } = req.body;
@@ -74,34 +71,36 @@ router.post('/create-post', multipleLoggingUpload, async (req, res) => {
     let imageUrls = [];
 
     try {
-        // Check if images were uploaded
         if (req.files && req.files.length > 0) {
-            // Upload each file to S3 and save its URL to imageUrls
+            // Prevent duplication by logging and verifying files
+            const uploadedFiles = new Set();
+
             for (const file of req.files) {
-                const imageUrl = await uploadImageToS3(file, uuidv4());  // Using uuid for unique naming
-                imageUrls.push(imageUrl);
+                if (!uploadedFiles.has(file.originalname)) {
+                    const imageUrl = await uploadImageToS3(file, uuidv4());
+                    imageUrls.push(imageUrl);
+                    uploadedFiles.add(file.originalname);
+                }
             }
         }
 
-        // Create a new post with the collected data
         const newPost = new Post({
             title,
-            content, // Quill content stored as HTML
+            content,
             recipe: {
                 prepTime: recipe.prepTime,
                 cookTime: recipe.cookTime,
                 servings: recipe.servings,
-                ingredients: recipe.ingredients, // Store full HTML
-                steps: recipe.steps, // Store full HTML
-                notes: recipe.notes, // Store full HTML
+                ingredients: recipe.ingredients,
+                steps: recipe.steps,
+                notes: recipe.notes,
             },
             instagramLink,
             tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
             author: req.user._id,
-            imagePaths: imageUrls,  // Assign the array of image URLs here
+            imagePaths: imageUrls,
         });
 
-        // Save the new post to the database
         await newPost.save();
         res.status(200).json({ message: 'Post created successfully!', post: newPost });
     } catch (error) {
@@ -110,9 +109,6 @@ router.post('/create-post', multipleLoggingUpload, async (req, res) => {
     }
 });
 
-
-
 module.exports = router;
-
 
 
