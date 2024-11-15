@@ -7,6 +7,7 @@
     <form id="createPostForm" action="/admin/create-post" method="POST" enctype="multipart/form-data">
       <input type="hidden" id="postId" name="postId" value="">
 
+      <!-- Title Field -->
       <div class="form-group">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" class="large-input form-input" required>
@@ -25,10 +26,19 @@
         <div id="tagList" class="tag-list"></div>
       </div>
 
+      <!-- Images Section -->
       <div class="form-group">
         <label for="image">Images:</label>
         <input type="file" id="image" name="images" class="large-input form-input" accept="image/*" multiple>
         <p>(You can upload up to 5 images)</p>
+        <!-- Container for preview images -->
+        <div id="imagePreviewContainer" class="image-preview-container">
+          <!-- Draggable previews will be dynamically added here -->
+        </div>
+      </div>
+      <!-- Cover Image Notice -->
+      <div class="form-group">
+        <p><strong>Note:</strong> The first image in the order will be set as the cover image.</p>
       </div>
 
       <div class="form-group">

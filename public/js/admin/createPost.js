@@ -1,5 +1,3 @@
-// createPost.js
-
 document.addEventListener('DOMContentLoaded', function () {
     initializeTinyMCEEditors();
 
@@ -9,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const closeCreatePostModal = document.querySelector('.close-create-post');
     const successModal = document.getElementById("successModal");
     const errorModal = document.getElementById("errorModal");
-    const closeSuccessBtn = document.getElementById("closeSuccessBtn");
-    const closeErrorBtn = document.getElementById("closeErrorBtn");
+    const imageInput = document.getElementById("image");
+    const imagePreviewContainer = document.getElementById("imagePreviewContainer");
+
+    let sortable; // Variable to store the SortableJS instance
 
     // Open Create Post Modal
     if (createPostBtn) {
@@ -30,15 +30,54 @@ document.addEventListener('DOMContentLoaded', function () {
             createPostModal.style.display = 'none';
         }
     });
-    if (closeSuccessBtn) {
-        closeSuccessBtn.addEventListener("click", () => {
-            successModal.style.display = 'none';
-            location.reload();
-        });
-    }
-    if (closeErrorBtn) {
-        closeErrorBtn.addEventListener("click", () => {
-            errorModal.style.display = 'none';
+
+    // Handle image preview and SortableJS
+    if (imageInput) {
+        imageInput.addEventListener('change', function () {
+            imagePreviewContainer.innerHTML = ''; // Clear existing previews
+
+            Array.from(this.files).forEach((file, index) => {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    // Create preview container
+                    const previewWrapper = document.createElement('div');
+                    previewWrapper.className = 'preview-wrapper';
+
+                    // Create preview image
+                    const imgPreview = document.createElement('img');
+                    imgPreview.src = e.target.result;
+                    imgPreview.alt = `Image ${index + 1}`;
+                    imgPreview.className = 'preview-image';
+
+                    // Create label for order
+                    const label = document.createElement('div');
+                    label.className = 'image-label';
+                    label.textContent = index === 0 ? 'Cover' : `${index + 1}`;
+
+                    previewWrapper.appendChild(imgPreview);
+                    previewWrapper.appendChild(label);
+                    imagePreviewContainer.appendChild(previewWrapper);
+                };
+
+                reader.readAsDataURL(file);
+            });
+
+            // Initialize SortableJS for reordering previews
+            if (sortable) {
+                sortable.destroy(); // Destroy existing instance
+            }
+            sortable = new Sortable(imagePreviewContainer, {
+                animation: 150,
+                onEnd: function () {
+                    // Update labels after sorting
+                    const previews = imagePreviewContainer.children;
+                    Array.from(previews).forEach((preview, idx) => {
+                        const label = preview.querySelector('.image-label');
+                        label.textContent = idx === 0 ? 'Cover' : `${idx + 1}`;
+                    });
+                }
+            });
         });
     }
 
@@ -59,6 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
             for (let i = 0; i < imageFiles.length; i++) {
                 formData.append('images', imageFiles[i]);
             }
+
+            // Get the sorted order of images
+            const sortedOrder = Array.from(imagePreviewContainer.children).map((child) => {
+                return child.querySelector('.preview-image').src;
+            });
+            formData.append('imageOrder', JSON.stringify(sortedOrder));
 
             try {
                 const response = await fetch('/admin/create-post', {
