@@ -235,7 +235,7 @@ body.modal-open {
 }
 
 .view-recipe-link {
-    background-color: #007bff;
+    background-color: #342516;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -246,7 +246,7 @@ body.modal-open {
 }
 
 .view-recipe-link:hover {
-    background-color: #0056b3;
+    background-color: #342516;
 }
 
 /* Overlay */
