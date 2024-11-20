@@ -1,6 +1,7 @@
 const app = require('./app');
 const connectDB = require('./config/database');
-
+// Apply middleware for production only
+if (process.env.NODE_ENV === 'production') {
 // Enable Trust Proxy for Heroku
 app.enable('trust proxy');
 
@@ -11,6 +12,7 @@ app.use((req, res, next) => {
   }
   next();
 });
+}
 
 // Async function to initialize services
 (async () => {

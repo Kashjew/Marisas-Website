@@ -13,7 +13,7 @@
     border-radius: 8px; /* Slightly rounded corners */
     overflow: auto; /* Ensure scrolling for long content */
     text-align: left; /* Ensure text aligns to the left */
-    font-family: "Courier New", Courier, monospace; /* Mimic handwritten card font */
+    font-family: 'Lora', serif; /* Change to Lora font */
     max-height: 85vh; /* Ensure it doesn't overflow the viewport */
 }
 
@@ -81,7 +81,7 @@
 /* For a handwritten look, make sure spacing is consistent */
 .recipe-details {
     margin-top: 20px;
-    font-family: 'Courier New', monospace;
+    font-family: 'Lora', serif; 
 }
 
 .recipe-card-modal .tag-container {
