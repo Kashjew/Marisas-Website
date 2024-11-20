@@ -1,6 +1,9 @@
 const app = require('./app');
 const connectDB = require('./config/database');
 
+// Enable Trust Proxy for Heroku
+app.enable('trust proxy');
+
 // Redirect HTTP to HTTPS
 app.use((req, res, next) => {
   if (req.headers['x-forwarded-proto'] !== 'https') {
