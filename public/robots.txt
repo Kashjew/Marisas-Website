@@ -1,0 +1,7 @@
+# Allow AdSense crawler full access to your site
+User-agent: Mediapartners-Google
+Disallow:
+
+# Allow all other crawlers full access to your site
+User-agent: *
+Disallow:
