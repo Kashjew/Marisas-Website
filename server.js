@@ -2,17 +2,28 @@ const app = require('./app');
 const connectDB = require('./config/database');
 // Apply middleware for production only
 if (process.env.NODE_ENV === 'production') {
-// Enable Trust Proxy for Heroku
-app.enable('trust proxy');
+  // Enable Trust Proxy for Heroku
+  app.enable('trust proxy');
 
-// Redirect HTTP to HTTPS
-app.use((req, res, next) => {
-  if (req.headers['x-forwarded-proto'] !== 'https') {
-    return res.redirect(301, `https://${req.headers.host}${req.url}`);
-  }
-  next();
-});
+  // Redirect HTTP to HTTPS and non-www to www
+  app.use((req, res, next) => {
+    const host = req.headers.host;
+    const protocol = req.headers['x-forwarded-proto'] === 'https' ? 'https' : 'http';
+
+    // Redirect non-www to www
+    if (host === 'recipebyrisa.com') {
+      return res.redirect(301, `https://www.recipebyrisa.com${req.url}`);
+    }
+
+    // Redirect HTTP to HTTPS
+    if (protocol === 'http') {
+      return res.redirect(301, `https://${host}${req.url}`);
+    }
+
+    next();
+  });
 }
+
 
 // Async function to initialize services
 (async () => {

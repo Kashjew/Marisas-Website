@@ -31,6 +31,25 @@ app.use(express.json());
 console.log("URL encoded middleware applied.");
 console.log("JSON parsing middleware applied.");
 
+// Redirect Middleware (Add here)
+app.use((req, res, next) => {
+    const host = req.headers.host;
+    const protocol = req.secure ? 'https' : 'http';
+  
+    // Redirect non-www to www
+    if (host === 'recipebyrisa.com') {
+      return res.redirect(301, `https://www.recipebyrisa.com${req.url}`);
+    }
+  
+    // Redirect HTTP to HTTPS (only in production)
+    if (process.env.NODE_ENV === 'production' && protocol === 'http') {
+      return res.redirect(301, `https://${host}${req.url}`);
+    }
+  
+    next();
+  });
+  console.log("Redirect middleware applied.");
+  
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 console.log("Static files middleware applied.");
