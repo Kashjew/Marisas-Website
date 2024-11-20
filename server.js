@@ -1,6 +1,14 @@
 const app = require('./app');
 const connectDB = require('./config/database');
 
+// Redirect HTTP to HTTPS
+app.use((req, res, next) => {
+  if (req.headers['x-forwarded-proto'] !== 'https') {
+    return res.redirect(301, `https://${req.headers.host}${req.url}`);
+  }
+  next();
+});
+
 // Async function to initialize services
 (async () => {
   try {
