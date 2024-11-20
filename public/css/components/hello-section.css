@@ -7,6 +7,10 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin: auto;
+    display: flex; /* Enable flexbox for centering */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
 }
 
 /* Style for the Hello Image */
@@ -27,6 +31,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 0 10px; /* Padding to add some spacing on the sides */
+    text-align: center;
 }
 
 /* Mobile-specific adjustments */
