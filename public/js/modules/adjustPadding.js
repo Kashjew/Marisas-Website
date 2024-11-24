@@ -11,9 +11,9 @@ export function adjustBodyPadding() {
         } else if (bodyClassList.contains('user-page') && window.innerWidth > 768) {
             // Post page specific padding for desktop
             document.body.style.paddingTop = '190px';
-        } else {
-            // Mobile view
-            document.body.style.paddingTop = '0';
+        } else if (bodyClassList.contains('user-page') || bodyClassList.contains('login-page')) {
+            // Mobile view: add 100px padding for user-page and login-page
+            document.body.style.paddingTop = '110px';
         }
     } else {
         // Reset padding if not on applicable pages
