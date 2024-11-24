@@ -185,4 +185,9 @@
     .latest-post-item {
         flex-direction: row; /* Change to a two-column layout for larger screens */
     }
+    .latest-post-container {
+        width: 100%;
+        max-width: 100%; /* Constrain the container within the viewport */
+        overflow-x: hidden;
+    }
 }

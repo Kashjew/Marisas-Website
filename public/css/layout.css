@@ -58,6 +58,7 @@
     .main-content {
         flex-direction: column;
         padding: 10px;
+        overflow-x: hidden; /* Prevent horizontal overflow */
     }
 
     .left-column,

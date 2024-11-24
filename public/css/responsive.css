@@ -1,0 +1,16 @@
+/* Lock horizontal scrolling for mobile screens */
+@media (max-width: 768px) {
+    html, body {
+        overflow-x: hidden; /* Disable horizontal scrolling */
+        width: 100%; /* Ensure all elements stay within the viewport */
+    }
+
+    /* Ensure all containers are within the viewport */
+    .main-content, 
+    .latest-post-container, 
+    .recipe-post-grid, 
+    .hello-section-container {
+        max-width: 100%;
+        overflow-x: hidden; /* Prevent child elements from causing overflow */
+    }
+}
