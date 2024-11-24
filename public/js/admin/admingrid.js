@@ -58,7 +58,7 @@ function copyLinkToClipboard(postId) {
     const host = window.location.origin; // e.g., "http://localhost:3000" or "http://www.recipebyrisa.com"
 
     // Construct the full URL for the recipe
-    const recipeUrl = `${host}/recipe/${postId}`;
+    const recipeUrl = `${host}/posts/${postId}`;
 
     // Copy the constructed URL to clipboard
     navigator.clipboard.writeText(recipeUrl)

@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe by Risa</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/login.css">
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 </head>
 
-<body class="user-body">
-    <!-- Header Section with Hero Image -->
-    <header class="hero-header">
-
-        <div class="hero-content">
-            <img src="/images/hero-image.jpg" alt="hero image" class="hero-image">
-        </div>
-    </header>
+<body class="login-page">
+     <!-- Including header -->
+    <%- include("partials/header") %>
 
     <!-- Login Container Section Styled Like Hello Image -->
     <section class="login-section"> <!-- Updated class -->
@@ -53,7 +46,7 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-container">
-            <p>&copy; 2024 Recipe by Risa. All rights reserved.</p>
+            <p style="color: black;">&copy; 2024 Recipe by Risa. All rights reserved.</p>
         </div>
     </footer>
 

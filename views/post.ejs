@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="user-page">
+    <!-- Including header -->
+    <%- include("partials/header") %>
+
+    <main class="post-page">
+        <h1 class="post-title"><%= post.title %></h1>
+    
+        <div class="post-content-container">
+            <!-- Post Images -->
+            <% if (post.imagePaths && post.imagePaths.length > 0) { %>
+                <div class="post-images-container">
+                    <% post.imagePaths.forEach(function(imagePath) { %>
+                        <div class="image-wrapper">
+                            <img 
+                                src="<%= imagePath.startsWith('http') ? imagePath : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${imagePath}` %>" 
+                                alt="Post Image">
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p>No images available for this post.</p>
+            <% } %>
+
+            <!-- Post Content and Tags -->
+            <div class="post-details">
+                <!-- Post Content -->
+                <div class="post-content">
+                    <% if (post.content) { %>
+                        <p><%- post.content %></p>
+                    <% } else { %>
+                        <p>No content available.</p>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Instagram Embed -->
+            <div class="instagram-embed-container">
+                <% if (post.instagramLink) { %>
+                    <blockquote class="instagram-media" data-instgrm-permalink="<%= post.instagramLink %>" data-instgrm-version="12">
+                        <a href="<%= post.instagramLink %>">View on Instagram</a>
+                    </blockquote>
+                <% } else { %>
+                    <p>No Instagram post available.</p>
+                <% } %>
+            </div>
+        </div>
+        
+        <!-- Tags -->
+        <div id="postTags-<%= post._id %>" class="tags-container">
+            <% if (post.tags && post.tags.length > 0) { %>
+                <% post.tags.forEach(tag => { %>
+                    <span class="tag"><%= tag %></span>
+                <% }); %>
+            <% } else { %>
+                <p>No tags available.</p>
+            <% } %>
+        </div>
+    
+        <!-- Recipe Card Button -->
+        <% if (post.recipe) { %>
+            <div class="recipe-button-container">
+                <button
+                    class="view-recipe-button view-recipe-link" 
+                    data-recipe-id="<%= post._id %>">
+                    View Recipe Card
+                </button>
+            </div>
+        <% } %>
+    
+        <!-- Include Recipe Card Modal -->
+        <%- include("partials/RecipeCard", { post }) %>
+    </main>
+
+    <!-- Load scripts.js -->
+    <script type="module" src="/js/scripts.js"></script>
+</body>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <p style="color: black;">&copy; 2024 Recipe by Risa. All rights reserved.</p>
+    </div>
+</footer>
+</html>

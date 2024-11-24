@@ -8,7 +8,7 @@
 @import url('nav.css');
 
 /* Importing footer styles */
-@import url('footer.css');
+@import url('scroll.css');
 
 /* Importing responsive styles (override specific classes for responsive layouts) */
 @import url('responsive.css');
@@ -17,7 +17,6 @@
 @import url('components/buttons.css'); /* Buttons styling */
 @import url('components/forms.css');   /* Form inputs, text areas, labels, etc. */
 @import url('components/post.css');   /* post popup css */
-@import url('components/post-item.css'); /* Post items such as cards, images */
 @import url('components/about.css'); /* About page specific styles */
 @import url('components/hello-section.css'); /* Hello section specific styles */
 @import url('components/recipecard.css');

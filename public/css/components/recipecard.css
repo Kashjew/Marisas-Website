@@ -1,23 +1,23 @@
 .recipe-card-modal {
     display: none; /* Initially hidden */
     position: fixed;
-    z-index: 15000; /* Higher than post modal */
+    z-index: 1010;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 75%; /* Adjust to take up 75% of the screen */
-    min-height: 60vh; /* Set a minimum height */
-    background-color: #fffdf7; /* Light yellowish color to resemble index card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for the card */
-    padding: 20px;
-    border-radius: 8px; /* Slightly rounded corners */
-    overflow: auto; /* Ensure scrolling for long content */
-    text-align: left; /* Ensure text aligns to the left */
-    font-family: 'Lora', serif; /* Change to Lora font */
-    max-height: 85vh; /* Ensure it doesn't overflow the viewport */
+    width: 80%; /* Adjust the width for more margin */
+    max-width: 900px; /* Optional: Limit maximum width */
+    background-color: #fffdf7; /* Modal background */
+    padding: 30px; /* Internal padding for content */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+    max-height: 90vh; /* Prevent modal from exceeding viewport height */
+    text-align: left;
 }
 
-.recipe-card-modal h2 {
+
+  .recipe-card-modal h2 {
     font-size: 2rem; /* Larger title */
     margin-bottom: 1.5rem; /* More spacing after title */
     font-weight: bold;
@@ -25,31 +25,36 @@
 }
 
 /* Containers for dynamic sections */
-.prep-time-container, .cook-time-container, .servings-container, 
-.ingredients-container, .steps-container {
+  .prep-time-container, 
+  .cook-time-container, 
+  .servings-container, 
+  .ingredients-container, 
+  .steps-container {
     margin-bottom: 15px; /* Space between sections */
     padding-left: 10px; /* Indentation for content */
 }
 
 /* Style for ingredients list */
-.ingredients-container ul {
+  .ingredients-container ul {
     padding-left: 20px; /* Indent the list */
     list-style-type: disc; /* Use bullet points for ingredients */
 }
 
-.steps-container ol {
+  .steps-container ol {
     padding-left: 20px; /* Indent the ordered list */
     list-style-type: decimal; /* Use numbers for steps */
 }
 
-.recipe-card-modal p, .recipe-card-modal ul, .recipe-card-modal ol {
+  .recipe-card-modal p, 
+  .recipe-card-modal ul, 
+  .recipe-card-modal ol {
     line-height: 1.6;
     font-size: 16px; /* Handwritten effect size */
     color: #333; /* Dark text for readability */
 }
 
 /* Close button */
-.recipe-card-modal .close-recipe {
+  .recipe-card-modal .close-recipe {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -61,36 +66,45 @@
     transition: color 0.3s ease;
 }
 
-.recipe-card-modal .close-recipe:hover {
+  .recipe-card-modal .close-recipe:hover {
     color: #000; /* Darker color on hover */
 }
 
 /* Ensure overlay for recipe card is above post modal */
 .recipe-card-overlay {
-    z-index: 14000; /* Slightly lower than recipe card modal */
-    background-color: rgba(0, 0, 0, 0.7); /* Darker background for focus */
+    position: fixed; /* Sticks to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+    z-index: 1000; /* Lower z-index to stay behind the modal */
+    display: none; /* Initially hidden */
+}
+.recipe-card-overlay.show {
+    display: block;
 }
 
 /* Dynamic layout for content adjustment */
-.recipe-details > div {
+  .recipe-details > div {
     padding: 10px 0;
     line-height: 1.8;
     min-height: 30px; /* Ensure even small content maintains space */
 }
 
 /* For a handwritten look, make sure spacing is consistent */
-.recipe-details {
+  .recipe-details {
     margin-top: 20px;
     font-family: 'Lora', serif; 
 }
 
-.recipe-card-modal .tag-container {
+  .recipe-card-modal .tag-container {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.recipe-card-modal .tag-container span {
+  .recipe-card-modal .tag-container span {
     background-color: #f4f4f4;
     padding: 5px;
     border-radius: 4px;
@@ -98,16 +112,72 @@
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
-    .recipe-card-modal {
+      .recipe-card-modal {
         width: 90%; /* Increase width for smaller screens */
         padding: 15px; /* Adjust padding */
     }
 
-    .recipe-card-modal h2 {
+      .recipe-card-modal h2 {
         font-size: 1.5rem;
     }
 
-    .recipe-card-modal p, .recipe-card-modal ul, .recipe-card-modal ol {
+      .recipe-card-modal p, 
+      .recipe-card-modal ul, 
+      .recipe-card-modal ol {
         font-size: 14px; /* Slightly smaller text */
+    }
+}
+.card-container {
+    background-color: #f5e9de; /* Light brownish beige */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for contrast */
+    margin: 0; /* Remove extra margin inside modal */
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    color: #333;
+    text-align: left;
+}
+
+/* Inner spacing for titles and sections */
+.card-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.card-container p,
+.card-container ul,
+.card-container ol {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.card-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.card-container ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 600px) {
+    .card-container {
+        padding: 15px;
+    }
+
+    .card-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-container p,
+    .card-container ul,
+    .card-container ol {
+        font-size: 14px;
     }
 }

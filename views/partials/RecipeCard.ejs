@@ -1,49 +1,52 @@
-<div class="recipe-card-modal" id="recipeCardModal-<%= post._id %>" role="dialog" aria-labelledby="recipeTitle-<%= post._id %>" aria-hidden="true" style="display: none;">
-    <button class="close-recipe" aria-label="Close" data-modal-id="<%= post._id %>">&times;</button>
+<!-- Overlay -->
+<div id="recipeCardOverlay-<%= post._id %>" class="recipe-card-overlay"></div>
+<div class="recipe-card-modal scrollable-content" id="recipeCardModal-<%= post._id %>" role="dialog" aria-labelledby="recipeTitle-<%= post._id %>" aria-hidden="true" style="display: none;">
+    <button class="close-recipe" data-modal-id="<%= post._id %>">&times;</button>
 
-    <div class="recipe-details">
-        <h2 id="recipeTitle-<%= post._id %>"><%= post.title || 'Recipe' %></h2>
-        
-        <!-- Prep Time Container -->
-        <div class="prep-time-container">
-            <p><strong>Prep Time:</strong> <span id="prepTime-<%= post._id %>"><%= post.recipe && post.recipe.prepTime ? post.recipe.prepTime : 'N/A' %></span></p>
+    <!-- Combined Content Container -->
+    <div class="card-container">
+        <!-- Recipe Title -->
+        <div class="title-container">
+            <h2 id="recipeTitle-<%= post._id %>"><%= post.title || 'Recipe' %></h2>
         </div>
 
-        <!-- Cook Time Container -->
-        <div class="cook-time-container">
-            <p><strong>Cook Time:</strong> <span id="cookTime-<%= post._id %>"><%= post.recipe && post.recipe.cookTime ? post.recipe.cookTime : 'N/A' %></span></p>
+        <!-- Prep Time, Cook Time, and Servings -->
+        <div class="time-servings-container">
+            <div class="prep-time-container">
+                <p><strong>Prep Time:</strong> <span id="prepTime-<%= post._id %>"><%= post.recipe?.prepTime || 'N/A' %></span></p>
+            </div>
+            <div class="cook-time-container">
+                <p><strong>Cook Time:</strong> <span id="cookTime-<%= post._id %>"><%= post.recipe?.cookTime || 'N/A' %></span></p>
+            </div>
+            <div class="servings-container">
+                <p><strong>Servings:</strong> <span id="servings-<%= post._id %>"><%= post.recipe?.servings || 'N/A' %></span></p>
+            </div>
         </div>
 
-        <!-- Servings Container -->
-        <div class="servings-container">
-            <p><strong>Servings:</strong> <span id="servings-<%= post._id %>"><%= post.recipe && post.recipe.servings ? post.recipe.servings : 'N/A' %></span></p>
-        </div>
-
-        <!-- Ingredients Container -->
+        <!-- Ingredients -->
         <div class="ingredients-container">
             <p><strong>Ingredients:</strong></p>
-            <div>
-                <%- post.recipe && post.recipe.ingredients ? post.recipe.ingredients : '<em>No ingredients provided</em>' %>
-            </div>
+            <ul id="ingredients-<%= post._id %>">
+                <% post.recipe?.ingredients?.split('\n').forEach(ingredient => { %>
+                    <li><%= ingredient.trim() %></li>
+                <% }) %>
+            </ul>
         </div>
 
-        <!-- Steps Container -->
+        <!-- Steps -->
         <div class="steps-container">
             <p><strong>Steps:</strong></p>
-            <div>
-                <%- post.recipe && post.recipe.steps ? post.recipe.steps : '<em>No steps provided</em>' %>
-            </div>
+            <ol id="steps-<%= post._id %>">
+                <% post.recipe?.steps?.split('\n').forEach(step => { %>
+                    <li><%= step.trim() %></li>
+                <% }) %>
+            </ol>
         </div>
 
-        <!-- Additional Notes Container -->
+        <!-- Notes -->
         <div class="notes-container">
-            <p><strong>Additional Notes:</strong></p>
-            <div>
-                <%- post.recipe && post.recipe.notes ? post.recipe.notes : '<em>No additional notes provided</em>' %>
-            </div>
+            <p><strong>Notes:</strong></p>
+            <p id="notes-<%= post._id %>"><%= post.recipe?.notes || 'No additional notes provided' %></p>
         </div>
     </div>
-
-    <!-- Overlay -->
-    <div id="recipeCardOverlay-<%= post._id %>" class="recipe-card-overlay"></div>
 </div>

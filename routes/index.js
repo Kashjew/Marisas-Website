@@ -89,5 +89,25 @@ router.post('/api/update-hello-section', ensureAuthenticated, ensureAdmin, async
         res.status(500).json({ success: false, message: 'Error updating Hello section' });
     }
 });
+// Route for individual post page
+router.get('/posts/:id', async (req, res) => {
+    try {
+        console.log("Fetching post with ID:", req.params.id);
+        const post = await Post.findById(req.params.id);
+        if (!post) {
+            console.warn("Post not found for ID:", req.params.id);
+            return res.status(404).send('Post not found');
+        }
+
+        res.render('post', { 
+            post, // Pass the post data to the EJS template
+            user: req.user // Pass user information for dynamic behavior in the header/footer
+        });
+    } catch (error) {
+        console.error('Error fetching post:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
 
 module.exports = router;

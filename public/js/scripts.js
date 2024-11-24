@@ -7,12 +7,44 @@ import { embedInstagramPost, handleRecipeLink } from './modules/utilityFunctions
 import './modules/headerScroll.js';
 import { renderLatestPost } from './modules/latestpost.js';
 import './modules/googleAnalytics.js';
-import { loadRecipeCard } from './modules/recipe-card.js';
-console.log("postHandlers.js is imported");
+import { loadRecipeCard } from './modules/recipe-card.js'; // Import viewRecipeCard and loadRecipeCard
+import { adjustBodyPadding } from './modules/adjustPadding.js'; // Import the new adjustPadding module
 
-// Debug: Directly test if the body is receiving click events
+console.log("scripts.js is loaded");
+
+// Debug: Monitor all <a> tag clicks globally
+document.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') {
+        console.log("Anchor tag clicked:", event.target.href);
+    }
+});
+
+// Debug: Directly monitor all body clicks
 document.body.addEventListener('click', function (event) {
-    console.log('Body clicked:', event.target);  // Log to detect clicks anywhere
+    console.log('Body clicked:', event.target);
+
+    // Ensure <a> tag navigation is not blocked
+    if (event.target.tagName === 'A' && event.target.classList.contains('recipe-post-link')) {
+        console.log("Allowing navigation for:", event.target.href);
+        return;
+    }
+
+    // Log other interactions for debugging
+    const gridItem = event.target.closest('.recipe-grid-item');
+    if (gridItem) {
+        console.log("Recipe grid item clicked. Redirecting to associated post.");
+        const postId = gridItem.getAttribute('data-post-id');
+        if (postId) {
+            window.location.href = `/posts/${postId}`;
+        }
+    }
+});
+
+// Debugging: Listen for all clicks on links
+document.querySelectorAll('.recipe-post-link').forEach((link) => {
+    link.addEventListener('click', (event) => {
+        console.log("Recipe post link clicked directly:", link.href);
+    });
 });
 
 // Capture the S3 bucket URL and region passed from res.locals
@@ -24,20 +56,8 @@ console.log("Initializing utilities (S3 bucket)...");
 initUtilities(); // Ensure that S3 utilities are initialized before any further action
 console.log("S3 Bucket URL:", getAWSS3BucketURL());
 
-// Adjust padding based on screen width (mobile vs desktop)
-window.addEventListener('load', adjustBodyPadding);
-window.addEventListener('resize', adjustBodyPadding);
-
-function adjustBodyPadding() {
-    // Only apply padding if the page is a user page
-    if (document.body.classList.contains('user-page')) {
-        if (window.innerWidth <= 768) {
-            document.body.style.paddingTop = '100px';  // Adjust padding for mobile
-        } else {
-            document.body.style.paddingTop = '190px';  // Adjust padding for desktop
-        }
-    }
-}
+// Call the function to adjust padding (from the new module)
+adjustBodyPadding();
 
 // Function to reinitialize Instagram embeds
 function loadInstagramEmbeds() {
@@ -65,20 +85,27 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.log('Is Admin:', user && user.isAdmin);
 
     // Initialize modules
+    console.log("Initializing modules...");
     initUtilities();
     initComments();
     initRequestPopup();
+
+    // Debugging initPostHandlers
+    console.log("Initializing post handlers...");
     initPostHandlers();
-    
+    console.log("Post handlers initialized.");
+
     // Ensure Instagram embeds are reloaded
     loadInstagramEmbeds();
     console.log('loadInstagramEmbeds function executed.');
 
     // Fetch posts and render the latest post
     try {
+        console.log("Fetching posts...");
         const response = await fetch('/api/posts'); // Assuming /api/posts returns the latest posts
         const data = await response.json();
         if (data && data.posts) {
+            console.log("Rendering latest posts...");
             renderLatestPost(data.posts);
         }
     } catch (error) {
