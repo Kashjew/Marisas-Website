@@ -1,58 +1,3 @@
-/* Hamburger Menu Icon */
-#hamburgerMenu {
-    display: none;
-}
-
-#hamburgerMenu:hover {
-    color: #8B7359;
-}
-
-/* Hamburger Menu Container */
-#menuContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 250px;
-    height: 100vh; /* Full height for maximum visibility */
-    background-color: #FBF6EF;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    z-index: 9999;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    border-right: 1px solid #ddd;
-}
-
-#menuContainer.open {
-    transform: translateX(0);
-    height: 100vh; /* Ensure full height when open */
-}
-
-#menuContainer.hidden {
-    display: none; /* Ensure menu is hidden when the hidden class is applied */
-}
-
-/* Menu Links Styling */
-.menu-links {
-    list-style: none;
-    padding: 0;
-}
-
-.menu-links li {
-    margin: 15px 0;
-}
-
-.menu-links a {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.menu-links a:hover {
-    color: #8B7359;
-}
-
 /* Navigation Menu */
 nav {
     margin-top: 10px;
@@ -68,8 +13,102 @@ nav ul li a {
     color: #333;
     text-decoration: none;
     transition: color 0.3s;
+    font-family: 'Playfair Display', serif; /* Apply Playfair Display font */
 }
 
 nav ul li a:hover {
     color: #A89A82;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 60px;
+    right: 40px; /* Default right positioning */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1000;
+}
+
+.dropdown.hidden {
+    display: none; /* Ensure hidden class hides it */
+}
+
+.dropdown.show {
+    display: block; /* Make it visible when toggled */
+}
+
+/* Updated Dropdown Menu Styling */
+#dropdown-menu {
+    position: absolute;
+    top: 60px; /* Align dropdown below the hamburger icon */
+    left: 40px; /* Align with the menu icon */
+    background-color: rgba(245, 240, 230, 0.95); /* Light beige */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1000;
+    padding: 15px;
+    width: 40%; /* Default for desktop views */
+    font-weight: bold;
+}
+
+/* Mobile View Adjustments */
+@media screen and (max-width: 768px) {
+    #dropdown-menu {
+        width: 100%; /* Full screen width for mobile */
+        left: 0; /* Align with the edge of the screen */
+    }
+
+    #dropdown-menu a {
+        font-size: 18px; /* Slightly larger text for readability */
+        padding: 18px 20px; /* Adjust padding for mobile */
+        text-decoration: underline; /* Reinforce link indication */
+    }
+}
+
+/* Dropdown Menu Link Bar Style */
+#dropdown-menu ul {
+    list-style-type: none; /* Remove bullets */
+    margin: 0;
+    padding: 0;
+}
+
+#dropdown-menu li {
+    margin-bottom: 10px; /* Space between links */
+}
+
+#dropdown-menu a {
+    display: block; /* Make each link a block for full width */
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Dark gray for readability */
+    font-size: 16px;
+    font-family: 'Playfair Display', serif; /* Apply Playfair Display font */
+    padding: 10px 20px; /* Add padding for the bar effect */
+    background-color: rgba(245, 240, 230, 0.95); /* Light beige background */
+    border-radius: 6px; /* Rounded corners for the bar */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    text-align: left;
+}
+
+/* Add an icon or visual indicator for links */
+#dropdown-menu a::after {
+    content: '›'; /* Add a subtle arrow */
+    font-size: 14px;
+    margin-left: 10px;
+    color: #333; /* Match link color */
+}
+
+/* Align text slightly to the right within the bar */
+#dropdown-menu a span {
+    margin-left: 10px; /* Adjust text margin inside the bar */
+}
+
+/* Hover Effect for Links */
+#dropdown-menu a:hover {
+    background-color: rgba(225, 215, 200, 0.95); /* Slightly darker beige */
+    color: #000; /* Change text color to black on hover */
+    cursor: pointer;
 }

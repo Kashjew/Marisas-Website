@@ -54,27 +54,4 @@
     margin-bottom: 5px; /* Add spacing between title and next post */
 }
 
-/* Mobile Adjustments */
-@media (max-width: 768px) {
-    .recipe-post-grid {
-        grid-template-columns: 1fr; /* Single column layout on mobile */
-    }
-
-    .recipe-grid-item img {
-        height: auto; /* Maintain image aspect ratio for mobile */
-        display: block; /* Remove any inline gaps between image and title */
-    }
-
-    .recipe-title-container {
-        font-size: 0.7em; /* Smaller font size for mobile */
-        line-height: 1.2; /* Tighter line spacing for mobile */
-        height: auto; /* Allow height to adjust dynamically */
-        padding: 5px 10px; /* Add some padding for better spacing */
-        margin-bottom: 10px; /* Create space between title and next post */
-    }
-
-    .recipe-grid-item {
-        margin-bottom: 15px; /* Create a consistent gap between posts */
-    }
-}
 

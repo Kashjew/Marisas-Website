@@ -9,6 +9,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2967223854858794"
      crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="user-page">
@@ -44,8 +45,9 @@
     </section>
 
     <!-- About Me Section -->
+    <section id="about">
     <%- include('partials/about-me') %>
-
+    </section>
     <!-- Recipe Card Modals for Each Post -->
     <% recipePosts.forEach(post => { %>
         <%- include('partials/RecipeCard', { post: post }) %>

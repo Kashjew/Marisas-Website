@@ -43,31 +43,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .about-container {
-        padding: 15px;
-    }
-
-    .about-container h2 {
-        font-size: 1.8em;
-    }
-
-    .about-container p {
-        font-size: 1em;
-    }
-
-    /* Mobile image size adjustment to 80% of screen width */
-    .about-me-images {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about-me-images img {
-        max-width: 80%;
-        margin-bottom: 15px;
-    }
-}
 
 /* Desktop adjustments */
 @media (min-width: 1024px) {

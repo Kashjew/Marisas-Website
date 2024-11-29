@@ -1,4 +1,7 @@
 /* Custom Scrollbar Styling */
+html {
+    scroll-behavior: smooth;
+}
 
 /* WebKit-based browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {

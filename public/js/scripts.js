@@ -9,43 +9,9 @@ import { renderLatestPost } from './modules/latestpost.js';
 import './modules/googleAnalytics.js';
 import { loadRecipeCard } from './modules/recipe-card.js'; // Import viewRecipeCard and loadRecipeCard
 import { adjustBodyPadding } from './modules/adjustPadding.js'; // Import the new adjustPadding module
+import { initHamburgerMenu } from './modules/menu.js'
 
 console.log("scripts.js is loaded");
-
-// Debug: Monitor all <a> tag clicks globally
-document.addEventListener('click', (event) => {
-    if (event.target.tagName === 'A') {
-        console.log("Anchor tag clicked:", event.target.href);
-    }
-});
-
-// Debug: Directly monitor all body clicks
-document.body.addEventListener('click', function (event) {
-    console.log('Body clicked:', event.target);
-
-    // Ensure <a> tag navigation is not blocked
-    if (event.target.tagName === 'A' && event.target.classList.contains('recipe-post-link')) {
-        console.log("Allowing navigation for:", event.target.href);
-        return;
-    }
-
-    // Log other interactions for debugging
-    const gridItem = event.target.closest('.recipe-grid-item');
-    if (gridItem) {
-        console.log("Recipe grid item clicked. Redirecting to associated post.");
-        const postId = gridItem.getAttribute('data-post-id');
-        if (postId) {
-            window.location.href = `/posts/${postId}`;
-        }
-    }
-});
-
-// Debugging: Listen for all clicks on links
-document.querySelectorAll('.recipe-post-link').forEach((link) => {
-    link.addEventListener('click', (event) => {
-        console.log("Recipe post link clicked directly:", link.href);
-    });
-});
 
 // Capture the S3 bucket URL and region passed from res.locals
 window.s3BucketUrl = window.s3BucketUrl || '<%= s3BucketUrl %>';
@@ -89,15 +55,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     initUtilities();
     initComments();
     initRequestPopup();
-
-    // Debugging initPostHandlers
-    console.log("Initializing post handlers...");
     initPostHandlers();
-    console.log("Post handlers initialized.");
-
-    // Ensure Instagram embeds are reloaded
+    initHamburgerMenu(); 
     loadInstagramEmbeds();
-    console.log('loadInstagramEmbeds function executed.');
+    
 
     // Fetch posts and render the latest post
     try {

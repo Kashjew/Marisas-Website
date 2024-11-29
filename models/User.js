@@ -46,16 +46,17 @@ UserSchema.pre('save', async function (next) {
         const salt = await bcrypt.genSalt(10); // Generate a salt
         this.password = await bcrypt.hash(this.password, salt); // Hash the password
         next(); // Proceed to save the user
-    } catch (error) {
-        return next(error); // Handle error during hashing
+    } catch (e) {
+        return next(e); // Inline the error handling
     }
 });
+
 
 // Method to compare input password with hashed password in the database
 UserSchema.methods.comparePassword = async function (inputPassword) {
     try {
         return await bcrypt.compare(inputPassword, this.password); // Return true if passwords match
-    } catch (error) {
+    } catch {
         throw new Error('Error comparing passwords'); // Handle error during comparison
     }
 };

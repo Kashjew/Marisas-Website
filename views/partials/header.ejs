@@ -1,43 +1,32 @@
 <!-- Header Section with Hero Image -->
 <header class="hero-header">
+    
+    
+
     <!-- Home Icon Overlay -->
+    
     <a href="/" class="home-icon-overlay">
         <img src="/images/home.png" alt="Home Icon">
     </a>
-
-    <!-- Hamburger Menu for Mobile -->
-    <button id="hamburgerMenu" class="mobile-only">&#9776;</button>
-
-    <!-- Hamburger Menu Content -->
-    <div id="menuContainer" class="menu-container hidden">
-        <!-- Close Button for Menu -->
-        <button id="closeMenu" class="close-menu-button">&times;</button>
-
-        <!-- Add Filter by Tag Dropdown inside Hamburger Menu -->
-        <div class="dropdown-container">
-            <form action="/filter" method="GET">
-                <label for="tagFilter">Filter by Tag:</label>
-                
-                <!-- Only render the tag dropdown if tags are available -->
-                <% if (typeof tags !== 'undefined' && tags.length > 0) { %>
-                    <select name="tag" id="tagFilter" class="tag-filter-dropdown">
-                        <option value="">Select a tag</option>
-                        <% tags.forEach(function(tag) { %>
-                            <option value="<%= tag %>"><%= tag %></option>
-                        <% }); %>
-                    </select>
-                <% } else { %>
-                    <p>No tags available</p> <!-- Optional: Display a message if no tags are available -->
-                <% } %>
-
-                <button type="submit" id="filterTagButton">Filter</button>
-            </form>
-        </div>
-    </div>
-
+    
+     <!-- Hamburger Icon Overlay -->
+    
+    <a href="javascript:void(0);" id="hamburger-menu" class="menu-icon-overlay">
+        <img src="/images/menu-icon.svg" alt="Menu Icon">
+    </a>
+    
     <!-- Logo and Hero Image -->
     <div class="logo-container">
         <img src="/images/hero-image.jpg" alt="hero image" class="hero-image">
+    </div>
+
+    <!-- Dropdown Menu for Hamburger Icon -->
+    <div id="dropdown-menu" class="dropdown hidden">
+        <ul>
+            <li><a href="https://www.amazon.com/shop/recipebyrisa"><span>Amazon Storefront</span></a></li>
+            <li><a href="https://www.instagram.com/recipebyrisa/profilecard/?igsh=ZWcwNDF3emZ5Znh5"><span>Instagram</span></a></li>
+            <li><a href="#about"><span>About</span></a></li>
+        </ul>
     </div>
 
     <!-- User Options Section -->
@@ -48,7 +37,6 @@
             </div>
         <% } else { %>
             <div class="login-container">
-                <!-- Temporarily hiding login button -->
                 <% /* <a href="/login" class="login-btn">Login</a> */ %>
             </div>
         <% } %>

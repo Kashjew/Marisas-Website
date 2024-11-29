@@ -93,7 +93,7 @@
 .home-icon-overlay {
     position: absolute; /* Overlay it on the hero section */
     top: 40px; /* Distance from the top of the hero section */
-    left: 40px; /* Distance from the left side of the screen */
+    left: 100px; /* Distance from the left side of the screen */
     z-index: 10; /* Ensure it appears on top of other elements */
     display: flex;
     align-items: center;
@@ -120,4 +120,45 @@
 /* Ensure the hero section has relative positioning for the overlay */
 .hero-header .logo-container {
     position: relative; /* Set relative positioning for the hero section */
+}
+/* Style for the Hamburger Icon inside the circle */
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px; /* Match the size of the home icon */
+    height: 18px; /* Total height for the three lines */
+}
+
+.hamburger-icon span {
+    display: block;
+    height: 2px; /* Thickness of each line */
+    background-color: #000; /* Same color as the home icon */
+    border-radius: 1px; /* Slight rounding for smoother appearance */
+}
+/* Style for the home icon overlay */
+.menu-icon-overlay {
+    position: absolute; /* Overlay it on the hero section */
+    top: 40px; /* Distance from the top of the hero section */
+    left: 40px; /* Distance from the left side of the screen */
+    z-index: 10; /* Ensure it appears on top of other elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    background-color: rgba(255, 255, 255, 0.8); /* Slight background for contrast */
+    border-radius: 50%; /* Make it circular */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better visibility */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.menu-icon-overlay img {
+    width: 30px; /* Adjust the icon size */
+    height: 30px;
+    object-fit: contain;
+}
+
+.menu-icon-overlay:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    background-color: rgba(255, 255, 255, 1); /* Slightly brighter background on hover */
 }
