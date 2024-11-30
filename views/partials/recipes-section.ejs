@@ -3,15 +3,17 @@
     <div class="recipe-post-grid" id="recipePostGrid">
         <% recipePosts.forEach(post => { %>
             <div class="recipe-grid-item" data-post-id="<%= post._id %>">
-                <!-- Clickable Image with Dynamic S3 URL -->
-                <a href="/posts/<%= post._id %>" class="recipe-post-link">
-                    <img 
-                        src="<%= post.imagePaths.length ? (post.imagePaths[0].startsWith('http') ? post.imagePaths[0] : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${post.imagePaths[0]}`) : '/images/placeholder.jpg' %>" 
-                        alt="<%= post.title %>" 
-                        class="recipe-post-image"
-                        onerror="this.onerror=null; this.src='/images/placeholder.jpg';">
-                </a>
-                <!-- Title Container -->
+                <!-- New container for images -->
+                <div class="recipe-image-container">
+                    <a href="/posts/<%= post._id %>" class="recipe-post-link">
+                        <img 
+                            src="<%= post.imagePaths.length ? (post.imagePaths[0].startsWith('http') ? post.imagePaths[0] : `https://${process.env.AWS_S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com/uploads/${post.imagePaths[0]}`) : '/images/placeholder.jpg' %>" 
+                            alt="<%= post.title %>" 
+                            class="recipe-post-image"
+                            onerror="this.onerror=null; this.src='/images/placeholder.jpg';">
+                    </a>
+                </div>
+                <!-- Title container -->
                 <div class="recipe-title-container">
                     <h3 class="recipe-title"><%= post.title %></h3>
                 </div>

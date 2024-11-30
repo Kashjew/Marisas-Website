@@ -4,7 +4,7 @@
     justify-content: center; /* Center the columns on desktop */
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
     gap: 20px;
 }
 
@@ -43,7 +43,7 @@
 /* Alignment adjustments for content within each section */
 .left-column .hello-section-container,
 .right-column .latest-post-container {
-    text-align: left;
+    text-align: center;
 }
 
 /* Ensuring responsive behavior for the Instagram embed and images */

@@ -1,27 +1,38 @@
-/* Responsive styles for mobile views (max-width: 768px) */
+
+/* Adjustments for larger phones and tablets */
 @media (max-width: 768px) {
-
-    /* Lock horizontal scrolling on mobile */
-    html, body {
-        overflow-x: hidden; /* Disable horizontal scrolling */
-        width: 100%; /* Ensure all elements stay within the viewport */
+    .recipe-post-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
     }
 
-    /* General layout adjustments for all containers */
-    .main-content, 
-    .latest-post-container, 
-    .recipe-post-grid, 
+    .recipe-grid-item {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .recipe-post-image {
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .recipe-title-container {
+        font-size: 1.2rem;
+    }
+
     .about-container {
-        max-width: 100%; /* Constrain elements within the viewport */
-        padding: 0 10px; /* Add some horizontal padding for spacing */
+        padding: 15px;
     }
 
-    /* Adjust images to fit within the screen */
-    img {
-        max-width: 100%; /* Prevent images from overflowing */
-        height: auto; /* Maintain aspect ratio */
+    .about-me-images img {
+        max-width: 180px;
     }
 
+    footer {
+        font-size: 1rem;
+    }
     /* Latest Post Section Adjustments */
     .latest-post-container {
         width: 100%; /* Constrain to the viewport */
@@ -41,50 +52,5 @@
     .latest-post-images img {
         max-width: 100%; /* Ensure images fit in the viewport */
         height: auto; /* Maintain aspect ratio */
-    }
-
-    /* About Me Section Adjustments */
-    .about-container {
-        padding: 15px;
-        text-align: center; /* Center align the text for readability */
-    }
-
-    .about-me-images {
-        flex-direction: column; /* Stack images vertically */
-        align-items: center; /* Center-align images */
-        gap: 15px; /* Add spacing between images */
-    }
-
-    .about-me-images img {
-        max-width: 90%; /* Scale images down to fit within the viewport */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    /* Recipe Post Grid Adjustments (moved from post-grid.css) */
-    .recipe-post-grid {
-        grid-template-columns: 1fr; /* Single column layout on mobile */
-    }
-
-    .recipe-grid-item img {
-        height: auto; /* Maintain image aspect ratio for mobile */
-        display: block; /* Remove any inline gaps between image and title */
-    }
-
-    .recipe-title-container {
-        font-size: 0.7em; /* Smaller font size for mobile */
-        line-height: 1.2; /* Tighter line spacing for mobile */
-        height: auto; /* Allow height to adjust dynamically */
-        padding: 5px 10px; /* Add some padding for better spacing */
-        margin-bottom: 10px; /* Create space between title and next post */
-    }
-
-    .recipe-grid-item {
-        margin-bottom: 15px; /* Create a consistent gap between posts */
-    }
-
-    /* Buttons for mobile */
-    button, .view-recipe-button {
-        width: 100%; /* Full width buttons for ease of use */
-        text-align: center;
     }
 }

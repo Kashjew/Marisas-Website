@@ -17,7 +17,7 @@
     position: relative;
     background-color: #f0f0f0;
     border: 2px solid #5c4a33;
-    border-radius: 8px;
+    border-radius: 2px;
     overflow: hidden;
     transition: transform 0.3s ease;
     cursor: pointer;
