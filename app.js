@@ -101,4 +101,9 @@ app.use((req, res) => {
   res.status(404).render('404', { message: 'The page you are looking for does not exist.' });
 });
 
+// 404 Page Route
+app.use((req, res) => {
+  res.status(404).render('404', { message: 'The page you are looking for does not exist.' });
+});
+
 module.exports = app;
