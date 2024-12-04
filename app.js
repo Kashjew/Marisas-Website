@@ -54,6 +54,17 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 console.log("Static files middleware applied.");
 
+// Serve ads.txt
+app.get('/ads.txt', (req, res) => {
+  res.sendFile(path.join(__dirname, 'ads.txt'), (err) => {
+    if (err) {
+      console.error('Error serving ads.txt:', err);
+      res.status(err.status || 500).send('ads.txt not found');
+    }
+  });
+});
+console.log("ads.txt route added.");
+
 // Setup Express session and flash
 app.use(session({
     secret: process.env.SESSION_SECRET || 'your-secret-key', // Use a secure session secret
@@ -96,10 +107,6 @@ app.use('/api', adminApiRoutes);
 app.use('/profile', ensureAuthenticated, profileRoutes); // User profile routes, protected by ensureAuthenticated
 app.use('/admin', ensureAuthenticated, ensureAdmin, adminRoutes); // Admin routes, protected by ensureAuthenticated and ensureAdmin
 app.use('/recipe', recipeRoutes);
-// 404 Page Route
-app.use((req, res) => {
-  res.status(404).render('404', { message: 'The page you are looking for does not exist.' });
-});
 
 // 404 Page Route
 app.use((req, res) => {
