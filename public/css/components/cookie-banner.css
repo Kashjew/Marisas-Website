@@ -1,0 +1,56 @@
+/* General styles for the cookie consent banner */
+.cookie-banner {
+    position: fixed; /* Keeps the banner fixed at the bottom of the viewport */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Dark background for contrast */
+    color: #fff; /* White text for readability */
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+    z-index: 9999; /* Ensure it appears above all other elements */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style for the text inside the banner */
+  .cookie-banner p {
+    margin: 0;
+    display: inline-block;
+  }
+  
+  /* Style for the 'Learn more' link */
+  .cookie-banner a {
+    color: #4caf50; /* Green for visibility */
+    text-decoration: underline;
+    margin-left: 5px;
+  }
+  
+  /* Container for the buttons */
+  .cookie-buttons {
+    margin-top: 10px;
+  }
+  
+  /* Style for the buttons */
+  .cookie-buttons button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+  
+  /* Accept button */
+  .cookie-buttons #acceptCookies {
+    background-color: #4caf50; /* Green for accept */
+    color: #fff;
+  }
+  
+  /* Decline button */
+  .cookie-buttons #declineCookies {
+    background-color: #f44336; /* Red for decline */
+    color: #fff;
+  }
+
+  

@@ -10,6 +10,7 @@ import './modules/googleAnalytics.js';
 import { loadRecipeCard } from './modules/recipe-card.js'; // Import viewRecipeCard and loadRecipeCard
 import { adjustBodyPadding } from './modules/adjustPadding.js'; // Import the new adjustPadding module
 import { initHamburgerMenu } from './modules/menu.js'
+import './modules/cookie-banner.js';
 
 console.log("scripts.js is loaded");
 
