@@ -10,7 +10,9 @@ import './modules/googleAnalytics.js';
 import { loadRecipeCard } from './modules/recipe-card.js'; // Import viewRecipeCard and loadRecipeCard
 import { adjustBodyPadding } from './modules/adjustPadding.js'; // Import the new adjustPadding module
 import { initHamburgerMenu } from './modules/menu.js'
-import './modules/cookie-banner.js';
+import { initCookieBanner } from './modules/cookie-banner.js';
+
+
 
 console.log("scripts.js is loaded");
 
@@ -59,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     initPostHandlers();
     initHamburgerMenu(); 
     loadInstagramEmbeds();
-    
+    initCookieBanner();
 
     // Fetch posts and render the latest post
     try {

@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', function () {
+/**
+ * Initializes the cookie consent banner and handles user consent.
+ */
+export function initCookieBanner() {
     const banner = document.getElementById('cookieConsentBanner');
     const acceptBtn = document.getElementById('acceptCookies');
     const declineBtn = document.getElementById('declineCookies');
@@ -38,10 +41,12 @@ document.addEventListener('DOMContentLoaded', function () {
         window.gtag('consent', 'update', {
           'ad_storage': consent ? 'granted' : 'denied',
           'analytics_storage': consent ? 'granted' : 'denied',
+          'ad_user_data': consent ? 'granted' : 'denied',
+          'ad_personalization': consent ? 'granted' : 'denied',
         });
       } else {
         console.warn('Google Analytics not detected. Make sure gtag is initialized.');
       }
     }
-  });
+  }
   
