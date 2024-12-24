@@ -1,10 +1,12 @@
-/**
- * Initializes the cookie consent banner and handles user consent.
- */
 export function initCookieBanner() {
     const banner = document.getElementById('cookieConsentBanner');
     const acceptBtn = document.getElementById('acceptCookies');
     const declineBtn = document.getElementById('declineCookies');
+  
+    if (!banner || !acceptBtn || !declineBtn) {
+      console.error("Cookie consent banner or buttons not found in the DOM.");
+      return;
+    }
   
     // Check if consent has already been given
     const consent = localStorage.getItem('cookieConsent');
@@ -12,7 +14,7 @@ export function initCookieBanner() {
       console.log(`User has already given consent: ${consent}`);
       banner.style.display = 'none'; // Hide the banner if consent is already set
       applyConsentSettings(consent === 'accepted'); // Apply settings based on saved consent
-      return; // Exit the function if consent exists
+      return;
     }
   
     // Show the banner if no consent is found
@@ -20,32 +22,29 @@ export function initCookieBanner() {
   
     // Handle "Accept" button click
     acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'accepted'); // Save consent as accepted
-      banner.style.display = 'none'; // Hide the banner
+      localStorage.setItem('cookieConsent', 'accepted');
+      banner.style.display = 'none';
       applyConsentSettings(true);
+      console.log("User accepted cookies.");
     });
   
     // Handle "Decline" button click
     declineBtn.addEventListener('click', () => {
-      localStorage.setItem('cookieConsent', 'declined'); // Save consent as declined
-      banner.style.display = 'none'; // Hide the banner
+      localStorage.setItem('cookieConsent', 'declined');
+      banner.style.display = 'none';
       applyConsentSettings(false);
+      console.log("User declined cookies.");
     });
   
-    /**
-     * Apply cookie consent settings to Google tags and other trackers.
-     * @param {boolean} consent - Whether the user has accepted cookies.
-     */
     function applyConsentSettings(consent) {
       if (window.gtag) {
         window.gtag('consent', 'update', {
           'ad_storage': consent ? 'granted' : 'denied',
           'analytics_storage': consent ? 'granted' : 'denied',
-          'ad_user_data': consent ? 'granted' : 'denied',
-          'ad_personalization': consent ? 'granted' : 'denied',
         });
+        console.log(`Consent settings updated: ${consent ? 'granted' : 'denied'}`);
       } else {
-        console.warn('Google Analytics not detected. Make sure gtag is initialized.');
+        console.warn('Google Analytics not initialized. Make sure gtag is ready.');
       }
     }
   }

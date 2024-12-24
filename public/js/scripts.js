@@ -6,7 +6,7 @@ import { initPostHandlers } from './modules/postHandlers.js'; // Handles modals 
 import { embedInstagramPost, handleRecipeLink } from './modules/utilityFunctions.js';
 import './modules/headerScroll.js';
 import { renderLatestPost } from './modules/latestpost.js';
-import './modules/googleAnalytics.js';
+import { initGoogleAnalytics } from './modules/googleAnalytics.js';
 import { loadRecipeCard } from './modules/recipe-card.js'; // Import viewRecipeCard and loadRecipeCard
 import { adjustBodyPadding } from './modules/adjustPadding.js'; // Import the new adjustPadding module
 import { initHamburgerMenu } from './modules/menu.js'
@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Initialize modules
     console.log("Initializing modules...");
+    initGoogleAnalytics();
     initUtilities();
     initComments();
     initRequestPopup();
