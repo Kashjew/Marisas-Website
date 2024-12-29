@@ -15,10 +15,15 @@ export function initCookieBanner() {
   if (consent) {
     console.log(`User has already given consent: ${consent}`);
     banner.style.display = 'none'; // Hide the banner if consent is already set
-    applyConsentSettings(consent === 'accepted'); // Apply settings based on saved consent
+
     if (consent === 'accepted') {
-      initGoogleAnalytics(); // Initialize Google Analytics if consent is granted
+      initGoogleAnalytics(() => {
+        applyConsentSettings(true); // Apply settings after gtag is initialized
+      });
+    } else {
+      applyConsentSettings(false); // Ensure consent is denied
     }
+
     return;
   }
 
@@ -29,8 +34,9 @@ export function initCookieBanner() {
   acceptBtn.addEventListener('click', () => {
     localStorage.setItem('cookieConsent', 'accepted');
     banner.style.display = 'none';
-    applyConsentSettings(true);
-    initGoogleAnalytics(); // Initialize Google Analytics upon consent
+    initGoogleAnalytics(() => {
+      applyConsentSettings(true);
+    });
     console.log("User accepted cookies.");
   });
 
@@ -50,26 +56,7 @@ export function initCookieBanner() {
       });
       console.log(`Consent settings updated: ${consent ? 'granted' : 'denied'}`);
     } else {
-      console.warn('Google Analytics not initialized yet. Retrying...');
-      // Retry updating consent settings once gtag is ready
-      waitForGtag(() => {
-        applyConsentSettings(consent);
-      });
+      console.warn('Google Analytics not initialized yet. Skipping consent update.');
     }
-  }
-
-  function waitForGtag(callback, interval = 100, maxAttempts = 50) {
-    let attempts = 0;
-    const intervalId = setInterval(() => {
-      if (typeof window.gtag === 'function' || attempts >= maxAttempts) {
-        clearInterval(intervalId);
-        if (typeof window.gtag === 'function') {
-          callback();
-        } else {
-          console.error("Failed to initialize Google Analytics after multiple attempts.");
-        }
-      }
-      attempts++;
-    }, interval);
   }
 }
