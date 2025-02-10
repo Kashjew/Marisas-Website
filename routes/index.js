@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
         const helloContent = settings ? settings.helloContent : 'Welcome to Marisa’s recipes!';
 
         // Fetch posts ordered by the admin-defined order field
-        const posts = await Post.find().sort({ order: 1 }).limit(17).exec();
+        const posts = await Post.find().sort({ order: 1 }).limit(29).exec();
 
         if (!posts || posts.length === 0) {
             console.warn("No posts available for homepage display.");
