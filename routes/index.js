@@ -3,7 +3,8 @@ const router = express.Router();
 const { multipleLoggingUpload } = require('../middleware/upload');
 const { ensureAuthenticated, ensureAdmin } = require('../middleware/auth');
 const Post = require('../models/Post');
-const HelloSection = require('../models/Hello');  // Use the HelloSection models
+const HelloSection = require('../models/Hello');  // Use the HelloSection model
+const Comment = require('../models/Comment'); // Ensure Comment model is included
 const fs = require('fs');
 const path = require('path');
 const postsRouter = require('../api/posts');
@@ -89,7 +90,8 @@ router.post('/api/update-hello-section', ensureAuthenticated, ensureAdmin, async
         res.status(500).json({ success: false, message: 'Error updating Hello section' });
     }
 });
-// Route for individual post page
+
+// Route for individual post page with comments
 router.get('/posts/:id', async (req, res) => {
     try {
         console.log("Fetching post with ID:", req.params.id);
@@ -99,8 +101,12 @@ router.get('/posts/:id', async (req, res) => {
             return res.status(404).send('Post not found');
         }
 
+        // Fetch comments related to the post
+        const comments = await Comment.find({ postId: post._id }).sort({ createdAt: -1 });
+
         res.render('post', { 
-            post, // Pass the post data to the EJS template
+            post,         // Pass the post data to the EJS template
+            comments,     // Pass the fetched comments to post.ejs
             user: req.user // Pass user information for dynamic behavior in the header/footer
         });
     } catch (error) {
@@ -109,5 +115,14 @@ router.get('/posts/:id', async (req, res) => {
     }
 });
 
+// Privacy Policy Page
+router.get('/privacy-policy', (req, res) => {
+    res.render('privacy-policy');
+});
+
+// Data Deletion Page Route
+router.get('/delete-data', (req, res) => {
+    res.render('delete-data');
+});
 
 module.exports = router;
